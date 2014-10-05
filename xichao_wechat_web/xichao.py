@@ -22,7 +22,7 @@ ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
 
-
+f=open('test.txt','a')
 
 
 
@@ -47,7 +47,7 @@ def testmysql():
 
 @app.route("/test/")
 def test():
-    conn = MySQLdb.connect(host='localhost', user='root',passwd='') 
+    conn = MySQLdb.connect(host='localhost', user='root',passwd='1234') 
     conn.select_db('xichao_wechat');
     cursor = conn.cursor(cursorclass=MySQLdb.cursors.DictCursor)
     x=cursor.execute("select image_path,description from xichao_theme order by tid DESC limit 100")
@@ -71,7 +71,7 @@ def test():
 
 @app.route('/upload', methods=['GET', 'POST'])
 def upload_file():
-    conn = MySQLdb.connect(host='localhost', user='root',passwd='') 
+    conn = MySQLdb.connect(host='localhost', user='root',passwd='1234') 
     conn.select_db('xichao_wechat');
     cursor = conn.cursor()
     cursor.execute("select * from xichao_theme order by tid DESC limit 1")
@@ -89,6 +89,10 @@ def upload_file():
         title=request.form['title']
         text=request.form['text']
         description=request.form['description']
+        f.write(title+'\n')
+        f.write(description+'\n')
+        f.write(text+'\n')
+        f.close()
         if file and allowed_file(file.filename):
             file.filename=str(int(time()))+'.'+file.filename.rsplit('.', 1)[1]
             
@@ -113,7 +117,28 @@ def upload_file():
             return '<script type="text/javascript" >alert("uploaded!");</script>'
 
     return render_template("upload.html",maxtid=maxtid)
+@app.route('/display', methods=['GET', 'POST'])
+def uploaded():
+    conn = MySQLdb.connect(host='localhost', user='root',passwd='1234') 
+    conn.select_db('xichao_wechat');
+    cursor = conn.cursor()
+    cursor.execute("select * from xichao_theme order by tid DESC limit 1")
+    tid=0
+    image_path=0
+    description=0
+    title=0
+    text=0
+    data=cursor.fetchone()
+    if data:
+        tid=data[0]
+        image_path=data[1]
+        description=data[2]
+        title=data[3]
+        text=data[4]
+    
+    return render_template('display.html',tid=tid,image_path=image_path,description=description,title=title,text=text)   
 @app.route('/upload_images/<filename>')
+
 def uploaded_file(filename):
     #return send_from_directory(app.config['UPLOAD_FOLDER'],filename)
     return '<script type="text/javascript" >alert("uploaded!");</script>'
