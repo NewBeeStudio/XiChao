@@ -71,60 +71,60 @@ $(document).ready(function(){
 		}
 	});
 
-	$("#img31").mouseenter(function(){
+	$("#string31").mouseenter(function(){
 		$("#line31").slideDown(250,function(){
 			$("#photo31").fadeIn(250);
 		});
 	});
-	$("#img31").mouseleave(function(){
+	$("#string31").mouseleave(function(){
 		setTimeout(function(){
 			$("#line31").slideUp(250,function(){
 				$("#photo31").fadeOut(250);
 			});
 		},100);
 	});
-	$("#img32").mouseenter(function(){
+	$("#string32").mouseenter(function(){
 		$("#line32").slideDown(250,function(){
 			$("#photo32").fadeIn(250);
 		});
 	});
-	$("#img32").mouseleave(function(){
+	$("#string32").mouseleave(function(){
 		setTimeout(function(){
 			$("#line32").slideUp(250,function(){
 				$("#photo32").fadeOut(250);
 			});
 		},100);
 	});
-	$("#img33").mouseenter(function(){
+	$("#string33").mouseenter(function(){
 		$("#line33").slideDown(250,function(){
 			$("#photo33").fadeIn(250);
 		});
 	});
-	$("#img33").mouseleave(function(){
+	$("#string33").mouseleave(function(){
 		setTimeout(function(){
 			$("#line33").slideUp(250,function(){
 				$("#photo33").fadeOut(250);
 			});
 		},100);
 	});
-	$("#img34").mouseenter(function(){
+	$("#string34").mouseenter(function(){
 		$("#line34").slideDown(250,function(){
 			$("#photo34").fadeIn(250);
 		});
 	});
-	$("#img34").mouseleave(function(){
+	$("#string34").mouseleave(function(){
 		setTimeout(function(){
 			$("#line34").slideUp(250,function(){
 				$("#photo34").fadeOut(250);
 			});
 		},100);
 	});
-	$("#img35").mouseenter(function(){
+	$("#string35").mouseenter(function(){
 		$("#line35").slideDown(250,function(){
 			$("#photo35").fadeIn(250);
 		});
 	});
-	$("#img35").mouseleave(function(){
+	$("#string35").mouseleave(function(){
 		setTimeout(function(){
 			$("#line35").slideUp(250,function(){
 				$("#photo35").fadeOut(250);
@@ -222,11 +222,11 @@ $(document).ready(function(){
 	});
 	
 
-	$(".items3").mouseenter(function(){
-		$(this).animate({width:"16px"},300);
+	$(".strings31").mouseenter(function(){
+		$(this).animate({fontSize:'14px'},300);
 	});
-	$(".items3").mouseleave(function(){
-		$(this).animate({width:"13px"},300);
+	$(".strings31").mouseleave(function(){
+		$(this).animate({fontSize:'11px'},300);
 	});
 	$(".items4").mouseenter(function(){
 		$(this).animate({width:"22px"},300);
@@ -333,7 +333,7 @@ function nextPage( direction ) {
 	if(current == 1&&!page2_touch){
 		page2_touch = true;
 		setTimeout(function(){
-			$("#logo_v").fadeIn(1000);
+			$(".string2").fadeIn(1000);
 		},800);
 	}
 }
