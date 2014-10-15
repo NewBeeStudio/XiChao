@@ -263,17 +263,21 @@ html, body {
 	background-size: 100% 100%;
 }
 
-.items4 {
-	width: 18px;
+.strings41 {
+	margin-top: 17px;
 	position: absolute;
-	margin-top: 30px;
+	width: 25px;
+	font-size: 15px;
+	font-family: fantasy;
+	font-weight: bold;
+	color: white;
 }
 
-#img41 {
+#string41 {
 	left: 42%;
 }
 
-#img42 {
+#string42 {
 	left: 56%;
 }
 
@@ -308,31 +312,36 @@ html, body {
 	background-size: 100% 100%;
 }
 
-.items5 {
-	width: 18px;
+.strings51 {
+	margin-top: 27px;
 	position: absolute;
-	margin-top: 30px;
+	width: 25px;
+	font-size: 15px;
+	font-family: fantasy;
+	font-weight: bold;
+	color: black;
 }
 
-#img51 {
+#string51 {
 	left: 36%;
 }
 
-#img52 {
+#string52 {
 	left: 43%;
 }
 
-#img53 {
+#string53 {
 	left: 50%;
 }
 
-#img54 {
+#string54 {
 	left: 57%;
 }
 
-#img55 {
+#string55 {
 	left: 64%;
 }
+
 
 #line51 {
 	left: 35%;
