@@ -66,7 +66,7 @@ class xichao extends wxmessage {
         $posts = array(
             array(
                 'title' => $title,
-                'discription' => $description,
+                'description' => $description,
                 'picurl' => $picurl,
                 'url' => $url,
             )
@@ -89,10 +89,10 @@ class xichao extends wxmessage {
 	/**
      * return music
      */
-    private function music($title,$discription,$musicurl,$hdmusicurl) {
+    private function music($title,$description,$musicurl,$hdmusicurl) {
         $music = array(
             'title' => $title,
-            'discription' => $discription,
+            'description' => $description,
             'musicurl' => $musicurl,
             'hdmusicurl' => $hdmusicurl
         );
