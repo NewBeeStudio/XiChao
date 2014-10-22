@@ -128,7 +128,7 @@ class wxmessage
         
         $itemTpl = '<item>
              <Title><![CDATA[%s]]></Title>
-             <Discription><![CDATA[%s]]></Discription>
+             <Description><![CDATA[%s]]></Description>
              <PicUrl><![CDATA[%s]]></PicUrl>
              <Url><![CDATA[%s]]></Url>
          </item>';
@@ -136,7 +136,7 @@ class wxmessage
         $items = '';
         foreach ((array)$posts as $p) {
             if (is_array($p))
-                $items .= sprintf($itemTpl, $p['title'], $p['discription'], $p['picurl'], $p['url']);
+                $items .= sprintf($itemTpl, $p['title'], $p['description'], $p['picurl'], $p['url']);
             else
                 throw new Exception('$posts data structure wrong');
         }
@@ -164,7 +164,7 @@ class wxmessage
             ';
         $music = '';        
         if (is_array($musicpost)){
-            $music .= sprintf($musicTpl, $musicpost['title'], $musicpost['discription'], $musicpost['musicurl'], $musicpost['hdmusicurl']);
+            $music .= sprintf($musicTpl, $musicpost['title'], $musicpost['description'], $musicpost['musicurl'], $musicpost['hdmusicurl']);
         }else{
             throw new Exception('$posts data structure wrong');
         }
