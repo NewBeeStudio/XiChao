@@ -1,2 +1,2 @@
-WeChat Api for xichao
+WeChat API for xichao
 =====================
