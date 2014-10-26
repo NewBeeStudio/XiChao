@@ -40,14 +40,11 @@ def allowed_file(filename):
 def index():
     return render_template('index.html')
 
-@app.route("/testmysql/")
-def testmysql():
-    return str(desctext)
 
 
 @app.route("/test/")
 def test():
-    conn = MySQLdb.connect(host='localhost', user='root',passwd='1234') 
+    conn = MySQLdb.connect(host='localhost', user='root',passwd='') 
     conn.select_db('xichao_wechat');
     cursor = conn.cursor(cursorclass=MySQLdb.cursors.DictCursor)
     x=cursor.execute("select image_path,description from xichao_theme order by tid DESC limit 100")
@@ -63,7 +60,8 @@ def test():
     print all_desc
 
     all_path=str(all_path).replace("\'","").strip("\'")[1:-1]
-   
+    all_desc=str(all_desc).replace("\'","").strip("\'")[1:-1]
+    
     print all_path
    
     return render_template('nav.html',all_path=all_path,all_desc=all_desc)
@@ -71,17 +69,15 @@ def test():
 
 @app.route('/upload', methods=['GET', 'POST'])
 def upload_file():
-    conn = MySQLdb.connect(host='localhost', user='root',passwd='1234') 
+    conn = MySQLdb.connect(host='localhost', user='root',passwd='') 
     conn.select_db('xichao_wechat');
     cursor = conn.cursor()
     cursor.execute("select * from xichao_theme order by tid DESC limit 1")
-    data=cursor.fetchone()[0]
-    maxtid=0
-    if data:
-       maxtid=data
-    print type(maxtid)
-    desctext= cursor.description
-
+    data=None
+    try:
+        maxtid=cursor.fetchone()[0]
+    except Exception:
+        maxtid=0
 
 
     if request.method == 'POST':
@@ -89,17 +85,14 @@ def upload_file():
         title=request.form['title']
         text=request.form['text']
         description=request.form['description']
-        f.write(title+'\n')
-        f.write(description+'\n')
-        f.write(text+'\n')
-        f.close()
+        
         if file and allowed_file(file.filename):
             file.filename=str(int(time()))+'.'+file.filename.rsplit('.', 1)[1]
-            
+            print file.filename
             #save data  to db
             image_url=UPLOAD_FOLDER+file.filename
             data=(
-                int(maxtid+1),
+                maxtid+1,
                 image_url,
                 title,
                 description,
@@ -119,7 +112,7 @@ def upload_file():
     return render_template("upload.html",maxtid=maxtid)
 @app.route('/display', methods=['GET', 'POST'])
 def uploaded():
-    conn = MySQLdb.connect(host='localhost', user='root',passwd='1234') 
+    conn = MySQLdb.connect(host='localhost', user='root',passwd='') 
     conn.select_db('xichao_wechat');
     cursor = conn.cursor()
     cursor.execute("select * from xichao_theme order by tid DESC limit 1")
@@ -137,15 +130,6 @@ def uploaded():
         text=data[4]
     
     return render_template('display.html',tid=tid,image_path=image_path,description=description,title=title,text=text)   
-@app.route('/upload_images/<filename>')
-
-def uploaded_file(filename):
-    #return send_from_directory(app.config['UPLOAD_FOLDER'],filename)
-    return '<script type="text/javascript" >alert("uploaded!");</script>'
-
-
-
-
 
 
 if __name__ == "__main__":
