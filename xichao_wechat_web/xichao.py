@@ -1,9 +1,7 @@
-from flask import render_template
-import flask
 from cStringIO import StringIO
 import os
 import MySQLdb
-from flask import Flask, request, redirect, url_for
+from flask import Flask, request,session, g, redirect, url_for,render_template,flash
 from werkzeug import secure_filename
 from flask import send_from_directory
 from time import time
@@ -13,6 +11,7 @@ from flask_wtf.file import FileField
 import string, sys
 #from sqlalchemy.databases import mysql
  
+DEBUG = True
 
 
 app = Flask(__name__)
@@ -22,6 +21,15 @@ ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
 
+app.config.update(
+    # DATABASE = '/flaskr.db',
+    DEBUG = True,
+    UPLOAD_FOLDER=UPLOAD_FOLDER,
+    MAX_CONTENT_LENGTH=16 * 1024 * 1024,
+    SECRET_KEY = 'xichao secret',
+    USERNAME = 'xichao',
+    PASSWORD = 'xichao123'
+    )
 f=open('test.txt','a')
 
 
@@ -40,9 +48,31 @@ def allowed_file(filename):
 def index():
     return render_template('index.html')
 
+@app.route('/admin-login/', methods=['GET', 'POST'])
+def login():
+    error = None
+    if request.method == 'POST':
+        print request.form['username']
+        if request.form['username'] != app.config['USERNAME']:
+            error = 'Invalid username'
+            #flash(error)
+        elif request.form['password'] != app.config['PASSWORD']:
+            error = 'Invalid password'
+            #flash(error)
+        else:
+            session['logged_in'] = True
+            #flash('You were logged in')
+            return redirect('/upload/')
+    return render_template('admin-login.html', error=error)
+
+@app.route('/logout')
+def logout():
+    session.pop('logged_in', None)
+    #flash('You were logged out')
+    return render_template('logout.html')
 
 
-@app.route("/test/")
+@app.route("/test/") 
 def test():
     conn = MySQLdb.connect(host='localhost', user='root',passwd='') 
     conn.select_db('xichao_wechat');
@@ -67,49 +97,53 @@ def test():
     return render_template('nav.html',all_path=all_path,all_desc=all_desc)
 
 
-@app.route('/upload', methods=['GET', 'POST'])
+@app.route('/upload/', methods=['GET', 'POST'])
 def upload_file():
-    conn = MySQLdb.connect(host='localhost', user='root',passwd='') 
-    conn.select_db('xichao_wechat');
-    cursor = conn.cursor()
-    cursor.execute("select * from xichao_theme order by tid DESC limit 1")
-    data=None
-    try:
-        maxtid=cursor.fetchone()[0]
-    except Exception:
-        maxtid=0
+    if session and session['logged_in']:
+        conn = MySQLdb.connect(host='localhost', user='root',passwd='') 
+        conn.select_db('xichao_wechat');
+        cursor = conn.cursor()
+        cursor.execute("select * from xichao_theme order by tid DESC limit 1")
+        data=None
+        try:
+            maxtid=cursor.fetchone()[0]
+        except Exception:
+            maxtid=0
 
 
-    if request.method == 'POST':
-        file = request.files['image']
-        title=request.form['title']
-        text=request.form['text']
-        description=request.form['description']
-        
-        if file and allowed_file(file.filename):
-            file.filename=str(int(time()))+'.'+file.filename.rsplit('.', 1)[1]
-            print file.filename
-            #save data  to db
-            image_url=UPLOAD_FOLDER+file.filename
-            data=(
-                maxtid+1,
-                image_url,
-                title,
-                description,
-                text
-                )
-            print data
-            sql = "insert into xichao_theme(tid,image_path,description,title,text) values (%s, %s, %s, %s,%s)"
-            cursor.execute(sql,data)
-            conn.commit()
-            cursor.close() 
-            conn.close() 
+        if request.method == 'POST':
+            file = request.files['image']
+            title=request.form['title']
+            text=request.form['text']
+            description=request.form['description']
+            
+            if file and allowed_file(file.filename):
+                file.filename=str(int(time()))+'.'+file.filename.rsplit('.', 1)[1]
+                print file.filename
+                #save data  to db
+                image_url=UPLOAD_FOLDER+file.filename
+                data=(
+                    maxtid+1,
+                    image_url,
+                    title,
+                    description,
+                    text
+                    )
+                print data
+                sql = "insert into xichao_theme(tid,image_path,description,title,text) values (%s, %s, %s, %s,%s)"
+                cursor.execute(sql,data)
+                conn.commit()
+                cursor.close() 
+                conn.close() 
 
-            filename = secure_filename(file.filename)
-            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            return '<script type="text/javascript" >alert("uploaded!");</script>'
+                filename = secure_filename(file.filename)
+                file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+                return '<script type="text/javascript" >alert("uploaded!");</script>'
+        return render_template("upload.html",maxtid=maxtid)
+    else:
+        return '<h1>permission denied</h1>'
 
-    return render_template("upload.html",maxtid=maxtid)
+
 @app.route('/display', methods=['GET', 'POST'])
 def uploaded():
     conn = MySQLdb.connect(host='localhost', user='root',passwd='') 
