@@ -1,7 +1,8 @@
+#-*-coding:utf-8-*-
 from cStringIO import StringIO
 import os
 import MySQLdb
-from flask import Flask, request,session, g, redirect, url_for,render_template,flash
+from flask import Flask, request,session, g, redirect, url_for,render_template,flash,abort
 from werkzeug import secure_filename
 from flask import send_from_directory
 from time import time
@@ -141,7 +142,7 @@ def upload_file():
                 return '<script type="text/javascript" >alert("uploaded!");</script>'
         return render_template("upload.html",maxtid=maxtid)
     else:
-        return '<h1>permission denied</h1>'
+        abort(403,"permission denied")
 
 
 @app.route('/display', methods=['GET', 'POST'])
