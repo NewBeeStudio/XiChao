@@ -75,7 +75,7 @@ def logout():
 
 @app.route("/test/") 
 def test():
-    conn = MySQLdb.connect(host='localhost', user='root',passwd='') 
+    conn = MySQLdb.connect(host='localhost', user='root',passwd='',charset="utf8") 
     conn.select_db('xichao_wechat');
     cursor = conn.cursor(cursorclass=MySQLdb.cursors.DictCursor)
     x=cursor.execute("select image_path,description from xichao_theme order by tid DESC limit 100")
@@ -101,7 +101,7 @@ def test():
 @app.route('/upload/', methods=['GET', 'POST'])
 def upload_file():
     if session and session['logged_in']:
-        conn = MySQLdb.connect(host='localhost', user='root',passwd='') 
+        conn = MySQLdb.connect(host='localhost', user='root',passwd='',charset="utf8") 
         conn.select_db('xichao_wechat');
         cursor = conn.cursor()
         cursor.execute("select * from xichao_theme order by tid DESC limit 1")
@@ -117,7 +117,8 @@ def upload_file():
             title=request.form['title']
             text=request.form['text']
             description=request.form['description']
-            
+
+            print title
             if file and allowed_file(file.filename):
                 file.filename=str(int(time()))+'.'+file.filename.rsplit('.', 1)[1]
                 print file.filename
@@ -130,7 +131,7 @@ def upload_file():
                     description,
                     text
                     )
-                print data
+                
                 sql = "insert into xichao_theme(tid,image_path,description,title,text) values (%s, %s, %s, %s,%s)"
                 cursor.execute(sql,data)
                 conn.commit()
@@ -147,7 +148,7 @@ def upload_file():
 
 @app.route('/display', methods=['GET', 'POST'])
 def uploaded():
-    conn = MySQLdb.connect(host='localhost', user='root',passwd='') 
+    conn = MySQLdb.connect(host='localhost', user='root',passwd='',charset='utf8') 
     conn.select_db('xichao_wechat');
     cursor = conn.cursor()
     cursor.execute("select * from xichao_theme order by tid DESC limit 1")
