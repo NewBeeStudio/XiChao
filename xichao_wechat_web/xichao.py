@@ -11,9 +11,6 @@ from flask_wtf.file import FileField
 #import sqlalchemy.util as util
 import string, sys
 #from sqlalchemy.databases import mysql
- 
-DEBUG = True
-
 
 app = Flask(__name__)
 UPLOAD_FOLDER = 'static/upload_images/'
@@ -31,20 +28,11 @@ app.config.update(
     USERNAME = 'xichao',
     PASSWORD = 'xichao123'
     )
-f=open('test.txt','a')
-
-
-
-
-
-
-    
 
 def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
    
-
 @app.route("/")
 def index():
     return render_template('index.html')
@@ -93,8 +81,7 @@ def test():
     all_path=str(all_path).replace("\'","").strip("\'")[1:-1]
     all_desc=str(all_desc).replace("\'","").strip("\'")[1:-1]
     
-    print all_path
-   
+    print all_path   
     return render_template('nav.html',all_path=all_path,all_desc=all_desc)
 
 
@@ -110,7 +97,6 @@ def upload_file():
             maxtid=cursor.fetchone()[0]
         except Exception:
             maxtid=0
-
 
         if request.method == 'POST':
             file = request.files['image']
@@ -144,7 +130,6 @@ def upload_file():
     else:
         abort(403,"permission denied")
 
-
 @app.route('/display', methods=['GET', 'POST'])
 def uploaded():
     conn = MySQLdb.connect(host='localhost', user='root',passwd='') 
@@ -165,6 +150,7 @@ def uploaded():
         text=data[4]
     
     return render_template('display.html',tid=tid,image_path=image_path,description=description,title=title,text=text)   
+
 @app.route('/comment', methods=['GET', 'POST'])
 def comment():
     conn = MySQLdb.connect(host='localhost', user='root',passwd='1234') 
