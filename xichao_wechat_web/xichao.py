@@ -1,8 +1,8 @@
-# -*- coding:utf-8 -*-
+#-*-coding:utf-8-*-
 from cStringIO import StringIO
 import os
 import MySQLdb
-from flask import Flask, request,session, g, redirect, url_for,render_template,flash
+from flask import Flask, request,session, g, redirect, url_for,render_template,flash,abort
 from werkzeug import secure_filename
 from flask import send_from_directory
 from time import time
@@ -10,10 +10,6 @@ from flask_wtf.file import FileField
 #from sqlalchemy import *
 #import sqlalchemy.util as util
 import string, sys
-
-##reload(sys)
-##sys.setdefaultencoding('utf8')
-
 #from sqlalchemy.databases import mysql
  
 DEBUG = True
@@ -35,10 +31,20 @@ app.config.update(
     USERNAME = 'xichao',
     PASSWORD = 'xichao123'
     )
+f=open('test.txt','a')
+
+
+
+
+
+
+    
+
 def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
    
+
 @app.route("/")
 def index():
     return render_template('index.html')
@@ -69,7 +75,7 @@ def logout():
 
 @app.route("/test/") 
 def test():
-    conn = MySQLdb.connect(host='localhost', user='root',passwd='1234') 
+    conn = MySQLdb.connect(host='localhost', user='root',passwd='') 
     conn.select_db('xichao_wechat');
     cursor = conn.cursor(cursorclass=MySQLdb.cursors.DictCursor)
     x=cursor.execute("select image_path,description from xichao_theme order by tid DESC limit 100")
@@ -136,10 +142,10 @@ def upload_file():
                 return '<script type="text/javascript" >alert("uploaded!");</script>'
         return render_template("upload.html",maxtid=maxtid)
     else:
-        return '<h1>permission denied</h1>'
+        abort(403,"permission denied")
 
 
-@app.route('/display')
+@app.route('/display', methods=['GET', 'POST'])
 def uploaded():
     conn = MySQLdb.connect(host='localhost', user='root',passwd='') 
     conn.select_db('xichao_wechat');
@@ -195,7 +201,6 @@ def comment():
     conn.close()   
         
     return render_template("comment.html",comment=s,number=num)
-
 
 if __name__ == "__main__":
     app.run(debug=True)
