@@ -63,7 +63,7 @@ def logout():
 
 @app.route("/test/") 
 def test():
-    conn = MySQLdb.connect(host='localhost', user='root',passwd='') 
+    conn = MySQLdb.connect(host='localhost', user='root',passwd='',charset="utf8") 
     conn.select_db('xichao_wechat');
     cursor = conn.cursor(cursorclass=MySQLdb.cursors.DictCursor)
     x=cursor.execute("select image_path,description from xichao_theme order by tid DESC limit 100")
@@ -88,7 +88,7 @@ def test():
 @app.route('/upload/', methods=['GET', 'POST'])
 def upload_file():
     if session and session['logged_in']:
-        conn = MySQLdb.connect(host='localhost', user='root',passwd='') 
+        conn = MySQLdb.connect(host='localhost', user='root',passwd='',charset="utf8") 
         conn.select_db('xichao_wechat');
         cursor = conn.cursor()
         cursor.execute("select * from xichao_theme order by tid DESC limit 1")
@@ -132,7 +132,7 @@ def upload_file():
 
 @app.route('/display', methods=['GET', 'POST'])
 def uploaded():
-    conn = MySQLdb.connect(host='localhost', user='root',passwd='') 
+    conn = MySQLdb.connect(host='localhost', user='root',passwd='',charset="utf8") 
     conn.select_db('xichao_wechat');
     cursor = conn.cursor()
     cursor.execute("select * from xichao_theme order by tid DESC limit 1")
@@ -153,7 +153,7 @@ def uploaded():
 
 @app.route('/comment', methods=['GET', 'POST'])
 def comment():
-    conn = MySQLdb.connect(host='localhost', user='root',passwd='1234') 
+    conn = MySQLdb.connect(host='localhost', user='root',passwd='1234',charset="utf8") 
     conn.select_db('xichao_wechat');
     cursor = conn.cursor()
     cursor.execute("select * from xichao_comments order by tid")
