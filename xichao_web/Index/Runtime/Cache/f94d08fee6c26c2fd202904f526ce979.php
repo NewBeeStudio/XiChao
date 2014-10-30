@@ -29,55 +29,46 @@
 <body>
     <div class="container">
         <div class="main_page">
-            
-<!--  ################################### header ###################################    -->
-            
-            <div class="head">
-                <a class="login" href="__APP__/Login/index">登陆</a>
-                <a class="register" href="__APP__/Register/index">注册</a>
-                <a class="logo" href="__APP__/Index/index"><img height="75px" src="__PUBLIC__/Images/rt_logo.png"></a>
-            </div>   
-             
-            <div class="nav_row">
-                <hr class="up">
-                <a id="header_item1" href="#">曦潮书店</a>
-                <a id="header_item2" href="#">会员</a>
-                <a id="header_item3" href="#">人文</a>
-                <a id="header_item4" href="#">活动</a>
-                <a id="header_item5" href="__APP__/Recruit/index">招募</a>
-                <hr class="down">
-            </div>  
-            
-            
-           <div id = "jiguangpianyu">
-
-<!--  ################################### main ###################################    -->
-<h1 id="header">吉光片羽</h1>
-
-<div id="brief-intro">
-    作为独立项目团队成员,<br>自主构建户外开房阅读空间。
-</div>
-
-<div id="full-intro">
-你在项目策划、景观设计、空间构成方面有所专长，<br>
-却难觅优异团队将想法变为实体<br>
-你曾为了参加比赛精心构筑一个理想中的文化空间，<br>
-却在获奖之后将她变成空中楼阁<br>
-你才华横溢，专业技能扎实，思考与行动并重<br>
-你富有热情，愿意打破常规，善于与团队合作……<br><br>
-
-加入“吉光片羽”项目组吧！<br>
-在这里，从一个小小想法的雏形开始，<br>
-写策划，做设计，出成品，<br>
-将脑中的理念、纸上的文字、平面的图案，<br>
-一点一滴都由自己仔细雕琢。<br><br>
-
-欢迎具有特别专长的个人，<br>
-更欢迎已经成熟的项目团队集体报名。
-
-</div>
-
-<div>
+<!--###################################header###################################-->
+            <!--###################################header###################################-->
+<div class="head">
+    <a class="login" href="__APP__/Login/index">登陆</a>
+    <a class="register" href="__APP__/Register/index">注册</a>
+    <a class="logo" href="__APP__/Index/index"><img height="75px" src="__PUBLIC__/Images/rt_logo.png"></a>
+</div>   
+<div class="nav_row">
+    <hr class="up">
+    <a id="header_item0" href="#">首页</a>
+    <a id="header_item1" href="#">曦潮书店</a>
+    <a id="header_item2" href="#">会员</a>
+    <a id="header_item3" href="#">人文</a>
+    <a id="header_item4" href="#">活动</a>
+    <a id="header_item5" href="__APP__/Recruit/index">招募</a>
+    <hr class="down">
+</div>  
+<!--###############################jiguangpianyu###################################-->  
+            <div id = "jiguangpianyu">
+                <h1 id="header">吉光片羽</h1>
+                <div id="brief-intro">
+                    作为独立项目团队成员,<br>自主构建户外开房阅读空间。
+                </div>
+                <div id="full-intro">
+                你在项目策划、景观设计、空间构成方面有所专长，<br>
+                却难觅优异团队将想法变为实体<br>
+                你曾为了参加比赛精心构筑一个理想中的文化空间，<br>
+                却在获奖之后将她变成空中楼阁<br>
+                你才华横溢，专业技能扎实，思考与行动并重<br>
+                你富有热情，愿意打破常规，善于与团队合作……<br><br>
+                加入“吉光片羽”项目组吧！<br>
+                在这里，从一个小小想法的雏形开始，<br>
+                写策划，做设计，出成品，<br>
+                将脑中的理念、纸上的文字、平面的图案，<br>
+                一点一滴都由自己仔细雕琢。<br><br>
+                欢迎具有特别专长的个人，<br>
+                更欢迎已经成熟的项目团队集体报名。
+                </div>
+<!--###################################form###################################--> 
+                <div>
 <button type="button" id="appl-start" class="button appl-start">我要报名</button>
 <br><br>
 </div>
@@ -298,34 +289,22 @@
 </form>
 
 </div>
+            </div>
+<!--###################################footer###################################--> 
+            <!--###################################footer###################################-->
+<hr>
+<div class="footer-body">
+    <a id="footer_item1" href="#">关于我们</a>
+    <a id="footer_item2" href="#" >联系我们</a>
+    <a id="footer_item3" href="#" >加入我们</a>
+    <a id="footer_item4" href="#" >服务声明</a>
+</div>   
+<div id="copyright">
+    <div><b>Copyright©曦潮2014，All Right Reserved|沪ICP备xxxxxx号</b>
+    </div>  
+</div>   
 
-
-            
-           </div>
-<!--  ################################### footer ###################################    -->
-
-           <div class="main_page">
-            <hr>
-            <div class="footer-body">
-                <a id="footer_item1" href="#">关于我们</a>
-                <a id="footer_item2" href="#" >联系我们</a>
-                <a id="footer_item3" href="#" >加入我们</a>
-                <a id="footer_item4" href="#" >服务声明</a>
-            </div>   
-            <div id="copyright">
-                <div><b>Copyright©曦潮2014，All Right Reserved|沪ICP备xxxxxx号</b>
-                </div>  
-            </div>   
-          </div>
-           
-           
         </div>
     </div>
 </body>
-
-
-
-
-
-
 </html>

@@ -29,88 +29,85 @@
 <body>
     <div class="container">
         <div class="main_page">
+<!--###################################header###################################-->
+                    <!--###################################header###################################-->
+<div class="head">
+    <a class="login" href="__APP__/Login/index">登陆</a>
+    <a class="register" href="__APP__/Register/index">注册</a>
+    <a class="logo" href="__APP__/Index/index"><img height="75px" src="__PUBLIC__/Images/rt_logo.png"></a>
+</div>   
+<div class="nav_row">
+    <hr class="up">
+    <a id="header_item0" href="#">首页</a>
+    <a id="header_item1" href="#">曦潮书店</a>
+    <a id="header_item2" href="#">会员</a>
+    <a id="header_item3" href="#">人文</a>
+    <a id="header_item4" href="#">活动</a>
+    <a id="header_item5" href="__APP__/Recruit/index">招募</a>
+    <hr class="down">
+</div>  
             
-<!--  ################################### header ###################################    -->
-            
-            <div class="head">
-                <a class="login" href="__APP__/Login/index">登陆</a>
-                <a class="register" href="__APP__/Register/index">注册</a>
-                <a class="logo" href="__APP__/Index/index"><img height="75px" src="__PUBLIC__/Images/rt_logo.png"></a>
-            </div>   
-             
-            <div class="nav_row">
-                <hr class="up">
-                <a id="header_item1" href="#">曦潮书店</a>
-                <a id="header_item2" href="#">会员</a>
-                <a id="header_item3" href="#">人文</a>
-                <a id="header_item4" href="#">活动</a>
-                <a id="header_item5" href="__APP__/Recruit/index">招募</a>
-                <hr class="down">
-            </div>  
-            
-            
-           <div id = "leaf">
+<!--###################################leaf#####################################-->    
+                    <div id = "leaf">
+                        <h1 id="header">曦潮叶子</h1>
 
-<!--  ################################### main ###################################    -->
-<h1 id="header">曦潮叶子</h1>
+                        <div id="brief-intro">
+                        曦潮正式全职员工，帮助曦潮完成从幼苗到大树的成长蜕变～
+                        </div>
 
-<div id="brief-intro">
-曦潮正式全职员工，帮助曦潮完成从幼苗到大树的成长蜕变～
-</div>
+                        <div id="full-intro">
+                            <div class="sub_topic">什么是曦潮叶子？</div>
 
-<div id="full-intro">
-<div class="sub_topic">什么是曦潮叶子？</div>
+                            曦潮叶子是我们对曦潮全职员工的称呼。<br>
+                            之所以称曦潮叶子，<br>
+                            是因为曦潮这棵大树需要每片叶子的努力工作，<br>
+                            不断进行光合作用才能健康茁壮的成长。<br><br>
 
-曦潮叶子是我们对曦潮全职员工的称呼。<br>
-之所以称曦潮叶子，<br>
-是因为曦潮这棵大树需要每片叶子的努力工作，<br>
-不断进行光合作用才能健康茁壮的成长。<br><br>
+                            <div class="sub_topic">我们希望您：</div>
 
-<div class="sub_topic">我们希望您：</div>
+                            有责任心<br>
+                            这一点对于任何工作都是首要的，不再多解释。<br>
 
-有责任心<br>
-这一点对于任何工作都是首要的，不再多解释。<br>
+                            居住在书店附近<br>
+                            因为书店的排班有早上7点30上班的，也有晚上22:30下班的，如果您上班需要在路上花费一两个小时，交通不便是其一，也过于辛苦，很难将这份工作坚持下去；<br><br>
 
-居住在书店附近<br>
-因为书店的排班有早上7点30上班的，也有晚上22:30下班的，如果您上班需要在路上花费一两个小时，交通不便是其一，也过于辛苦，很难将这份工作坚持下去；<br><br>
+                            能吃苦耐劳<br>
+                            书店的确是一个安静、舒适、有良好氛围的工作场所，但我们不希望您过于理想主义，以为到书店就是看看书，发发呆，顺便卖点书收点钱。店面的日常清洁是每天的必修课，一包包的书也是很重的，书籍的打包、拆包、清点、上架都是体力活，即使是女生也不能避免参与这些工作。<br><br>
 
-能吃苦耐劳<br>
-书店的确是一个安静、舒适、有良好氛围的工作场所，但我们不希望您过于理想主义，以为到书店就是看看书，发发呆，顺便卖点书收点钱。店面的日常清洁是每天的必修课，一包包的书也是很重的，书籍的打包、拆包、清点、上架都是体力活，即使是女生也不能避免参与这些工作。<br><br>
+                            能接受零售业倒班的工作节奏<br>
+                            如果您希望周末双休，周一至周五朝九晚五的工作安排，那很抱歉，您可能并不太适合这份工作。<br><br>
 
-能接受零售业倒班的工作节奏<br>
-如果您希望周末双休，周一至周五朝九晚五的工作安排，那很抱歉，您可能并不太适合这份工作。<br><br>
+                            性格开朗乐于沟通<br>
+                            书店的工作免不了经常和人打交道，希望您在和人沟通时不会紧张、脸红、结结巴巴。<br><br>
 
-性格开朗乐于沟通<br>
-书店的工作免不了经常和人打交道，希望您在和人沟通时不会紧张、脸红、结结巴巴。<br><br>
+                            我们对学历没有硬性要求，但希望您是个有阅读习惯的人，或者至少阅读对您不是件痛苦的事情。<br><br>
 
-我们对学历没有硬性要求，但希望您是个有阅读习惯的人，或者至少阅读对您不是件痛苦的事情。<br><br>
+                            您若能满足下列任何一项，都将是我们的额外惊喜。<br>
+                            a. 有会计从业经历或相关知识背景；<br>
+                            b. 熟悉各类设计软件，如coreldraw，illustrator，photoshop等操作；<br>
+                            c. 有一门熟练掌握听说能力的外语，如英语、韩语、法语等；<br>
+                            d. 有书法，绘画，音乐，咖啡，茶艺，等特长或爱好；<br><br>
 
-您若能满足下列任何一项，都将是我们的额外惊喜。<br>
-a. 有会计从业经历或相关知识背景；<br>
-b. 熟悉各类设计软件，如coreldraw，illustrator，photoshop等操作；<br>
-c. 有一门熟练掌握听说能力的外语，如英语、韩语、法语等；<br>
-d. 有书法，绘画，音乐，咖啡，茶艺，等特长或爱好；<br><br>
+                            <div class="sub_topic">我们需要您：</div>
 
-<div class="sub_topic">我们需要您：</div>
+                            除了日常的清洁、收银、图书清点上架打包工作外，我们可能还需要您：<br>
+                            为vip客户提供订书、配书、送书的一站式服务；<br>
+                            图书行业相关知识和技能的学习和训练；<br>
+                            资料文件的归类整理；<br>
+                            读者留言或邮件的答复；<br>
+                            书店其他业务的相关工作；<br><br>
 
-除了日常的清洁、收银、图书清点上架打包工作外，我们可能还需要您：<br>
-为vip客户提供订书、配书、送书的一站式服务；<br>
-图书行业相关知识和技能的学习和训练；<br>
-资料文件的归类整理；<br>
-读者留言或邮件的答复；<br>
-书店其他业务的相关工作；<br><br>
+                            <div class="sub_topic">在曦潮工作，您能享受到：</div>
 
-<div class="sub_topic">在曦潮工作，您能享受到：</div>
+                            优于行业平均水平的薪资待遇和多元化的绩效奖励；<br>
+                            民主、愉悦的工作环境；<br>
+                            购书享受6.8折的内部优惠；<br>
+                            依托大学授课的个性化培训体系和进修平台；<br>
+                            不定期的聚餐、踏青等娱乐放松福利；<br>
 
-优于行业平均水平的薪资待遇和多元化的绩效奖励；<br>
-民主、愉悦的工作环境；<br>
-购书享受6.8折的内部优惠；<br>
-依托大学授课的个性化培训体系和进修平台；<br>
-不定期的聚餐、踏青等娱乐放松福利；<br>
-
-</div>
-
-<div>
+                        </div>
+<!--###################################form###################################--> 
+                <div>
 <button type="button" id="appl-start" class="button appl-start">我要报名</button>
 <br><br>
 </div>
@@ -118,7 +115,7 @@ d. 有书法，绘画，音乐，咖啡，茶艺，等特长或爱好；<br><br>
 <div id = "appl-sheet">
 <!--  ################################### form ###################################    -->
 
-<form action="__APP__/Form/formHandle" method="post" id = "appl-form">
+<form action="__APP__/Form/formHandle" method="post" id = "appl-form" onsubmit = "return form_check()">
 <div class = "form-element" id = "appl-title" align="center">
 <strong>曦潮招募报名表</strong>
 <br><br>
@@ -306,6 +303,23 @@ d. 有书法，绘画，音乐，咖啡，茶艺，等特长或爱好；<br><br>
     </label>
 </div>
 
+<!--
+<div class = "form-element">
+    <label>
+        请输入验证码：
+        <input type="text" name="verifyinput" class="appl-input" style="width:130px;">
+        <img id="verifyimg" src="__APP__/Common/verify"/ onclick="show(this)" >
+    </label>
+</div>
+
+
+
+<script>
+    function show(obj){
+        obj.src="__APP__/Common/verify/random/"+Math.random();
+    }
+</script>
+-->
 <div>
 <input type="submit" id="appl-submit" class="button appl-submit" value="提交" />
 
@@ -314,27 +328,21 @@ d. 有书法，绘画，音乐，咖啡，茶艺，等特长或爱好；<br><br>
 </form>
 
 </div>
+            </div>
+<!--###################################footer###################################--> 
+            <!--###################################footer###################################-->
+<hr>
+<div class="footer-body">
+    <a id="footer_item1" href="#">关于我们</a>
+    <a id="footer_item2" href="#" >联系我们</a>
+    <a id="footer_item3" href="#" >加入我们</a>
+    <a id="footer_item4" href="#" >服务声明</a>
+</div>   
+<div id="copyright">
+    <div><b>Copyright©曦潮2014，All Right Reserved|沪ICP备xxxxxx号</b>
+    </div>  
+</div>   
 
-
-            
-           </div>
-<!--  ################################### footer ###################################    -->
-
-           <div class="main_page">
-            <hr>
-            <div class="footer-body">
-                <a id="footer_item1" href="#">关于我们</a>
-                <a id="footer_item2" href="#" >联系我们</a>
-                <a id="footer_item3" href="#" >加入我们</a>
-                <a id="footer_item4" href="#" >服务声明</a>
-            </div>   
-            <div id="copyright">
-                <div><b>Copyright©曦潮2014，All Right Reserved|沪ICP备xxxxxx号</b>
-                </div>  
-            </div>   
-          </div>
-           
-           
         </div>
     </div>
 </body>

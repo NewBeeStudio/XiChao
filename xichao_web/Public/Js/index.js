@@ -23,11 +23,11 @@ $(document).ready(function(){
 					$(".pt-page2").show();
 					var x=$(".main_page_content_1").offset().left;
 					var y=$(".main_page_content_1").offset().top;
-					$("#bgimg2").animate({height:"510",width:"420",left:x,top:y},1000,function(){
+					$("#bgimg2").animate({height:"510",width:"420",left:x,top:y},700,function(){
 						$("#bgimg2").hide();
 						$("#bgimg2_1").show();
 					});
-					$("#logo_blue").animate({left:x+76,top:y+130},1000,function(){
+					$("#logo_blue").animate({left:x+76,top:y+130},700,function(){
 						$("#logo_blue").hide();
 						$("#logo_blue_1").show();
 						$(".pt-page1").hide();
