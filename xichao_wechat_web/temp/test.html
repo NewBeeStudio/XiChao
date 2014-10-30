@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.css">
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.js"></script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){  
+            document.all("page1").style["width"]=document.body.clientWidth;
+            document.all("page1").style["height"]=document.body.clientHeight;
+            return;  
+        }) 
+</script>
+
+<style type="text/css">
+   @font-face{font-family:'xichao_font';src:url(./static/xichao_font.ttf);}
+   *{margin:0;font-family:'xichao_font';color:#00F;text-shadow: 5px 5px #40730e;
+  color:#92bf30;
+              }
+</style>
+
+</head>
+
+<body>
+<!-- Home -->
+<div data-role="page" id="page1" style="padding:0px; height:100px;" >
+    <div data-role="content" style="background-image:url('./static/image/humanity/bg.png');background-size:cover;width:100%;padding:0px;height:100%;z-index=0;">
+        
+        <div style=" position: relative;  border: 1px solid #b8b8b8;opacity:1;background-color:#E8E8E8;z-index=1;opacity:0.4;">
+            <img src="./static/image/serve/title.png" alt="image" style="position: relative;padding:10px 50px;width:80%;height:20%;background-position:center;background-repeat: no-repeat;background-attachment:fixed;z-index=2;">
+        </div>
+        
+
+        <div  style=" height:500px; position: relative; border: 1px solid #b8b8b8;">
+           
+         
+               <div style="width:70%;height:20%;border:1px solid #b8b8b8;float:right;background-image:url('./static/image/humanity/recommend.png');background-size: cover;"
+               onclick="window.location.href= './member.html';return false">
+             <font size="9pt">48南洋荐书</font>
+                 
+             </div>
+
+
+               <div style="width:70%;height:20%;border:1px solid #b8b8b8;float:right;background-image:url('./static/image/humanity/attitude.png');background-size: cover;"
+                onclick="window.location.href= './magazine_subscribe.html';return false">
+              
+                <font size="9">树枝态度</font>
+                 
+             </div>
+
+               <div style="width:70%;height:20%;border:1px solid #b8b8b8;float:right;background-image:url('./image/humanity/addictive.png');background-size: cover;"
+                onclick="window.location.href= './buy_back.html';return false">
+              <font size="9">嗜书瘾君子</font>
+                 
+             </div>
+
+               <div style="width:70%;height:20%;border:1px solid #b8b8b8;float:right;background-image:url('./image/humanity/ball.png');background-size: cover;"
+                onclick="window.location.href= './textbook_subscribe.html';return false">
+              <font size="6">一只球球一只</font>
+                 
+             </div>
+
+               <div style="width:70%;height:20%;border:1px solid #b8b8b8;float:right;background-image:url('./image/humanity/temperature.png');background-size: cover;"
+                onclick="window.location.href= './keeper.html';return false">
+              <font size="6">曦潮温度</font>
+                 
+             </div>
+
+            
+
+
+
+
+        </div>
+
+        
+    </div>
+
+
+          <div data-theme="a" data-role="footer" data-position="fixed">
+        <h3>
+            <div data-role="navbar" data-iconpos="top">
+            <ul>
+                <li>
+                    <a href="#page1" data-transition="fade" data-theme="" data-icon="" class="ui-link ui-btn ui-btn-active"data-ajax="false">
+                        人文曦潮
+                    </a>
+                </li>
+                <li>
+                    <a href="./serve.html" data-transition="fade" data-theme="" data-icon=""data-ajax="false">
+                        服务曦潮
+                    </a>
+                </li>
+                <li>
+                    <a href="./join.html" data-transition="fade" data-theme="" data-icon=""data-ajax="false">
+                        加入曦潮
+                    </a>
+                </li>
+            </ul>
+        </div>
+        </h3>
+    </div>
+</div>
+</body>
+</html>
