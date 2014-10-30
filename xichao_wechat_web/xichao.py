@@ -103,7 +103,8 @@ def upload_file():
             title=request.form['title']
             text=request.form['text']
             description=request.form['description']
-            
+
+            print title
             if file and allowed_file(file.filename):
                 file.filename=str(int(time()))+'.'+file.filename.rsplit('.', 1)[1]
                 print file.filename
@@ -116,7 +117,7 @@ def upload_file():
                     description,
                     text
                     )
-                print data
+                
                 sql = "insert into xichao_theme(tid,image_path,description,title,text) values (%s, %s, %s, %s,%s)"
                 cursor.execute(sql,data)
                 conn.commit()
@@ -153,7 +154,7 @@ def uploaded():
 
 @app.route('/comment', methods=['GET', 'POST'])
 def comment():
-    conn = MySQLdb.connect(host='localhost', user='root',passwd='1234',charset="utf8") 
+    conn = MySQLdb.connect(host='localhost', user='root',passwd='',charset="utf8") 
     conn.select_db('xichao_wechat');
     cursor = conn.cursor()
     cursor.execute("select * from xichao_comments order by tid")
