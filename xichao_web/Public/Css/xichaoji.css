@@ -1,0 +1,27 @@
+﻿        #xichaoji{
+            margin-left:auto;
+            margin-right: auto;
+            width: 82%;
+        }
+        #header{
+            font-family: '宋体','Microsoft Yahei', '微软雅黑';
+            color: #6699ff;
+            margin-bottom: 20px;
+        }
+        #brief-intro{
+            height: 250px;
+            border: solid 2px #000;
+            margin-bottom: 45px;
+            font-family: SimHei;
+            font-size: 30px;
+            padding-top: 40px;
+            padding-left: 10px;
+            padding-right:10px;
+            line-height: 60px;
+            text-align: center;
+            background-image: url("../Images/xcji.png");
+            background-repeat:no-repeat;
+        }
+
+        
+        
