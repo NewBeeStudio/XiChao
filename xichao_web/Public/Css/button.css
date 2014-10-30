@@ -1,0 +1,23 @@
+﻿.button {
+	background-color:#6699ff;
+	position:relative;
+	font-family: arial, 'Hiragino Sans GB', 'Microsoft Yahei', '微软雅黑', '宋体',  \5b8b\4f53, Arial, Helvetica, STHeiti;
+	font-size:30px;
+	color:#000;
+	border: solid 2px #000;
+	border-radius: 5px;
+}
+
+.button::before {
+	background-color:#6699ff;
+	display:block;
+	position:absolute;
+}
+
+.button:active {
+	padding-bottom:9px;
+	padding-left:10px;
+	padding-right:10px;
+	padding-top:8px;
+	top:1px;
+}

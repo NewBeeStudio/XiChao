@@ -1,0 +1,62 @@
+﻿.globalfooter{
+	padding-left: 0px;
+	padding-top: 0px;
+	padding-right: 0px;
+	padding-bottom: 20px;
+}
+
+.gf-content-up{
+	width: 80%;
+	height:1px;
+	background-color:black;
+}
+
+.gf-content{
+	height:20px;
+	font-weight: bold;
+	padding-left:10px;
+	padding-top: 1px;
+	padding-right: 0px;
+	padding-bottom: 10px;
+	
+}
+
+#footer_item1{
+	position:absolute;
+	padding-left:210px;
+}
+
+
+#footer_item2{
+	position:absolute;
+	padding-left:360px;
+}
+
+#footer_item3{
+	position:absolute;
+	padding-left:500px;
+}
+
+#footer_item4{
+	position:absolute;
+	padding-left:650px;
+}
+
+a:link {
+	text-decoration:none;
+	color:#000000;
+}
+
+a:visited {
+	text-decoration:none;
+	color:#000000;
+}
+
+#copyright{
+    font-family:The founder of small standard song simplified;
+    font-size:8pt;
+    font-weight:bold;
+    text-align:center;
+    padding-top:5px;
+    
+}

@@ -1,0 +1,45 @@
+﻿#home_bookstore{
+    margin-left:auto;
+    margin-right: auto;
+    width: 82%;
+}
+
+#home_bookstore_title{
+    font-size: 35px;
+    font-weight: bold;
+    text-align: center;
+}
+
+#home_bookstore_header{
+    height: 108px;
+/*    border-bottom: 2px solid #000;*/
+}
+
+#home_bookstore_header_down{
+ 	width: 82%;
+	height:1.9px;
+	background-color:black;
+	margin-top: -20px;
+}
+
+#home_bookstore_body{
+    margin-top: 70px;
+    margin-bottom: 140px;
+}
+
+#home_bookstore_body_block2{
+    position: relative;
+    left: 40px;
+    top: -138px;
+}
+
+#home_bookstore_body_block3{
+    position: relative;
+    top: -65px;
+}
+
+#home_bookstore_body_block4{
+    position: relative;
+    left: 67px;
+    top: -70px;
+}
