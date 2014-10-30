@@ -1,10 +1,14 @@
  <!doctype html>
  <html>
  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <script src="../static/ckeditor/ckeditor.js"></script>
+
     <title>Upload data</title>
 
-    <h1>max id:{{maxtid}}</h1>
-    <h1>Upload image</h1>
+    <h1>当前最新一期id:{{maxtid}}</h1>
+    
+    <h1>Upload article</h1>
+   <!-- 
     <form action="" method=post enctype=multipart/form-data>
       <p><input type=file name=image>
           <br/>
@@ -22,7 +26,24 @@
           <br/>
           <br/>
          <input type=submit value=Upload>
-    </form>
+    </form> -->
+
+
+     <form action="" method=post enctype=form-data>
+            <textarea name="editor1" id="editor1" rows="10" cols="80" >
+                input text here
+            </textarea>
+            <script>
+                // Replace the <textarea id="editor1"> with a CKEditor
+                // instance, using default configuration.
+                CKEDITOR.replace( 'editor1' );
+
+               
+
+            </script>
+            <input type=submit value=Upload>
+            
+        </form>
 
 
 

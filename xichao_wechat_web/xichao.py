@@ -99,34 +99,14 @@ def upload_file():
             maxtid=0
 
         if request.method == 'POST':
-            file = request.files['image']
-            title=request.form['title']
-            text=request.form['text']
-            description=request.form['description']
-
-            print title
-            if file and allowed_file(file.filename):
-                file.filename=str(int(time()))+'.'+file.filename.rsplit('.', 1)[1]
-                print file.filename
-                #save data  to db
-                image_url=UPLOAD_FOLDER+file.filename
-                data=(
-                    maxtid+1,
-                    image_url,
-                    title,
-                    description,
-                    text
-                    )
-                
-                sql = "insert into xichao_theme(tid,image_path,description,title,text) values (%s, %s, %s, %s,%s)"
-                cursor.execute(sql,data)
-                conn.commit()
-                cursor.close() 
-                conn.close() 
-
-                filename = secure_filename(file.filename)
-                file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-                return '<script type="text/javascript" >alert("uploaded!");</script>'
+            text=request.form["editor1"]
+            sql = "insert into xichao_article(article) values(%s)"
+            cursor.execute(sql,text)
+            conn.commit()
+            cursor.close() 
+            conn.close()
+            return '<script type="text/javascript" >alert("uploaded!");</script>'
+            
         return render_template("upload.html",maxtid=maxtid)
     else:
         abort(403,"permission denied")
@@ -136,22 +116,13 @@ def uploaded():
     conn = MySQLdb.connect(host='localhost', user='root',passwd='',charset="utf8") 
     conn.select_db('xichao_wechat');
     cursor = conn.cursor()
-    cursor.execute("select * from xichao_theme order by tid DESC limit 1")
-    tid=0
-    image_path=0
-    description=0
-    title=0
-    text=0
+    cursor.execute("select * from xichao_article order by id DESC limit 1")
     data=cursor.fetchone()
     if data:
         tid=data[0]
-        image_path=data[1]
-        description=data[2]
-        title=data[3]
-        text=data[4]
-    
-    return render_template('display.html',tid=tid,image_path=image_path,description=description,title=title,text=text)   
-
+        text=data[1]
+    return text
+   
 @app.route('/comment', methods=['GET', 'POST'])
 def comment():
     conn = MySQLdb.connect(host='localhost', user='root',passwd='',charset="utf8") 
