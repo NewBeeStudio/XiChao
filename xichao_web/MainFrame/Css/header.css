@@ -1,17 +1,18 @@
 ﻿@font-face { 
     font-family: xichaosong;
-    src: url('../Font/xichaosong.eot'); /* IE9 Compat Modes */ 
-    src: url('../Font/xichaosong.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */ 
-      url('../Font/xichaosong.woff') format('woff'), /* Modern Browsers */ 
-      url('../Font/xichaosong.ttf')  format('truetype'), /* Safari, Android, iOS */ 
-      url('../Font/xichaosong.svg') format('svg'); /* Chrome, Legacy iOS */ 
+    src: url('Font/xichaosong.eot'); /* IE9 Compat Modes */ 
+    src: url('Font/xichaosong.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */ 
+      url('Font/xichaosong.woff') format('woff'), /* Modern Browsers */ 
+      url('Font/xichaosong.ttf')  format('truetype'), /* Safari, Android, iOS */ 
+      url('Font/xichaosong.svg') format('svg'); /* Chrome, Legacy iOS */ 
 } 
 
 
-body{
+﻿body{
 	background-color: #FFFFCC;
 	font-family: xichaosong;
 	margin: 0px;
+
 }
 
 .container{
@@ -70,6 +71,7 @@ hr.down{
 	float:left;
 	margin-top: 90px;
 	margin-left: 85px;
+	font-weight: bold;
 	display: inline;
 }
 
@@ -78,6 +80,7 @@ hr.down{
 	float:left;
 	margin-top: 90px;
 	margin-left: 40px;
+	font-weight: bold;
 	display: inline;
 }
 
@@ -92,36 +95,32 @@ hr.down{
 .nav_row{
 	height: 40px;
 	font-size: 15pt;
+	font-weight: bold;
 	margin-top: 10px;
 	margin-left:auto;
 	margin-right: auto;
 }
 
-#header_item0{
+#header_item1{
 	position:absolute;
 	margin-left:92px;
 }
 
-#header_item1{
-	position:absolute;
-	margin-left:216px;
-	
-}
-
 #header_item2{
 	position:absolute;
-	margin-left:380px;
+	margin-left:272px;
 	
 }
 
 #header_item3{
 	position:absolute;
-	margin-left:524px;
+	margin-left:452px;
+	
 }
 
 #header_item4{
 	position:absolute;
-	margin-left:668px;
+	margin-left:632px;
 }
 
 #header_item5{

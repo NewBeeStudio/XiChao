@@ -42,7 +42,7 @@ a:visited {
 	font-size: 14pt;
 	position: absolute;
 	margin-top: 90px;
-	padding-left: 85px;
+	margin-left: 85px;
 	font-weight: bold;
 	display: inline;
 }
@@ -51,7 +51,7 @@ a:visited {
 	font-size: 14pt;
 	position: absolute;
 	margin-top: 90px;
-	padding-left: 155px;
+	margin-left: 155px;
 	font-weight: bold;
 	display: inline;
 }
@@ -75,32 +75,32 @@ a:visited {
 
 #header_item0{
 	position:absolute;
-	padding-left:92px;
+	margin-left:92px;
 }
 
 #header_item1{
 	position:absolute;
-	padding-left:216px;
+	margin-left:216px;
 	
 }
 
 #header_item2{
 	position:absolute;
-	padding-left:380px;
+	margin-left:380px;
 	
 }
 
 #header_item3{
 	position:absolute;
-	padding-left:524px;
+	margin-left:524px;
 }
 
 #header_item4{
 	position:absolute;
-	padding-left:668px;
+	margin-left:668px;
 }
 
 #header_item5{
 	position:absolute;
-	padding-left:812px;
+	margin-left:812px;
 }

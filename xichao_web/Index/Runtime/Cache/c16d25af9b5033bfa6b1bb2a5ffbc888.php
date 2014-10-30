@@ -29,119 +29,90 @@
 <body>
     <div class="container">
         <div class="main_page">
-            
-<!--  ################################### header ###################################    -->
-            
-            <div class="head">
-                <a class="login" href="__APP__/Login/index">登陆</a>
-                <a class="register" href="__APP__/Register/index">注册</a>
-                <a class="logo" href="__APP__/Index/index"><img height="75px" src="__PUBLIC__/Images/rt_logo.png"></a>
-            </div>   
-             
-            <div class="nav_row">
-                <hr class="up">
-                <a id="header_item1" href="#">曦潮书店</a>
-                <a id="header_item2" href="#">会员</a>
-                <a id="header_item3" href="#">人文</a>
-                <a id="header_item4" href="#">活动</a>
-                <a id="header_item5" href="__APP__/Recruit/index">招募</a>
-                <hr class="down">
-            </div>  
-            
-            
-           <div id = "mitochondrion">
-
-<!--  ################################### main ###################################    -->
-<h1 id="header">曦潮线粒体</h1>
-
-<div id="brief-intro">
-活跃的校招成员，为曦潮提供满满的正能量与源动力～
-</div>
-
-<div id="full-intro">
-加入校园勤工助学岗，成为曦潮实习生，参与曦潮各组项目：<br> <br>
-<div class="sub_topic">曦潮一组：“当下即是”书香生态系统</div>
-在曦潮，纸品承载文字，网络传播文化，而书店，则将“当下即是”的价值观融入书香生态系统。<br> <br> 
-
-如果你擅长网站建设、移动终端及微信平台开发，请一同参与生态系统的优化，维护文字散播的书香。<br> <br> 
-
-如果你寻求网站开发、移动终端开发、交互性设计、运营维护以及各大平台的主页菌等岗位，请加入曦潮一组，做一个建设者，用未来科技光大传统文明。<br> <br>
-
-<div class="tri_topic">工作内容：</div>
-曦潮网站设计及建设；<br>
-移动终端及微信平台开发；<br>
-用户体验优化；<br>
-运营维护。<br><br>
-
-<div class="tri_topic">岗位：</div>
-网站开发<br>
-移动终端开发<br>
-交互性设计<br>
-运营维护<br>
-微博，微信，网站，人人主页菌<br><br>
-
-<div class="sub_topic">曦潮二组：带状活动、外联及文化合作</div>
-在曦潮，书是轴心，作者和出版方是源泉，嘉宾讲座是亮点，影像报道是通路，以带状文化活动，释放真实书香。<br><br>
-
-我们期待你是外倾的、活跃的、思考周全的，一同筹划讲座、电影放映、书籍导读活动，并用影像记录下来，用文字加以报导。<br><br>
-
-如果你想要亲历活动流程，面会书籍作者，留存文化影像，请加入曦潮二组，让书籍不只在架上，让文化不只在口头。<br><br> 
-
-<div class="tri_topic">工作内容：</div>
-曦潮带状文化活动举办；<br>
-版权及作者联系；<br>
-讲座嘉宾联系；<br>
-影像记录及剪辑；<br>
-文艺报道。<br><br>
-
-<div class="tri_topic">岗位：</div>
-讲座策划统筹leader；<br>
-“月上柳梢头”沙龙区电影播放策划统筹；<br>
-影像记录及剪辑；<br>
-文艺报道。<br><br>
-
-
-<div class="sub_topic">曦潮三组：曦潮运行</div>
-在曦潮，早上开门让晨曦洒满书脊，接过第一位顾客选中的书籍，将在书本上睡觉的阿黄抱到大腿上，打开电脑清点书籍目录……一切的平常、琐碎、看似重复实则不可或缺的事物，只要和书有关，都被蒙上诗意。<br>
-我们相信有这样的你，坐在办公室、交通枢纽点、曦潮的前台，清洁、整理、收银，回答问题、帮助顾客、与书作伴，曦潮的叶子们，热爱生活，都是吃货，腐败串联福利满满。<br><br>
-
-你喜欢曦潮本来的样子吗？请加入曦潮三组，点滴日常，你来守护。<br><br>
-
-<div class="tri_topic">工作内容：</div>
-办公室工作；<br>
-交通枢纽点窗口服务；<br>
-曦潮线粒体福利保障，及团队聚餐腐败串联。<br><br> 
-
-<div class="tri_topic">岗位：</div>
-日常办公岗；<br>
-窗口服务岗；<br>
-线粒体服务岗（妹子优先，热爱生活者优先，吃货优先）。<br><br>
-
-
-<div class="sub_topic">曦潮四组：曦潮设计组</div>
-在曦潮，书，不仅该是好看的，书店，也该是好看的，美的内容，值得与之相衬的外表。<br><br>
-
-我们坚持洁净精微的审美追求，通过纸品及非纸品传递心意，每张卡片和海报，每个脑洞和产品，都是灵感与汗水的凝结。<br><br>
-
-如果你热爱设计，擅长平面、产品和空间设计软件的使用，如果你乐群、爱动手、有活力，请加入曦潮四组，让理念变美，令想法成型。<br><br>
-
-（已有作品或现做“设计组招募海报”可以为自己加码喔！）<br><br>
-
-<div class="tri_topic">工作内容：</div>
-带状活动宣传等相关平面设计；<br>
-校园文化建设平面设计；<br>
-实体书店店面及运营相关平面设计。<br>
-（以上欢迎手绘，书法等特殊技能者）<br>
-曦潮产品设计；<br><br>
-
-<div class="tri_topic">岗位：</div>
-校园文化平面设计<br>
-产品设计<br>
-
-
-</div>
-
-<div>
+<!--###################################header###################################-->
+            <!--###################################header###################################-->
+<div class="head">
+    <a class="login" href="__APP__/Login/index">登陆</a>
+    <a class="register" href="__APP__/Register/index">注册</a>
+    <a class="logo" href="__APP__/Index/index"><img height="75px" src="__PUBLIC__/Images/rt_logo.png"></a>
+</div>   
+<div class="nav_row">
+    <hr class="up">
+    <a id="header_item0" href="#">首页</a>
+    <a id="header_item1" href="#">曦潮书店</a>
+    <a id="header_item2" href="#">会员</a>
+    <a id="header_item3" href="#">人文</a>
+    <a id="header_item4" href="#">活动</a>
+    <a id="header_item5" href="__APP__/Recruit/index">招募</a>
+    <hr class="down">
+</div>   
+<!--################################mitochondrion###############################-->
+            <div id = "mitochondrion">
+                <h1 id="header">曦潮线粒体</h1>
+                <div id="brief-intro">
+                活跃的校招成员，为曦潮提供满满的正能量与源动力～
+                </div>
+                <div id="full-intro">
+                    加入校园勤工助学岗，成为曦潮实习生，参与曦潮各组项目：<br> <br>
+                    <div class="sub_topic">曦潮一组：“当下即是”书香生态系统</div>
+                    在曦潮，纸品承载文字，网络传播文化，而书店，则将“当下即是”的价值观融入书香生态系统。<br> <br> 
+                    如果你擅长网站建设、移动终端及微信平台开发，请一同参与生态系统的优化，维护文字散播的书香。<br> <br> 
+                    如果你寻求网站开发、移动终端开发、交互性设计、运营维护以及各大平台的主页菌等岗位，请加入曦潮一组，做一个建设者，用未来科技光大传统文明。<br> <br>
+                    <div class="tri_topic">工作内容：</div>
+                    曦潮网站设计及建设；<br>
+                    移动终端及微信平台开发；<br>
+                    用户体验优化；<br>
+                    运营维护。<br><br>
+                    <div class="tri_topic">岗位：</div>
+                    网站开发<br>
+                    移动终端开发<br>
+                    交互性设计<br>
+                    运营维护<br>
+                    微博，微信，网站，人人主页菌<br><br>
+                    <div class="sub_topic">曦潮二组：带状活动、外联及文化合作</div>
+                    在曦潮，书是轴心，作者和出版方是源泉，嘉宾讲座是亮点，影像报道是通路，以带状文化活动，释放真实书香。<br><br>
+                    我们期待你是外倾的、活跃的、思考周全的，一同筹划讲座、电影放映、书籍导读活动，并用影像记录下来，用文字加以报导。<br><br>
+                    如果你想要亲历活动流程，面会书籍作者，留存文化影像，请加入曦潮二组，让书籍不只在架上，让文化不只在口头。<br><br> 
+                    <div class="tri_topic">工作内容：</div>
+                    曦潮带状文化活动举办；<br>
+                    版权及作者联系；<br>
+                    讲座嘉宾联系；<br>
+                    影像记录及剪辑；<br>
+                    文艺报道。<br><br>
+                    <div class="tri_topic">岗位：</div>
+                    讲座策划统筹leader；<br>
+                    “月上柳梢头”沙龙区电影播放策划统筹；<br>
+                    影像记录及剪辑；<br>
+                    文艺报道。<br><br>
+                    <div class="sub_topic">曦潮三组：曦潮运行</div>
+                    在曦潮，早上开门让晨曦洒满书脊，接过第一位顾客选中的书籍，将在书本上睡觉的阿黄抱到大腿上，打开电脑清点书籍目录……一切的平常、琐碎、看似重复实则不可或缺的事物，只要和书有关，都被蒙上诗意。<br>
+                    我们相信有这样的你，坐在办公室、交通枢纽点、曦潮的前台，清洁、整理、收银，回答问题、帮助顾客、与书作伴，曦潮的叶子们，热爱生活，都是吃货，腐败串联福利满满。<br><br>
+                    你喜欢曦潮本来的样子吗？请加入曦潮三组，点滴日常，你来守护。<br><br>
+                    <div class="tri_topic">工作内容：</div>
+                    办公室工作；<br>
+                    交通枢纽点窗口服务；<br>
+                    曦潮线粒体福利保障，及团队聚餐腐败串联。<br><br> 
+                    <div class="tri_topic">岗位：</div>
+                    日常办公岗；<br>
+                    窗口服务岗；<br>
+                    线粒体服务岗（妹子优先，热爱生活者优先，吃货优先）。<br><br>
+                    <div class="sub_topic">曦潮四组：曦潮设计组</div>
+                    在曦潮，书，不仅该是好看的，书店，也该是好看的，美的内容，值得与之相衬的外表。<br><br>
+                    我们坚持洁净精微的审美追求，通过纸品及非纸品传递心意，每张卡片和海报，每个脑洞和产品，都是灵感与汗水的凝结。<br><br>
+                    如果你热爱设计，擅长平面、产品和空间设计软件的使用，如果你乐群、爱动手、有活力，请加入曦潮四组，让理念变美，令想法成型。<br><br>
+                    （已有作品或现做“设计组招募海报”可以为自己加码喔！）<br><br>
+                    <div class="tri_topic">工作内容：</div>
+                    带状活动宣传等相关平面设计；<br>
+                    校园文化建设平面设计；<br>
+                    实体书店店面及运营相关平面设计。<br>
+                    （以上欢迎手绘，书法等特殊技能者）<br>
+                    曦潮产品设计；<br><br>
+                    <div class="tri_topic">岗位：</div>
+                    校园文化平面设计<br>
+                    产品设计<br>
+                </div>
+<!--###################################form###################################--> 
+                <div>
 <button type="button" id="appl-start" class="button appl-start">我要报名</button>
 <br><br>
 </div>
@@ -149,7 +120,7 @@
 <div id = "appl-sheet">
 <!--  ################################### form ###################################    -->
 
-<form action="__APP__/Form/formHandle" method="post" id = "appl-form">
+<form action="__APP__/Form/formHandle" method="post" id = "appl-form" onsubmit = "return form_check()">
 <div class = "form-element" id = "appl-title" align="center">
 <strong>曦潮招募报名表</strong>
 <br><br>
@@ -337,6 +308,23 @@
     </label>
 </div>
 
+<!--
+<div class = "form-element">
+    <label>
+        请输入验证码：
+        <input type="text" name="verifyinput" class="appl-input" style="width:130px;">
+        <img id="verifyimg" src="__APP__/Common/verify"/ onclick="show(this)" >
+    </label>
+</div>
+
+
+
+<script>
+    function show(obj){
+        obj.src="__APP__/Common/verify/random/"+Math.random();
+    }
+</script>
+-->
 <div>
 <input type="submit" id="appl-submit" class="button appl-submit" value="提交" />
 
@@ -345,27 +333,21 @@
 </form>
 
 </div>
+            </div>
+<!--###################################footer###################################--> 
+            <!--###################################footer###################################-->
+<hr>
+<div class="footer-body">
+    <a id="footer_item1" href="#">关于我们</a>
+    <a id="footer_item2" href="#" >联系我们</a>
+    <a id="footer_item3" href="#" >加入我们</a>
+    <a id="footer_item4" href="#" >服务声明</a>
+</div>   
+<div id="copyright">
+    <div><b>Copyright©曦潮2014，All Right Reserved|沪ICP备xxxxxx号</b>
+    </div>  
+</div>   
 
-
-            
-           </div>
-<!--  ################################### footer ###################################    -->
-
-           <div class="main_page">
-            <hr>
-            <div class="footer-body">
-                <a id="footer_item1" href="#">关于我们</a>
-                <a id="footer_item2" href="#" >联系我们</a>
-                <a id="footer_item3" href="#" >加入我们</a>
-                <a id="footer_item4" href="#" >服务声明</a>
-            </div>   
-            <div id="copyright">
-                <div><b>Copyright©曦潮2014，All Right Reserved|沪ICP备xxxxxx号</b>
-                </div>  
-            </div>   
-          </div>
-           
-           
         </div>
     </div>
 </body>

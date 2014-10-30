@@ -18,7 +18,8 @@
     <link rel="stylesheet" type="text/css" href="__PUBLIC__/Css/button.css">
     <link rel="stylesheet" type="text/css" href="__PUBLIC__/Css/xichaoji.css">
     <link rel="stylesheet" type="text/css" href="__PUBLIC__/Css/jquery-ui.css">
-        <link rel="stylesheet" type="text/css" href="__PUBLIC__/Css/footer.css" />
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Css/footer.css" />
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Css/form.css" />
 
     <script src="__PUBLIC__/Js/jquery.min.js"></script>
     <script src="__PUBLIC__/Js/jquery-ui.min.js"></script>
@@ -27,41 +28,33 @@
 
 <body>
     <div class="container">
-        <div class="main_page">
-            
-<!--  ################################### header ###################################    -->
-            
-            <div class="head">
-                <a class="login" href="__APP__/Login/index">登陆</a>
-                <a class="register" href="__APP__/Register/index">注册</a>
-                <a class="logo" href="__APP__/Index/index"><img height="75px" src="__PUBLIC__/Images/rt_logo.png"></a>
-            </div>   
-             
-            <div class="nav_row">
-                <hr class="up">
-                <a id="header_item1" href="#">曦潮书店</a>
-                <a id="header_item2" href="#">会员</a>
-                <a id="header_item3" href="#">人文</a>
-                <a id="header_item4" href="#">活动</a>
-                <a id="header_item5" href="__APP__/Recruit/index">招募</a>
-                <hr class="down">
-            </div>  
-            
-            
-           <div id = "xichaoji">
-
-<!--  ################################### main ###################################    -->
-<h1 id="header">曦潮记</h1>
-
-<div id="brief-intro">
-招募文化创意产品项目，从人文的视角出发，还原并挖掘演化产品本身的功能与材质，实现曦潮“本然如初”的文化理念内核，达成质朴创新的视觉呈现与产品概念。<br>
-欢迎产品设计类和项目协调类人才加入。
-
-</div>
-
-
-
-<div>
+        <div class="main_page">   
+<!--###################################header###################################-->
+            <!--###################################header###################################-->
+<div class="head">
+    <a class="login" href="__APP__/Login/index">登陆</a>
+    <a class="register" href="__APP__/Register/index">注册</a>
+    <a class="logo" href="__APP__/Index/index"><img height="75px" src="__PUBLIC__/Images/rt_logo.png"></a>
+</div>   
+<div class="nav_row">
+    <hr class="up">
+    <a id="header_item0" href="#">首页</a>
+    <a id="header_item1" href="#">曦潮书店</a>
+    <a id="header_item2" href="#">会员</a>
+    <a id="header_item3" href="#">人文</a>
+    <a id="header_item4" href="#">活动</a>
+    <a id="header_item5" href="__APP__/Recruit/index">招募</a>
+    <hr class="down">
+</div>  
+<!--###################################xichaoji###################################--> 
+            <div id = "xichaoji">
+                <h1 id="header">曦潮记</h1>
+                <div id="brief-intro">
+                招募文化创意产品项目，从人文的视角出发，还原并挖掘演化产品本身的功能与材质，实现曦潮“本然如初”的文化理念内核，达成质朴创新的视觉呈现与产品概念。<br>
+                欢迎产品设计类和项目协调类人才加入。
+                </div>
+<!--###################################form###################################--> 
+                <div>
 <button type="button" id="appl-start" class="button appl-start">我要报名</button>
 <br><br>
 </div>
@@ -69,7 +62,7 @@
 <div id = "appl-sheet">
 <!--  ################################### form ###################################    -->
 
-<form action="__APP__/Form/formHandle" method="post" id = "appl-form">
+<form action="__APP__/Form/formHandle" method="post" id = "appl-form" onsubmit = "return form_check()">
 <div class = "form-element" id = "appl-title" align="center">
 <strong>曦潮招募报名表</strong>
 <br><br>
@@ -257,6 +250,23 @@
     </label>
 </div>
 
+<!--
+<div class = "form-element">
+    <label>
+        请输入验证码：
+        <input type="text" name="verifyinput" class="appl-input" style="width:130px;">
+        <img id="verifyimg" src="__APP__/Common/verify"/ onclick="show(this)" >
+    </label>
+</div>
+
+
+
+<script>
+    function show(obj){
+        obj.src="__APP__/Common/verify/random/"+Math.random();
+    }
+</script>
+-->
 <div>
 <input type="submit" id="appl-submit" class="button appl-submit" value="提交" />
 
@@ -265,34 +275,22 @@
 </form>
 
 </div>
+            </div>
+<!--###################################footer###################################--> 
+            <!--###################################footer###################################-->
+<hr>
+<div class="footer-body">
+    <a id="footer_item1" href="#">关于我们</a>
+    <a id="footer_item2" href="#" >联系我们</a>
+    <a id="footer_item3" href="#" >加入我们</a>
+    <a id="footer_item4" href="#" >服务声明</a>
+</div>   
+<div id="copyright">
+    <div><b>Copyright©曦潮2014，All Right Reserved|沪ICP备xxxxxx号</b>
+    </div>  
+</div>   
 
-
-            
-           </div>
-<!--  ################################### footer ###################################    -->
-
-           <div class="main_page">
-            <hr>
-            <div class="footer-body">
-                <a id="footer_item1" href="#">关于我们</a>
-                <a id="footer_item2" href="#" >联系我们</a>
-                <a id="footer_item3" href="#" >加入我们</a>
-                <a id="footer_item4" href="#" >服务声明</a>
-            </div>   
-            <div id="copyright">
-                <div><b>Copyright©曦潮2014，All Right Reserved|沪ICP备xxxxxx号</b>
-                </div>  
-            </div>   
-          </div>
-           
-           
         </div>
     </div>
 </body>
-
-
-
-
-
-
 </html>
