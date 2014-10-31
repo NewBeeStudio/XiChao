@@ -1,0 +1,38 @@
+﻿#home_bookstore_concrete{
+    margin-left:auto;
+    margin-right: auto;
+    width: 82%;
+}
+
+#home_bookstore_little_title{
+    position: absolute;
+    font-size: 19pt;
+    margin-left: 10px; 
+    margin-top: 45px;     
+}
+
+#home_bookstore_title{
+    font-size: 35px;
+    text-align: center;
+    margin-top: 50px; 
+}
+
+#home_bookstore_concrete_header{
+    height: 108px;
+/*    border-bottom: 2px solid #000;*/
+}
+
+
+#concrete_image_group1{
+    margin-top: 20px;
+    height: 378px;
+}
+
+#concrete_image_group2{
+    margin-top: 30px;
+}
+
+#concrete_text{
+    margin-top: 28px;
+    margin-bottom: 50px;
+}

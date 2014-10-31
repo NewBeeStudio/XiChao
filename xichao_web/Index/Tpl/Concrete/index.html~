@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="Nee Bee Studio" />
+    
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Css/footer.css" />
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Css/header.css" />
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Css/home_bookstore_concrete.css" />
+
+
+    <title>曦潮书店 | 实体店面</title>
+</head>
+
+<body>
+    <div class="container">
+<!--###################################header###################################-->
+        <include file="Public:header" />
+        <div id="home_bookstore_concrete">
+        
+            <div id="home_bookstore_concrete_header">
+                <p id="home_bookstore_little_title">○ 首页 - 曦潮书店</p>
+                <div style="height:10px;"></div>
+                <p id="home_bookstore_title">实体店面</p>
+            </div>
+            <div id="concrete_image_group1">
+                <img style="height:100%" src="__PUBLIC__/Images/concrete_img1-1.png"  alt="img1-1" />
+                <img style="height:100%" src="__PUBLIC__/Images/concrete_img1-2.png"  alt="img1-2" />
+                <img style="height:100%" src="__PUBLIC__/Images/concrete_img1-3.png"  alt="img1-3" />
+            </div>
+            
+            <div id="concrete_image_group2">
+                <img style="height:100%" src="__PUBLIC__/Images/concrete_img2.png"  alt="img2" />
+            </div>
+            
+            <div id="concrete_text">
+                曦潮故事曦潮故事曦潮故事曦潮故事<br>
+                曦潮故事<br>
+                曦潮故事曦潮故事曦潮故事曦潮故事曦潮故事曦潮故事曦潮故事<br>
+                曦潮故事曦潮故事曦潮故事曦潮故事曦潮故事曦潮故事<br>
+                曦潮故事曦潮故事曦潮故事曦潮故事曦潮故事曦潮故事曦潮故事曦潮故事曦潮故事<br>
+            </div>
+        </div>
+<!--###################################footer###################################--> 
+        <include file="Public:footer" />      
+    </div>
+</body>
+
+
+
+
+
+
+</html>
