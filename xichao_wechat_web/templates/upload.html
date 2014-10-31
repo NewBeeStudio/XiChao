@@ -1,13 +1,16 @@
  <!doctype html>
  <html>
  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-        <script src="../static/ckeditor/ckeditor.js"></script>
-
+   <link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+   <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+   <script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+   <script src="../static/ckeditor/ckeditor.js"></script>
+ 
     <title>Upload data</title>
-
-    <h1>当前最新一期id:{{maxtid}}</h1>
+<body>
+    <h1 style="BORDER-BOTTOM: 1px dashed">当前最新一期id:{{maxtid}}</h1>
     
-    <h1>Upload article</h1>
+    <h1>添加新文章：</h1>
    <!-- 
     <form action="" method=post enctype=multipart/form-data>
       <p><input type=file name=image>
@@ -29,7 +32,7 @@
     </form> -->
 
 
-     <form action="" method=post enctype=form-data>
+     <form action="" method=post enctype=form-data style="padding:20px;">
             <textarea name="editor1" id="editor1" rows="10" cols="80" >
                 input text here
             </textarea>
@@ -41,13 +44,47 @@
                
 
             </script>
-            <input type=submit value=Upload>
-            
+            <br />
+     
+            <button type="button" class="btn btn-info" onclick="javascript:preview();">预览</button>
+                   <button id="fat-btn" class="btn btn btn-success" type=submit>提交</button>
+             <button type="button" class="btn btn-danger" onclick="window.location='../logout'" >登出</button>
+
+ 
         </form>
 
-
-
-	<a href="../display">to display page</a>
+<div style="padding:10px 100px;">
+<h2>查看第<input id="tid_input">期
+        <button class="btn btn-primary" type="button" onclick="javascript:goto();">
+                     查看
+                  </button></h2>
+      
+</div>
   <br />
-  <button onclick="window.location='../logout'">log out</button>
+  <br/>
+	
+  <br />
+  <br />
+ 
+</body>
+
+<script type="text/javascript">
+
+function preview(){
+var data = CKEDITOR.instances.editor1.getData();
+
+
+  var newwin=window.open('','','');  
+  newwin.opener = null 
+  newwin.document.write(data);  
+  newwin.document.close();
+}
+
+function goto(){
+  var tid=document.getElementById("tid_input").value;
+  window.open("../display/"+tid);
+}
+
+</script>
+ <!--  <button onclick="window.location='../logout'">log out</button> -->
 </html>

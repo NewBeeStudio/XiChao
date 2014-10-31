@@ -85,13 +85,13 @@ def test():
     return render_template('nav.html',all_path=all_path,all_desc=all_desc)
 
 
-@app.route('/upload/', methods=['GET', 'POST'])
+@app.route('/admin/', methods=['GET', 'POST'])
 def upload_file():
     if session and session['logged_in']:
         conn = MySQLdb.connect(host='localhost', user='root',passwd='',charset="utf8") 
         conn.select_db('xichao_wechat');
         cursor = conn.cursor()
-        cursor.execute("select * from xichao_theme order by tid DESC limit 1")
+        cursor.execute("select * from xichao_article order by id DESC limit 1")
         data=None
         try:
             maxtid=cursor.fetchone()[0]
@@ -105,24 +105,27 @@ def upload_file():
             conn.commit()
             cursor.close() 
             conn.close()
-            return '<script type="text/javascript" >alert("uploaded!");</script>'
+            return "<h1>提交成功</h1><br/><a href='../admin'>返回继续提交</a>"
             
         return render_template("upload.html",maxtid=maxtid)
     else:
         abort(403,"permission denied")
 
-@app.route('/display', methods=['GET', 'POST'])
-def uploaded():
+@app.route('/display/<id>', methods=['GET', 'POST'])
+def uploaded(id):
     conn = MySQLdb.connect(host='localhost', user='root',passwd='',charset="utf8") 
     conn.select_db('xichao_wechat');
     cursor = conn.cursor()
-    cursor.execute("select * from xichao_article order by id DESC limit 1")
-    data=cursor.fetchone()
-    if data:
-        tid=data[0]
-        text=data[1]
-    return text
-   
+    try:
+        cursor.execute("select * from xichao_article where id="+id)
+        data=cursor.fetchone()
+        if data:
+            tid=data[0]
+            text=data[1]
+        return text
+    except:
+        abort(404,"can't find article")
+
 @app.route('/comment', methods=['GET', 'POST'])
 def comment():
     conn = MySQLdb.connect(host='localhost', user='root',passwd='',charset="utf8") 
