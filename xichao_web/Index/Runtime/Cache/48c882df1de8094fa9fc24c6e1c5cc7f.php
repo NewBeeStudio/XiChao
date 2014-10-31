@@ -8,21 +8,14 @@
     <meta name="description" content="" />
     <meta name="keywords" content="" />
     <meta name="author" content="Nee Bee Studio" />
+
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Css/service.css">
     <link rel="stylesheet" type="text/css" href="__PUBLIC__/Css/header.css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-    <title>曦潮理念</title>
-
-    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Css/inputstyle.css">
-    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Css/button.css">
-    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Css/concept.css">
-    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Css/jquery-ui.css">
     <link rel="stylesheet" type="text/css" href="__PUBLIC__/Css/footer.css" />
-    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Css/form.css" />
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Css/home_bookstore.css"/>
 
-    <script src="__PUBLIC__/Js/jquery.min.js"></script>
-    <script src="__PUBLIC__/Js/jquery-ui.min.js"></script>
-    <script src="__PUBLIC__/Js/formslide.js"></script>
+    <title>曦潮服务</title>
+
 <!--
     <title>曦潮书店 | 曦潮叶子</title>
     
@@ -42,9 +35,8 @@
 
 <body>
     <div class="container">
-        <div class="main_page">
 <!--###################################header###################################-->
-            <!--###################################header###################################-->
+        <!--###################################header###################################-->
 <div class="head">
     <a class="login" href="__APP__/Login/index">登陆</a>
     <a class="register" href="__APP__/Register/index">注册</a>
@@ -61,33 +53,44 @@
     <hr class="down">
 </div>  
 <!--###################################conception#####################################-->
-                <div id="conception">    
-                    <div id="navigation">
-                        o 首页 - 曦潮书店
-                    </div>
-
-                    <div id="title">
-                        曦潮理念
-                    </div>
-
-                    <div>
-                        <div id="image1">
-                            "本然如初，当下即是"
-                        </div>
-                        <img src="__PUBLIC__/Images/conception_1.png">
-                    </div>
-
-                    <div>
-                        <div id="image2">
-                            参与构建校园人文生活的常态
-                        </div>
-                        <img src="__PUBLIC__/Images/conception_2.png">
-                    </div>
-
-                    <div ></div>
+            <div id="service">    
+                <div id="home_bookstore_header">
+                    <p id="home_bookstore_little_title">○ 首页 - 曦潮书店</p>
+                    
+                    <div style="height:10px;"></div>
+                    
+                    <p id="home_bookstore_title">曦潮服务</p>
                 </div>
+
+                <!--top>-->
+                <div id="top">
+                    <span id="top-left">
+                        <img src="__PUBLIC__/Images/service-top-left.png">
+                    </span>
+
+                    <span id="top-right">
+                        <img src="__PUBLIC__/Images/service-top-right.png">
+                    </span>
+                <div>
+
+                <!--top>-->
+                <div id="middle">
+                    <img src="__PUBLIC__/Images/service-middle.png">
+                </div>
+
+                <!--bottom-->
+                <div id="bottom">
+                    <span id="bottom-left">
+                        <img src="__PUBLIC__/Images/service-bottom-left.png">
+                    </span>
+
+                    <span id="bottom-right">
+                        <img src="__PUBLIC__/Images/service-bottom-right.png">
+                    </span>
+                </div>
+            </div>
 <!--###################################footer###################################--> 
-            <!--###################################footer###################################-->
+        <!--###################################footer###################################-->
 <hr>
 <div class="footer-body">
     <a id="footer_item1" href="#">关于我们</a>
@@ -100,7 +103,6 @@
     </div>  
 </div>   
 
-        </div>
     </div>
 </body>
 

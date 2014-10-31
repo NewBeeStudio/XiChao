@@ -50,7 +50,7 @@
                 <a href="__APP__/Concept/index">
                     <img id="home_bookstore_body_block2" src="__PUBLIC__/Images/block2.png"  alt="曦潮理念" />
                 </a>
-                <a href="##########">
+                <a href="__APP__/Service/index">
                     <img id="home_bookstore_body_block3" src="__PUBLIC__/Images/block3.png"  alt="曦潮服务" />
                 </a>
                 <a href="##########">

@@ -35,8 +35,13 @@
                 <a href="__APP__/Concept/index">
                     <img id="home_bookstore_body_block2" src="__PUBLIC__/Images/bookstore_block2.png"  alt="曦潮理念" />
                 </a>
+<<<<<<< HEAD:xichao_web/Index/Tpl/BookStore/index.html~
                 <a href="##########">
                     <img id="home_bookstore_body_block3" src="__PUBLIC__/Images/bookstore_block3.png"  alt="曦潮服务" />
+=======
+                <a href="__APP__/Service/index">
+                    <img id="home_bookstore_body_block3" src="__PUBLIC__/Images/block3.png"  alt="曦潮服务" />
+>>>>>>> 6b8ea7b38809acccf83a871955bb25d2ee4fad2f:xichao_web/Index/Tpl/Bookstore/index.html
                 </a>
                 <a href="__APP__/Concept/index">
                     <img id="home_bookstore_body_block4" src="__PUBLIC__/Images/bookstore_block4.png"  alt="实体店面" />

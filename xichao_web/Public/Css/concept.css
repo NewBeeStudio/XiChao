@@ -1,15 +1,16 @@
-﻿#conception{
+﻿
+#conception{
     margin-left:auto;
     margin-right: auto;
-
     width: 82%;
-    font-family: '宋体','Microsoft Yahei', '微软雅黑';
 }
 
+/*
 #navigation{
     margin-top: 35px;
-    font-size: 20px; 
+    font-size: 19px; 
 }
+
 
 #title{
     margin-left: 326px;
@@ -17,6 +18,7 @@
     font-weight: bold;
 }
 
+*/
 #image1{
     margin-top: 30px;
     font-size: 30px;
