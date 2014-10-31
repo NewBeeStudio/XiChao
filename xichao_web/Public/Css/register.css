@@ -15,7 +15,7 @@
 }
 #register_content{
 	width:787px;
-	height:200px;
+	height:500px;
 	margin-left: auto;
 	margin-right: auto; 
 }
@@ -70,4 +70,15 @@
 	margin-right: auto; 
 	font-family: SimSun;
 	font-size: 14pt;
+}
+
+#register_email{
+	width: 226px;
+	height: 25px;
+}
+
+#register_verify{
+	width: 152px;
+	height: 25px;
+
 }

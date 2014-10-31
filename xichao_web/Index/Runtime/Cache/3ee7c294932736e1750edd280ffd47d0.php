@@ -56,12 +56,12 @@
 						<table class="register_content_position">
 							<tr>
 								<td>电子邮箱：</td>
-								<td colspan="2"><input type="" name="register_email"></td>
+								<td colspan="2"><input type="text" id="register_email" name="register_email"></td>
 								<td></td>
 							</tr>
 							<tr>
 								<td>验证码：</td>
-								<td><input type="" name="register_verify"></td>
+								<td><input type="text" id="register_verify" name="register_verify"></td>
 								<td><img src="__APP__/Common/verify" onclick="show(this)"></td>
 								<td><font>看不清楚？换图一张</font></td>
 							</tr>   
