@@ -1,0 +1,73 @@
+#register_header{
+	width:787px;
+	height:220px;
+	margin-left: auto;
+	margin-right: auto; 
+
+}
+
+#register_hint{
+	width:787px;
+	height:120px;
+	margin-left: auto;
+	margin-right: auto; 
+
+}
+#register_content{
+	width:787px;
+	height:200px;
+	margin-left: auto;
+	margin-right: auto; 
+}
+
+#register_title{
+	position: absolute;
+	margin-left: 200px;
+	font-size: 17pt;
+	margin-top: 160px;
+}
+
+#register_hint_1{
+	position: absolute;
+	margin-left: 80px;
+	color: black;
+	font-size: 14pt;
+}
+
+#register_hint_2{
+	position: absolute;
+	margin-left: 340px;
+	color: gray;
+	font-size: 14pt;
+}
+
+#register_hint_3{
+	position: absolute;
+	margin-left: 620px;
+	color: gray;
+	font-size: 14pt;
+}
+
+#register_progress_bar_gray{
+	margin-top: 23px;
+	position: absolute;
+	height: 2px;
+	width: 787px;
+	background-color: gray;
+}
+
+#register_progress_bar_blue{
+	margin-top: 23px;
+	position: absolute;
+	height: 2px;
+	width: 0px;
+	margin-left: 80px;
+	background-color: blue;
+}
+
+.register_content_position{
+		margin-left: auto;
+	margin-right: auto; 
+	font-family: SimSun;
+	font-size: 14pt;
+}

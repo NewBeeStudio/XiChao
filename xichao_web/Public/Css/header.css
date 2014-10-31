@@ -22,7 +22,7 @@ body{
 	margin-right: auto;
 	margin-top: 0px;
 	margin-bottom: 0px;
-	background-color:white;
+	background-color: white;
 }
 
 .main_page{
@@ -30,6 +30,13 @@ body{
 	padding-top: 0px;
 	padding-right: 0px;
 	padding-bottom: 20px;
+}
+
+.main_page_new{
+	width:787px;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #CBE8EF;
 }
 
 .head{

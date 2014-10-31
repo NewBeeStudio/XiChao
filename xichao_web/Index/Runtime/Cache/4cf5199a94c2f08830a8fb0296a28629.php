@@ -19,7 +19,6 @@
 
 <body>
     <div class="container">
-
 <!--###################################header###################################-->
         <!--###################################header###################################-->
 <div class="head">
@@ -37,7 +36,6 @@
     <a id="header_item5" href="__APP__/Recruit/index">招募</a>
     <hr class="down">
 </div>  
-        
         <div id="home_bookstore">
             <div id="home_bookstore_header">
                 <p id="home_bookstore_little_title">○ 首页 - 曦潮书店</p>
@@ -60,8 +58,8 @@
                 </a>
             </div>
         </div>
-        
 <!--###################################footer###################################--> 
+<<<<<<< HEAD
         <!--###################################footer###################################-->
 <hr>
 <div class="footer-body">
@@ -78,6 +76,22 @@
            
            
         </div>
+=======
+        <!--###################################footer###################################-->
+<hr>
+<div class="footer-body">
+    <a id="footer_item1" href="#">关于我们</a>
+    <a id="footer_item2" href="#" >联系我们</a>
+    <a id="footer_item3" href="#" >加入我们</a>
+    <a id="footer_item4" href="#" >服务声明</a>
+</div>   
+<div id="copyright">
+    <div><b>Copyright©曦潮2014，All Right Reserved|沪ICP备xxxxxx号</b>
+    </div>  
+</div>   
+      
+    </div>
+>>>>>>> 1f8b1d2f140b94df2a6405b48a36b7fd83598080
 </body>
 
 
