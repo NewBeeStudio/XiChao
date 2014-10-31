@@ -4,10 +4,17 @@
     width: 82%;
 }
 
+#home_bookstore_little_title{
+    position: absolute;
+    font-size: 19pt;
+    margin-left: 10px; 
+    margin-top: 45px;     
+}
+
 #home_bookstore_title{
     font-size: 35px;
-    font-weight: bold;
     text-align: center;
+    margin-top: 50px; 
 }
 
 #home_bookstore_header{
@@ -23,7 +30,7 @@
 }
 
 #home_bookstore_body{
-    margin-top: 70px;
+    margin-top: 80px;
     margin-bottom: 140px;
 }
 

@@ -4,7 +4,7 @@
             	width: 82%;
         }
         #header{
-            font-family: '宋体','Microsoft Yahei', '微软雅黑';
+
             color: #6699ff;
             margin-bottom: 20px;
         }
@@ -16,9 +16,9 @@
             background-image: url("../Images/brief-intro.jpg");
         }
         #full-intro{
-            font-family: '宋体','Microsoft Yahei', '微软雅黑';
+
             font-size: 25px;            
-            font-weight: bold;
+
             margin-bottom: 35px;
         }
         

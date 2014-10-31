@@ -43,8 +43,8 @@
 </div>   
 <div class="nav_row">
     <hr class="up">
-    <a id="header_item0" href="#">首页</a>
-    <a id="header_item1" href="#">曦潮书店</a>
+    <a id="header_item0" href="__APP__/Index/index">首页</a>
+    <a id="header_item1" href="__APP__/BookStore/index">曦潮书店</a>
     <a id="header_item2" href="#">会员</a>
     <a id="header_item3" href="#">人文</a>
     <a id="header_item4" href="#">活动</a>

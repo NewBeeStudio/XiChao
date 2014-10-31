@@ -1,28 +1,24 @@
-﻿        #jiguangpianyu{
-            margin-left:auto;
-            margin-right: auto;
-            width: 82%;
-        }
-        #header{
-            font-family: '宋体','Microsoft Yahei', '微软雅黑';
-            color: #6699ff;
-            margin-bottom: 20px;
-        }
-        #brief-intro{
-            height: 250px;
-            border: solid 2px #000;
-            margin-bottom: 45px;
-            font-family: SimHei;
-            font-size: 50px;
-            padding-top: 50px;
-            line-height: 92px;
-            text-align: center;
-            background-image: url("../Images/3rd_jiguang.png");
-        }
-        #full-intro{
-            font-family: '宋体','Microsoft Yahei', '微软雅黑';
-            font-size: 25px;            
-            font-weight: bold;
-            margin-bottom: 35px;
-        }
+﻿#jiguangpianyu{
+    margin-left:auto;
+    margin-right: auto;
+    width: 82%;
+}
+#header{
+    color: #6699ff;
+    margin-bottom: 20px;
+}
+#brief-intro{
+    height: 250px;
+    border: solid 2px #000;
+    margin-bottom: 45px;
+    font-size: 50px;
+    padding-top: 50px;
+    line-height: 92px;
+    text-align: center;
+    background-image: url("../Images/3rd_jiguang.png");
+}
+#full-intro{
+    font-size: 25px;            
+    margin-bottom: 35px;
+}
         
