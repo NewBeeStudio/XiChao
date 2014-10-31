@@ -14,10 +14,27 @@
 
 }
 #register_content{
+	position: relative;
 	width:787px;
 	height:500px;
 	margin-left: auto;
 	margin-right: auto; 
+	overflow: hidden;
+}
+
+#register_content_1{
+	position: absolute;
+	margin-left: 137px;
+}
+
+#register_content_2{
+	position: absolute;
+	margin-left: 1034px;
+}
+
+#register_content_3{
+	position: absolute;
+	margin-left: 1867px;
 }
 
 #register_title{
@@ -29,25 +46,25 @@
 
 #register_hint_1{
 	position: absolute;
-	margin-left: 80px;
+	margin-left: 180px;
 	color: black;
 	font-size: 14pt;
 }
 
 #register_hint_2{
 	position: absolute;
-	margin-left: 340px;
+	margin-left: 440px;
 	color: gray;
 	font-size: 14pt;
 }
-
+/*
 #register_hint_3{
 	position: absolute;
 	margin-left: 620px;
 	color: gray;
 	font-size: 14pt;
 }
-
+*/
 #register_progress_bar_gray{
 	margin-top: 23px;
 	position: absolute;
@@ -61,7 +78,7 @@
 	position: absolute;
 	height: 2px;
 	width: 0px;
-	margin-left: 80px;
+	margin-left: 180px;
 	background-color: blue;
 }
 
@@ -81,4 +98,55 @@
 	width: 152px;
 	height: 25px;
 
+}
+
+#register_next{
+	margin-left: auto;
+	margin-right: auto;
+
+	width:154px;
+	height:35px;
+}
+
+.register_next_button{
+
+	width:154px;
+	height:35px;
+	background-color: #A4D3EE;
+	font-family: SimSun;
+	font-size: 14pt;
+	border-radius:8px;
+}
+
+#register_password{
+	height: 25px;
+}
+
+#register_repassword{
+	height: 25px;
+}
+
+#register_username{
+	height: 25px;
+}
+
+#register_success_1{
+	margin-left: auto;
+	margin-right: auto;
+
+	width:90px;
+	height:22px;
+}
+
+#register_success_2{
+	margin-left: auto;
+	margin-right: auto;
+
+	width:200px;
+	height:22px;
+}
+
+.register_success_words{
+		font-family: SimSun;
+	font-size: 14pt;
 }
