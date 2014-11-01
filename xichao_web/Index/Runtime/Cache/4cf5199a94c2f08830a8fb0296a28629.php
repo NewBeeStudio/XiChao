@@ -14,7 +14,7 @@
     <link rel="stylesheet" type="text/css" href="__PUBLIC__/Css/home_bookstore.css" />
 
 
-    <title>曦潮书店 | 首页</title>
+    <title>曦潮书店 | 曦潮书店</title>
 </head>
 
 <body>
@@ -44,17 +44,17 @@
                 <hr id="home_bookstore_header_down">
             </div>
             <div id="home_bookstore_body">
-                <a href="##########">
-                    <img id="home_bookstore_body_block1" src="__PUBLIC__/Images/block1.png"  alt="曦潮故事" />
+                <a href="__APP__/Story/index">
+                    <img id="home_bookstore_body_block1" src="__PUBLIC__/Images/bookstore_block1.png"  alt="曦潮故事" />
                 </a>
                 <a href="__APP__/Concept/index">
-                    <img id="home_bookstore_body_block2" src="__PUBLIC__/Images/block2.png"  alt="曦潮理念" />
+                    <img id="home_bookstore_body_block2" src="__PUBLIC__/Images/bookstore_block2.png"  alt="曦潮理念" />
                 </a>
                 <a href="__APP__/Service/index">
-                    <img id="home_bookstore_body_block3" src="__PUBLIC__/Images/block3.png"  alt="曦潮服务" />
+                    <img id="home_bookstore_body_block3" src="__PUBLIC__/Images/bookstore_block3.png"  alt="曦潮服务" />
                 </a>
-                <a href="##########">
-                    <img id="home_bookstore_body_block4" src="__PUBLIC__/Images/block4.png"  alt="实体店面" />
+                <a href="__APP__/Concrete/index">
+                    <img id="home_bookstore_body_block4" src="__PUBLIC__/Images/bookstore_block4.png"  alt="实体店面" />
                 </a>
             </div>
         </div>
