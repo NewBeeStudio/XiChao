@@ -26,13 +26,18 @@
 <!--###################################header###################################-->
             <!--###################################header###################################-->
 <div class="head">
+    <?php if($_SESSION['nick'] == null): ?><a class="login" href="__APP__/Login/index">登录</a><a class="register" href="__APP__/Register/index">注册</a>
+        <?php else: ?><a class="login" href="#"><?php echo ($_SESSION['nick']); ?></a><a class="register" href="__APP__/Logout/logout">注销</a><?php endif; ?>
+    <!--
     <a class="login" href="__APP__/Login/index">登陆</a>
     <a class="register" href="__APP__/Register/index">注册</a>
+    -->
+
     <a class="logo" href="__APP__/Index/index"><img height="75px" src="__PUBLIC__/Images/rt_logo.png"></a>
 </div>   
 <div class="nav_row">
     <hr class="up">
-    <a id="header_item0" href="__APP__/Index/index">首页</a>
+    <a id="header_item0" href="__APP__/Index/indexStatic">首页</a>
     <a id="header_item1" href="__APP__/BookStore/index">曦潮书店</a>
     <a id="header_item2" href="#">会员</a>
     <a id="header_item3" href="#">人文</a>
@@ -53,13 +58,13 @@
 				<hr id="register_progress_bar_blue">
 			</div>
 			<div id="register_content">
-				<form action="#" method="post">
+				<form action="__URL__/register" method="post">
 					
 					<div id="register_content_1">
 						<table class="register_content_position">
 							<tr>
 								<td style="text-align:right;">电子邮箱：</td>
-								<td colspan="2"><input type="text" id="register_email" name="register_email"></td>
+								<td colspan="2"><input type="text" id="register_email" name="email"></td>
 								<td></td>
 							</tr>
 							<tr>
@@ -79,16 +84,16 @@
 						<table class="register_content_position">
 							<tr>
 								<td style="text-align:right;">设置登录密码：</td>
-								<td><input type="password" id="register_password" name="register_password"></td>
+								<td><input type="password" id="register_password" name="password"></td>
 							</tr>
 
 							<tr>
 								<td style="text-align:right;">重复密码：</td>
-								<td><input type="password" id="register_repassword" name="register_repassword"></td>
+								<td><input type="password" id="register_repassword" name="repassword"></td>
 							</tr>
 							<tr>
 								<td style="text-align:right;">设置会员名：</td>
-								<td><input type="text" id="register_username" name="register_username"></td>
+								<td><input type="text" id="register_username" name="nick"></td>
 							</tr>
 						</table>
 						<div style="height:50px"></div>

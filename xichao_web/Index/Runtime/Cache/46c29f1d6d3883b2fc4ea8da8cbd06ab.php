@@ -32,8 +32,13 @@
 <!--###################################header###################################-->
             <!--###################################header###################################-->
 <div class="head">
+    <?php if($_SESSION['nick'] == null): ?><a class="login" href="__APP__/Login/index">登录</a><a class="register" href="__APP__/Register/index">注册</a>
+        <?php else: ?><a class="login" href="#"><?php echo ($_SESSION['nick']); ?></a><a class="register" href="__APP__/Logout/logout">注销</a><?php endif; ?>
+    <!--
     <a class="login" href="__APP__/Login/index">登陆</a>
     <a class="register" href="__APP__/Register/index">注册</a>
+    -->
+
     <a class="logo" href="__APP__/Index/index"><img height="75px" src="__PUBLIC__/Images/rt_logo.png"></a>
 </div>   
 <div class="nav_row">
