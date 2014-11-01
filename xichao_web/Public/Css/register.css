@@ -16,7 +16,7 @@
 #register_content{
 	position: relative;
 	width:787px;
-	height:500px;
+	height:400px;
 	margin-left: auto;
 	margin-right: auto; 
 	overflow: hidden;
@@ -28,15 +28,17 @@
 }
 
 #register_content_2{
+	width: 330px;
+	height: 192px;
 	position: absolute;
 	margin-left: 1034px;
 }
-
+/*
 #register_content_3{
 	position: absolute;
 	margin-left: 1867px;
 }
-
+*/
 #register_title{
 	position: absolute;
 	margin-left: 200px;
@@ -92,11 +94,15 @@
 #register_email{
 	width: 226px;
 	height: 25px;
+	font-size: 20pt;
+	font-family: SimSun;
 }
 
 #register_verify{
 	width: 152px;
 	height: 25px;
+	font-size: 20pt;
+	font-family: SimSun;
 
 }
 
@@ -120,14 +126,23 @@
 
 #register_password{
 	height: 25px;
+	width: 146px;
+	font-size: 20pt;
+	font-family: SimSun;
 }
 
 #register_repassword{
 	height: 25px;
+	width: 146px;
+	font-size: 20pt;
+	font-family: SimSun;
 }
 
 #register_username{
 	height: 25px;
+	width: 146px;
+	font-size: 20pt;
+	font-family: SimSun;
 }
 
 #register_success_1{

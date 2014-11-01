@@ -10,6 +10,7 @@
     
     <link rel="stylesheet" type="text/css" href="__PUBLIC__/Css/register.css" />
     <link rel="stylesheet" type="text/css" href="__PUBLIC__/Css/header.css" />
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Css/footer.css" />
 
     <script src="__PUBLIC__/Js/jquery.min.js"></script>
     <script src="__PUBLIC__/Js/register.js"></script>
@@ -21,7 +22,10 @@
 <body>
 
 	<div class="container">
-		<div class="main_page_new">
+		<div class="main_page">
+<!--###################################header###################################-->
+            <include file="Public:header" />
+
 			<div id="register_header">
 				<img src="__PUBLIC__/Images/myXichao.png" style="position:absolute">
 				<p id="register_title">账户注册</P>
@@ -94,9 +98,11 @@
 					-->
 				</form>
 			</div>
+<!--###################################footer###################################--> 
+        	<include file="Public:footer" />
 		</div>
 	</div>
-
+</body>
 <script>
 	function show(obj){
 		obj.src="__APP__/Common/verify/random/"+Math.random();
