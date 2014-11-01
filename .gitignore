@@ -2,4 +2,4 @@
 
 *.log
 
-xichao_web/Index/Runtime/Cache/*
+xichao_web/Index/Runtime/*
