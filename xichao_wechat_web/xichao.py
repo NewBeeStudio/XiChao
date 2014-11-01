@@ -37,8 +37,10 @@ def allowed_file(filename):
 def index():
     return render_template('index.html')
 
-@app.route('/admin-login/', methods=['GET', 'POST'])
+@app.route('/admin/login/', methods=['GET', 'POST'])
 def login():
+    if session and session['logged_in']:
+        return redirect('/admin/')
     error = None
     if request.method == 'POST':
         print request.form['username']
@@ -51,7 +53,7 @@ def login():
         else:
             session['logged_in'] = True
             #flash('You were logged in')
-            return redirect('/upload/')
+            return redirect('/admin/')
     return render_template('admin-login.html', error=error)
 
 @app.route('/logout')
@@ -99,13 +101,32 @@ def upload_file():
             maxtid=0
 
         if request.method == 'POST':
-            text=request.form["editor1"]
-            sql = "insert into xichao_article(article) values(%s)"
-            cursor.execute(sql,text)
-            conn.commit()
-            cursor.close() 
-            conn.close()
-            return "<h1>提交成功</h1><br/><a href='../admin'>返回继续提交</a>"
+            try:
+                tid=request.form["tid_input"]
+            except:
+                tid=None
+            if tid:
+                text=request.form["editor2"]
+                sql ="update xichao_article set article=%s where id=%s"
+                par=(text,tid)
+                print text
+                cursor.execute(sql,par)
+                cursor.close() 
+                conn.commit()
+                conn.close()
+                return "<h1>提交成功</h1><br/><a href='../admin'>返回继续提交</a>"
+            else:    
+                try:
+                    text=request.form["editor1"]
+                except:
+                    abort(404,"please input id")
+                sql = "insert into xichao_article(article) values(%s)"
+                print text
+                cursor.execute(sql,text)
+                conn.commit()
+                cursor.close() 
+                conn.close()
+                return "<h1>提交成功</h1><br/><a href='../admin'>返回继续提交</a>"
             
         return render_template("upload.html",maxtid=maxtid)
     else:
