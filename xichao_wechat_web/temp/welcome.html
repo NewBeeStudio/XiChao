@@ -10,6 +10,9 @@
 		$(document).ready(function(){  
 					document.all("page1").style["width"]=document.body.clientWidth;
 					document.all("page1").style["height"]=document.body.clientHeight;
+					$('#words').fadeOut(6000);
+					//setTimeout(function(){$('.words2').css("display","block");},4000);
+					setTimeout($('.words2').fadeIn(3000),3000);
 					return;  
 				}) 
 		</script>
@@ -24,18 +27,70 @@
 				to{-webkit-filter: blur(10px);}
 				
 			}
+			#back_img
+			{
+				position:absolute;
+				width:100%;
+			}
+			#words{
+				position: absolute;
+				width:72%;
+				padding-top:13%;
+				padding-left:14%;
+				padding-right:14%;
+				padding:auto;
+				padding-top: 13%;
+				z-index: 1;
+			}
+			.words2{
+				position:absolute;
+				width:70%;
+				margin-left:15%;
+				margin-right:15%;
+				text-align: center;
+				z-index:2;
+				font-weight: bold;
+				display:none;
+				
+			}
+			#first{
+				padding-top:76%;
+				font-family: 宋体;
+				font-size: 14pt;
+				padding-bottom:1.4%;
+				border-bottom: 2px solid #000;
+			}
+			#second{
+				padding-top:89%;
+				font-family: 宋体;
+				font-size: 9pt;
+			}
+
+			
 			</style>
-			<div>
-				<img name=bg src="./static/image/welcome/1.png" alt="image" 
-					style="
-					padding:0px;
-					width:100%;
-					background-position:center;
-					background-repeat:no-repeat;
-					-webkit-animation:blur 3s;
-					-webkit-animation-delay: 1s;
-					"
+			<div >
+					<div id="first" class="words2">青春校园&nbsp&nbsp人文曦潮</div>
+					<div id="second" class="words2">构建校园人文生活的常态</div>
+					<img id="words" src="./static/image/welcome/4.png">
+					<img id="back_img" src="./static/image/welcome/2.png"
+						style="
+						-webkit-animation:blur 3s;
+						-webkit-animation-delay: 1s;
+						-webkit-animation-fill-mode:forwards; 
+						"
 					>
+					<img name=bg src="./static/image/welcome/3.png" alt="image" 
+						style="
+						padding-left:25%;
+						padding-right:25%;
+						padding-top:60%;
+						width:50%;
+						background-repeat:no-repeat;
+						-webkit-animation:blur 3s;
+						-webkit-animation-delay: 1s;
+						"
+					>
+					
 			</div>
 		</div>
     </div>
