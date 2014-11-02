@@ -354,11 +354,13 @@ function changePage (argument) {
 	if(!no_listen){
 		mouseX = event.clientX;
 		mouseY = event.clientY;
-		if(screen_height * 0.4 < mouseY && mouseY < screen_height * 0.7 && mouseX < screen_width * 0.2){
+		//if(screen_height * 0.4 < mouseY && mouseY < screen_height * 0.7 && mouseX < screen_width * 0.2){
+		if(mouseX < screen_width * 0.48){
 			left = true;
 			$(".previous").css("opacity","0.8");
 		}
-		else if (screen_height * 0.4 < mouseY && mouseY < screen_height * 0.7 && mouseX > screen_width * 0.8) {
+		//else if (screen_height * 0.4 < mouseY && mouseY < screen_height * 0.7 && mouseX > screen_width * 0.8) {
+		else if (mouseX > screen_width * 0.52) {
 			right = true;
 			$(".next").css("opacity","0.8");
 		}

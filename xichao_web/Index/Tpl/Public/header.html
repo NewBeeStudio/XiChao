@@ -1,12 +1,18 @@
 <!--###################################header###################################-->
 <div class="head">
+    <if condition="$_SESSION['nick'] eq null"><a class="login" href="__APP__/Login/index">登录</a><a class="register" href="__APP__/Register/index">注册</a>
+        <else /><a class="login" href="#">{$_SESSION['nick']}</a><a class="register" href="__APP__/Logout/logout">退出</a>
+    </if>
+    <!--
     <a class="login" href="__APP__/Login/index">登陆</a>
     <a class="register" href="__APP__/Register/index">注册</a>
+    -->
+
     <a class="logo" href="__APP__/Index/index"><img height="75px" src="__PUBLIC__/Images/rt_logo.png"></a>
 </div>   
 <div class="nav_row">
     <hr class="up">
-    <a id="header_item0" href="__APP__/Index/index">首页</a>
+    <a id="header_item0" href="__APP__/Index/indexStatic">首页</a>
     <a id="header_item1" href="__APP__/BookStore/index">曦潮书店</a>
     <a id="header_item2" href="#">会员</a>
     <a id="header_item3" href="#">人文</a>

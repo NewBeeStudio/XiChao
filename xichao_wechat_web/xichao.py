@@ -198,14 +198,16 @@ def article(id):
 
 @app.route('/comment', methods=['GET', 'POST'])
 def comment():
-    conn = MySQLdb.connect(host='localhost', user='root',passwd='',charset="utf8") 
+    conn = MySQLdb.connect(host='localhost', user='root',passwd='1234',charset="utf8") 
     conn.select_db('xichao_wechat');
     cursor = conn.cursor()
     cursor.execute("select * from xichao_comments order by tid")
     data=[]
+    cur=1
     while True:
         try:
-            data+=[cursor.fetchone()[1]]
+            data+=[{'text':str(cur)+'.'+cursor.fetchone()[1]}]
+            cur+=1
         except:
             break
     cursor.execute("select count(*) as value from xichao_comments ")
@@ -219,19 +221,14 @@ def comment():
             sql = "insert into xichao_comments(tid,comment) values (%s,%s)"
             cursor.execute(sql,order)
             num+=1
-    s=''
-    cur=1
-    for i in data:
-        s+=str(cur)+'.'+i+'d%2S'
-        cur+=1
     if cm!='':
-        s+=str(cur)+'.'+cm+'d%2S'
-    s=s.rstrip('d%2S')
+       data+=[{'text':str(cur)+'.'+cm}]
+
     conn.commit()
     cursor.close() 
     conn.close()   
         
-    return render_template("comment.html",comment=s,number=num)
+    return render_template("comment.html",comments=data,number=num)
 
 if __name__ == "__main__":
     app.run(debug=True)
