@@ -32,14 +32,19 @@
 <!--###################################header###################################-->
             <!--###################################header###################################-->
 <div class="head">
+    <?php if($_SESSION['nick'] == null): ?><a class="login" href="__APP__/Login/index">登录</a><a class="register" href="__APP__/Register/index">注册</a>
+        <?php else: ?><a class="login" href="#"><?php echo ($_SESSION['nick']); ?></a><a class="register" href="__APP__/Logout/logout">注销</a><?php endif; ?>
+    <!--
     <a class="login" href="__APP__/Login/index">登陆</a>
     <a class="register" href="__APP__/Register/index">注册</a>
+    -->
+
     <a class="logo" href="__APP__/Index/index"><img height="75px" src="__PUBLIC__/Images/rt_logo.png"></a>
 </div>   
 <div class="nav_row">
     <hr class="up">
-    <a id="header_item0" href="#">首页</a>
-    <a id="header_item1" href="#">曦潮书店</a>
+    <a id="header_item0" href="__APP__/Index/indexStatic">首页</a>
+    <a id="header_item1" href="__APP__/BookStore/index">曦潮书店</a>
     <a id="header_item2" href="#">会员</a>
     <a id="header_item3" href="#">人文</a>
     <a id="header_item4" href="#">活动</a>

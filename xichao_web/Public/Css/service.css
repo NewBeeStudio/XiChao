@@ -1,0 +1,45 @@
+﻿
+#service{
+    margin-left:auto;
+    margin-right: auto;
+    width: 82%;
+}
+
+#top-left{
+    height: 392px;
+    width: 391px;
+}
+
+#top{
+    margin-top: 20px;
+}
+
+#top-left{
+    height: 392px;
+    width: 391px;
+}
+
+#top-right{
+    margin-left: 34px;
+    height: 416px;
+    width: 354px;
+}
+
+#middle{
+
+}
+
+#bottom{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+#bottom-left{
+    height: 289px;
+}
+
+
+#bottom-right{
+    margin: 6px;
+    width: 220px;
+}

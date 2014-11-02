@@ -1,14 +1,28 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>login</title>
+<!DOCTYPE html>
+<html lang="zh-cn">
 
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>曦潮书店 | 登录</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="Nee Bee Studio" />
+
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Css/login.css" />
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Css/footer.css" />
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Css/header.css" />
+
+
+    <script src="__PUBLIC__/Js/jquery.min.js"></script>
+    
 </head>
 
 
 
 <body>
+	<!--
 	<a href="__APP__/Index/index">首页</a></br>
 	<form action="__URL__/login" method="POST">
 		<label>用户名</label>
@@ -17,5 +31,44 @@
 		<input type="password" name="password"/></br>
 		<input type="submit" value="登录" />
 	</form>
+	-->
+	<div class="container">
+		<div class="main_page">
+<!--###################################header###################################-->
+            <include file="Public:header" />
+            <div id="login_image">
+            	<img src="__PUBLIC__/Images/login.jpg" id="login_image_1">
+            </div>
+            <div id="login_main">
+            	<div id="login_my_xichao">
+            		<img src="__PUBLIC__/Images/myXichao.png" style="position:absolute">
+            	</div>
+            	<div id="login_content">
+            		<form action="__URL__/login" method="post">
+            			<table>
+            				<tr>
+            					<td style="text-align:right;">用户名</td>
+            					<td style="padding:10px" colspan="2"><input type="text" name="email" id="login_username"></td>
+            				</tr>
+            				<tr>
+            					<td style="text-align:right;">密码</td>
+            					<td style="padding:10px" colspan="2"><input type="password" name="password" id="login_password"></td>
+            				</tr>
+            				<tr>
+            					<td> </td>
+            					<td style="padding:10px;" id="login_button"><input type="submit" name="login_submit" id="login_submit" value="登录"></td>
+            					<td style="font-size:10pt;line-height:20px;">
+            						<a href="#">忘记登录密码？</a><br>
+            						<a href="__APP__/Register/index">免费注册</a>
+            					</td>
+            				</tr>
+            			</table>
+            		</form>
+            	</div>
+            </div>
+<!--###################################footer###################################--> 
+        	<include file="Public:footer" />
+		</div>
+	</div>
 </body>
 </html>

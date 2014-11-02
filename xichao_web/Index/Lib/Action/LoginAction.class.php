@@ -13,19 +13,21 @@ class LoginAction extends Action{
 
 		//登陆时进行自动验证
 		$rules=array(
-			array('username','require','用户名必须！'),
+			array('email','require','用户名必须！(用户名为你注册时所填邮箱)'),
 			array('password','require','密码必须！'),
 		);
 		$User=M('User');
 		if(!$User->validate($rules)->create()){
 			$this->error($User->getError());
 		}else{
-			$username=$_POST['username'];
+			$email=$_POST['email'];
 			//cookie('username',$username);
 			$password=md5($_POST['password']);
-			if($User->where("username ='$username' AND password = '$password'")->find()){
-				session('username',$username);
-				U('Person/index','','',true,true);
+			if($User->where("email ='$email' AND password = '$password'")->find()){
+				$nick=$User->where("email ='$email'")->getField("nick");
+				session('nick',$nick);
+				//U('Index/index','','',true,true);
+				$this->success('登录成功',U('Index/indexStatic'));
 			}
 			else{
 				$this->error('用户名或密码错误！');

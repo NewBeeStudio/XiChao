@@ -12,10 +12,10 @@ class RegisterAction extends Action{
 		if(!IS_POST) _404('页面不存在',U('index'));//debug开启时显示页面不存在，debug关闭时，自动跳转到index操作
 		$User=D('User');
 		if($User->create()){//create方法会自动验证和自动完成post提交的数据
-			session('username',$_POST['username']);
+			session('nick',$_POST['nick']);
 			$result=$User->add();
 			if($result){
-				$this->success('注册成功',U('Index/index'));
+				$this->success('注册成功',U('Index/indexStatic'));
 			}else{
 				$this->error('写入错误');
 			}
