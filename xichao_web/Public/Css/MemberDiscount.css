@@ -1,0 +1,84 @@
+﻿#MemberDiscount{
+    margin-left:auto;
+    margin-right: auto;
+    width: 82%;
+}
+
+#MemberDiscount_little_title{
+    position: absolute;
+    font-size: 13pt;
+    margin-left: 10px; 
+    margin-top: 45px;     
+}
+
+#MemberDiscount_big_title {
+    position: absolute;
+    margin-left: 10px;
+    margin-top: 85px;
+    font-size: 27pt;
+    color: #3366ff;
+    letter-spacing: 4px;
+}
+
+#MemberDiscount_title{
+    font-size: 30px;
+    text-align: center;
+    margin-top: 50px; 
+}
+
+#MemberDiscount_header{
+    height: 108px;
+/*    border-bottom: 2px solid #000;*/
+}
+
+#MemberDiscount_header_down{
+ 	width: 82%;
+	height:1.9px;
+	background-color:black;
+	margin-top: -20px;
+}
+
+#MemberDiscount_body{
+    margin-top: 80px;
+    margin-bottom: 140px;
+}
+
+#MemberDiscount_top_content{
+    margin-top:105px;
+    margin-left: 42px;
+    font-size: 20px;
+}
+
+#MemberDiscount_mid_img {
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+/*#buy_back_cat_img {
+    position: absolute;
+    margin-top: 88px;
+    margin-left: 183px;
+}*/
+
+#MemberDiscount_sub_topic {
+    position: relative;
+    z-index: 1;
+    font-size: 28px;
+    margin-left: 50px;
+    margin-top: 20px;
+    letter-spacing: 4px;
+    /*background-image: url("../Images/MemberDiscount_cat.png");*/
+}
+
+#MemberDiscount_sub_topic:before {
+    content:"";
+    position:absolute;
+    z-index:-1;
+    top:88px;
+    left:140px;
+    width: 260px;
+    height: 260px;
+    background-image: url("../Images/MemberDiscount_cat.png");
+}
+
+
