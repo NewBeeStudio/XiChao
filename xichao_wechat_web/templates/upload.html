@@ -62,11 +62,14 @@
             </ul>
               <div class="tab-content"> 
       <div class="tab-pane active" id="add"> 
-     <form action="" method=post enctype=form-data style="padding:20px;" id="new_form">
+     <form action="" method=post enctype=multipart/form-data style="padding:20px;" id="new_form">
      
             <textarea cols="80" id="editor1" name="editor1" rows="10"></textarea>
    
             <br />
+            列表标题:<input name="title" style="width:600px"><br />
+           选择列表缩略图:<input type=file name=image>
+          <br/>
             <br />
      
             <button type="button" class="btn btn-info" onclick="javascript:preview1();">预览</button>
@@ -92,11 +95,14 @@
       <div class="tab-pane" id="edit">
           
           <br/>
-          <form action="" method=post enctype=form-data style="padding:20px;" id="edit_form">
-            <h2>编辑第<input name="tid_input" style="width:100px">期：<br />
+          <form action="" method=post enctype=multipart/form-data style="padding:20px;" id="edit_form">
+            <h2>编辑第<input name="tid_input" style="width:100px">期：</h2><br />
             <textarea cols="80" id="editor2" name="editor2" rows="10"></textarea>
    
             <br />
+            列表标题:<input name="title" style="width:600px"><br />
+            选择列表缩略图:<input type=file name=image>
+          <br/>
             <br />
      
             <button type="button" class="btn btn-info" onclick="javascript:preview2();">预览</button>
@@ -109,6 +115,11 @@
           <h2>查看第<input id="tid_input" style="width:100px">期
         <button class="btn btn-primary" type="button" onclick="javascript:goto();">
                      查看
+                  </button></h2>
+                  <br />
+           <h2>删除第<input id="del_input" style="width:100px">期
+        <button class="btn btn-danger" type="button">
+                     删除
                   </button></h2>
                   <br />
                    

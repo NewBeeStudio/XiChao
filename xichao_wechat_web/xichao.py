@@ -35,7 +35,7 @@ def allowed_file(filename):
    
 @app.route("/")
 def index():
-    return render_template('index.html')
+    return render_template('welcome.html')
 
 @app.route('/admin/login/', methods=['GET', 'POST'])
 def login():
@@ -55,6 +55,11 @@ def login():
             #flash('You were logged in')
             return redirect('/admin/')
     return render_template('admin-login.html', error=error)
+
+@app.route('/list')
+def list():
+    return render_template('list.html')
+
 
 @app.route('/logout')
 def logout():
@@ -105,24 +110,52 @@ def upload_file():
                 tid=request.form["tid_input"]
             except:
                 tid=None
+            
+            
             if tid:
+                try:
+                    file = request.files['image']
+                except:
+                    abort(404,"please select a file")
+                if file and allowed_file(file.filename):
+                    file.filename=str(int(time()))+'.'+file.filename.rsplit('.', 1)[1]
+                    #save image
+                    image_url=UPLOAD_FOLDER+file.filename
+                    filename = secure_filename(file.filename)
+                    file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
                 text=request.form["editor2"]
-                sql ="update xichao_article set article=%s where id=%s"
-                par=(text,tid)
-                print text
+                title=request.form["title"]
+                sql ="REPLACE INTO XICHAO_ARTICLE(id,，title,image_path,article) values(%s,%s,%s,%s);"
+                par=(tid,title,image_url,text)
                 cursor.execute(sql,par)
                 cursor.close() 
                 conn.commit()
                 conn.close()
                 return "<h1>提交成功</h1><br/><a href='../admin'>返回继续提交</a>"
+
             else:    
                 try:
                     text=request.form["editor1"]
+                    try:
+                        file = request.files['image']
+                    except:
+                        abort(404,"please select a file")
                 except:
                     abort(404,"please input id")
-                sql = "insert into xichao_article(article) values(%s)"
-                print text
-                cursor.execute(sql,text)
+                if file and allowed_file(file.filename):
+                    file.filename=str(int(time()))+'.'+file.filename.rsplit('.', 1)[1]
+                    #save image
+                    image_url=UPLOAD_FOLDER+file.filename
+                    filename = secure_filename(file.filename)
+                    file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+                else:
+                    abort(404,'file error')
+                
+                title=request.form["title"]
+                print title
+                sql = "insert into xichao_article(title,image_path,article) values(%s,%s,%s)"
+                par=(title,image_url,text)
+                cursor.execute(sql,par)
                 conn.commit()
                 cursor.close() 
                 conn.close()
@@ -131,6 +164,7 @@ def upload_file():
         return render_template("upload.html",maxtid=maxtid)
     else:
         abort(403,"permission denied")
+
 
 @app.route('/display/<id>', methods=['GET', 'POST'])
 def uploaded(id):
@@ -146,6 +180,21 @@ def uploaded(id):
         return text
     except:
         abort(404,"can't find article")
+
+@app.route('/t/<id>')
+def article(id):
+    conn = MySQLdb.connect(host='localhost', user='root',passwd='',charset="utf8") 
+    conn.select_db('xichao_wechat')
+    cursor = conn.cursor()
+    text=''
+    try:
+        cursor.execute("select article from xichao_article where id="+id)
+        text=cursor.fetchone()[0]
+    except:
+        text='No article found'
+    print text
+    return render_template('article.html',article=text)
+
 
 @app.route('/comment', methods=['GET', 'POST'])
 def comment():
