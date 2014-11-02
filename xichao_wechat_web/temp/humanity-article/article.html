@@ -4,6 +4,12 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.css"/>
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.css"/>
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script src="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.js"></script>
 
@@ -20,22 +26,19 @@ $(document).ready(function(){
 
 <body>
 <!-- Home -->
-<div data-role="page" id="page1" style="background:url('../static/image/humanity/article-bg.png') 50% 0 no-repeat;background-size:cover; padding:0px;" >
-	
-	<div data-role="header">
-		<img src="../static/image/serve/title.png" alt="image"
-        style="
-        position: relative;padding:10px 50px;width:80%;height:5%;background-position:center;background-repeat: no-repeat;background-attachment:fixed;z-index=2;">
+<div data-role="page" id="page1" style="background:url('../static/image/humanity/article-bg2.png') 50% 0 no-repeat;background-size:cover;padding:0px;" >
 
-	</div>
 
-    <div data-role="content" style="background-size:cover;width:100%;padding:0px;height:100%;">
-        <div style=" height:500px; position: relative; border: 1px solid #b8b8b8; margin: 10%; ">
-        <style>  
-            @font-face {font-family:myFont; src:url('./方正小标宋简体.ttf');}  
-        </style>
+    <div data-role="header" style="opacity: 0; ">
+        <img src="../static/image/serve/title.png" alt="image" style="position: relative;padding:10px 50px;width:80%;height:5%;background-position:center;background-repeat: no-repeat;background-attachment:fixed;z-index=2;">
+    </div>
+    
+    <div data-role="content" style="background-size:cover;width:100%;padding:0px;height:100%;z-index=0;">
+        <div style=" height:500px; position: relative; border: 1px solid #b8b8b8; margin-left: 10%; margin-right: 10%; 
+        opacity: 0.75;">
+            
 
-		    <p style="font-family:myFont; font-size:6pt;">文｜张自东</p>
+            <p style="font-family:myFont; font-size:6pt;">文｜张自东</p>
             <p style="font-family:myFont; font-size:6pt;">电子信息与电气工程学院</p>
             <p style="font-family:SimHei; font-size:6pt;">
                 大二一直以来，总有一种民国情怀，总是感觉那时的人和物总有一种特别的风貌和魅力，总是在回望中思考和重新认识着历史和当下。同中国历史上春秋战国、魏晋南北朝等大多数乱世一样，民国在动荡不安的时代中也同样出现了百家争鸣、繁荣新潮的文化景象，我不知道这究竟是幸运抑或不幸，但这一切都按照自己的方式走了过去，剩下的就只能留给后人去评价了。
@@ -51,7 +54,7 @@ $(document).ready(function(){
             <div data-role="navbar" data-iconpos="top">
             <ul>
                 <li>
-                    <a href="#page1" data-transition="fade" data-theme="" data-icon="" class="ui-link ui-btn ui-btn-active"data-ajax="false">
+                    <a href="#pageX" data-transition="fade" data-theme="" data-icon=""data-ajax="false">
                         评论
                     </a>
                 </li>

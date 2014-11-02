@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.css"/>
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.js"></script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){  
+            document.all("page1").style["width"]=document.body.clientWidth;
+            document.all("page1").style["height"]=document.body.clientHeight;
+            return;  
+        }) 
+</script>
+
+</head>
+
+<body>
+<!-- Home -->
+<div data-role="page" id="page1" style="background:url('../static/image/humanity/article-bg.png') 50% 0 no-repeat;background-size:cover;padding:0px;" >
+
+	<div data-role="header" style="opacity: 0.75;">
+		<img src="../static/image/serve/title.png" alt="image" style="position: relative;padding:10px 50px;width:80%;height:5%;background-position:center;background-repeat: no-repeat;background-attachment:fixed;">
+	</div>
+	
+    <div data-role="content" id="scroller" style="background-size:cover;width:100%;padding:0px;height:100%;z-index=0;">
+        <div style=" height:500px; position: relative; border: 1px solid #b8b8b8; margin: 0%; text-align:center; opacity: 0.75;">
+        	<h1 >往期文章列表</h1>
+        	<ol data-role="listview" id="article_list" data-inset="false">
+				<li><a href="./article.html" >
+					<img src="../static/image/welcome/3.png"> 选我!test! </a></li>
+			    
+
+                <li><a href="ray.html"><img src="../static/image/welcome/3.png"> test </a></li>
+			    
+			</ol>
+        </div>
+    </div>
+
+    <div data-theme="a" data-role="footer" data-position="fixed">
+        <h3>
+            <div data-role="navbar" data-iconpos="top">
+            <ul>
+                <li>
+                    <a href="#page1" data-transition="fade" data-theme="" data-icon="" class="ui-link ui-btn ui-btn-active"data-ajax="false">
+                        人文曦潮
+                    </a>
+                </li>
+                <li>
+                    <a href="./serve.html" data-transition="fade" data-theme="" data-icon=""data-ajax="false">
+                        服务曦潮
+                    </a>
+                </li>
+                <li>
+                    <a href="./join.html" data-transition="fade" data-theme="" data-icon=""data-ajax="false">
+                        加入曦潮
+                    </a>
+                </li>
+            </ul>
+        </div>
+        </h3>
+    </div>
+
+</div>
+</body>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        var range = 200;             //距下边界长度/单位px
+        var elemt = 500;           //插入元素高度/单位px
+        var maxnum = 20;            //设置加载最多次数
+        var num = 0;
+        var totalheight = 0; 
+        var main = $("#content");                     //主体元素
+        var all_path="{{all_path}}".split(",");
+        var all_title="{{all_title}}".split(",");
+        var all_id="{{all_id}}".split(",");
+        //maxnum=all_path.length;
+        $(window).scroll(function(){
+            var srollPos = $(document).scrollTop();    //滚动条距顶部距离(页面超出窗口的高度)
+            
+             console.log("滚动条到顶部的垂直高度: "+$(document.getElementById("scroller")).scrollTop());
+             console.log("页面的文档高度 ："+$(document).height());
+             console.log('浏览器的高度：'+$(window).height());
+             console.log(maxnum);
+             //console.log(document.getElementById("article_list").innerHTML);
+             
+            totalheight = parseFloat($(window).height()) + parseFloat(srollPos);
+            if(($(window).height()-range) <= totalheight  && num != maxnum) {
+                console.log(document.getElementById("article_list").innerHTML);
+                document.getElementById("article_list").innerHTML=document.getElementById("article_list").innerHTML+"<li class=\"ui-li-has-thumb\"><a href=\"../display/"+all_id[num]+"\"><img src=\""+all_path[num]+"\">"+all_title[num]+"</a></li>";
+                num++;
+            }
+        });
+    });
+    </script>
+</html>
