@@ -1,10 +1,16 @@
 $(document).ready(function(){
 	var hint_1_width=$("#register_hint_1").css("width");
-	
-	var blue_width_1=hint_1_width;
-	$("#register_progress_bar_blue").animate({width:blue_width_1},500,function(){
+	var hint_1_margin_left=$("#register_hint_1").css("margin-left");
+	var hint_2_width=$("#register_hint_2").css("width");
+	var hint_2_margin_left=$("#register_hint_2").css("margin-left");
+
+	var blue_width=hint_1_width;
+	$("#register_progress_bar_blue").animate({width:blue_width},500,function(){
 		$("#register_hint_1").click(function(){
-			$("#register_progress_bar_blue").animate({width:blue_width_1},500);
+			var blue_width=hint_1_width;
+			var blue_margin_left=hint_1_margin_left;
+
+			$("#register_progress_bar_blue").animate({width:blue_width,marginLeft:blue_margin_left},500);
 			$("#register_hint_1").css("color","black");
 			$("#register_hint_2").css("color","gray");
 			//$("#register_hint_3").css("color","gray");
@@ -16,7 +22,12 @@ $(document).ready(function(){
 
 		})
 		$("#register_hint_2,#register_next_button_1").click(function(){
-			$("#register_progress_bar_blue").animate({width:400},500);
+			//$("#register_progress_bar_blue").animate({width:400},500);
+
+			var blue_width=hint_2_width;
+			var blue_margin_left=hint_2_margin_left;
+
+			$("#register_progress_bar_blue").animate({width:blue_width,marginLeft:blue_margin_left},500);
 			$("#register_hint_1").css("color","gray");
 			$("#register_hint_2").css("color","black");
 			//$("#register_hint_3").css("color","gray");
