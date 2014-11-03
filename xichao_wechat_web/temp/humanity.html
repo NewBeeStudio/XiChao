@@ -7,64 +7,69 @@
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script src="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.js"></script>
 
+<style>
+    @font-face
+    {
+        font-family: 小标宋;
+        src: url('./static/xichao_font.ttf'),
+        url('./static/xichao_font.eot'); /* IE9+ */
+    }
+
+    div
+    {
+        font-family:小标宋;
+        font-size:9pt;
+    }
+</style>
 
 <script type="text/javascript">
-$(document).ready(function(){  
-            document.all("page1").style["width"]=document.body.clientWidth;
-            document.all("page1").style["height"]=document.body.clientHeight;
-            return;  
-        }) 
+        $(document).ready(function(){
+            document.getElementById("page1").style["width"]=document.body.clientWidth + "px";
+            document.getElementById("page1").style["height"]=document.body.clientHeight + "px";
+            document.getElementById("background").style["height"]=document.body.clientHeight + "px";
+            document.getElementById("mainbox").style["height"]=document.body.clientHeight - 80 + "px";
+        })
 </script>
 
 </head>
 
 <body>
 <!-- Home -->
-<div data-role="page" id="page1" style="padding:0px; height:400px;" >
-    <div data-role="content" style="background-image:url('./image/humanity/bg.png');background-size:cover;width:100%;padding:0px;height:100%;z-index=0;">
-        
-        <div style=" position: relative;  border: 1px solid #b8b8b8;opacity:1;background-color:#E8E8E8;z-index=1;opacity:0.4;">
-            <img src="./image/serve/title.png" alt="image" style="position: relative;padding:10px 50px;width:80%;height:20%;background-position:center;background-repeat: no-repeat;background-attachment:fixed;z-index=2;">
-        </div>
-        
-
-        <div  style=" height:500px; position: relative; border: 1px solid #b8b8b8;">
+<div data-role="page" id="page1" style="padding:0px;" >
+    <div id="background" data-role="content" style="background-image:url('./static/image/humanity/bg.png');background-size:cover;width:100%;padding:0px;z-index=0;">
+        <div id="mainbox" style="position: relative; top:80px ;border-style: none;">
            
          
-               <div style="width:70%;height:20%;border:1px solid #b8b8b8;float:right;background-image:url('./image/humanity/recommend.png');background-size: cover;"
+               <div style="width:70%;height:20%;border:1px solid #b8b8b8;float:right;background-image:url('./static/image/humanity/recommend.png');background-size: cover;"
                onclick="window.location.href= './member.html';return false">
               48南洋荐书
                  
              </div>
 
 
-               <div style="width:70%;height:20%;border:1px solid #b8b8b8;float:right;background-image:url('./image/humanity/attitude.png');background-size: cover;"
+               <div style="width:70%;height:20%;border:1px solid #b8b8b8;float:right;background-image:url('./static/image/humanity/attitude.png');background-size: cover;"
                 onclick="window.location.href= './magazine_subscribe.html';return false">
               树枝态度
                  
              </div>
 
-               <div style="width:70%;height:20%;border:1px solid #b8b8b8;float:right;background-image:url('./image/humanity/addictive.png');background-size: cover;"
+               <div style="width:70%;height:20%;border:1px solid #b8b8b8;float:right;background-image:url('./static/image/humanity/addictive.png');background-size: cover;"
                 onclick="window.location.href= './buy_back.html';return false">
               嗜书瘾君子
                  
              </div>
 
-               <div style="width:70%;height:20%;border:1px solid #b8b8b8;float:right;background-image:url('./image/humanity/ball.png');background-size: cover;"
+               <div style="width:70%;height:20%;border:1px solid #b8b8b8;float:right;background-image:url('./static/image/humanity/ball.png');background-size: cover;"
                 onclick="window.location.href= './textbook_subscribe.html';return false">
               一只球球一只
                  
              </div>
 
-               <div style="width:70%;height:20%;border:1px solid #b8b8b8;float:right;background-image:url('./image/humanity/temperature.png');background-size: cover;"
+               <div style="width:70%;height:20%;border:1px solid #b8b8b8;float:right;background-image:url('./static/image/humanity/temperature.png');background-size: cover;"
                 onclick="window.location.href= './keeper.html';return false">
               曦潮温度
                  
              </div>
-
-            
-
-
 
 
         </div>
