@@ -198,7 +198,7 @@ def article(id):
 
 @app.route('/comment', methods=['GET', 'POST'])
 def comment():
-    conn = MySQLdb.connect(host='localhost', user='root',passwd='1234',charset="utf8") 
+    conn = MySQLdb.connect(host='localhost', user='root',passwd='',charset="utf8") 
     conn.select_db('xichao_wechat');
     cursor = conn.cursor()
     cursor.execute("select * from xichao_comments order by tid")
