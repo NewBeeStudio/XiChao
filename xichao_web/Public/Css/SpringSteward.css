@@ -5,26 +5,21 @@
 }
 
 #SpringSteward_little_title{
-    position: absolute;
-    font-size: 13pt;
+    /*position: absolute;*/
+    font-size: 19pt;
     margin-left: 10px; 
-    margin-top: 45px;     
+    margin-top: 45px;    
 }
 
 #SpringSteward_big_title {
-    position: absolute;
+    color: #6699ff;
+    margin-bottom: 20px;
     margin-left: 10px;
-    margin-top: 85px;
-    font-size: 27pt;
-    color: #3366ff;
-    letter-spacing: 4px;
 }
 
 #SpringSteward_title{
-    font-size: 30px;
+    font-size: 35px;
     text-align: center;
-    margin-top: 50px; 
-    margin-left: -200px;
 }
 
 #SpringSteward_header{
@@ -48,13 +43,13 @@
 #SpringSteward_top_content{
     margin-top:105px;
     margin-left: 10px;
-    font-size: 25px;
+    font-size: 23px;
     letter-spacing: 3px;
 }
 
 #SpringSteward_mid_img {
     margin-top: 60px;
-    margin-left: 150px;
+    text-align: center;
 }
 
 /*#SpringSteward_cat_img {
@@ -66,9 +61,9 @@
 #SpringSteward_sub_topic {
     position: relative;
     font-size: 28px;
-    margin-left: 280px;
     margin-top: 80px;
     letter-spacing: 3px;
+    text-align: center;
 }
 
 
