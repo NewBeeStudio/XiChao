@@ -169,7 +169,7 @@
 
 function goto(){
   var tid=document.getElementById("tid_input").value;
-  window.open("../display/"+tid);
+  window.open("../t/"+tid);
 }
   CKEDITOR.replace( 'editor1', {
         
@@ -179,28 +179,6 @@ function goto(){
         
        customConfig: '../static/ckeditor/config.js'
       });
-
-
-function preview1(){
-var data1 = CKEDITOR.instances.editor1.getData();
-data1 = CKEDITOR.instances.editor1.document.getBody().getText();
-/*var newwin=window.open('','','');
-  newwin.opener = null;
-  newwin.document.write(data1); 
-   newwin.document.close();*/
-   console.log(data1);
-window.open('../preview/'+data1);
-
-}
-function preview2(){
-var data2 = CKEDITOR.instances.editor2.getData();
-
-
-  var newwin=window.open('','','');  
-  newwin.opener = null 
-  newwin.document.write(data2);  
-  newwin.document.close();
-}
 </script>
 
 

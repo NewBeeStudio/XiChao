@@ -159,7 +159,7 @@ def upload_file():
                         file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
                         text=request.form["editor2"]
                         title=request.form["title"]
-                        sql ="REPLACE INTO XICHAO_ARTICLE(id,，title,image_path,article) values(%s,%s,%s,%s);"
+                        sql ="REPLACE INTO XICHAO_ARTICLE(id,title,image_path,article) values(%s,%s,%s,%s);"
                         par=(tid,title,image_url,text)
                         cursor.execute(sql,par)
                         cursor.close() 
@@ -167,10 +167,12 @@ def upload_file():
                         conn.close()
                         return "<h1>提交成功</h1><br/><a href='../admin'>返回继续提交</a>"
                     else:
-                        abort(404,"please complete the form")  
+                        abort(404,"please complete the form! image file: png jpeg gif jpg")  
+                    
                     
                 except:
-                    abort(404,"please complete the form")    
+                    abort(404,"please complete the form! image file: png jpeg gif jpg")  
+                    
             else:    
                 try:
                     text=request.form["editor1"]
@@ -204,8 +206,8 @@ def upload_file():
                     conn.close()
                     return "<h1>提交成功</h1><br/><a href='../admin'>返回继续提交</a>"
                 else:
-                    abort(404,'please complete the form')
-                
+                    abort(404,"please complete the form! image file: png jpeg gif jpg")  
+                    
                 
             
         return render_template("upload.html",maxtid=maxtid)
