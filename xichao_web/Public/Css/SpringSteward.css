@@ -1,0 +1,75 @@
+#SpringSteward{
+    margin-left:auto;
+    margin-right: auto;
+    width: 82%;
+}
+
+#SpringSteward_little_title{
+    position: absolute;
+    font-size: 13pt;
+    margin-left: 10px; 
+    margin-top: 45px;     
+}
+
+#SpringSteward_big_title {
+    position: absolute;
+    margin-left: 10px;
+    margin-top: 85px;
+    font-size: 27pt;
+    color: #3366ff;
+    letter-spacing: 4px;
+}
+
+#SpringSteward_title{
+    font-size: 30px;
+    text-align: center;
+    margin-top: 50px; 
+    margin-left: -200px;
+}
+
+#SpringSteward_header{
+    height: 108px;
+/*    border-bottom: 2px solid #000;*/
+}
+
+#SpringSteward_header_down{
+    width: 82%;
+    height:1.9px;
+    background-color:black;
+    margin-top: -20px;
+    margin-left: 40px;
+}
+
+#SpringSteward_body{
+    margin-top: 80px;
+    margin-bottom: 140px;
+}
+
+#SpringSteward_top_content{
+    margin-top:105px;
+    margin-left: 10px;
+    font-size: 25px;
+    letter-spacing: 3px;
+}
+
+#SpringSteward_mid_img {
+    margin-top: 60px;
+    margin-left: 150px;
+}
+
+/*#SpringSteward_cat_img {
+    position: absolute;
+    margin-top: 88px;
+    margin-left: 183px;
+}*/
+
+#SpringSteward_sub_topic {
+    position: relative;
+    font-size: 28px;
+    margin-left: 280px;
+    margin-top: 80px;
+    letter-spacing: 3px;
+}
+
+
+

@@ -29,13 +29,13 @@ $(document).ready(function(){
     <div data-role="content" id="scroller" style="background-size:cover;width:100%;padding:0px;height:100%;z-index=0;">
         <div style=" height:500px; position: relative; border: 1px solid #b8b8b8; margin: 0%; text-align:center; opacity: 0.75;">
         	<h1 >往期文章列表</h1>
-        	<ol data-role="listview" id="article_list" data-inset="false">
-				<li><a href="./article.html" >
-					<img src="../static/image/welcome/3.png"> 选我!test! </a></li>
-			    
-
-                <li><a href="ray.html"><img src="../static/image/welcome/3.png"> test </a></li>
-			    
+        	<ol data-role="listview" id="article_list" data-inset="true">
+				
+                {% for item in list %}
+                <li><a href="../t/{{item["id"]}}">
+					<img src="../{{item["image_path"]}}"> {{item["title"]}} </a></li>
+			        {% endfor %}
+         
 			</ol>
         </div>
     </div>
@@ -68,7 +68,7 @@ $(document).ready(function(){
 </body>
 
 <script type="text/javascript">
-    $(document).ready(function(){
+   /* $(document).ready(function(){
         var range = 200;             //距下边界长度/单位px
         var elemt = 500;           //插入元素高度/单位px
         var maxnum = 20;            //设置加载最多次数
@@ -95,6 +95,6 @@ $(document).ready(function(){
                 num++;
             }
         });
-    });
+    });*/
     </script>
 </html>

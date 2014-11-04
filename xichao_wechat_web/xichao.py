@@ -55,10 +55,34 @@ def login():
             #flash('You were logged in')
             return redirect('/admin/')
     return render_template('admin-login.html', error=error)
+@app.route('/serve/')
+def serve():
+    return render_template("serve.html")
 
-@app.route('/list')
+@app.route('/join')
+def join():
+    return render_template("join.html")
+
+@app.route('/humanity/')
+def humanity():
+    return render_template("humanity.html")
+
+@app.route('/list/')
 def list():
-    return render_template('list.html')
+    conn = MySQLdb.connect(host='localhost', user='root',passwd='',charset="utf8") 
+    conn.select_db('xichao_wechat')
+    cursor = conn.cursor(cursorclass=MySQLdb.cursors.DictCursor)
+    article_list=[]
+    try:
+        cursor.execute("select * from xichao_article order by id DESC limit 100")
+        article_list=cursor.fetchall()
+    except:
+        article_list='No article found'
+    
+
+    print (article_list)
+
+    return render_template('list.html',list=article_list)
 
 
 @app.route('/logout')
@@ -105,6 +129,7 @@ def upload_file():
         except Exception:
             maxtid=0
 
+        
         if request.method == 'POST':
             try:
                 tid=request.form["tid_input"]
@@ -112,74 +137,82 @@ def upload_file():
                 tid=None
             
             
+
+
             if tid:
                 try:
-                    file = request.files['image']
+                    if request.form["preview2"]=='p2':
+                        pre_text=request.form["editor2"]
+                        return render_template("article.html",article=pre_text)
                 except:
-                    abort(404,"please select a file")
-                if file and allowed_file(file.filename):
-                    file.filename=str(int(time()))+'.'+file.filename.rsplit('.', 1)[1]
-                    #save image
-                    image_url=UPLOAD_FOLDER+file.filename
-                    filename = secure_filename(file.filename)
-                    file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-                text=request.form["editor2"]
-                title=request.form["title"]
-                sql ="REPLACE INTO XICHAO_ARTICLE(id,，title,image_path,article) values(%s,%s,%s,%s);"
-                par=(tid,title,image_url,text)
-                cursor.execute(sql,par)
-                cursor.close() 
-                conn.commit()
-                conn.close()
-                return "<h1>提交成功</h1><br/><a href='../admin'>返回继续提交</a>"
+                    pass
 
+                try:
+                    file=request.files['image']
+                    
+                    
+                    if file and allowed_file(file.filename):
+                        file.filename=str(int(time()))+'.'+file.filename.rsplit('.', 1)[1]
+                        #save image
+                        image_url=UPLOAD_FOLDER+file.filename
+                        filename = secure_filename(file.filename)
+                        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+                        text=request.form["editor2"]
+                        title=request.form["title"]
+                        sql ="REPLACE INTO XICHAO_ARTICLE(id,，title,image_path,article) values(%s,%s,%s,%s);"
+                        par=(tid,title,image_url,text)
+                        cursor.execute(sql,par)
+                        cursor.close() 
+                        conn.commit()
+                        conn.close()
+                        return "<h1>提交成功</h1><br/><a href='../admin'>返回继续提交</a>"
+                    else:
+                        abort(404,"please complete the form")  
+                    
+                except:
+                    abort(404,"please complete the form")    
             else:    
                 try:
                     text=request.form["editor1"]
+                    
+                    
+                    try:
+                        if request.form["preview1"]=='p1':
+                            pre_text=request.form["editor1"]
+                            return render_template("article.html",article=pre_text)
+                    except:
+                        pass
                     try:
                         file = request.files['image']
                     except:
                         abort(404,"please select a file")
                 except:
                     abort(404,"please input id")
+                
                 if file and allowed_file(file.filename):
                     file.filename=str(int(time()))+'.'+file.filename.rsplit('.', 1)[1]
                     #save image
                     image_url=UPLOAD_FOLDER+file.filename
                     filename = secure_filename(file.filename)
                     file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+                    title=request.form["title"]
+                    sql = "insert into xichao_article(title,image_path,article) values(%s,%s,%s)"
+                    par=(title,image_url,text)
+                    cursor.execute(sql,par)
+                    conn.commit()
+                    cursor.close() 
+                    conn.close()
+                    return "<h1>提交成功</h1><br/><a href='../admin'>返回继续提交</a>"
                 else:
-                    abort(404,'file error')
+                    abort(404,'please complete the form')
                 
-                title=request.form["title"]
-                print title
-                sql = "insert into xichao_article(title,image_path,article) values(%s,%s,%s)"
-                par=(title,image_url,text)
-                cursor.execute(sql,par)
-                conn.commit()
-                cursor.close() 
-                conn.close()
-                return "<h1>提交成功</h1><br/><a href='../admin'>返回继续提交</a>"
+                
             
         return render_template("upload.html",maxtid=maxtid)
     else:
         abort(403,"permission denied")
 
 
-@app.route('/display/<id>', methods=['GET', 'POST'])
-def uploaded(id):
-    conn = MySQLdb.connect(host='localhost', user='root',passwd='',charset="utf8") 
-    conn.select_db('xichao_wechat');
-    cursor = conn.cursor()
-    try:
-        cursor.execute("select * from xichao_article where id="+id)
-        data=cursor.fetchone()
-        if data:
-            tid=data[0]
-            text=data[1]
-        return text
-    except:
-        abort(404,"can't find article")
 
 @app.route('/t/<id>')
 def article(id):
@@ -192,7 +225,6 @@ def article(id):
         text=cursor.fetchone()[0]
     except:
         text='No article found'
-    print text
     return render_template('article.html',article=text)
 
 
