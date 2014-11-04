@@ -5,25 +5,23 @@
 }
 
 #MemberDiscount_little_title{
-    position: absolute;
-    font-size: 13pt;
+    /*position: absolute;*/
+    font-size: 19pt;
     margin-left: 10px; 
-    margin-top: 45px;     
+    margin-top: 45px;  
 }
 
 #MemberDiscount_big_title {
-    position: absolute;
+    /*position: relative;*/
+    color: #6699ff;
+    margin-bottom: 20px;
     margin-left: 10px;
-    margin-top: 85px;
-    font-size: 27pt;
-    color: #3366ff;
-    letter-spacing: 4px;
 }
 
 #MemberDiscount_title{
-    font-size: 30px;
+    font-size: 35px;
     text-align: center;
-    margin-top: 50px; 
+    /*margin-top: 10px;*/
 }
 
 #MemberDiscount_header{
@@ -44,21 +42,14 @@
 }
 
 #MemberDiscount_top_content{
-    margin-top:105px;
+    margin-top:100px;
     margin-left: 42px;
-    font-size: 20px;
+    font-size: 21px;
 }
 
 #MemberDiscount_mid_img {
-    margin-top: 20px;
-    margin-left: 10px;
+    text-align: center;
 }
-
-/*#buy_back_cat_img {
-    position: absolute;
-    margin-top: 88px;
-    margin-left: 183px;
-}*/
 
 #MemberDiscount_sub_topic {
     position: relative;
@@ -67,7 +58,6 @@
     margin-left: 50px;
     margin-top: 20px;
     letter-spacing: 4px;
-    /*background-image: url("../Images/MemberDiscount_cat.png");*/
 }
 
 #MemberDiscount_sub_topic:before {
