@@ -1,101 +1,133 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.css">
-<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-<script src="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.js"></script>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.css">
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.js"></script>
 
-<style>
-    @font-face
-    {
-    font-family: 小标宋;
-    src: url('../static/xichao_font.ttf'),
-    url('../static/xichao_font.eot'); /* IE9+ */
-    }
+    <style>
+        @font-face {
+            font-family: 小标宋;
+            src: url('../static/xichao_font.ttf'),
+            url('../static/xichao_font.eot'); /* IE9+ */
+        }
 
-    div
-    {
-    font-family:小标宋;
-    font-size:30pt;
-    }
-</style>
+        .item {
+            font-family: 小标宋;
+            font-size: 20pt;
+            font-weight: bold;
+            padding: 25px;
+            color: #660000;
+            text-shadow: 4px 4px 4px #333333;
+        }
 
-<script type="text/javascript">
-        $(document).ready(function(){
-            //document.getElementById("page1").style["width"]=document.body.clientWidth + "px";
-            document.getElementById("page1").style["height"]=document.body.clientHeight + "px";
-            document.getElementById("background").style["height"]=document.body.clientHeight + "px";
-            document.getElementById("mainbox").style["height"]=document.body.clientHeight - 80 + "px";
-        });
-</script>
+        a {
+            background: none !important;
+        }
+
+        .ui-btn-active {
+            font-family: 小标宋;
+            font-size: 9pt !important;
+            color: rgb(102, 153, 255) !important;
+        }
+
+        .footer,
+        .navbar,
+        ul {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        li {
+            font-family: 小标宋;
+            font-size: 8pt !important;
+            border-right: 1px solid black !important;
+            border-left: 1px solid black !important;
+            /*height: 60px;*/
+        }
+
+    </style>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            document.getElementById("page1").style["height"] = document.body.clientHeight;
+            document.getElementById("background").style["height"] = document.body.clientHeight;
+            document.getElementById("mainbox").style["height"] = document.body.clientHeight;
+        })
+    </script>
 
 </head>
 
 <body>
 <!-- Home -->
-<div data-role="page" id="page1" style="padding:0px;" >
-    <div id="background" data-role="content" style="background-image:url('../static/image/serve/bg.png');background-size:cover;width:100%;padding:0px;z-index=0;">
-        <div id="mainbox" style="position: relative; top:80px ;border-style: none;">
-            <div style="width:70%;height:20%;border:1px solid #b8b8b8;float:right;background-image:url('../static/image/serve/member.png');background-size: cover;"
-               onclick="window.location.href= '../member';return false">
-              曦潮会员
-                 
+<div data-role="page" id="page1" style="padding:0px;background-image:url('../static/image/serve/bg.png');background-size:cover;">
+    <div id="background" data-role="content"
+         style="width:100%;padding:0px;z-index=0;position:relative;">
+        <div id="mainbox" style="position: fixed; top:120px ;border-style: none;">
+            <div class="item"
+                 style="width:60%;height:20%;border:1px solid #b8b8b8;float:right;background-image:url('../static/image/serve/member.png');background-size: cover;"
+                 onclick="window.location.href= '../member';return false">
+                曦潮会员
+
             </div>
 
-            <div style="width:70%;height:20%;border:1px solid #b8b8b8;float:right;background-image:url('../static/image/serve/magazine_subscribe.png');background-size: cover;"
-                onclick="window.location.href= '../magazine_subscribe';return false">
-              杂志订阅
-                 
+            <div class="item"
+                 style="width:60%;height:20%;border:1px solid #b8b8b8;float:right;background-image:url('../static/image/serve/magazine_subscribe.png');background-size: cover;"
+                 onclick="window.location.href= './magazine_subscribe';return false">
+                杂志订阅
+
             </div>
 
-            <div style="width:70%;height:20%;border:1px solid #b8b8b8;float:right;background-image:url('../static/image/serve/buy_back.png');background-size: cover;"
-                onclick="window.location.href= './buy_back';return false">
-              2.5折回购
-                 
+            <div class="item"
+                 style="width:60%;height:20%;border:1px solid #b8b8b8;float:right;background-image:url('../static/image/serve/buy_back.png');background-size: cover;"
+                 onclick="window.location.href= '../buy_back';return false">
+                2.5折回购
+
             </div>
 
-            <div style="width:70%;height:20%;border:1px solid #b8b8b8;float:right;background-image:url('../static/image/serve/textbook_subscribe.png');background-size: cover;"
-                onclick="window.location.href= './textbook_subscribe';return false">
-              教材订阅
-                 
+            <div class="item"
+                 style="width:60%;height:20%;border:1px solid #b8b8b8;float:right;background-image:url('../static/image/serve/textbook_subscribe.png');background-size: cover;"
+                 onclick="window.location.href= '../textbook_subscribe';return false">
+                教材订阅
+
             </div>
 
-            <div style="width:70%;height:20%;border:1px solid #b8b8b8;float:right;background-image:url('../static/image/serve/keeper.png');background-size: cover;"
-                onclick="window.location.href= './keeper';return false">
-              清明管家
-                 
+            <div class="item"
+                 style="width:60%;height:20%;border:1px solid #b8b8b8;float:right;background-image:url('../static/image/serve/keeper.png');background-size: cover;"
+                 onclick="window.location.href= '../keeper';return false">
+                清明管家
+
             </div>
 
         </div>
 
-        
+
     </div>
 
 
-          <div data-theme="a" data-role="footer" data-position="fixed">
-        <h3>
-            <div data-role="navbar" data-iconpos="top">
+    <div class="footer" data-theme="a" data-role="footer" data-position="fixed">
+
+        <div class="navbar" data-role="navbar" data-iconpos="top">
             <ul>
                 <li>
-                    <a href="../humanity" data-transition="fade" data-theme="" data-icon=""data-ajax="false">
+                    <a href="../humanity" data-transition="fade" data-theme="" data-icon="" data-ajax="false">
                         人文曦潮
                     </a>
                 </li>
                 <li>
-                    <a href="#page1" data-transition="fade" data-theme="" data-icon="" class="ui-link ui-btn ui-btn-active"data-ajax="false">
+                    <a href="#page1" data-transition="fade" data-theme="" data-icon=""
+                       class="ui-link ui-btn ui-btn-active" data-ajax="false">
                         服务曦潮
                     </a>
                 </li>
                 <li>
-                    <a href="../join" data-transition="fade" data-theme="" data-icon=""data-ajax="false">
+                    <a href="../join" data-transition="fade" data-theme="" data-icon="" data-ajax="false">
                         加入曦潮
                     </a>
                 </li>
             </ul>
         </div>
-        </h3>
     </div>
 </div>
 </body>
