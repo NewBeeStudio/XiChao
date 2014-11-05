@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.css">
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.js"></script>
+
+<style>
+    @font-face
+    {
+        font-family: 小标宋;
+        src: url('../static/xichao_font.ttf'),
+        url('../static/xichao_font.eot'); /* IE9+ */
+    }
+
+    div
+    {
+        font-family:小标宋;
+        font-size:30pt;
+    }
+</style>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+           // document.getElementById("page1").style["width"]=document.body.clientWidth + "px";
+            document.getElementById("page1").style["height"]=document.body.clientHeight + "px";
+            document.getElementById("background").style["height"]=document.body.clientHeight + "px";
+            document.getElementById("mainbox").style["height"]=document.body.clientHeight - 80 + "px";
+        }) 
+</script>
+
+</head>
+
+<body>
+<!-- Home -->
+<div data-role="page" id="page1" style="padding:0px;" >
+    <div id="background" data-role="content" style="background-image:url('../static/image/join/bg.png');background-size:cover;width:100%;padding:0px;z-index=0;">
+        <div id="mainbox" style="position: relative; top:80px ;border-style: none;">
+            <div style="width:70%;height:20%;border:1px solid #b8b8b8;float:right;background-image:url('../static/image/join/xlt.png');background-size: cover;"
+               onclick="window.location.href= './member.html';return false">
+              曦潮线粒体
+                 
+            </div>
+
+
+               <div style="width:70%;height:20%;border:1px solid #b8b8b8;float:right;background-image:url('../static/image/join/recruit.png');background-size: cover;"
+                onclick="window.location.href= './magazine_subscribe.html';return false">
+              当下即是招募
+                 
+             </div>
+
+               <div style="width:70%;height:20%;border:1px solid #b8b8b8;float:right;background-image:url('../static/image/join/leaf.png');background-size: cover;"
+                onclick="window.location.href= './buy_back.html';return false">
+              曦潮叶子
+                 
+             </div>
+
+             <div style="width:70%;height:20%;border:1px solid #b8b8b8;float:right;background-image:url('../static/image/join/nzw.png');background-size: cover;"
+                onclick="window.location.href= './textbook_subscribe.html';return false">
+              曦潮内质网
+                 
+             </div>
+             <div style="width:70%;height:20%;border:1px solid #b8b8b8;float:right;background-image:url('../static/image/join/help.png');background-size: cover;"
+                onclick="window.location.href= './keeper.html';return false">
+              曦潮求帮助
+             </div>
+        </div>
+
+        
+    </div>
+
+
+    <div data-theme="a" data-role="footer" data-position="fixed">
+        <h3>
+            <div data-role="navbar" data-iconpos="top">
+            <ul>
+                <li>
+                    <a href="../humanity" data-transition="fade" data-theme="" data-icon="" data-ajax="false">
+                        人文曦潮
+                    </a>
+                </li>
+                <li>
+                    <a href="../serve" data-transition="fade" data-theme="" data-icon="" data-ajax="false">
+                        服务曦潮
+                    </a>
+                </li>
+                <li>
+                    <a href="#page1" data-transition="fade" data-theme="" data-icon="" class="ui-link ui-btn ui-btn-active"data-ajax="false">
+                        加入曦潮
+                    </a>
+                </li>
+            </ul>
+        </div>
+        </h3>
+    </div>
+</div>
+</body>
+</html>

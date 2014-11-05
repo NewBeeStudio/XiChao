@@ -62,7 +62,7 @@
             </ul>
               <div class="tab-content"> 
       <div class="tab-pane active" id="add"> 
-     <form action="" method=post enctype=multipart/form-data style="padding:20px;" id="new_form">
+     <form action="" target="_blank" method=post enctype=multipart/form-data style="padding:20px;" id="new_form">
      
             <textarea cols="80" id="editor1" name="editor1" rows="10"></textarea>
    
@@ -72,12 +72,19 @@
           <br/>
             <br />
      
-            <button type="button" class="btn btn-info" onclick="javascript:preview1();">预览</button>
-                   <button id="new_article_btn" class="btn btn btn-success" type=submit >提交</button>
+            <button class="btn btn-info"  type=submit name="preview1" value="p1" >预览</button>
+            <button id="new_article_btn" class="btn btn btn-success" value="submit" type=submit >提交</button>
              <button type="button" class="btn btn-danger" onclick="window.location='../logout'" >登出</button>
 
  
         </form>
+
+
+
+
+
+
+
 
 <div style="padding:10px 100px;">
 
@@ -95,7 +102,7 @@
       <div class="tab-pane" id="edit">
           
           <br/>
-          <form action="" method=post enctype=multipart/form-data style="padding:20px;" id="edit_form">
+          <form action="" target="_blank" method=post enctype=multipart/form-data style="padding:20px;" id="edit_form">
             <h2>编辑第<input name="tid_input" style="width:100px">期：</h2><br />
             <textarea cols="80" id="editor2" name="editor2" rows="10"></textarea>
    
@@ -105,7 +112,8 @@
           <br/>
             <br />
      
-            <button type="button" class="btn btn-info" onclick="javascript:preview2();">预览</button>
+             <button class="btn btn-info"   name="preview2" value="p2" onsubmit="window.open()">预览</button>
+
                    <button id="new_arbtn" class="btn btn btn-success" type=submit name="new_article">提交</button>
              <button type="button" class="btn btn-danger" onclick="window.location='../logout'" >登出</button>
 
@@ -146,7 +154,9 @@
 
 
 
-    <script> 
+<script> 
+
+
       $(function () { 
         $('#maintab a:first').tab('show');//初始化显示哪个tab 
       
@@ -154,32 +164,12 @@
           e.preventDefault();//阻止a链接的跳转行为 
           $(this).tab('show');//显示当前选中的链接及关联的content 
         }) 
-      }) 
+      });
 
-
-
-function preview1(){
-var data1 = CKEDITOR.instances.editor1.getData();
-
-
-  var newwin=window.open('','','');  
-  newwin.opener = null 
-  newwin.document.write(data1);  
-  newwin.document.close();
-}
-function preview2(){
-var data2 = CKEDITOR.instances.editor2.getData();
-
-
-  var newwin=window.open('','','');  
-  newwin.opener = null 
-  newwin.document.write(data2);  
-  newwin.document.close();
-}
 
 function goto(){
   var tid=document.getElementById("tid_input").value;
-  window.open("../display/"+tid);
+  window.open("../t/"+tid);
 }
   CKEDITOR.replace( 'editor1', {
         
@@ -189,8 +179,7 @@ function goto(){
         
        customConfig: '../static/ckeditor/config.js'
       });
-    </script>
-
+</script>
 
 
 
