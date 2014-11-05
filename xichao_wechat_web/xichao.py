@@ -92,28 +92,28 @@ def logout():
     return render_template('logout.html')
 
 
-@app.route("/test/") 
-def test():
-    conn = MySQLdb.connect(host='localhost', user='root',passwd='',charset="utf8") 
-    conn.select_db('xichao_wechat');
-    cursor = conn.cursor(cursorclass=MySQLdb.cursors.DictCursor)
-    x=cursor.execute("select image_path,description from xichao_theme order by tid DESC limit 100")
-    x=cursor.fetchall()
+# @app.route("/test/") 
+# def test():
+#     conn = MySQLdb.connect(host='localhost', user='root',passwd='',charset="utf8") 
+#     conn.select_db('xichao_wechat');
+#     cursor = conn.cursor(cursorclass=MySQLdb.cursors.DictCursor)
+#     x=cursor.execute("select image_path,description from xichao_theme order by tid DESC limit 100")
+#     x=cursor.fetchall()
     
-    all_path=[]
-    all_desc=[]
-    for item in x:
-        all_path.append("../"+item['image_path'].encode('utf8'))
-        all_desc.append(item['description'])
+#     all_path=[]
+#     all_desc=[]
+#     for item in x:
+#         all_path.append("../"+item['image_path'].encode('utf8'))
+#         all_desc.append(item['description'])
     
-    print all_path
-    print all_desc
+#     print all_path
+#     print all_desc
 
-    all_path=str(all_path).replace("\'","").strip("\'")[1:-1]
-    all_desc=str(all_desc).replace("\'","").strip("\'")[1:-1]
+#     all_path=str(all_path).replace("\'","").strip("\'")[1:-1]
+#     all_desc=str(all_desc).replace("\'","").strip("\'")[1:-1]
     
-    print all_path   
-    return render_template('nav.html',all_path=all_path,all_desc=all_desc)
+#     print all_path   
+#     return render_template('nav.html',all_path=all_path,all_desc=all_desc)
 
 
 @app.route('/admin/', methods=['GET', 'POST'])

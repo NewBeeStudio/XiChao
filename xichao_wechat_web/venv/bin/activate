@@ -39,7 +39,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="/Users/lixia/Documents/develop/flask/myproject/venv"
+VIRTUAL_ENV="/Users/lixia/Documents/develop/github/Newbee/XiChao/xichao_wechat_web/venv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
