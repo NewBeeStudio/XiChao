@@ -67,6 +67,13 @@ def join():
 def humanity():
     return render_template("humanity.html")
 
+@app.route('/register/')
+def register():
+    return render_template("register.html")
+
+def humanity():
+    return render_template("humanity.html")
+
 @app.route('/list/')
 def list():
     conn = MySQLdb.connect(host='localhost', user='root',passwd='',charset="utf8") 
