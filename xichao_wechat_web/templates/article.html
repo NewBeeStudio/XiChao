@@ -16,6 +16,7 @@ $(document).ready(function(){
             document.all("page1").style["height"]=document.body.clientHeight;
             return;  
         }) 
+
 </script>
 
 </head>
@@ -46,9 +47,11 @@ $(document).ready(function(){
             <div data-role="navbar" data-iconpos="top">
             <ul>
                 <li>
-                    <a href="#page1" data-transition="fade" data-theme="" data-icon="" class="ui-link ui-btn ui-btn-active"data-ajax="false">
+					
+                    <a href="/comment/{{id}}"  data-transition="fade" data-theme="" data-icon="" class="ui-link ui-btn ui-btn-active"data-ajax="false">
                         评论
                     </a>
+			
                 </li>
             </ul>
         </div>
@@ -58,3 +61,4 @@ $(document).ready(function(){
 </div>
 </body>
 </html>
+

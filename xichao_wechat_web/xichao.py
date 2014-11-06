@@ -76,7 +76,7 @@ def humanity():
 
 @app.route('/list/')
 def list():
-    conn = MySQLdb.connect(host='localhost', user='root',passwd='',charset="utf8") 
+    conn = MySQLdb.connect(host='localhost', user='root',passwd='1234',charset="utf8") 
     conn.select_db('xichao_wechat')
     cursor = conn.cursor(cursorclass=MySQLdb.cursors.DictCursor)
     article_list=[]
@@ -102,7 +102,7 @@ def logout():
 @app.route('/admin/', methods=['GET', 'POST'])
 def upload_file():
     if session and session['logged_in']:
-        conn = MySQLdb.connect(host='localhost', user='root',passwd='',charset="utf8") 
+        conn = MySQLdb.connect(host='localhost', user='root',passwd='1234',charset="utf8") 
         conn.select_db('xichao_wechat');
         cursor = conn.cursor()
         cursor.execute("select * from xichao_article order by id DESC limit 1")
@@ -230,7 +230,7 @@ def upload_file():
 
 @app.route('/t/<id>')
 def article(id):
-    conn = MySQLdb.connect(host='localhost', user='root',passwd='',charset="utf8") 
+    conn = MySQLdb.connect(host='localhost', user='root',passwd='1234',charset="utf8") 
     conn.select_db('xichao_wechat')
     cursor = conn.cursor()
     text=''
@@ -239,20 +239,22 @@ def article(id):
         text=cursor.fetchone()[0]
     except:
         text='No article found'
-    return render_template('article.html',article=text)
+    cursor.close() 
+    conn.close()
+    return render_template('article.html',article=text,id=str(id))
 
 
-@app.route('/comment', methods=['GET', 'POST'])
-def comment():
-    conn = MySQLdb.connect(host='localhost', user='root',passwd='',charset="utf8") 
+@app.route('/comment/<id>', methods=['GET', 'POST'])
+def comment(id):
+    conn = MySQLdb.connect(host='localhost', user='root',passwd='1234',charset="utf8") 
     conn.select_db('xichao_wechat');
     cursor = conn.cursor()
-    cursor.execute("select * from xichao_comments order by tid")
+    cursor.execute("select * from xichao_comments  where articleID="+id)
     data=[]
     cur=1
     while True:
         try:
-            data+=[{'text':str(cur)+'.'+cursor.fetchone()[1]}]
+            data+=[{'text':str(cur)+'.'+cursor.fetchone()[2]}]
             cur+=1
         except:
             break
@@ -263,8 +265,9 @@ def comment():
     if request.method == 'POST':       
         cm=request.form['text']
         if cm!='':
-            order=(num+1,cm)
-            sql = "insert into xichao_comments(tid,comment) values (%s,%s)"
+            articleID=id
+            order=(num+1,articleID,cm)           
+            sql = "insert into xichao_comments(tid,articleID,comment) values (%s,%s,%s)"
             cursor.execute(sql,order)
             num+=1
     if cm!='':
@@ -274,7 +277,7 @@ def comment():
     cursor.close() 
     conn.close()   
         
-    return render_template("comment.html",comments=data,number=num)
+    return render_template("comment.html",comments=data,number=num,id=id)
 
 if __name__ == "__main__":
     app.run(debug=True)
