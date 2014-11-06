@@ -124,10 +124,15 @@ def upload_file():
                         return "<html> <head> <Script Language=\"JavaScript\"> alert(\"请输入文章id\"); </Script> </head> </html>"
 
                     sql ="delete from XICHAO_ARTICLE where id="+tid
-                    cursor.execute(sql)
-                    cursor.close() 
-                    conn.commit()
-                    conn.close()
+                    
+                    try:
+                        cursor.execute(sql)
+                        cursor.close() 
+                        conn.commit()
+                        conn.close()
+                    except:
+                        return "<html> <head> <Script Language=\"JavaScript\"> alert(\"不存在此id\"); </Script> </head> </html>"
+
                     return "<h1>删除成功</h1><br/><a href='../admin'>返回文章编辑</a>"
             except:
                 pass
