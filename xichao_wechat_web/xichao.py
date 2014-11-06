@@ -99,30 +99,6 @@ def logout():
     return render_template('logout.html')
 
 
-# @app.route("/test/") 
-# def test():
-#     conn = MySQLdb.connect(host='localhost', user='root',passwd='',charset="utf8") 
-#     conn.select_db('xichao_wechat');
-#     cursor = conn.cursor(cursorclass=MySQLdb.cursors.DictCursor)
-#     x=cursor.execute("select image_path,description from xichao_theme order by tid DESC limit 100")
-#     x=cursor.fetchall()
-    
-#     all_path=[]
-#     all_desc=[]
-#     for item in x:
-#         all_path.append("../"+item['image_path'].encode('utf8'))
-#         all_desc.append(item['description'])
-    
-#     print all_path
-#     print all_desc
-
-#     all_path=str(all_path).replace("\'","").strip("\'")[1:-1]
-#     all_desc=str(all_desc).replace("\'","").strip("\'")[1:-1]
-    
-#     print all_path   
-#     return render_template('nav.html',all_path=all_path,all_desc=all_desc)
-
-
 @app.route('/admin/', methods=['GET', 'POST'])
 def upload_file():
     if session and session['logged_in']:
@@ -138,6 +114,26 @@ def upload_file():
 
         
         if request.method == 'POST':
+            
+            try:
+                if request.form["del"]=='delete':
+                    
+                    try:
+                        tid=request.form["del_input"]
+                    except:
+                        return "<html> <head> <Script Language=\"JavaScript\"> alert(\"请输入文章id\"); </Script> </head> </html>"
+
+                    sql ="delete from XICHAO_ARTICLE where id="+tid
+                    cursor.execute(sql)
+                    cursor.close() 
+                    conn.commit()
+                    conn.close()
+                    return "<h1>删除成功</h1><br/><a href='../admin'>返回文章编辑</a>"
+            except:
+                pass
+                    
+
+
             try:
                 tid=request.form["tid_input"]
             except:
@@ -149,10 +145,12 @@ def upload_file():
             if tid:
                 try:
                     if request.form["preview2"]=='p2':
+                        print request.form["preview2"]
                         pre_text=request.form["editor2"]
                         return render_template("article.html",article=pre_text)
                 except:
                     pass
+
 
                 try:
                     file=request.files['image']
@@ -191,6 +189,8 @@ def upload_file():
                             return render_template("article.html",article=pre_text)
                     except:
                         pass
+
+
                     try:
                         file = request.files['image']
                     except:

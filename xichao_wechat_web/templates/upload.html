@@ -114,23 +114,23 @@
      
              <button class="btn btn-info"   name="preview2" value="p2" onsubmit="window.open()">预览</button>
 
-                   <button id="new_arbtn" class="btn btn btn-success" type=submit name="new_article">提交</button>
+                   <button id="new_article" class="btn btn btn-success" type=submit name="new_article">提交</button>
              <button type="button" class="btn btn-danger" onclick="window.location='../logout'" >登出</button>
 
  
-        </form>
+        
 
-          <h2>查看第<input id="tid_input" style="width:100px">期
+          <h2>查看第<input  id="view_tid" style="width:100px">期
         <button class="btn btn-primary" type="button" onclick="javascript:goto();">
                      查看
                   </button></h2>
                   <br />
-           <h2>删除第<input id="del_input" style="width:100px">期
-        <button class="btn btn-danger" type="button">
+           <h2>删除第<input name="del_input" style="width:100px">期
+        <button class="btn btn-danger" type=submit name="del" value="delete">
                      删除
                   </button></h2>
                   <br />
-                   
+            </form>       
       </div> 
  
     </div> 
@@ -168,7 +168,7 @@
 
 
 function goto(){
-  var tid=document.getElementById("tid_input").value;
+  var tid=document.getElementById("view_tid").value;
   window.open("../t/"+tid);
 }
   CKEDITOR.replace( 'editor1', {
