@@ -52,11 +52,11 @@ def index():
 @app.route('/admin/login/', methods=['GET', 'POST'])
 def login():
     if admin.validate_login():
-        return redirect('/admin/')  
+        return redirect('/posts_list/')  
 
     if request.method == 'POST':
         if not admin.login(request.form['username'],request.form['password'])["error"]:
-            return redirect('/admin/')
+            return redirect('/posts_list/')
     return render_template('admin-login.html', error=admin.response['error'])
 
 @app.route('/serve/')
