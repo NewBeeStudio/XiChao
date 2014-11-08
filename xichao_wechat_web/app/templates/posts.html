@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <title>New post</title>
+	<meta name="description" content="demo of simple Flask Blog ">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+	<link href="/recent_feed" rel="alternate" title="Recent Changes" type="application/atom+xml">
+	<link href="../static/css/bootstrap.min.css" rel="stylesheet" media="screen">
+	<link href="../static/css/mdmagick.css" rel="stylesheet">
+	<link rel="icon" type="image/png" href="/static/img/favicon.png"><link href="/static/css/main.css" rel="stylesheet">
+	<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../static/css/gh-fork-ribbon.css" />
+	<script src="../static/bower_components/platform/platform.js"></script>
+	<script src="../static/bower_components/polymer/polymer.js"></script>
+	<link rel="import" href="../static/bower_components/github-gist/github-gist.html">
+</head><body>
+	
+
+	<div id="wrapper"><div class="navbar navbar-default navbar-fixed-top">
+	<div class="navbar-header">
+		<ul class="nav navbar-nav">
+			<li><a href="/" class="navbar-brand">Home</a></li>
+		
+			<li><a href="admin/logout">Logout</a></li>
+		
+		</ul>
+
+		<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		</button>
+	</div>
+	<div class="navbar-collapse collapse" id="navbar-main">
+		<ul class="nav navbar-nav">
+			
+		
+			<li><a href="/users">Users</a></li>
+			<li><a href="/posts_list">Posts</a></li>
+			<li><a href="/newpost">New post</a></li>
+			<li><a href="/settings">Settings</a></li>
+		
+		</ul>
+		<form class="navbar-form navbar-right search-form" method="post" action="/search">
+            <input type="text" name="query" class="form-control col-lg-8" placeholder="Search">
+			<input name="_csrf_token" type="hidden" value="DROXP2">
+		</form>
+	</div>
+</div><div class="container"><div class="post">
+		<div class="row">
+			<div class="col-lg-12"><div class="page-header">
+						<br /><h1>Posts</h1>
+					</div>
+
+					<div class="content"><a href="/newpost" class="response btn btn-primary">Add new</a>
+					<br />
+					<br />
+						<table class="table table-striped">
+							<tr>
+								<th>Title</th>
+								<th>Post Date</th>
+								<th>Action</th>
+							</tr>
+							{%for post in posts %}
+							<tr>
+								<td><a title="Preview" href="/t/{{post["id"]}}" data-target="_blank">{{post["title"]}}</a></td>
+								<td>Sat, 08 Nov 2014</td>
+								<td><a title="Edit" href="/post_edit{{post["id"]}}" class="icon-edit-sign bigger icon"></a>&nbsp;&nbsp;<a title="Delete" href="/post_delete{{post["id"]}}" class="icon-remove-sign bigger icon"></a></td>
+							</tr>
+							  {% endfor %}
+
+
+						</table>
+					</div></div>
+		</div>
+	</div>
+					<div class="pagination-wrap">
+						<ul class="pagination">
+						  
+						    
+						        <li class="active"><a href="/posts_list">1</a></li>
+						    
+						  
+						    
+						        <li ><a href="/posts_list/page-2">2</a></li>
+						    
+						  
+						    
+						        <li ><a href="/posts_list/page-3">3</a></li>
+						    
+						  
+						    
+						        <li ><a href="/posts_list/page-4">4</a></li>
+						    
+						  
+						    
+						        <li ><a href="/posts_list/page-5">5</a></li>
+						    
+						  
+						  
+						    <li><a href="/posts_list/page-2">&raquo;</a></li>
+						  
+						</ul>
+					</div>
+				
+			</div>
+		</div>
+
+</body>
+
+
+</html>
+
+
+</html>
