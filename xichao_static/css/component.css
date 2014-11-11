@@ -298,13 +298,19 @@ html, body {
 	z-index: 1;
 }
 
-.photos4 {
+.string42 {
 	position: absolute;
 	display: none;
+	text-align: left;
+	color: #000000;
 	height: 30%;
-	top: 35%;
+	top: 30%;
 	left: 27%;
 	z-index:10;
+}
+
+#string44 {
+	top: 35%;
 }
 
 .pt-page-5 {
@@ -372,13 +378,19 @@ html, body {
 	z-index: 1;
 }
 
-.photos5 {
+.string52 {
 	position: absolute;
 	display: none;
+	text-align: left;
+	line-height: 150%;
 	height: 30%;
 	top: 35%;
 	left: 27%;
 	z-index:10;
+}
+
+#string57 {
+	top:28%;
 }
 
 #download {
