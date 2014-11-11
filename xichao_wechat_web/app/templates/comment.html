@@ -1,0 +1,56 @@
+ <!doctype html>
+ <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+       <meta name="viewport" content="width=device-width,initial-scale=1">
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.css"/>
+
+    <title>Comment</title>
+	
+</head>
+<body>
+	<div data-role="page"  style="background:url('../static/image/humanity/article-bg.png') no-repeat;background-size:cover; " >
+		<h1>评论数:{{number}}</h1>
+		  
+	  	  {% for comment in comments %}
+		  <pre><p>{{comment.text}}</p></pre>
+		  {% endfor %}
+		  
+	  <form action="" method=post enctype=multipart/form-data>
+      <p>
+          <h1>请输入评论:</h1> 
+		  <div style="position:relative; left:200px;">
+			<textarea wrap='hard' name=text> </textarea>  
+		  </div>		  
+          <br/>
+          <br/>
+		  <div style="position:relative; left:200px;">
+			<input class="ui-link ui-btn ui-btn-active" type=submit value=OK>
+		  </div>
+	   </p>
+		</form>
+	<div data-theme="a" data-role="footer" data-position="fixed" style="position:relative;bottom:10px;right:20px">
+        <h3>
+            <div data-role="navbar" data-iconpos="top">
+            <ul>
+                <li>
+					
+                    <a href=# onclick="func(this)" data-transition="fade" data-theme="" data-icon="" class="ui-link ui-btn ui-btn-active" data-ajax="false">
+                        返回
+                    </a>
+			
+                </li>
+            </ul>
+        </div>
+        </h3>
+    </div>
+
+</div>
+</body>	
+
+<script type="text/javascript">
+
+function func(obj){
+  var src = "{{id}}";
+  obj.href="/t/"+src;
+}
+</script>

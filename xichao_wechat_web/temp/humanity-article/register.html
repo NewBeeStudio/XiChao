@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.css"/>
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.css"/>
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.js"></script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){  
+            document.all("page1").style["width"]=document.body.clientWidth;
+            document.all("page1").style["height"]=document.body.clientHeight;
+            return;  
+        }) 
+</script>
+
+</head>
+
+<body>
+<!-- Home -->
+<div data-role="page" id="page1" style="background:url('../static/image/humanity/article-bg2.png') 50% 0 no-repeat;background-size:cover;padding:0px;" >
+
+    <div data-role="header" style="opacity: 0; ">
+        <img src="../static/image/serve/title.png" alt="image" style="position: relative;padding:10px 50px;width:80%;height:5%;background-position:center;background-repeat: no-repeat;background-attachment:fixed;z-index=2;">
+    </div>
+    
+    <div data-role="content" style="background-size:cover;width:100%;padding:0px;height:100%;z-index=0;">
+
+        <form method="post" action="demoform.asp">
+            <div data-role="fieldcontain" style="margin-left:5%; margin-right:5%;">
+                <label for="fullname">姓名：</label>
+                <input type="text" name="fullname" id="fullname">
+            </div>
+            <div data-role="fieldcontain" style="margin-left:5%; margin-right:5%;">
+                <fieldset data-role="controlgroup">
+                <legend>性别：</legend>
+                    <label for="male">男性</label>
+                    <input type="radio" name="gender" id="male" value="male">
+                    <label for="female">女性</label>
+                    <input type="radio" name="gender" id="female" value="female">   
+                </fieldset>
+            </div>
+
+            <div data-role="fieldcontain" style="margin-left:5%; margin-right:5%;">
+                <label for="school">年级：</label>
+                <input type="text" name="school" id="school">
+            </div>
+
+            <div data-role="fieldcontain" style="margin-left:5%; margin-right:5%;">
+                <label for="school">学院专业：</label>
+                <input type="text" name="school" id="school">
+            </div>
+
+            <div data-role="fieldcontain" style="margin-left:5%; margin-right:5%;">
+                <label for="email">邮箱：</label>
+                <input type="email" name="email" id="email" placeholder="您的电子邮件地址..">
+            </div>
+
+            <div data-role="fieldcontain" style="margin-left:5%; margin-right:5%;">
+                <label for="tel">联系电话：</label>
+                <input type="tel" name="tel" id="tel" placeholder="您的手机/座机号码..">
+            </div>
+
+            <div data-role="fieldcontain" style="margin-left:5%; margin-right:5%;">
+                <fieldset data-role="controlgroup">
+                <legend>愿意加入：</legend>
+                <label for="club">曦潮俱乐部</label>
+                <input type="checkbox" name="favcolor" id="club" value="club">
+                <label for="intern">曦潮实习生岗位</label>
+                <input type="checkbox" name="favcolor" id="intern" value="intern">
+                <label for="wailian">A .文化外联实习生</label>
+                <input type="checkbox" name="favcolor" id="wailian" value="wailian">
+                <label for="wenan">B .文案广告实习生</label>
+                <input type="checkbox" name="favcolor" id="wenan" value="wenan">
+                <label for="sheji">C .平面设计实习生</label>
+                <input type="checkbox" name="favcolor" id="sheji" value="sheji">
+                <label for="yunying">D .网络运营实习生</label>
+                <input type="checkbox" name="favcolor" id="yunying" value="yunying"> 
+                <label for="code">E .技术编程实习生</label>
+                <input type="checkbox" name="favcolor" id="code" value="code"> 
+                <label for="bangong">F .日常办公实习生</label>
+                <input type="checkbox" name="favcolor" id="bangong" value="bangong"> 
+                </fieldset>
+            </div>
+
+            <div data-role="fieldcontain" style="margin-left:5%; margin-right:5%;">
+                <label for="info">自我介绍:</label>
+                <textarea name="addinfo" id="info"></textarea>
+            </div>
+
+            <div data-role="fieldcontain" style="margin-left:5%; margin-right:5%;">
+                <input type="submit" value="OK" onclick="return false;">
+            </div>
+
+        </form>
+    </div>
+
+</div>
+</body>
+</html>

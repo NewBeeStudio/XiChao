@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.css">
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.js"></script>
+
+    <style>
+        @font-face {
+            font-family: 小标宋;
+            src: url('../static/xichao_font.ttf'),
+            url('../static/xichao_font.eot'); /* IE9+ */
+        }
+
+        .item {
+            font-family: 小标宋;
+            font-size: 20pt;
+            font-weight: bold;
+            padding: 25px;
+            color: #FFFFFF;
+            text-shadow: 4px 4px 4px #333333;
+        }
+
+        a {
+            background: none !important;
+        }
+
+        .ui-btn-active {
+            font-family: 小标宋;
+            font-size: 9pt !important;
+            color: rgb(102, 153, 255) !important;
+        }
+
+        .footer,
+        .navbar,
+        ul {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        li {
+            font-family: 小标宋;
+            font-size: 8pt !important;
+            border-right: 1px solid black !important;
+            border-left: 1px solid black !important;
+        }
+
+    </style>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            document.getElementById("page1").style["height"] = document.body.clientHeight ;
+            document.getElementById("background").style["height"] = document.body.clientHeight;
+            document.getElementById("mainbox").style["height"] = document.body.clientHeight;
+        })
+    </script>
+
+</head>
+
+<body>
+<!-- Home -->
+<div data-role="page" id="page1" style="padding:0px;position:fixed;background-image:url('../static/image/humanity/bg.png');background-size:cover;">
+    <div id="background" data-role="content"style="width:100%;padding:0px;z-index=0;position:fixed;">
+        <div id="mainbox" style="position:fixed; top:120px;border-style: none;">
+
+
+            <div class="item"
+                 style="width:60%;height:20%;border:1px solid #b8b8b8;float:right;background-image:url('../static/image/humanity/recommend.png');background-size: cover;"
+                 onclick="window.location.href= '../list';return false">
+                48南洋荐书
+
+            </div>
+
+
+            <div class="item"
+                 style="width:60%;height:20%;border:1px solid #b8b8b8;float:right;background-image:url('../static/image/humanity/attitude.png');background-size: cover;"
+                 onclick="window.location.href= '../magazine_subscribe';return false">
+                树枝态度
+
+            </div>
+
+            <div class="item"
+                 style="width:60%;height:20%;border:1px solid #b8b8b8;float:right;background-image:url('../static/image/humanity/addictive.png');background-size: cover;"
+                 onclick="window.location.href= '../buy_back';return false">
+                嗜书瘾君子
+
+            </div>
+
+            <div class="item"
+                 style="width:60%;height:20%;border:1px solid #b8b8b8;float:right;background-image:url('../static/image/humanity/ball.png');background-size: cover;"
+                 onclick="window.location.href= '../textbook_subscribe';return false">
+                一只球球一只
+
+            </div>
+
+            <div class="item"
+                 style="width:60%;height:20%;border:1px solid #b8b8b8;float:right;background-image:url('../static/image/humanity/temperature.png');background-size: cover;"
+                 onclick="window.location.href= '../keeper';return false">
+                曦潮温度
+
+            </div>
+        </div>
+
+
+        <div class="footer" data-theme="a" data-role="footer" data-position="fixed">
+            <div class="navbar" data-role="navbar" data-iconpos="top">
+                <ul>
+                    <li>
+                        <a href="#page1" data-transition="fade" data-theme="" data-icon=""
+                           class="ui-link ui-btn ui-btn-active" data-ajax="false">
+                            人文曦潮
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../serve" data-transition="fade" data-theme="" data-icon="" data-ajax="false">
+                            服务曦潮
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../join" data-transition="fade" data-theme="" data-icon="" data-ajax="false">
+                            加入曦潮
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

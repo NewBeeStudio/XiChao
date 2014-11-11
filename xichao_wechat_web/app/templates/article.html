@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.css"/>
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.js"></script>
+
+ <style>  
+            @font-face {font-family:myFont; src:url('../static/方正小标宋简体.ttf');}  
+        </style>
+<script type="text/javascript">
+$(document).ready(function(){  
+            document.all("page1").style["width"]=document.body.clientWidth;
+            document.all("page1").style["height"]=document.body.clientHeight;
+            return;  
+        }) 
+
+</script>
+
+</head>
+
+<body>
+<!-- Home -->
+<div data-role="page" id="page1" style="background:url('../static/image/humanity/article-bg.png') 50% 0 no-repeat;background-size:cover; padding:0px;" >
+	
+	<div data-role="header" style="opacity:0.75;">
+		<img src="../static/image/serve/title.png" alt="image"
+        style="
+        position: relative;padding:10px 50px;width:80%;height:5%;background-position:center;background-repeat: no-repeat;background-attachment:fixed;z-index=2;">
+
+	</div>
+
+    <div data-role="content" style="background-size:cover;width:100%;padding:0px;height:100%;">
+        <div style=" height:500px; position: relative; border: 1px solid #b8b8b8; margin: 10%; font-family:myFont; font-size:9pt;">
+                {% autoescape false %}
+                    {{article}}
+                {% endautoescape %}
+
+		   
+        </div>
+    </div>
+
+    <div data-theme="a" data-role="footer" data-position="fixed">
+        <h3>
+            <div data-role="navbar" data-iconpos="top">
+            <ul>
+                <li>
+					
+                    <a href="/comment/{{id}}"  data-transition="fade" data-theme="" data-icon="" class="ui-link ui-btn ui-btn-active"data-ajax="false">
+                        评论
+                    </a>
+			
+                </li>
+            </ul>
+        </div>
+        </h3>
+    </div>
+
+</div>
+</body>
+</html>
+

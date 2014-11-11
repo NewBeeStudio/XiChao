@@ -1,0 +1,103 @@
+@font-face {
+	 font-family:siyuan;
+	 src:url(static/image/welcome/siyuan.ttf);
+	 //src:url(.static/xichao_font.ttf);
+
+}
+
+
+#bg{
+	position:fixed;
+	background-repeat:no-repeat;
+	width:100%;
+}
+
+#vein{
+	position:fixed;
+	width:100%;
+	height:100%;
+	background-color: #000000;
+	opacity: 0.57;
+	filter: progid:DXImageTransform.Microsoft.Alpha(opacity=57);
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(opacity=57)";
+	z-index:1;
+}
+
+#logo{
+	z-index:2;
+	margin-top:15px;
+	height:10%;
+	width:100%;
+	position:absolute;
+}
+
+#logo img{
+	padding-left:5%;
+	height:100%;
+	position:absolute;
+}
+
+#logo p{
+	color:white;
+	margin-right:3%;
+	float:right;
+	font-family:siyuan;
+	font-style:bold;
+	width:65%;
+}
+
+#up  span,#down span{
+	padding-left:15%;
+	float:right;
+	-webkit-font-smoothing: antialiased;
+}
+
+#up{
+	font-size:0.9em;
+	margin-top:3px;
+	padding-bottom:4px;
+	border-bottom:1px solid #fff;
+}
+
+#down{
+	font-size:0.6em;
+	margin-top:-12px;
+	margin-right:21px;
+}
+
+#slg {
+	z-index: 2;
+	width: 100%;
+	color: #fff;
+	position: absolute;
+
+	margin-top: 29%;
+	border-bottom:1px solid #fff;
+	padding-bottom:5%;
+	padding-left: 10px;
+	padding-right: 30%;
+
+}
+
+.text {
+	z-index: 2;
+	margin-top: 59%;
+	position: absolute;
+	font-family:siyuan;
+	font-style:bold;
+	padding-left: 15px;
+	padding-right: 15px;
+	color: #fff;
+	-webkit-font-smoothing: antialiased;
+}
+
+.text h1{
+	text-align:center;
+	font-size:1em;
+}
+
+.text p{
+	font-size:0.6em;
+	border-bottom:1px solid #fff;
+	padding-bottom:5%;
+}
