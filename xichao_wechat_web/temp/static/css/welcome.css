@@ -2,6 +2,7 @@
 	 font-family:siyuan;
 	 src:url(static/image/welcome/siyuan.ttf);
 	 //src:url(.static/xichao_font.ttf);
+
 }
 
 
@@ -48,6 +49,7 @@
 #up  span,#down span{
 	padding-left:15%;
 	float:right;
+	-webkit-font-smoothing: antialiased;
 }
 
 #up{
@@ -68,9 +70,13 @@
 	width: 100%;
 	color: #fff;
 	position: absolute;
+
 	margin-top: 29%;
 	border-bottom:1px solid #fff;
-	padding-bottom:14%;
+	padding-bottom:5%;
+	padding-left: 10px;
+	padding-right: 30%;
+
 }
 
 .text {
@@ -82,6 +88,7 @@
 	padding-left: 15px;
 	padding-right: 15px;
 	color: #fff;
+	-webkit-font-smoothing: antialiased;
 }
 
 .text h1{
