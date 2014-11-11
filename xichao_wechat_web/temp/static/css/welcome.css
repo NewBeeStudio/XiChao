@@ -1,7 +1,7 @@
 @font-face {
 	 font-family:siyuan;
-	 //src:url(./static/image/welcome/siyuan.ttf);
-	 src:url(.static/xichao_font.ttf);
+	 src:url(static/image/welcome/siyuan.ttf);
+	 //src:url(.static/xichao_font.ttf);
 }
 
 
@@ -33,6 +33,7 @@
 #logo img{
 	padding-left:5%;
 	height:100%;
+	position:absolute;
 }
 
 #logo p{
@@ -41,15 +42,16 @@
 	float:right;
 	font-family:siyuan;
 	font-style:bold;
-	width:70%;
+	width:65%;
 }
 
 #up  span,#down span{
-	padding-left:34%;
+	padding-left:15%;
+	float:right;
 }
 
 #up{
-	font-size:1em;
+	font-size:0.9em;
 	margin-top:3px;
 	padding-bottom:4px;
 	border-bottom:1px solid #fff;
@@ -57,7 +59,7 @@
 
 #down{
 	font-size:0.6em;
-	margin-top:-21px;
+	margin-top:-12px;
 	margin-right:21px;
 }
 
@@ -66,14 +68,14 @@
 	width: 100%;
 	color: #fff;
 	position: absolute;
-	margin-top: 25%;
+	margin-top: 29%;
 	border-bottom:1px solid #fff;
-	padding-bottom:15%;
+	padding-bottom:14%;
 }
 
 .text {
 	z-index: 2;
-	margin-top: 57%;
+	margin-top: 59%;
 	position: absolute;
 	font-family:siyuan;
 	font-style:bold;
