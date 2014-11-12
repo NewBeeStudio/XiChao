@@ -133,55 +133,55 @@ $(document).ready(function(){
 	});
 	$("#string41").mouseenter(function(){
 		$("#line41").slideDown(250,function(){
-			$("#photo41").fadeIn(250);
+			$("#string43").fadeIn(250);
 		});
 	});
 	$("#string41").mouseleave(function(){
 		setTimeout(function(){
 			$("#line41").slideUp(250,function(){
-				$("#photo41").fadeOut(250);
+				$("#string43").fadeOut(250);
 			});
 		},100);
 	});
 	$("#string42").mouseenter(function(){
 		$("#line42").slideDown(250,function(){
-			$("#photo42").fadeIn(250);
+			$("#string44").fadeIn(250);
 		});
 	});
 	$("#string42").mouseleave(function(){
 		setTimeout(function(){
 			$("#line42").slideUp(250,function(){
-				$("#photo42").fadeOut(250);
+				$("#string44").fadeOut(250);
 			});
 		},100);
 	});
 	$("#string51").mouseenter(function(){
 		$("#line51").slideDown(250,function(){
-			$("#photo51").fadeIn(250);
+			$("#string56").fadeIn(250);
 		});
 	});
 	$("#string51").mouseleave(function(){
 		setTimeout(function(){
 			$("#line51").slideUp(250,function(){
-				$("#photo51").fadeOut(250);
+				$("#string56").fadeOut(250);
 			});
 		},100);
 	});
 	$("#string52").mouseenter(function(){
 		$("#line52").slideDown(250,function(){
-			$("#photo52").fadeIn(250);
+			$("#string57").fadeIn(250);
 		});
 	});
 	$("#string52").mouseleave(function(){
 		setTimeout(function(){
 			$("#line52").slideUp(250,function(){
-				$("#photo52").fadeOut(250);
+				$("#string57").fadeOut(250);
 			});
 		},100);
 	});
 	$("#string53").mouseenter(function(){
 		$("#line53").slideDown(250,function(){
-			$("#photo53").fadeIn(250,function(){
+			$("#string58").fadeIn(250,function(){
 				$("#download").fadeIn(250);
 			});
 		});
@@ -189,31 +189,31 @@ $(document).ready(function(){
 	$("#string53").mouseleave(function(){
 		setTimeout(function(){
 			$("#line53").slideUp(250,function(){
-				$("#photo53").fadeOut(250);
+				$("#string58").fadeOut(250);
 			});
 		},100);
 	});
 	$("#string54").mouseenter(function(){
 		$("#line54").slideDown(250,function(){
-			$("#photo54").fadeIn(250);
+			$("#string59").fadeIn(250);
 		});
 	});
 	$("#string54").mouseleave(function(){
 		setTimeout(function(){
 			$("#line54").slideUp(250,function(){
-				$("#photo54").fadeOut(250);
+				$("#string59").fadeOut(250);
 			});
 		},100);
 	});
 	$("#string55").mouseenter(function(){
 		$("#line55").slideDown(250,function(){
-			$("#photo55").fadeIn(250);
+			$("#string5a").fadeIn(250);
 		});
 	});
 	$("#string55").mouseleave(function(){
 		setTimeout(function(){
 			$("#line55").slideUp(250,function(){
-				$("#photo55").fadeOut(250);
+				$("#string5a").fadeOut(250);
 			});
 		},100);
 	});
