@@ -50,7 +50,7 @@
             background: url('../static/image/humanity/recommend.png');
             background-size: 100% 100%;
             background-repeat: no-repeat;
-             
+             position: relative;
              height:150px;
              margin-top: 0px;
              padding:0;
@@ -59,17 +59,6 @@
 
         }
 
-        .head span{
-            background:#000000;
-            background-size: 100% 100%;
-            background-repeat: no-repeat;
-             
-             height:150px;
-             margin-top: 0px;
-             padding:0;
-            
-
-        }
         
 
         .title{
@@ -78,6 +67,8 @@
              padding-left:30px;
              float:right;
               -webkit-font-smoothing: antialiased;
+              z-index: 2;
+              position: relative;
              
         }
 
@@ -91,7 +82,8 @@
             font-size: 30pt;
             -webkit-font-smoothing: antialiased;
               color:rgb(255,255,255);
-               vertical-align:bottom;
+              vertical-align:bottom;
+              z-index: 2;
              
         }
 
@@ -105,18 +97,21 @@
             vertical-align: middle;
             margin-top: 20px;
             padding-left:10px;
+            z-index: 2;
 
         }
         .img_circle{
             border-radius: 50%;
-            height: 50px;
-            width: 50px;
+            height: 70px;
+            width: 70px;
             float:left;
+             border:2px solid gray;
             vertical-align: middle;
         }
 
-        h1{
+        .title h1{
             font-family: xichao;
+            position: absolute;
             font-size: 20pt;
             font-weight: 5;
             padding:10px 10px 10px 10px ; 
@@ -124,8 +119,9 @@
            
             color:rgb(255,255,255);
 
+
         }
-        h2{
+        .title h2{
             font-family: xichao;
             font-size: 15pt;
             font-weight: 5;
@@ -135,7 +131,7 @@
             color:rgb(255,255,255);
 
         }
-        h3{
+        .title h3{
             font-family: xichao;
             font-size: 8pt;
             
@@ -147,8 +143,8 @@
         }
         .article-posts{
            list-style:none;
-           border-style: ;
-            height:30px;
+           
+           margin-top: 0;
             padding:20px 20px;
         }
 
@@ -157,8 +153,8 @@
            
 
             
-            border-bottom:1px solid black;
-            padding:20px 20px;
+            border-bottom:1px solid gray;
+            padding-bottom:20px;
             
 
 
@@ -169,6 +165,27 @@
              vertical-align: middle;
             
         }
+
+        a:link,a:visited{
+        	text-decoration: none;
+        	color: #000000; 
+        	 text-decoration:blink;
+        	font-family: xichao;
+        	  text-align: center;
+             vertical-align: middle;
+
+
+        }
+        #vein{
+			position:absolute;
+			width:100%;
+			height:100%;
+			background-color: #000000;
+			opacity: 0.57;
+			filter: progid:DXImageTransform.Microsoft.Alpha(opacity=57);
+			-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(opacity=57)";
+			z-index:1;
+			}
 
     </style>
 
@@ -181,12 +198,13 @@
     <div class="row-fluid">
         <div  class="col-md-12">
         <div class="head">
-        <div id="vein"></div>
-        <span></span>
+        <div id="vein">
+        
             <div class="title_image"></div>
             <div class="title"><h2>青春校园 当下即是</h2>
                 <h3>构建校园人文生活常态</h3></div> 
             <div class="subtitle">0.48南洋荐书</div>
+        </div>
         </div>
         </div>
     </div>
