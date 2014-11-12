@@ -3,7 +3,7 @@ from cStringIO import StringIO
 import os
 import MySQLdb
 from flask import Flask, request,session, g, redirect, url_for,render_template,flash,abort
-from flask.ext.login import login_required
+##from flask.ext.login import login_required
 from werkzeug import secure_filename
 from flask import send_from_directory
 from time import time
