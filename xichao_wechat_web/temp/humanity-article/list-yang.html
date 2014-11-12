@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.css">
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.js"></script>
+
+    <style>
+        @font-face {
+            font-family: xichao;
+            src: url('../static/SourceHanSansCN-Bold.otf'),
+            url('../static/xichao_font.eot'); /* IE9+ */
+        }
+
+        .item {
+            font-family: xichao;
+            font-size: 20pt;
+            font-weight: bold;
+            padding: 25px;
+            color: #005916;
+            text-shadow: 4px 4px 4px #333333;
+        }
+
+        a {
+            background: none !important;
+        }
+
+        .ui-btn-active {
+            font-family: xichao;
+            font-size: 9pt !important;
+            color: rgb(102, 153, 255) !important;
+        }
+
+        .footer,
+        .navbar,
+        ul {
+            background-color: rgb(255, 255, 255, 0.2);
+        }
+
+        .nav_li {
+            font-family: xichao;
+            font-size: 8pt !important;
+            border-right: 1px solid black !important;
+            border-left: 1px solid black !important;
+        }
+
+        .head{
+            background: url('../static/image/humanity/recommend.png');
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+             
+             height:150px;
+             margin-top: 0px;
+             padding:0;
+
+
+
+        }
+
+        .head span{
+            background:#000000;
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+             
+             height:150px;
+             margin-top: 0px;
+             padding:0;
+            
+
+        }
+        
+
+        .title{
+            text-align: right;
+             margin-top: 0px;
+             padding-left:30px;
+             float:right;
+              -webkit-font-smoothing: antialiased;
+             
+        }
+
+         .subtitle{
+            text-align:center;
+            height: 50px;
+            width: device-width;
+             padding-top:100px;
+             float: bottom;
+             font-family: xichao;
+            font-size: 30pt;
+            -webkit-font-smoothing: antialiased;
+              color:rgb(255,255,255);
+               vertical-align:bottom;
+             
+        }
+
+        .title_image{
+            background: url('../static/image/humanity/3.png');
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            height:70px;
+            width:70px;
+            float:left;
+            vertical-align: middle;
+            margin-top: 20px;
+            padding-left:10px;
+
+        }
+        .img_circle{
+            border-radius: 50%;
+            height: 50px;
+            width: 50px;
+            float:left;
+            vertical-align: middle;
+        }
+
+        h1{
+            font-family: xichao;
+            font-size: 20pt;
+            font-weight: 5;
+            padding:10px 10px 10px 10px ; 
+            margin-bottom: 10px;
+           
+            color:rgb(255,255,255);
+
+        }
+        h2{
+            font-family: xichao;
+            font-size: 15pt;
+            font-weight: 5;
+            border-bottom:1px solid white;
+            padding-left: 100px;
+            padding-right:10px;
+            color:rgb(255,255,255);
+
+        }
+        h3{
+            font-family: xichao;
+            font-size: 8pt;
+            
+            padding-left: 100px;
+            padding-right: 10px;
+            padding-top: 0px;
+            color:rgb(255,255,255);
+
+        }
+        .article-posts{
+           list-style:none;
+           border-style: ;
+            height:30px;
+            padding:20px 20px;
+        }
+
+        .list-item{
+            text-align: center;
+           
+
+            
+            border-bottom:1px solid black;
+            padding:20px 20px;
+        }
+
+        .article-item{
+            text-align: center;
+             vertical-align: middle;
+            
+        }
+
+    </style>
+
+   
+</head>
+
+<body>
+<!-- Home -->
+<div data-role="page" id="page1" style="50% 0 no-repeat;background-size:cover;padding:0px;" >
+    
+    <div class="row-fluid">
+        <div  class="col-md-12">
+        <div class="head">
+        <div id="vein"></div>
+        <span></span>
+            <div class="title_image"></div>
+            <div class="title"><h2>青春校园 当下即是</h2>
+                <h3>构建校园人文生活常态</h3></div> 
+            <div class="subtitle">0.48南洋荐书</div>
+        </div>
+        </div>
+    </div>
+
+    <div data-role="content" style="background-size:cover;width:100%;padding:0px;height:100%;z-index=0;">
+        <div style="margin:1%">   
+            <ul data-role="listview" data-inset="true">
+                <li><a href="./article.html" data-transition="fade" data-theme="" data-icon=""data-ajax="false" 
+                    style="text-align: center; font-family: xichao;">
+                    <img style="border-radius: 50%;" src="http://tp4.sinaimg.cn/1689664143/180/5631522327/0">第18期：唐朝穿越指南</a></li>
+                <li><a href="./article.html" data-transition="fade" data-theme="" data-icon=""data-ajax="false" 
+                    style="text-align: center; font-family: xichao;">
+                    <img style="border-radius: 50%;" src="http://tp4.sinaimg.cn/1689664143/180/5631522327/0">第18期：唐朝穿越指南</a></li>
+                <li><a href="./article.html" data-transition="fade" data-theme="" data-icon=""data-ajax="false" 
+                    style="text-align: center; font-family: xichao;">
+                    <img style="border-radius: 50%;" src="http://tp4.sinaimg.cn/1689664143/180/5631522327/0">第18期：唐朝穿越指南</a></li>
+                <li><a href="./article.html" data-transition="fade" data-theme="" data-icon=""data-ajax="false" 
+                    style="text-align: center; font-family: xichao;">
+                    <img style="border-radius: 50%;" src="http://tp4.sinaimg.cn/1689664143/180/5631522327/0">第18期：唐朝穿越指南</a></li>
+                <li><a href="./article.html" data-transition="fade" data-theme="" data-icon=""data-ajax="false" 
+                    style="text-align: center; font-family: xichao;">
+                    <img style="border-radius: 50%;" src="http://tp4.sinaimg.cn/1689664143/180/5631522327/0">第18期：唐朝穿越指南</a></li>
+                <li><a href="./article.html" data-transition="fade" data-theme="" data-icon=""data-ajax="false" 
+                    style="text-align: center; font-family: xichao;">
+                    <img style="border-radius: 50%;" src="http://tp4.sinaimg.cn/1689664143/180/5631522327/0">第18期：唐朝穿越指南</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer" data-theme="a" data-role="footer" data-position="fixed">
+        <div class="navbar" data-role="navbar" data-iconpos="top">
+            <ul>
+                <li class="nav_li">
+                    <a href="../humanity" data-transition="fade" data-theme="" data-icon="" data-ajax="false">
+                        人文曦潮
+                    </a>
+                </li >
+                <li class="nav_li">
+                    <a href="../serve" data-transition="fade" data-theme="" data-icon="" data-ajax="false">
+                        服务曦潮
+                    </a>
+                </li >
+                <li class="nav_li">
+                    <a href="#page1" data-transition="fade" data-theme="" data-icon=""
+                       class="ui-link ui-btn ui-btn-active" data-ajax="false">
+                        加入曦潮
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+</body>
+</html>
