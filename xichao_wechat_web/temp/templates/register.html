@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.css">
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.js"></script>
+
+    <style>
+        @font-face {
+            font-family: xichao;
+            src: url('../static/SourceHanSansCN-Bold.otf'),
+            url('../static/xichao_font.eot'); /* IE9+ */
+        }
+
+        .item {
+            font-family: xichao;
+            font-size: 20pt;
+            font-weight: bold;
+            padding: 25px;
+            color: #005916;
+            text-shadow: 4px 4px 4px #333333;
+        }
+
+        a {
+            background: none !important;
+        }
+
+        .ui-btn-active {
+            font-family: xichao;
+            font-size: 9pt !important;
+            color: rgb(102, 153, 255) !important;
+        }
+
+        .footer,
+        .navbar,
+        ul {
+            background-color: rgb(255, 255, 255, 0.2);
+        }
+
+        .nav_li {
+            font-family: xichao;
+            font-size: 8pt !important;
+            border-right: 1px solid black !important;
+            border-left: 1px solid black !important;
+        }
+
+        .head{
+            background: url('../static/image/join/leaf.png');
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+             
+             height:150px;
+             margin-top: 0px;
+             padding:0;
+
+
+
+        }
+
+        .head span{
+            background:#000000;
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+             
+             height:150px;
+             margin-top: 0px;
+             padding:0;
+            
+
+        }
+        
+
+        .title{
+            text-align: right;
+             margin-top: 0px;
+             padding-left:30px;
+             float:right;
+              -webkit-font-smoothing: antialiased;
+             
+        }
+
+         .subtitle{
+            text-align:center;
+            height: 50px;
+            width: device-width;
+             padding-top:100px;
+             float: bottom;
+             font-family: xichao;
+            font-size: 30pt;
+            -webkit-font-smoothing: antialiased;
+              color:rgb(255,255,255);
+               vertical-align:bottom;
+             
+        }
+
+        .title_image{
+            background: url('../static/image/humanity/3.png');
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            height:70px;
+            width:70px;
+            float:left;
+            vertical-align: middle;
+            margin-top: 20px;
+            padding-left:10px;
+
+        }
+        .img_circle{
+            border-radius: 50%;
+            height: 50px;
+            width: 50px;
+            float:left;
+            vertical-align: middle;
+        }
+
+        h1{
+            font-family: xichao;
+            font-size: 20pt;
+            font-weight: 5;
+            padding:10px 10px 10px 10px ; 
+            margin-bottom: 10px;
+           
+            color:rgb(255,255,255);
+
+        }
+        h2{
+            font-family: xichao;
+            font-size: 15pt;
+            font-weight: 5;
+            border-bottom:1px solid white;
+            padding-left: 100px;
+            padding-right:10px;
+            color:rgb(255,255,255);
+
+        }
+        h3{
+            font-family: xichao;
+            font-size: 8pt;
+            
+            padding-left: 100px;
+            padding-right: 10px;
+            padding-top: 0px;
+            color:rgb(255,255,255);
+
+        }
+        .article-posts{
+           list-style:none;
+           border-style: ;
+            height:30px;
+            padding:20px 20px;
+        }
+
+        .list-item{
+            text-align: center;
+           
+            border-bottom:1px solid black;
+            padding:20px 20px;
+        }
+
+        .article-item{
+            text-align: center;
+             vertical-align: middle;
+            
+        }
+
+    </style>
+</head>
+
+<body>
+<!-- Home -->
+<div data-role="page" id="page1" style="50% 0 no-repeat;background-size:cover;padding:0px; font-family:xichao;" >
+
+    <div class="row-fluid">
+        <div  class="col-md-12">
+        <div class="head">
+        <div id="vein"></div>
+        <span></span>
+            <div class="title_image"></div>
+            <div class="title"><h2>青春校园 当下即是</h2>
+                <h3>构建校园人文生活常态</h3></div> 
+            <div class="subtitle">曦潮招募</div>
+        </div>
+        </div>
+    </div>
+    
+    <div data-role="content" style="background-size:cover;width:100%;padding:0px;height:100%;z-index=0;">
+
+        <form method="post" >
+            <div data-role="fieldcontain" style="margin-left:5%; margin-right:5%;">
+                <label for="fullname">姓名：</label>
+                <input type="text" name="fullname" id="fullname">
+            </div>
+            <div data-role="fieldcontain" style="margin-left:5%; margin-right:5%;">
+                <fieldset data-role="controlgroup"  data-type="horizontal">
+                <legend>性别：</legend>
+                    <label for="male" style="font-family:xichao;">男性</label>
+                    <input type="radio" name="gender" id="male" value="male">
+                    <label for="female" style="font-family:xichao;">女性</label>
+                    <input type="radio" name="gender" id="female" value="female">   
+                </fieldset>
+            </div>
+
+            <div data-role="fieldcontain" style="margin-left:5%; margin-right:5%;">
+                <label for="grade">年级：</label>
+                <input type="text" name="grade" id="school">
+            </div>
+
+            <div data-role="fieldcontain" style="margin-left:5%; margin-right:5%;">
+                <label for="school">学院专业：</label>
+                <input type="text" name="school" id="school">
+            </div>
+
+            <div data-role="fieldcontain" style="margin-left:5%; margin-right:5%;">
+                <label for="email">邮箱：</label>
+                <input type="email" name="email" id="email" placeholder="您的电子邮件地址..">
+            </div>
+
+            <div data-role="fieldcontain" style="margin-left:5%; margin-right:5%;">
+                <label for="tel">联系电话：</label>
+                <input type="tel" name="tel" id="tel" placeholder="您的手机/座机号码..">
+            </div>
+
+            <div data-role="fieldcontain" style="margin-left:5%; margin-right:5%;">
+                <fieldset data-role="controlgroup">
+                <legend>愿意加入：</legend>
+                <label for="club">曦潮俱乐部</label>
+                <input type="checkbox" name="job1" id="club" value="曦潮俱乐部">
+                <label for="intern">曦潮实习生岗位</label>
+                <input type="checkbox" name="job2" id="intern" value="曦潮实习生岗位">
+                <label for="wailian">A .文化外联实习生</label>
+                <input type="checkbox" name="job3" id="wailian" value="A .文化外联实习生">
+                <label for="wenan">B .文案广告实习生</label>
+                <input type="checkbox" name="job4" id="wenan" value="B .文案广告实习生">
+                <label for="sheji">C .平面设计实习生</label>
+                <input type="checkbox" name="job5" id="sheji" value="C .平面设计实习生">
+                <label for="yunying">D .网络运营实习生</label>
+                <input type="checkbox" name="job6" id="yunying" value="D .网络运营实习生"> 
+                <label for="code">E .技术编程实习生</label>
+                <input type="checkbox" name="job7" id="code" value="E .技术编程实习生"> 
+                <label for="bangong">F .日常办公实习生</label>
+                <input type="checkbox" name="job8" id="bangong" value="F .日常办公实习生"> 
+                </fieldset>
+            </div>
+
+            <div data-role="fieldcontain" style="margin-left:5%; margin-right:5%;">
+                <label for="info">自我介绍:</label>
+                <textarea name="addinfo" id="info"></textarea>
+            </div>
+
+            <div data-role="fieldcontain" style="margin-left:5%; margin-right:5%;">
+                <input type="submit" value="OK" >
+            </div>
+
+        </form>
+    </div>
+
+</div>
+</body>
+</html>

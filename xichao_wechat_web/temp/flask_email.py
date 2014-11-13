@@ -1,23 +1,12 @@
-from flask import Flask
+from flask import Flask, request,\
+      redirect, url_for,render_template,flash
 from flask.ext.mail import Mail
 from flask.ext.mail import Message
 app = Flask(__name__)
 app.config.from_object(__name__)
+import threading
 
-
-# email server
-##app.config.update(
-##    MAIL_USE_SSL= True,
-##    MAIL_USE_TLS=True, 
-##    MAIL_SERVER='smtp.sina.com.cn',
-##    MAIL_PORT=465,
-##    MAIL_USERNAME='xichaoshudian',
-##    MAIL_PASSWORD='xichao123'
-##
-##
-##    )
 app.config.update(
-	EBUG=True,
 	#EMAIL SETTINGS
 	MAIL_SERVER='smtp.163.com',
 	MAIL_PORT=25,
@@ -29,23 +18,34 @@ app.config.update(
 
 
 mail = Mail(app)
-
 ADMINS = ['xichaoshudian@163.com']
-##msg = Message('test subject', sender = ADMINS[0], recipients = ADMINS)
-##msg.body = 'text body'
-##msg.html = '<b>HTML</b> body'
-##mail.send(msg)
-@app.route("/")
-def index():
-    try:
-        msg = Message('test subject', sender = ADMINS[0], recipients = ADMINS)
-        msg.body = 'text body'
-        msg.html = '<b>HTML</b> body'
-        mail.send(msg)
-    except Exception,e:
-        print e
 
-    return "email sent!"
+def send_async_email(msg):
+    with app.app_context(): #otherwise, runtimeERROR:working outside of application context
+        mail.send(msg)
+    
+@app.route("/", methods=['GET', 'POST'])
+def index():
+    print 'start!'
+    if request.method=='POST':
+        print 'post!'
+        try:
+##            name=request.form['name']
+##            gender=request.form['gender']
+            msg = Message('test subject', sender = ADMINS[0], recipients = ADMINS)
+            msg.body = 'text body'
+            msg.html =  str(request.form)
+##            msg.html+="<br>"+request.form.get('fullname')+"<br>"+request.form.get('gender')+"<br>"+request.form.get('school')+"<br>"+request.form.get('grade')+\
+##                       "<br>"+request.form.get('email')+"<br>"+request.form.get('favcolor')+"<br>"+request.form.get('addinfo')
+            for item in request.form:
+                msg.html+="<br>"+str(item)+":"+request.form.get(str(item))
+            thr = threading.Thread(target = send_async_email, args = [msg])
+            thr.start()
+        except Exception,e:
+            print e
+
+
+    return render_template('register.html')
 
 if __name__ == "__main__":
     app.run()
