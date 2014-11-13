@@ -2,8 +2,12 @@
 from cStringIO import StringIO
 import os
 import MySQLdb
-from flask import Flask, request,session, g, redirect, url_for,render_template,flash,abort
-##from flask.ext.login import login_required
+from flask import Flask, request,session, \
+     g, redirect, url_for,render_template,flash,abort
+from flask.ext.mail import Mail
+from flask.ext.mail import Message
+import threading
+from flask.ext.login import login_required
 from werkzeug import secure_filename
 from flask import send_from_directory
 from time import time
@@ -20,13 +24,21 @@ UPLOAD_FOLDER = 'static/upload_images/'
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
 app.config.update(
     # DATABASE = '/flaskr.db',
-    DEBUG = True,
+##    DEBUG = True,
     UPLOAD_FOLDER=UPLOAD_FOLDER,
     MAX_CONTENT_LENGTH=16 * 1024 * 1024,
     SECRET_KEY = 'xichao secret',
     USERNAME = 'xichao',
     PASSWORD = 'xichao123',
-    PER_PAGE=15
+    PER_PAGE=15,
+
+     #EMAIL SETTINGS
+    MAIL_SERVER='smtp.163.com',
+    MAIL_PORT=25,
+    MAIL_USE_TLS = True,
+    MAIL_USE_SSL=False,
+    MAIL_USERNAME = 'xichaoshudian@163.com',
+    MAIL_PASSWORD = 'xichao123'
     )
 
 db_config={
@@ -71,8 +83,30 @@ def join():
 def humanity():
     return render_template("humanity.html")
 
-@app.route('/register/')
+
+mail = Mail(app)
+ADMINS = ['xichaoshudian@163.com']
+
+def send_async_email(msg):
+    with app.app_context(): #otherwise, runtimeERROR:working outside of application context
+        mail.send(msg)
+        
+@app.route('/register/', methods=['GET', 'POST'])
 def register():
+    if request.method=='POST':
+        try:
+            msg = Message('test subject', sender = ADMINS[0], recipients = ADMINS)
+            msg.body = 'text body'
+            msg.html =  str(request.form)
+##            msg.html+="<br>"+request.form.get('fullname')+"<br>"+request.form.get('gender')+"<br>"+request.form.get('school')+"<br>"+request.form.get('grade')+\
+##                       "<br>"+request.form.get('email')+"<br>"+request.form.get('favcolor')+"<br>"+request.form.get('addinfo')
+            for item in request.form:
+                msg.html+="<br>"+str(item)+":"+request.form.get(str(item))
+            thr = threading.Thread(target = send_async_email, args = [msg])
+            thr.start()
+        except Exception,e:
+            print e
+
     return render_template("register.html")
 
 def humanity():
@@ -218,5 +252,5 @@ def comment(id):
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run()
 

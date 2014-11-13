@@ -24,7 +24,7 @@ $(document).ready(function(){
 <div data-role="page" id="page1" style="padding:0px;background-image:url('../static/image/join/bg.png');background-size:cover;">
     <div id="form_div" data-role="content"
          style="width:100%;z-index=0;margin-top:150px;">
-        <form method="post" action="demoform.asp">
+        <form method="post" >
             <div data-role="fieldcontain" style="margin-left:5%; margin-right:5%;">
                 <label for="fullname">姓名：</label>
                 <input type="text" name="fullname" id="fullname">
@@ -63,21 +63,21 @@ $(document).ready(function(){
                 <fieldset data-role="controlgroup">
                 <legend>愿意加入：</legend>
                 <label for="club">曦潮俱乐部</label>
-                <input type="checkbox" name="favcolor" id="club" value="club">
+                <input type="checkbox" name="job1" id="club" value="曦潮俱乐部">
                 <label for="intern">曦潮实习生岗位</label>
-                <input type="checkbox" name="favcolor" id="intern" value="intern">
+                <input type="checkbox" name="job2" id="intern" value="曦潮实习生岗位">
                 <label for="wailian">A .文化外联实习生</label>
-                <input type="checkbox" name="favcolor" id="wailian" value="wailian">
+                <input type="checkbox" name="job3" id="wailian" value="A .文化外联实习生">
                 <label for="wenan">B .文案广告实习生</label>
-                <input type="checkbox" name="favcolor" id="wenan" value="wenan">
+                <input type="checkbox" name="job4" id="wenan" value="B .文案广告实习生">
                 <label for="sheji">C .平面设计实习生</label>
-                <input type="checkbox" name="favcolor" id="sheji" value="sheji">
+                <input type="checkbox" name="job5" id="sheji" value="C .平面设计实习生">
                 <label for="yunying">D .网络运营实习生</label>
-                <input type="checkbox" name="favcolor" id="yunying" value="yunying"> 
+                <input type="checkbox" name="job6" id="yunying" value="D .网络运营实习生"> 
                 <label for="code">E .技术编程实习生</label>
-                <input type="checkbox" name="favcolor" id="code" value="code"> 
+                <input type="checkbox" name="job7" id="code" value="E .技术编程实习生"> 
                 <label for="bangong">F .日常办公实习生</label>
-                <input type="checkbox" name="favcolor" id="bangong" value="bangong"> 
+                <input type="checkbox" name="job8" id="bangong" value="F .日常办公实习生"> 
                 </fieldset>
             </div>
 
@@ -87,7 +87,7 @@ $(document).ready(function(){
             </div>
 
             <div data-role="fieldcontain" style="margin-left:5%; margin-right:5%;">
-                <input type="submit" value="OK" onclick="return false;">
+                <input type="submit" value="OK" >
             </div>
 
         </form>
