@@ -1,6 +1,7 @@
 #-*-coding:utf-8-*-
 import os
 import MySQLdb
+import time
 from flask import session
 
 class Post:
@@ -8,37 +9,39 @@ class Post:
 	def __init__(self,default_config):
 		self.db_user=default_config["db_user"]
 		self.db_passwd=default_config["db_passwd"]
-
+		self.db_name=default_config["db_name"]
+		self.response = {'error': None, 'data': None}
 
     ## find items from id to id+limit
-	def get_posts(self,id,limit):
-		conn=MySQLdb.connect(host='localhost',user=self.db_user,passwd=self.db_passwd,db="xichao_wechat",charset="utf8")
+	def get_posts(self,category):
+		conn=MySQLdb.connect(host='localhost',user=self.db_user,passwd=self.db_passwd,db=self.db_name,charset="utf8")
 		cursor=conn.cursor(cursorclass=MySQLdb.cursors.DictCursor)
-		cursor.execute("select * from xichao_article limit "+str(id)+","+str(limit))
+		cursor.execute("select * from xichao_article where category="+str(category))
 		return cursor.fetchall()
 
 	def get_post_by_id(self,id):
-		conn=MySQLdb.connect(host='localhost',user=self.db_user,passwd=self.db_passwd,db="xichao_wechat",charset="utf8")
+		conn=MySQLdb.connect(host='localhost',user=self.db_user,passwd=self.db_passwd,db=self.db_name,charset="utf8")
 		cursor=conn.cursor(cursorclass=MySQLdb.cursors.DictCursor)
 		cursor.execute("select * from xichao_article where id= "+str(id))
 		return cursor.fetchone()
 	
 	def add_new_post(self,post_data):
 		try:
-			conn=MySQLdb.connect(host='localhost',user=self.db_user,passwd=self.db_passwd,db="xichao_wechat",charset="utf8")
+			conn=MySQLdb.connect(host='localhost',user=self.db_user,passwd=self.db_passwd,db=self.db_name,charset="utf8")
 			cursor=conn.cursor(cursorclass=MySQLdb.cursors.DictCursor)
-			sql = "insert into xichao_article(title,image_path,article) values(%s,%s,%s)"
+			sql = "insert into xichao_article(title,image_path,article,category) values(%s,%s,%s,%s)"
  			cursor.execute(sql,post_data)
 			cursor.close()
 			conn.commit()
 			conn.close()
 			return True
-		except:
+		except Exception,e:
+			self.response['error']=e
 			return False
 
 	def edit_post(self,post_data):
 		try:
-			conn=MySQLdb.connect(host='localhost',user=self.db_user,passwd=self.db_passwd,db="xichao_wechat",charset="utf8")
+			conn=MySQLdb.connect(host='localhost',user=self.db_user,passwd=self.db_passwd,db=self.db_name,charset="utf8")
 			cursor=conn.cursor(cursorclass=MySQLdb.cursors.DictCursor)
 			sql ="REPLACE INTO XICHAO_ARTICLE(id,title,image_path,article) values(%s,%s,%s,%s);"
  			cursor.execute(sql,post_data)
@@ -46,11 +49,12 @@ class Post:
 			conn.commit()
 			conn.close()
 			return True
-		except:
+		except Exception,e:
+			self.response['error']=e
 			return False
 	def post_delete(self,id):
 		try:
-			conn=MySQLdb.connect(host='localhost',user=self.db_user,passwd=self.db_passwd,db="xichao_wechat",charset="utf8")
+			conn=MySQLdb.connect(host='localhost',user=self.db_user,passwd=self.db_passwd,db=self.db_name,charset="utf8")
 			cursor=conn.cursor(cursorclass=MySQLdb.cursors.DictCursor)
 			sql ="delete from XICHAO_ARTICLE where id="+id
 			cursor.execute(sql)
@@ -58,7 +62,8 @@ class Post:
 			conn.commit()
 			conn.close()
 			return True
-		except:
+		except Exception,e:
+			self.response['error']=e
 			return False
 
 

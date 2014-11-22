@@ -16,7 +16,6 @@ from flask_wtf.file import FileField
 #import sqlalchemy.util as util
 import string, sys
 from models import *
-
 #from sqlalchemy.databases import mysql
 
 app = Flask(__name__)
@@ -24,7 +23,7 @@ UPLOAD_FOLDER = 'static/upload_images/'
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
 app.config.update(
     # DATABASE = '/flaskr.db',
-##    DEBUG = True,
+    DEBUG = True,
     UPLOAD_FOLDER=UPLOAD_FOLDER,
     MAX_CONTENT_LENGTH=16 * 1024 * 1024,
     SECRET_KEY = 'xichao secret',
@@ -43,33 +42,117 @@ app.config.update(
 
 db_config={
     "db_user":'root',
-    "db_passwd":''
+    "db_passwd":'',
+    'db_name':'xichao_wechat'  
 }
 admin_config={
     "user":app.config['USERNAME'],
     "passwd":app.config['PASSWORD']
 
 }
+article_category={
+                'nanyang':[1,u"0.48南洋荐书"],
+                'shuzhi':[2,u"树枝态度"],
+                'shishu':[3,u"嗜书瘾君子"],
+                'qiuqiu':[4,u"一只球球"],
+                'wendu':[5,u"曦潮温度"]
+                }
+
 admin=Admin(admin_config)
 poster=Post(db_config)
+
 
 def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
-   
+ 
+
 @app.route("/")
 def index():
     return render_template('welcome.html')
+@app.route("/admin/")
+def admin_index():
+    if not admin.validate_login():
+        abort(403)
+    return render_template('admin.html')
 
 @app.route('/admin/login/', methods=['GET', 'POST'])
 def login():
     if admin.validate_login():
-        return redirect('/posts_list/')  
+        return redirect('/admin/')  
 
     if request.method == 'POST':
         if not admin.login(request.form['username'],request.form['password'])["error"]:
-            return redirect('/posts_list/')
-    return render_template('admin-login.html', error=admin.response['error'])
+            return redirect('/admin/')
+    return render_template('login.html', error=admin.response['error'])
+
+@app.route('/admin/logout/')
+def logout():
+    print admin.logout()
+    #flash('You were logged out')
+    return render_template('logout.html')
+
+@app.route('/admin/post/<string:column>/',methods=['GET', 'POST'])
+def article_list(column):
+    if not admin.validate_login():
+        abort(403)
+    column=column.lower()
+    if column in [key for key in article_category]:
+        category=article_category[column][0]
+    else:
+        abort(404)
+    article_list=poster.get_posts(category)
+    print article_list
+    #flash('You were logged out')
+    return render_template('tables.html',posts=article_list,column=article_category[column][1])
+
+
+@app.route('/admin/post/<string:column>/edit/<int:tid>/',methods=['GET', 'POST'])
+def edit(column,tid):
+    if not admin.validate_login():
+        abort(403)
+
+    column=column.lower()
+    category=article_category[column][0]
+
+    #post=get_article from db
+    return render_template('edit.html',post=post,column=article_category[column][1])
+
+@app.route('/admin/post/<string:column>/new/',methods=['GET', 'POST'])
+def new_post(column):
+    column=column.lower()
+    if not admin.validate_login():
+        abort(403)
+    error=None
+    if request.method == 'POST':
+        try:
+            title=request.form["post-title"]
+            text=request.form["post-full"]
+            imagefile=request.files["image"]
+            if imagefile and allowed_file(imagefile.filename):
+                tmpfilename=str(int(time.time()))+'.'+imagefile.filename.rsplit('.', 1)[1]
+                #save image
+                image_url=UPLOAD_FOLDER+tmpfilename
+                
+                filename = secure_filename(tmpfilename)
+                
+                imagefile.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            
+            category=article_category[column][0]
+            post_data=(title,image_url,text,category)
+            print post_data
+
+            if poster.add_new_post(post_data):
+                print 'po'
+                return render_template("edit.html",done=True,column=article_category[column][1])
+            print poster.response
+        except Exception,e:
+            print e
+            return render_template("edit.html",error=e,column=article_category[column][1])
+
+
+    return render_template('edit.html',column=article_category[column][1])
+
 
 @app.route('/serve/')
 def serve():
@@ -84,12 +167,12 @@ def humanity():
     return render_template("humanity.html")
 
 
-mail = Mail(app)
-ADMINS = ['xichaoshudian@163.com']
+#mail = Mail(app)
+#ADMINS = ['xichaoshudian@163.com']
 
-def send_async_email(msg):
-    with app.app_context(): #otherwise, runtimeERROR:working outside of application context
-        mail.send(msg)
+# def send_async_email(msg):
+#     with app.app_context(): #otherwise, runtimeERROR:working outside of application context
+#         mail.send(msg)
         
 @app.route('/register/', methods=['GET', 'POST'])
 def register():
@@ -109,8 +192,7 @@ def register():
 
     return render_template("register.html")
 
-def humanity():
-    return render_template("humanity.html")
+
 
 @app.route('/list/')
 def list():
@@ -118,11 +200,7 @@ def list():
     return render_template('list.html',list=article_list)
 
 
-@app.route('/admin/logout')
-def logout():
-    print admin.logout()
-    #flash('You were logged out')
-    return render_template('logout.html')
+
 
 
 
@@ -136,15 +214,18 @@ def posts(page):
     return render_template('posts.html', posts=posts)
 
 
-@app.route('/newpost/',methods=['GET', 'POST'])
+@app.route('/newpost/',methods=['GET','POST'])
 def newpost():
     if not admin.validate_login():
         abort(403)
     error=None
     if request.method == 'POST':
         try:
+            
             title=request.form["post-title"]
+           
             text=request.form["post-full"]
+            
             file=request.files['image']
             if file and allowed_file(file.filename):
                 file.filename=str(int(time()))+'.'+file.filename.rsplit('.', 1)[1]
@@ -157,10 +238,11 @@ def newpost():
             if poster.add_new_post(post_data):
                 return "<h1>提交成功</h1><br/><a href='../newpost/'>返回继续提交</a>"
         except Exception,e:
-            return render_template("new_post.html",error=e)
+            print e
+            return render_template("test.html",error=e)
 
 
-    return render_template("new_post.html")
+    return render_template("test.html")
 
 @app.route('/post_edit<id>',methods=['GET', 'POST'])
 def post_edit(id):
