@@ -50,13 +50,9 @@
             background: url('../static/image/humanity/recommend.png');
             background-size: 100% 100%;
             background-repeat: no-repeat;
-             
-             height:150px;
-             margin-top: 0px;
-             padding:0;
 
-
-
+            height:150px;
+            z-index: 1;
         }
 
         .head span{
@@ -73,36 +69,30 @@
         
 
         .title{
+            position: relative;
             text-align: right;
-             margin-top: 0px;
-             padding-left:30px;
-             float:right;
-              -webkit-font-smoothing: antialiased;
-             
+            margin-top: 0px;
+            padding-left:30px;
+            float:right;
+            -webkit-font-smoothing: antialiased;
+            z-index: 3;
         }
 
         .subtitle{
-            text-align:center;
+            position: relative;
+            text-align: center;
+            float: center;
+            
+            -webkit-font-smoothing: antialiased;
             height: 50px;
-            width: device-width;
             padding-top:100px;
-            float: bottom;
+
             font-family: xichao;
             font-size: 30pt;
             -webkit-font-smoothing: antialiased;
             color:rgb(255,255,255);
-            vertical-align:bottom;
-             
-        }
+            z-index: 3;
 
-        .author{
-            text-align:right;
-            height: 40px;
-            width: device-width;
-            padding-top:10px;
-            font-family: xichao;
-            -webkit-font-smoothing: antialiased;
-            vertical-align:bottom;
         }
 
         .title_image{
@@ -116,6 +106,8 @@
             margin-top: 20px;
             padding-left:10px;
 
+            position: relative;
+            z-index: 3;
         }
         .img_circle{
             border-radius: 50%;
@@ -177,6 +169,17 @@
             
         }
 
+        #vein{
+            position:absolute;
+            width: 100%;
+            height: 150px;
+            background-color: #000000;
+            opacity: 0.57;
+            filter: progid:DXImageTransform.Microsoft.Alpha(opacity=57);
+            -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(opacity=57)";
+            z-index: 2;
+        }
+
     </style>
 
    
@@ -186,17 +189,13 @@
 <!-- Home -->
 <div data-role="page" id="page1" style="50% 0 no-repeat;background-size:cover;padding:0px;" >
     
-    <div class="row-fluid">
-        <div  class="col-md-12">
-        <div class="head">
-        <div id="vein"></div>
-        <span></span>
-            <div class="title_image"></div>
-            <div class="title"><h2>青春校园 当下即是</h2>
-                <h3>构建校园人文生活常态</h3></div> 
-            <div class="subtitle">唐朝穿越指南</div>
+    <div class="head">
+        <div id="vein">
         </div>
-        </div>
+        <div class="title_image"></div>
+        <div class="title"><h2>青春校园 当下即是</h2>
+            <h3>构建校园人文生活常态</h3></div> 
+        <div class="subtitle">唐朝穿越指南</div>
     </div>
 
     <div data-role="content" style="background-size:cover;width:100%;padding:0px;height:100%;z-index=0;">
