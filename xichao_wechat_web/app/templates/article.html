@@ -1,64 +1,247 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.css"/>
-<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-<script src="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.js"></script>
+<title>{{category}}</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.css">
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.js"></script>
 
- <style>  
-            @font-face {font-family:myFont; src:url('../static/方正小标宋简体.ttf');}  
-        </style>
-<script type="text/javascript">
-$(document).ready(function(){  
-            document.all("page1").style["width"]=document.body.clientWidth;
-            document.all("page1").style["height"]=document.body.clientHeight;
-            return;  
-        }) 
+    <style>
+        @font-face {
+            font-family: xichao;
+            src: url('{{url_for('static',filename='SourceHanSansCN-Bold.otf')}}'),
+            url('{{url_for('static',filename='xichao_font.eot')}}'); /* IE9+ */
+        }
 
-</script>
+        .item {
+            font-family: xichao;
+            font-size: 20pt;
+            font-weight: bold;
+            padding: 25px;
+            color: #005916;
+            text-shadow: 4px 4px 4px #333333;
+        }
 
+        a {
+            background: none !important;
+        }
+
+        .ui-btn-active {
+            font-family: xichao;
+            font-size: 9pt !important;
+            color: rgb(102, 153, 255) !important;
+        }
+
+        .footer,
+        .navbar,
+        ul {
+            background-color: rgb(255, 255, 255, 0.2);
+        }
+
+        .nav_li {
+            font-family: xichao;
+            font-size: 8pt !important;
+            border-right: 1px solid black !important;
+            border-left: 1px solid black !important;
+        }
+
+        .head{
+            background: url('{{url_for('static',filename='image/humanity/recommend.png')}}');
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+             
+             height:150px;
+             margin-top: 0px;
+             padding:0;
+
+
+
+        }
+
+        .head span{
+            background:#000000;
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+             
+             height:150px;
+             margin-top: 0px;
+             padding:0;
+            
+
+        }
+        
+
+        .title{
+            text-align: right;
+             margin-top: 0px;
+             padding-left:30px;
+             float:right;
+              -webkit-font-smoothing: antialiased;
+             
+        }
+
+        .subtitle{
+            text-align:center;
+            height: 50px;
+            width: device-width;
+            padding-top:100px;
+            float: bottom;
+            font-family: xichao;
+            font-size: 30pt;
+            -webkit-font-smoothing: antialiased;
+            color:rgb(255,255,255);
+            vertical-align:bottom;
+             
+        }
+
+        .author{
+            text-align:right;
+            height: 40px;
+            width: device-width;
+            padding-top:10px;
+            font-family: xichao;
+            -webkit-font-smoothing: antialiased;
+            vertical-align:bottom;
+        }
+
+        .title_image{
+            background: url('{{url_for('static',filename='image/humanity/3.png')}}');
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            height:70px;
+            width:70px;
+            float:left;
+            vertical-align: middle;
+            margin-top: 20px;
+            padding-left:10px;
+
+        }
+        .img_circle{
+            border-radius: 50%;
+            height: 50px;
+            width: 50px;
+            float:left;
+            vertical-align: middle;
+        }
+
+        h1{
+            font-family: xichao;
+            font-size: 20pt;
+            font-weight: 5;
+            padding:10px 10px 10px 10px ; 
+            margin-bottom: 10px;
+           
+            color:rgb(255,255,255);
+
+        }
+        h2{
+            font-family: xichao;
+            font-size: 15pt;
+            font-weight: 5;
+            border-bottom:1px solid white;
+            padding-left: 100px;
+            padding-right:10px;
+            color:rgb(255,255,255);
+
+        }
+        h3{
+            font-family: xichao;
+            font-size: 8pt;
+            
+            padding-left: 100px;
+            padding-right: 10px;
+            padding-top: 0px;
+            color:rgb(255,255,255);
+
+        }
+        .article-posts{
+           list-style:none;
+           border-style: ;
+            height:30px;
+            padding:20px 20px;
+        }
+
+        .list-item{
+            text-align: center;
+           
+
+            
+            border-bottom:1px solid black;
+            padding:20px 20px;
+        }
+
+        .article-item{
+            text-align: center;
+             vertical-align: middle;
+            
+        }
+
+    </style>
+
+   
 </head>
 
 <body>
 <!-- Home -->
-<div data-role="page" id="page1" style="background:url('../static/image/humanity/article-bg.png') 50% 0 no-repeat;background-size:cover; padding:0px;" >
-	
-	<div data-role="header" style="opacity:0.75;">
-		<img src="../static/image/serve/title.png" alt="image"
-        style="
-        position: relative;padding:10px 50px;width:80%;height:5%;background-position:center;background-repeat: no-repeat;background-attachment:fixed;z-index=2;">
-
-	</div>
-
-    <div data-role="content" style="background-size:cover;width:100%;padding:0px;height:100%;">
-        <div style=" height:500px; position: relative; border: 1px solid #b8b8b8; margin: 10%; font-family:myFont; font-size:9pt;">
-                {% autoescape false %}
-                    {{article}}
-                {% endautoescape %}
-
-		   
+<div data-role="page" id="page1" style="50% 0 no-repeat;background-size:cover;padding:0px;" >
+    
+    <div class="row-fluid">
+        <div  class="col-md-12">
+        <div class="head">
+        <div id="vein"></div>
+        <span></span>
+            <div class="title_image"></div>
+            <div class="title"><h2>青春校园 当下即是</h2>
+                <h3>构建校园人文生活常态</h3></div>
+                
+            <div class="subtitle">{{post["title"]}}</div>
+        </div>
         </div>
     </div>
 
-    <div data-theme="a" data-role="footer" data-position="fixed">
-        <h3>
-            <div data-role="navbar" data-iconpos="top">
+
+    <div data-role="content" style="background-size:cover;width:100%;padding:0px;height:100%;z-index=0;">
+        <div style=" height:500px; position: relative; border: 1px solid #b8b8b8; margin-left: 10%; margin-right: 10%; 
+        opacity: 0.75;">
+            <div class="author">
+                <p style="font-size:12t;">文｜朝阳落日</p>
+            </div>
+            
+            <div>
+                <p style="font-family:SimHei; font-size:12t;">
+                    大二一直以来，总有一种民国情怀，总是感觉那时的人和物总有一种特别的风貌和魅力，总是在回望中思考和重新认识着历史和当下。同中国历史上春秋战国、魏晋南北朝等大多数乱世一样，民国在动荡不安的时代中也同样出现了百家争鸣、繁荣新潮的文化景象，我不知道这究竟是幸运抑或不幸，但这一切都按照自己的方式走了过去，剩下的就只能留给后人去评价了。
+                </p>
+                <p style="font-family:SimHei; font-size:12pt;">
+                    我不知道当大家听到胡适、梅贻琦、蒋梦麟、陈寅恪、傅斯年、李济、梁思成、林徽因、叶企孙、曾绍抡、吴有训、赵忠尧、刘文典、沈从文、闻一多、穆旦、钱钟书等一大串姓名的时候首先想到的是什么，是五四新文化运动的健将，是学贯东西的大师，是国家罹难的落魄文人，还是中华民族的脊梁。
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer" data-theme="a" data-role="footer" data-position="fixed">
+        <div class="navbar" data-role="navbar" data-iconpos="top">
             <ul>
-                <li>
-					
-                    <a href="/comment/{{id}}"  data-transition="fade" data-theme="" data-icon="" class="ui-link ui-btn ui-btn-active"data-ajax="false">
-                        评论
+                <li class="nav_li">
+                    <a href="../humanity" data-transition="fade" data-theme="" data-icon="" data-ajax="false">
+                        人文曦潮
                     </a>
-			
+                </li >
+                <li class="nav_li">
+                    <a href="../serve" data-transition="fade" data-theme="" data-icon="" data-ajax="false">
+                        服务曦潮
+                    </a>
+                </li >
+                <li class="nav_li">
+                    <a href="#page1" data-transition="fade" data-theme="" data-icon=""
+                       class="ui-link ui-btn ui-btn-active" data-ajax="false">
+                        加入曦潮
+                    </a>
                 </li>
             </ul>
         </div>
-        </h3>
     </div>
-
 </div>
 </body>
 </html>
-

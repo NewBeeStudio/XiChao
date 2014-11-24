@@ -22,7 +22,7 @@ class Post:
 	def get_post_by_id(self,id):
 		conn=MySQLdb.connect(host='localhost',user=self.db_user,passwd=self.db_passwd,db=self.db_name,charset="utf8")
 		cursor=conn.cursor(cursorclass=MySQLdb.cursors.DictCursor)
-		cursor.execute("select * from xichao_article where id= "+str(id))
+		cursor.execute("select * from xichao_article where id= "+str(id)+";")
 		return cursor.fetchone()
 	
 	def add_new_post(self,post_data):

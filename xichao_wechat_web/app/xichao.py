@@ -70,6 +70,7 @@ def allowed_file(filename):
 @app.route("/")
 def index():
     return render_template('welcome.html')
+
 @app.route("/admin/")
 def admin_index():
     if not admin.validate_login():
@@ -88,7 +89,7 @@ def login():
 
 @app.route('/admin/logout/')
 def logout():
-    print admin.logout()
+    admin.logout()
     #flash('You were logged out')
     return render_template('logout.html')
 
@@ -143,7 +144,6 @@ def new_post(column):
             print post_data
 
             if poster.add_new_post(post_data):
-                print 'po'
                 return render_template("edit.html",done=True,column=article_category[column][1])
             print poster.response
         except Exception,e:
@@ -154,19 +154,21 @@ def new_post(column):
     return render_template('edit.html',column=article_category[column][1])
 
 
-@app.route('/serve/')
-def serve():
-    return render_template("serve.html")
+@app.route('/mobile/index/')
+def mobile_index():
+    return render_template("welcome.html")
 
-@app.route('/join')
-def join():
-    return render_template("join.html")
+@app.route('/mobile/article/<int:tid>/')
+def mobile_article(tid):
+    post=poster.get_post_by_id(tid)
+    print post
+    category_id=post["category"]
+    category=[item[1] for item in [article_category[key] for key in article_category] if item[0]==category_id][0]
+    print category
+    return render_template('article.html',post=post,category=category)
 
-@app.route('/humanity/')
-def humanity():
-    return render_template("humanity.html")
 
-
+#####################################################################################################
 #mail = Mail(app)
 #ADMINS = ['xichaoshudian@163.com']
 
