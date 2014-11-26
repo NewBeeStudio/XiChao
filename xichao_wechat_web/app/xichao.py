@@ -10,6 +10,7 @@ import threading
 from flask.ext.login import login_required
 from werkzeug import secure_filename
 from flask import send_from_directory
+from flask import send_file
 from time import time
 from flask_wtf.file import FileField
 #from sqlalchemy import *
@@ -140,7 +141,7 @@ def new_post(column):
                 imagefile.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             
             category=article_category[column][0]
-            post_data=(title,image_url,text,category)
+            post_data=(title,filename,text,category)
             print post_data
 
             if poster.add_new_post(post_data):
@@ -157,6 +158,20 @@ def new_post(column):
 @app.route('/mobile/index/')
 def mobile_index():
     return render_template("welcome.html")
+
+@app.route('/mobile/list/static/upload_images/<path:filename>')
+def image_src(filename):
+    return send_from_directory('./static/upload_images/', filename)
+
+@app.route('/mobile/list/<column>')
+def mobile_list(column):
+    if column in [key for key in article_category]:
+        category_id=article_category[column][0]
+        category=article_category[column][1]
+    else:
+        abort(404)
+    posts=poster.get_posts(category_id)
+    return render_template("list-yang.html",posts=posts,category=category)
 
 @app.route('/mobile/article/<int:tid>/')
 def mobile_article(tid):
