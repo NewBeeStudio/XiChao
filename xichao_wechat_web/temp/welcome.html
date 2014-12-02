@@ -1,18 +1,27 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<meta http-equiv="Page-Enter" content="blendTrans(Duration=0.5)">
+		<meta http-equiv="Page-Exit" content="revealtrans(duration=6.0, transition=23)">
 		<meta name="viewport" content="width=device-width,initial-scale=1"/>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.css">
 		<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 		<script src="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.js"></script>
 		<link rel="stylesheet" href="./static/css/welcome.css" >
+		<script language="JavaScript" src="./static/css/welcome.js"></script>
 		<script type="text/javascript">
 		$(document).ready(function(){  
 					document.all("page1").style["width"]=document.body.clientWidth;
 					document.all("page1").style["height"]=document.body.clientHeight;
 					return;  
 				}) 
+		function fade()
+		{
+			$("body").fadeOut(2000);
+			setTimeout(function(){self.location.href="welcome.html";}, 1000);
+				
+		}
 		</script>
 	</head>
 	<body>
@@ -29,15 +38,15 @@
 			<img id="slg" src="./static/image/welcome/slg.png">
 			<div class="text">
 				<div>
-					<h1>南洋荐书</h1>
+					<h1 onclick="fade()">南洋荐书</h1>
 					<p>你是否也读过一本书？相见恨晚，泪流满面。慢性都是感动和抑制不住分享给他人的冲动？在这里分享你的感动给别人。也从别人的退阿金中找到自己的感动。</p>
 				</div>
 				
-				<h1>树枝态度</h1>
+				<h1 onclick="fade()">树枝态度</h1>
 				<p>你是否也读过一本书？相见恨晚，泪流满面。慢性都是感动和抑制不住分享给他人的冲动？在这里分享你的感动给别人。也从别人的退阿金中找到自己的感动。</p>
-				<h1>一只球球</h1>
+				<h1 onclick="fade()">一只球球</h1>
 				<p>你是否也读过一本书？相见恨晚，泪流满面。慢性都是感动和抑制不住分享给他人的冲动？在这里分享你的感动给别人。也从别人的退阿金中找到自己的感动。</p>
-				<h1>曦潮温度</h1>
+				<h1 onclick="fade()">曦潮温度</h1>
 				<p>你是否也读过一本书？相见恨晚，泪流满面。慢性都是感动和抑制不住分享给他人的冲动？在这里分享你的感动给别人。也从别人的退阿金中找到自己的感动。</p>
 				
 
