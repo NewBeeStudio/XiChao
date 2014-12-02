@@ -56,14 +56,21 @@ class Post:
 		try:
 			conn=MySQLdb.connect(host='localhost',user=self.db_user,passwd=self.db_passwd,db=self.db_name,charset="utf8")
 			cursor=conn.cursor(cursorclass=MySQLdb.cursors.DictCursor)
-			sql ="delete from XICHAO_ARTICLE where id="+id
-			cursor.execute(sql)
+			cursor.execute("select image_path from xichao_article where id="+id)
+			path=cursor.fetchone()["image_path"]
+			cursor.execute("delete from XICHAO_ARTICLE where id="+id)		
+			path="static/upload_images/"+path
+			print 'path='+path
+			os.remove(path)
+
 			cursor.close() 
 			conn.commit()
 			conn.close()
 			return True
 		except Exception,e:
+			print 'error:',e
 			self.response['error']=e
+			
 			return False
 
 

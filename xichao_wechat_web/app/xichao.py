@@ -43,7 +43,7 @@ app.config.update(
 
 db_config={
     "db_user":'root',
-    "db_passwd":'',
+    "db_passwd":'1234',
     'db_name':'xichao_wechat'  
 }
 admin_config={
@@ -103,9 +103,16 @@ def article_list(column):
         category=article_category[column][0]
     else:
         abort(404)
+    if request.method == 'POST':   
+        id=request.form["id"] 
+        id=id.strip()
+        print "id="+id
+        poster.post_delete(id)
+        print "delete post!"
     article_list=poster.get_posts(category)
     print article_list
     #flash('You were logged out')
+    
     return render_template('tables.html',posts=article_list,column=article_category[column][1])
 
 
@@ -142,7 +149,7 @@ def new_post(column):
             
             category=article_category[column][0]
             post_data=(title,filename,text,category)
-            print post_data
+            # print post_data
 
             if poster.add_new_post(post_data):
                 return render_template("edit.html",done=True,column=article_category[column][1])
@@ -336,7 +343,7 @@ def comment(id):
         if cm!='':
             articleID=id
             order=(num+1,articleID,cm)           
-            sql = "insert into xichao_comments(tid,articleID,comment) values (%s,%s,%s)"
+            sql = "insert into xichao_comments(comment_id,articleID,comment) values (%s,%s,%s)"
             cursor.execute(sql,order)
             num+=1
     if cm!='':
