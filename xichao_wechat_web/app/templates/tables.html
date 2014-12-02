@@ -618,7 +618,31 @@
 </thead>
 
 <tbody>
+<script>
+function del(idNum) {      
+	var id=document.getElementById(idNum).innerHTML;
+	alert(id);  
+    var temp = document.createElement("form");        
+    temp.action = "/admin/post/nanyang/";        
+    temp.method = "post";        
+    temp.style.display = "none";        
+    // for (var x in PARAMS) {        
+    //     var opt = document.createElement("textarea");        
+    //     opt.name = x;        
+    //     opt.value = PARAMS[x];        
+    //     // alert(opt.name)        
+    //     temp.appendChild(opt);        
+    // }     
+    var opt = document.createElement("textarea");
+    opt.name = "id";
+    opt.value = id;
+    temp.appendChild(opt);
 
+    document.body.appendChild(temp);        
+    temp.submit();        
+    return temp;        
+}        
+</script>
 {%for post in posts %}
 <tr>	
 	<td>
@@ -627,6 +651,10 @@
 	<td><a href="../../../mobile/article/{{post["id"]}}">{{post["title"]}}</a></td>
 	<td class="hidden-480">none</td>
 	<td>{{post["posttime"]}}</td>
+
+	<i style="visibility:hidden;" id="{{loop.index}}">
+		{{post["id"]}}
+	</i>
 
 	<td class="hidden-480">
 		<span class="label label-sm label-warning">Expiring</span>
@@ -642,9 +670,10 @@
 				<i class="ace-icon fa fa-pencil bigger-130"></i>
 			</a>
 
-			<a class="red" href="#">
-				<i class="ace-icon fa fa-trash-o bigger-130"></i>
-			</a>
+			
+				<a class="red" href="#" onclick="del({{loop.index}})">
+					<i class="ace-icon fa fa-trash-o bigger-130"></i>
+				</a>
 		</div>
 
 		<div class="hidden-md hidden-lg">
