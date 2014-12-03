@@ -621,9 +621,10 @@
 <script>
 function del(idNum) {      
 	var id=document.getElementById(idNum).innerHTML;
-	alert(id);  
-    var temp = document.createElement("form");        
-    temp.action = "/admin/post/nanyang/";        
+	// alert(id);  
+    var temp = document.createElement("form");  
+    alert("{{url}}")      
+    temp.action = "/admin/post/{{url}}/";        
     temp.method = "post";        
     temp.style.display = "none";        
     // for (var x in PARAMS) {        

@@ -99,7 +99,8 @@ def article_list(column):
     if not admin.validate_login():
         abort(403)
     column=column.lower()
-    if column in [key for key in article_category]:
+    print 'colomn=',column
+    if column in article_category.keys():
         category=article_category[column][0]
     else:
         abort(404)
@@ -113,7 +114,7 @@ def article_list(column):
     print article_list
     #flash('You were logged out')
     
-    return render_template('tables.html',posts=article_list,column=article_category[column][1])
+    return render_template('tables.html',posts=article_list,column=article_category[column][1],url=column)
 
 
 @app.route('/admin/post/<string:column>/edit/<int:tid>/',methods=['GET', 'POST'])
