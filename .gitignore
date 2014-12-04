@@ -3,3 +3,4 @@
 *.log
 
 xichao_web/Index/Runtime/*
+xichao_wechat_web/app/static/upload_images/*
