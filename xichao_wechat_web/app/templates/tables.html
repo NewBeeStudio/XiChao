@@ -588,6 +588,7 @@
 											<button class="btn btn-info">
 												<i class="ace-icon fa fa-pencil"></i>
 											</button>
+											</a>
 												
 											<br />
 											<br />
@@ -595,12 +596,10 @@
 <div class="table-header">
 	文章列表
 </div>
-
 <!-- <div class="table-responsive"> -->
-
 <!-- <div class="dataTables_borderWrap"> -->
 <div>
-<table id="sample-table-2" class="table table-striped table-bordered table-hover">
+<table id="sample-table-1" class="table table-striped table-bordered table-hover">
 <thead>
 <tr>
 	<th>文章ID</th>
@@ -621,7 +620,7 @@
 <script>
 function del(idNum) {      
 	var id=document.getElementById(idNum).innerHTML;
-	alert(id);  
+	//alert(id);  
     var temp = document.createElement("form");        
     temp.action = "/admin/post/nanyang/";        
     temp.method = "post";        
@@ -643,7 +642,12 @@ function del(idNum) {
     return temp;        
 }        
 </script>
+
+
+
 {%for post in posts %}
+
+	
 <tr>	
 	<td>
 		{{loop.index}}
@@ -652,9 +656,6 @@ function del(idNum) {
 	<td class="hidden-480">none</td>
 	<td>{{post["posttime"]}}</td>
 
-	<i style="visibility:hidden;" id="{{loop.index}}">
-		{{post["id"]}}
-	</i>
 
 	<td class="hidden-480">
 		<span class="label label-sm label-warning">Expiring</span>
@@ -662,6 +663,9 @@ function del(idNum) {
 
 	<td>
 		<div class="hidden-sm hidden-xs action-buttons">
+		<i style="visibility:hidden;" id="{{loop.index}}">
+		{{post["id"]}}
+	</i>
 			<a class="blue" href="#">
 				<i class="ace-icon fa fa-search-plus bigger-130"></i>
 			</a>
@@ -676,41 +680,11 @@ function del(idNum) {
 				</a>
 		</div>
 
-		<div class="hidden-md hidden-lg">
-			<div class="inline position-relative">
-				<button class="btn btn-minier btn-yellow dropdown-toggle" data-toggle="dropdown" data-position="auto">
-					<i class="ace-icon fa fa-caret-down icon-only bigger-120"></i>
-				</button>
-
-				<ul class="dropdown-menu dropdown-only-icon dropdown-yellow dropdown-menu-right dropdown-caret dropdown-close">
-					<li>
-						<a href="#" class="tooltip-info" data-rel="tooltip" title="View">
-																				<span class="blue">
-																					<i class="ace-icon fa fa-search-plus bigger-120"></i>
-																				</span>
-						</a>
-					</li>
-
-					<li>
-						<a href="#" class="tooltip-success" data-rel="tooltip" title="Edit">
-																				<span class="green">
-																					<i class="ace-icon fa fa-pencil-square-o bigger-120"></i>
-																				</span>
-						</a>
-					</li>
-
-					<li>
-						<a href="#" class="tooltip-error" data-rel="tooltip" title="Delete">
-																				<span class="red">
-																					<i class="ace-icon fa fa-trash-o bigger-120"></i>
-																				</span>
-						</a>
-					</li>
-				</ul>
-			</div>
-		</div>
+		
 	</td>
 </tr>
+
+
   {% endfor %}
 </tbody>
 </table>
@@ -787,13 +761,13 @@ function del(idNum) {
 <script type="text/javascript">
 	jQuery(function($) {
 		var oTable1 =
-				$('#sample-table-2')
+				$('#sample-table-1')
 					//.wrap("<div class='dataTables_borderWrap' />")   //if you are applying horizontal scrolling (sScrollX)
 						.dataTable( {
 							bAutoWidth: false,
 							"aoColumns": [
 								{ "bSortable": false },
-								null, null,null, null, null,
+								null, null,null, null,
 								{ "bSortable": false }
 							],
 							"aaSorting": [],

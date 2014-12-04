@@ -204,7 +204,7 @@
                 {% for post in posts %}
                 <li><a href="../article/{{post["id"]}}/" data-transition="fade" data-theme="" data-icon=""data-ajax="false" 
                     style="text-align: center; font-family: xichao;">
-                    <img style="border-radius: 50%;" src="{{post["image_path"]}}">
+                    <img style="border-radius: 50%;" src="./static/upload_images/{{post["image_path"]}}">
                     <p style="font-size:16pt">{{post["title"]}}</p></a></li>
                 
                 {% endfor %}

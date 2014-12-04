@@ -60,15 +60,16 @@ class Post:
 			path=cursor.fetchone()["image_path"]
 			cursor.execute("delete from XICHAO_ARTICLE where id="+id)		
 			path="static/upload_images/"+path
-			print 'path='+path
-			os.remove(path)
+			#print 'path='+path
+			
 
 			cursor.close() 
 			conn.commit()
 			conn.close()
+			os.remove(path)
 			return True
 		except Exception,e:
-			print 'error:',e
+			print e
 			self.response['error']=e
 			
 			return False

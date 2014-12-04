@@ -43,7 +43,7 @@ app.config.update(
 
 db_config={
     "db_user":'root',
-    "db_passwd":'1234',
+    "db_passwd":'',
     'db_name':'xichao_wechat'  
 }
 admin_config={
@@ -106,11 +106,11 @@ def article_list(column):
     if request.method == 'POST':   
         id=request.form["id"] 
         id=id.strip()
-        print "id="+id
+        #print "id="+id
         poster.post_delete(id)
-        print "delete post!"
+        #print "delete post!"
     article_list=poster.get_posts(category)
-    print article_list
+    #print article_list
     #flash('You were logged out')
     
     return render_template('tables.html',posts=article_list,column=article_category[column][1])
@@ -226,75 +226,6 @@ def list():
 
 
 
-
-
-@app.route('/posts_list/', defaults={'page': 1})
-@app.route('/posts_list/page-<int:page>')
-def posts(page):
-    if not admin.validate_login():
-        abort(403)
-    skip = (page - 1) * int(app.config['PER_PAGE'])
-    posts = poster.get_posts(skip,int(app.config['PER_PAGE']))
-    return render_template('posts.html', posts=posts)
-
-
-@app.route('/newpost/',methods=['GET','POST'])
-def newpost():
-    if not admin.validate_login():
-        abort(403)
-    error=None
-    if request.method == 'POST':
-        try:
-            
-            title=request.form["post-title"]
-           
-            text=request.form["post-full"]
-            
-            file=request.files['image']
-            if file and allowed_file(file.filename):
-                file.filename=str(int(time()))+'.'+file.filename.rsplit('.', 1)[1]
-                #save image
-                image_url=UPLOAD_FOLDER+file.filename
-                filename = secure_filename(file.filename)
-                file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            post_data=(title,image_url,text)
-            print post_data
-            if poster.add_new_post(post_data):
-                return "<h1>提交成功</h1><br/><a href='../newpost/'>返回继续提交</a>"
-        except Exception,e:
-            print e
-            return render_template("test.html",error=e)
-
-
-    return render_template("test.html")
-
-@app.route('/post_edit<id>',methods=['GET', 'POST'])
-def post_edit(id):
-    if not admin.validate_login():
-        abort(403)
-    post = poster.get_post_by_id(id)
-    tid=post["id"]
-    print tid
-    if request.method == 'POST':
-        try:
-            title=request.form["post-title"]
-            text=request.form["post-full"]
-            file=request.files['image']
-            if file and allowed_file(file.filename):
-                file.filename=str(int(time()))+'.'+file.filename.rsplit('.', 1)[1]
-                #save image
-                image_url=UPLOAD_FOLDER+file.filename
-                filename = secure_filename(file.filename)
-                file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            post_data=(tid,title,image_url,text)
-            
-            if poster.edit_post(post_data):
-                return "<h1>修改成功</h1><br/><a href='../posts_list/'>返回列表</a>"          
-        except Exception,e:
-            return render_template("new_post.html",error=e)
-
-    
-    return render_template('edit_post.html',post=post)
 
 @app.route('/post_delete<id>')
 def post_del(id):
