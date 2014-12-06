@@ -651,7 +651,7 @@
 						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 文章标题: </label>
 
 						<div class="col-sm-9">
-							<input type="text" name="post-title" id="post-title" placeholder="title" class="col-xs-10 col-sm-5">
+							<input type="text" name="post-title" id="post-title" placeholder="title" class="col-xs-10 col-sm-5" value="{{title}}">
 						</div>
 					</div>
 						
@@ -663,7 +663,7 @@
 					
 					<div class="form-group">
 						<div class="wysiwyg-editor" id="editor1" name="editor1">
-							
+							{{article}}
 						</div>
 						<textarea id="post-full" name="post-full" style="display:none;"></textarea>
 					</div>
