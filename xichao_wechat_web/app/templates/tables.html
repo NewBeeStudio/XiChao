@@ -623,7 +623,7 @@ function del(idNum) {
 
 	// alert(id);  
     var temp = document.createElement("form");  
-    alert("{{url}}")      
+    //alert("{{url}}")      
     temp.action = "/admin/post/{{url}}/";        
     temp.method = "post";        
     temp.style.display = "none";        
@@ -644,7 +644,6 @@ function del(idNum) {
     return temp;        
 }        
 </script>
-
 
 
 {%for post in posts %}
@@ -677,7 +676,7 @@ function del(idNum) {
 			</a>
 
 			
-				<a class="red" href="#" onclick="del({{loop.index}})">
+				<a class="red" data-toggle="modal" href="#myModal" >
 					<i class="ace-icon fa fa-trash-o bigger-130"></i>
 				</a>
 		</div>
@@ -686,6 +685,21 @@ function del(idNum) {
 	</td>
 </tr>
 
+    <link href="http://cdn.bootcss.com/bootstrap/2.3.2/css/bootstrap.min.css" rel="stylesheet">
+
+<div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+      <h3 id="myModalLabel">删除确认</h3>
+    </div>
+    <div class="modal-body">
+      <p>确定要删除吗？</p>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-primary" data-dismiss="modal">取消</button>
+      <button class="btn btn-primary" data-dismiss="modal" onclick="del({{loop.index}})">确定</button>
+    </div>
+ </div>
 
   {% endfor %}
 </tbody>
