@@ -43,7 +43,7 @@ app.config.update(
 
 db_config={
     "db_user":'root',
-    "db_passwd":'',
+    "db_passwd":'root',
     'db_name':'xichao_wechat'  
 }
 admin_config={
