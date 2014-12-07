@@ -116,7 +116,6 @@ def article_list(column):
     
     return render_template('tables.html',posts=article_list,column=article_category[column][1],url=column)
 
-
 @app.route('/admin/post/<string:column>/edit/<int:tid>/',methods=['GET', 'POST'])
 def edit(column,tid):
     if not admin.validate_login():
@@ -125,8 +124,22 @@ def edit(column,tid):
     column=column.lower()
     category=article_category[column][0]
 
+    try:
+       # 执行SQL语句
+       cursor.execute("SELECT * FROM xichao_article WHERE id = %d and category = %d", (tid, category))
+       # 获取所有记录列表
+       results = cursor.fetchall()
+       for row in results:
+          article_title         = row[1]
+          article_image_path    = row[2]
+          article_text          = row[3]
+          article_posttime      = row[5]
+    except:
+       print "Error: unable to fecth data"
+       return render_template("edit.html",error=e,column=article_category[column][1])
+
     #post=get_article from db
-    return render_template('edit.html',post=post,column=article_category[column][1])
+    return render_template('edit.html',title=article_title, article=article_text, post=poster, column=article_category[column][1])
 
 @app.route('/admin/post/<string:column>/new/',methods=['GET', 'POST'])
 def new_post(column):
