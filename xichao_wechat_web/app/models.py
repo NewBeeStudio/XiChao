@@ -16,14 +16,20 @@ class Post:
 	def get_posts(self,category):
 		conn=MySQLdb.connect(host='localhost',user=self.db_user,passwd=self.db_passwd,db=self.db_name,charset="utf8")
 		cursor=conn.cursor(cursorclass=MySQLdb.cursors.DictCursor)
-		cursor.execute("select * from xichao_article where category="+str(category))
-		return cursor.fetchall()
+		cursor.execute("select * from xichao_article where category="+str(category)+";")
+		posts=cursor.fetchall()
+		conn.commit()
+		conn.close()
+		return posts
 
 	def get_post_by_id(self,id):
 		conn=MySQLdb.connect(host='localhost',user=self.db_user,passwd=self.db_passwd,db=self.db_name,charset="utf8")
 		cursor=conn.cursor(cursorclass=MySQLdb.cursors.DictCursor)
 		cursor.execute("select * from xichao_article where id= "+str(id)+";")
-		return cursor.fetchone()
+		posts=cursor.fetchone()
+		conn.commit()
+		conn.close()
+		return posts
 	
 	def add_new_post(self,post_data):
 		try:
@@ -40,18 +46,29 @@ class Post:
 			return False
 
 	def edit_post(self,post_data):
+		conn=MySQLdb.connect(host='localhost',user=self.db_user,passwd=self.db_passwd,db=self.db_name,charset="utf8")
+		cursor=conn.cursor(cursorclass=MySQLdb.cursors.DictCursor)
+		sql ="REPLACE INTO XICHAO_ARTICLE(id,title,image_path,article) values(%s,%s,%s,%s);"
+		cursor.execute(sql,post_data)
+		cursor.close()
+		conn.commit()
+		conn.close()
+		
+	def get_category_data(self):
 		try:
 			conn=MySQLdb.connect(host='localhost',user=self.db_user,passwd=self.db_passwd,db=self.db_name,charset="utf8")
 			cursor=conn.cursor(cursorclass=MySQLdb.cursors.DictCursor)
-			sql ="REPLACE INTO XICHAO_ARTICLE(id,title,image_path,article) values(%s,%s,%s,%s);"
- 			cursor.execute(sql,post_data)
+			sql ="select category,count(id) from xichao_article group by category order by category;"
+ 			cursor.execute(sql)
+ 			category_data=cursor.fetchall()
 			cursor.close()
 			conn.commit()
 			conn.close()
-			return True
+			return category_data
 		except Exception,e:
 			self.response['error']=e
-			return False
+			return category_data
+				
 	def post_delete(self,id):
 		try:
 			conn=MySQLdb.connect(host='localhost',user=self.db_user,passwd=self.db_passwd,db=self.db_name,charset="utf8")
@@ -61,8 +78,6 @@ class Post:
 			cursor.execute("delete from XICHAO_ARTICLE where id="+id)		
 			path="static/upload_images/"+path
 			#print 'path='+path
-			
-
 			cursor.close() 
 			conn.commit()
 			conn.close()

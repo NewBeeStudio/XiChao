@@ -76,7 +76,10 @@ def index():
 def admin_index():
     if not admin.validate_login():
         abort(403)
-    return render_template('admin.html')
+    category_data=poster.get_category_data()
+    category_data=[num["category"] for num in category_data]
+    print category_data
+    return render_template('admin.html',category_data=category_data)
 
 @app.route('/admin/login/', methods=['GET', 'POST'])
 def login():
@@ -230,15 +233,10 @@ def register():
 
     return render_template("register.html")
 
-
-
 @app.route('/list/')
 def list():
     article_list=poster.get_posts(0,10)
     return render_template('list.html',list=article_list)
-
-
-
 
 
 @app.route('/post_delete<id>')
