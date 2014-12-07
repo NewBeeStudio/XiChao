@@ -123,26 +123,24 @@ def article_list(column):
 def edit(column,tid):
     if not admin.validate_login():
         abort(403)
-
-    column=column.lower()
-    category=article_category[column][0]
-
+    error=None
     try:
-       # 执行SQL语句
-       cursor.execute("SELECT * FROM xichao_article WHERE id = %d and category = %d", (tid, category))
-       # 获取所有记录列表
-       results = cursor.fetchall()
-       for row in results:
-          article_title         = row[1]
-          article_image_path    = row[2]
-          article_text          = row[3]
-          article_posttime      = row[5]
-    except:
-       print "Error: unable to fecth data"
-       return render_template("edit.html",error=e,column=article_category[column][1])
-
+        category=article_category[column][0]
+        column=column.lower()
+        results = poster.edit_post(column,tid)
+        # print results
+        for row in results:
+            title         = row['title']
+            image_path    = row['image_path']
+            text          = row['article']
+            posttime      = row['posttime']
+            # print "fname=%s, lname=%s, sex=%s" % (title, image_path, text)
+    except Exception,e:
+        print "Error: unable to fecth data"
+        error = e
+        return render_template("edit.html",error=error, column=article_category[column][1])
     #post=get_article from db
-    return render_template('edit.html',title=article_title, article=article_text, post=poster, column=article_category[column][1])
+    return render_template('edit.html', post=poster, title=title, text=text, image=image_path, column=article_category[column][1])
 
 @app.route('/admin/post/<string:column>/new/',methods=['GET', 'POST'])
 def new_post(column):
