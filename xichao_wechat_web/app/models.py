@@ -45,14 +45,23 @@ class Post:
 			self.response['error']=e
 			return False
 
-	def edit_post(self,post_data):
+	# def edit_post(self, post_data):
+	# 	conn=MySQLdb.connect(host='localhost',user=self.db_user,passwd=self.db_passwd,db=self.db_name,charset="utf8")
+	# 	cursor=conn.cursor(cursorclass=MySQLdb.cursors.DictCursor)
+	# 	sql ="REPLACE INTO XICHAO_ARTICLE(id,title,image_path,article) values(%s,%s,%s,%s);"
+	# 	cursor.execute(sql, post_data)
+	# 	cursor.close()
+	# 	conn.commit()
+	# 	conn.close()
+
+	def edit_post(self,column,tid):
 		conn=MySQLdb.connect(host='localhost',user=self.db_user,passwd=self.db_passwd,db=self.db_name,charset="utf8")
 		cursor=conn.cursor(cursorclass=MySQLdb.cursors.DictCursor)
-		sql ="REPLACE INTO XICHAO_ARTICLE(id,title,image_path,article) values(%s,%s,%s,%s);"
-		cursor.execute(sql,post_data)
-		cursor.close()
+		cursor.execute("select * from xichao_article where id=" + str(tid) + ";")
+		posts=cursor.fetchall()
 		conn.commit()
 		conn.close()
+		return posts
 		
 	def get_category_data(self):
 		try:
