@@ -296,44 +296,7 @@
 				Traffic Sources
 			</h5>
 
-			<div class="widget-toolbar no-border">
-				<div class="inline dropdown-hover">
-					<button class="btn btn-minier btn-primary">
-						This Week
-						<i class="ace-icon fa fa-angle-down icon-on-right bigger-110"></i>
-					</button>
-
-					<ul class="dropdown-menu dropdown-menu-right dropdown-125 dropdown-lighter dropdown-close dropdown-caret">
-						<li class="active">
-							<a href="#" class="blue">
-								<i class="ace-icon fa fa-caret-right bigger-110">&nbsp;</i>
-								This Week
-							</a>
-						</li>
-
-						<li>
-							<a href="#">
-								<i class="ace-icon fa fa-caret-right bigger-110 invisible">&nbsp;</i>
-								Last Week
-							</a>
-						</li>
-
-						<li>
-							<a href="#">
-								<i class="ace-icon fa fa-caret-right bigger-110 invisible">&nbsp;</i>
-								This Month
-							</a>
-						</li>
-
-						<li>
-							<a href="#">
-								<i class="ace-icon fa fa-caret-right bigger-110 invisible">&nbsp;</i>
-								Last Month
-							</a>
-						</li>
-					</ul>
-				</div>
-			</div>
+			
 		</div>
 
 		<div class="widget-body">
@@ -460,11 +423,11 @@ jQuery(function($) {
 	var category_data={{category_data}}
 	console.log(category_data)
 	var data = [
-		{ label: "social networks",  data: 38.7, color: "#68BC31"},
-		{ label: "search engines",  data: 24.5, color: "#2091CF"},
-		{ label: "ad campaigns",  data: 8.2, color: "#AF4E96"},
-		{ label: "direct traffic",  data: 18.6, color: "#DA5430"},
-		{ label: "other",  data: 10, color: "#FEE074"}
+		{ label: "0.48南洋荐书",  data:category_data[0], color: "#68BC31"},
+		{ label: "树枝态度",  data: category_data[1], color: "#2091CF"},
+		{ label: "嗜书瘾君子",  data: category_data[2], color: "#AF4E96"},
+		{ label: "一只球球",  data: category_data[3], color: "#DA5430"},
+		{ label: "曦潮温度",  data: category_data[4], color: "#FEE074"}
 	]
 	function drawPieChart(placeholder, data, position) {
 		$.plot(placeholder, data, {
@@ -510,10 +473,11 @@ jQuery(function($) {
 	var previousPoint = null;
 
 	placeholder.on('plothover', function (event, pos, item) {
+		//console.log(item.series['data'][0][1])
 		if(item) {
 			if (previousPoint != item.seriesIndex) {
 				previousPoint = item.seriesIndex;
-				var tip = item.series['label'] + " : " + item.series['percent']+'%';
+				var tip = item.series['label'] + " : " + item.series['data'][0][1]+"篇";
 				$tooltip.show().children(0).text(tip);
 			}
 			$tooltip.css({top:pos.pageY + 10, left:pos.pageX + 10});

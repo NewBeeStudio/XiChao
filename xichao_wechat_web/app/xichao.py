@@ -17,6 +17,7 @@ from flask_wtf.file import FileField
 #import sqlalchemy.util as util
 import string, sys
 from models import *
+import json
 #from sqlalchemy.databases import mysql
 
 app = Flask(__name__)
@@ -77,9 +78,13 @@ def admin_index():
     if not admin.validate_login():
         abort(403)
     category_data=poster.get_category_data()
-    category_data=[num["category"] for num in category_data]
-    print category_data
-    return render_template('admin.html',category_data=category_data)
+    cd=[0]*5
+    print cd
+    for num in category_data:
+        print num
+        cd[int(num["category"])-1]=int(num["count(id)"])
+    print cd
+    return render_template('admin.html',category_data=json.dumps(cd))
 
 @app.route('/admin/login/', methods=['GET', 'POST'])
 def login():
