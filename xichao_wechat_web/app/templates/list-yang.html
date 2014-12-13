@@ -8,11 +8,7 @@
     <script src="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.js"></script>
 
     <style>
-        @font-face {
-            /*font-family: xichao;*/
-            src: url('{{url_for('static',filename='SourceHanSansCN-Bold.otf')}}'),
-            url('{{url_for('static',filename='xichao_font.eot')}}'); /* IE9+ */
-        }
+       
 
         .item {
             /*font-family: xichao;*/
@@ -23,7 +19,6 @@
             text-shadow: 4px 4px 4px #333333;
         }
 
-     
 
         .ui-btn-active {
             /*font-family: xichao;*/
@@ -85,12 +80,36 @@
             padding-top:100px;
 
             /*font-family: xichao;*/
-            font-size: 1.5em;
+            font-size: 1.7em;
             -webkit-font-smoothing: antialiased;
             color:rgb(255,255,255);
             z-index: 3;
 
         }
+
+        .left_arrow{
+            background-image:url("{{url_for('static',filename='image/left_arrow.png')}}");
+
+        }
+          .subtitle a{
+                padding-right: 20px;
+             }
+            .subtitle a:link {
+            color:#FFFFFF;
+            text-decoration:none;
+            }
+            .subtitle a:visited {
+            color:#FFFFFF;
+            text-decoration:none;
+            }
+            .subtitle a:hover {
+            color:#FFFFFF;
+            text-decoration:none;
+            }
+           .subtitle a:active {
+            color:#FFFFFF;
+            text-decoration:none;
+            }
 
         .title_image{
             background: url('{{url_for('static',filename='image/humanity/3.png')}}');
@@ -223,25 +242,24 @@
         <div class="title"><h2>青春校园 当下即是</h2>
             <h3>构建校园人文生活常态</h3></div> 
             
-        <div class="subtitle">{{category}}</div>
+        <div class="subtitle"><a href="javascript:history.back();">◁</a>{{category}}</div>
+        <!-- ◄◀◁◂◀◤◃◣♢◀◁⬅️ -->
     </div>
 
     <div data-role="content" style="background-size:cover;width:100%;padding:0px;height:100%;z-index=0;">
-        <div style="margin:1%" >   
-            <ul data-role="listview" data-inset="true" >
+        <div style="margin:1%">   
+            <ul data-role="listview" data-inset="true">
                 {% for post in posts %}
-                <li style="height='30px;"data-icon="false" >
+                <li style="height='30px;'"data-icon="false">
                 <a href="../article/{{post["id"]}}/" data-ajax="false" 
-                    style="text-align: center;" data-role="button" data-rel="dialog" data-transition="flip">
+                    style="text-align: center;" data-transition="slide">
                     <div class='circle'>
-                    <img style="width:100%;height:100%;display:block;" src="./static/upload_images/{{post["image_path"]}}">
+                    <img style="width:100%;height:100%;display:block;" src="{{post["image_path"]}}">
                     </div>
                      
                    <div class="list-title"> 
                         <p >{{post["title"]}}</p>
-                   </div>
-
-                   </a>
+                   </div></a>
 
                    </li>
                 

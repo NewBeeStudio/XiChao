@@ -302,7 +302,6 @@
 <script>
 function del(idNum) {      
 	var id=document.getElementById(idNum).innerHTML;
-
 	// alert(id);  
     var temp = document.createElement("form");  
     //alert("{{url}}")      
@@ -320,7 +319,6 @@ function del(idNum) {
     opt.name = "id";
     opt.value = id;
     temp.appendChild(opt);
-
     document.body.appendChild(temp);        
     temp.submit();        
     return temp;        
@@ -453,17 +451,14 @@ function del(idNum) {
 								{ "bSortable": false }
 							],
 							"aaSorting": [],
-
 							//,
 							//"sScrollY": "200px",
 							//"bPaginate": false,
-
 							//"sScrollX": "100%",
 							//"sScrollXInner": "120%",
 							//"bScrollCollapse": true,
 							//Note: if you are applying horizontal scrolling (sScrollX) on a ".table-bordered"
 							//you may want to wrap the table inside a "div.dataTables_borderWrap" element
-
 							//"iDisplayLength": 50
 						} );
 		/**
@@ -479,8 +474,6 @@ function del(idNum) {
 			    } );
 		 $( tableTools.fnContainer() ).insertBefore('#sample-table-2');
 		 */
-
-
 		$(document).on('click', 'th input:checkbox' , function(){
 			var that = this;
 			$(this).closest('table').find('tr > td:first-child input:checkbox')
@@ -489,22 +482,17 @@ function del(idNum) {
 						$(this).closest('tr').toggleClass('selected');
 					});
 		});
-
-
 		$('[data-rel="tooltip"]').tooltip({placement: tooltip_placement});
 		function tooltip_placement(context, source) {
 			var $source = $(source);
 			var $parent = $source.closest('table')
 			var off1 = $parent.offset();
 			var w1 = $parent.width();
-
 			var off2 = $source.offset();
 			//var w2 = $source.width();
-
 			if( parseInt(off2.left) < parseInt(off1.left) + parseInt(w1 / 2) ) return 'right';
 			return 'left';
 		}
-
 	})
 </script>
 </body>

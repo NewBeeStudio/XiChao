@@ -81,7 +81,7 @@ class Post:
 			cursor=conn.cursor(cursorclass=MySQLdb.cursors.DictCursor)
 			cursor.execute("select image_path from xichao_article where id="+id+";")
 			path=cursor.fetchone()["image_path"]
-			cursor.execute("delete from XICHAO_ARTICLE where id="+id+";")		
+			cursor.execute("delete from xichao_article where id="+id+";")		
 			path="static/upload_images/"+path
 			#print 'path='+path
 			cursor.close() 
