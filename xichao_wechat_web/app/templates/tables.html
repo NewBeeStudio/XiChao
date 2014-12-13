@@ -353,7 +353,7 @@ function del(idNum) {
 			</a>
 
 			
-				<a class="red" data-toggle="modal" href="#myModal" >
+				<a class="red" data-toggle="modal" href="#myModal{{loop.index}}" >
 					<i class="ace-icon fa fa-trash-o bigger-130"></i>
 				</a>
 		</div>
@@ -363,7 +363,7 @@ function del(idNum) {
 </tr>
 
    
-<div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"style="top:20%;padding:5% 20%;">
+<div id="myModal{{loop.index}}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"style="top:20%;padding:5% 20%;">
    <div class="modal-content">
     <div class="modal-header">
       <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
