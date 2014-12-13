@@ -187,7 +187,7 @@
 	<b class="arrow"></b>
 	<ul class="submenu">
 		<li class="">
-			<a href="../../../nanyang">
+			<a href="../../nanyang">
 				<i class="menu-icon fa fa-caret-right"></i>
 				0.48南洋荐书
 			</a>
@@ -196,7 +196,7 @@
 		</li>
 
 		<li class="">
-			<a href="../../../shuzhi">
+			<a href="../../shuzhi">
 				<i class="menu-icon fa fa-caret-right"></i>
 				树枝态度
 			</a>
@@ -205,7 +205,7 @@
 		</li>
 
 		<li class="">
-			<a href="../../../shishu">
+			<a href="../../shishu">
 				<i class="menu-icon fa fa-caret-right"></i>
 				嗜书瘾君子
 			</a>
@@ -214,7 +214,7 @@
 		</li>
 
 		<li class="">
-			<a href="../../../qiuqiu">
+			<a href="../../qiuqiu">
 				<i class="menu-icon fa fa-caret-right"></i>
 				一只球球
 			</a>
@@ -223,7 +223,7 @@
 		</li>
 
 		<li class="">
-			<a href="../../../wendu">
+			<a href="../../wendu">
 				<i class="menu-icon fa fa-caret-right"></i>
 				曦潮温度
 			</a>
@@ -261,7 +261,7 @@
 			<a href="#">文章管理</a>
 		</li>
 		<li>
-			<a href="../../">{{column}}</a>
+			<a href="../">{{column}}</a>
 		</li>
 		
 		<li class="active">文章编辑</li>
@@ -404,7 +404,7 @@
 						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 文章标题: </label>
 
 						<div class="col-sm-9">
-							<input type="text" name="post-title" id="post-title" placeholder="title" class="col-xs-10 col-sm-5" value="{{post["title"]}}">
+							<input type="text" name="post-title" id="post-title" placeholder="title" class="col-xs-10 col-sm-5" value="">
 						</div>
 					</div>
 						
@@ -416,9 +416,7 @@
 					
 					<div class="form-group">
 						<div class="wysiwyg-editor" id="editor1" name="editor1">
-						 {% autoescape false %}
-							{{post["article"]}}
-						   {% endautoescape %} 
+						
            
 						</div>
 						<textarea id="post-full" name="post-full" style="display:none;"></textarea>

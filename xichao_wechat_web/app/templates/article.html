@@ -9,13 +9,13 @@
 
     <style>
         @font-face {
-            font-family: xichao;
+            /*font-family: xichao;*/
             src: url('{{url_for('static',filename='SourceHanSansCN-Bold.otf')}}'),
             url('{{url_for('static',filename='xichao_font.eot')}}'); /* IE9+ */
         }
 
         .item {
-            font-family: xichao;
+            /*font-family: xichao;*/
             font-size: 20pt;
             font-weight: bold;
             padding: 25px;
@@ -28,7 +28,7 @@
         }
 
         .ui-btn-active {
-            font-family: xichao;
+            /*font-family: xichao;*/
             font-size: 9pt !important;
             color: rgb(102, 153, 255) !important;
         }
@@ -40,7 +40,7 @@
         }
 
         .nav_li {
-            font-family: xichao;
+            /*font-family: xichao;*/
             font-size: 8pt !important;
             border-right: 1px solid black !important;
             border-left: 1px solid black !important;
@@ -50,7 +50,8 @@
             background: url('{{url_for('static',filename='image/humanity/recommend.png')}}');
             background-size: 100% 100%;
             background-repeat: no-repeat;
-
+            position: relative;
+            text-shadow: 0 0px;
             height:150px;
             z-index: 1;
         }
@@ -69,9 +70,11 @@
         .title {
             position: relative;
             text-align: right;
-            margin-top: 0px;
-            padding-left:30px;
+            margin-top: 0%;
+            top:0%;
+            /*padding-left:30px;*/
             float:right;
+            text-shadow: 0 0px;
             -webkit-font-smoothing: antialiased;
             z-index: 3;
         }
@@ -80,13 +83,14 @@
             position: relative;
             text-align: center;
             float: center;
-            padding:10% 10%;
+            /*height:20%;*/
+            /*padding:10% 10%;*/
             -webkit-font-smoothing: antialiased;
-            height: 50px;
+            /*height: 50px;*/
             padding-top:100px;
-
-            font-family: xichao;
-            font-size: 1.3em;
+            text-shadow: 0 0px;
+            /*font-family: xichao;*/
+            font-size: 1.2em;
             
             color:rgb(255,255,255);
             z-index: 3;
@@ -116,7 +120,7 @@
         }
 
         h1{
-            font-family: xichao;
+            /*font-family: xichao;*/
             font-size: 20pt;
             font-weight: 100;
             padding:10px 10px 10px 10px ; 
@@ -127,7 +131,7 @@
 
         }
         h2{
-            font-family: xichao;
+            /*font-family: xichao;*/
             font-size: 15pt;
             font-weight: 100;
             border-bottom:1px solid white;
@@ -138,7 +142,7 @@
 
         }
         h3{
-            font-family: xichao;
+            /*font-family: xichao;*/
             font-size: 8pt;
             
             padding-left: 100px;
@@ -188,7 +192,7 @@
 
 <body>
 <!-- Home -->
-<div data-role="page" id="page1" style="50% 0 no-repeat;background-size:cover;padding:0px;" >
+<div  data-role="page" id="page1" style="50% 0 no-repeat;background-size:cover;padding:0px;" >
     
     <div class="head">
         <div id="vein">
@@ -202,7 +206,7 @@
     </div>
 
     <div data-role="content" style="background-size:cover;width:100%;padding:0px;height:100%;z-index=0;">
-        <div style=" height:500px; position: relative;  margin-left: 10%; margin-right: 10%; 
+        <div style=" position: relative;  margin-left: 10%; margin-right: 10%; 
         opacity: 0.75;">
            
             
@@ -213,7 +217,7 @@
         </div>
     </div>
 
-    <div class="footer" data-theme="a" data-role="footer" data-position="fixed">
+   <!--  <div class="footer" data-theme="a" data-role="footer" data-position="fixed">
         <div class="navbar" data-role="navbar" data-iconpos="top">
             <ul>
                 <li class="nav_li">
@@ -234,7 +238,7 @@
                 </li>
             </ul>
         </div>
-    </div>
+    </div> -->
 </div>
 </body>
 </html>

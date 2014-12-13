@@ -129,23 +129,39 @@ def edit(column,tid):
     if not admin.validate_login():
         abort(403)
     error=None
+    post=None
+
+    if request.method == 'POST':
+        try:
+            title=request.form["post-title"]
+            text=request.form["post-full"]
+            imagefile=request.files["image"]
+            if imagefile and allowed_file(imagefile.filename):
+                tmpfilename=str(int(time.time()))+'.'+imagefile.filename.rsplit('.', 1)[1]
+                #save image
+                image_url=UPLOAD_FOLDER+tmpfilename
+                
+                filename = secure_filename(tmpfilename)
+                
+                imagefile.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            
+            category=article_category[column][0]
+            post_data=(tid,title,filename,text,category)
+            # print post_data
+
+            if poster.edit_post(post_data):
+                print "done"
+                return render_template("edit.html",done=True,post=None,column=article_category[column][1])
+            print poster.response
+        except Exception,e:
+            print e
+            return render_template("edit.html",error=e,post=None,column=article_category[column][1])
     try:
-        category=article_category[column][0]
-        column=column.lower()
-        results = poster.edit_post(column,tid)
-        # print results
-        for row in results:
-            title         = row['title']
-            image_path    = row['image_path']
-            text          = row['article']
-            posttime      = row['posttime']
-            # print "fname=%s, lname=%s, sex=%s" % (title, image_path, text)
+        post=poster.get_post_by_id(tid)
+        return render_template("edit.html",error=error,post=post,column=article_category[column][1])
     except Exception,e:
-        print "Error: unable to fecth data"
-        error = e
-        return render_template("edit.html",error=error, column=article_category[column][1])
-    #post=get_article from db
-    return render_template('edit.html', post=poster, title=title, text=text, image=image_path, column=article_category[column][1])
+        error=str(e)
+        return render_template("edit.html",error=e,post=post,column=article_category[column][1])    
 
 @app.route('/admin/post/<string:column>/new/',methods=['GET', 'POST'])
 def new_post(column):
@@ -172,14 +188,14 @@ def new_post(column):
             # print post_data
 
             if poster.add_new_post(post_data):
-                return render_template("edit.html",done=True,column=article_category[column][1])
+                return render_template("new.html",done=True,column=article_category[column][1])
             print poster.response
         except Exception,e:
             print e
-            return render_template("edit.html",error=e,column=article_category[column][1])
+            return render_template("new.html",error=e,column=article_category[column][1])
 
 
-    return render_template('edit.html',column=article_category[column][1])
+    return render_template('new.html',column=article_category[column][1])
 
 
 @app.route('/mobile/index/')

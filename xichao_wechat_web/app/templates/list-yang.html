@@ -9,13 +9,13 @@
 
     <style>
         @font-face {
-            font-family: xichao;
+            /*font-family: xichao;*/
             src: url('{{url_for('static',filename='SourceHanSansCN-Bold.otf')}}'),
             url('{{url_for('static',filename='xichao_font.eot')}}'); /* IE9+ */
         }
 
         .item {
-            font-family: xichao;
+            /*font-family: xichao;*/
             font-size: 20pt;
             font-weight: bold;
             padding: 25px;
@@ -23,12 +23,10 @@
             text-shadow: 4px 4px 4px #333333;
         }
 
-        a {
-            background: none !important;
-        }
+     
 
         .ui-btn-active {
-            font-family: xichao;
+            /*font-family: xichao;*/
             font-size: 9pt !important;
             color: rgb(102, 153, 255) !important;
         }
@@ -40,7 +38,7 @@
         }
 
         .nav_li {
-            font-family: xichao;
+            /*font-family: xichao;*/
             font-size: 8pt !important;
             border-right: 1px solid black !important;
             border-left: 1px solid black !important;
@@ -63,8 +61,6 @@
              height:150px;
              margin-top: 0px;
              padding:0;
-            
-
         }
         
 
@@ -72,8 +68,9 @@
             position: relative;
             text-align: right;
             margin-top: 0px;
-            padding-left:30px;
+            /*padding-left:30px;*/
             float:right;
+            text-shadow: 0 0px;
             -webkit-font-smoothing: antialiased;
             z-index: 3;
         }
@@ -83,12 +80,12 @@
             text-align: center;
             float: center;
             
-            -webkit-font-smoothing: antialiased;
+            text-shadow: 0 0px;
             height: 50px;
             padding-top:100px;
 
-            font-family: xichao;
-            font-size: 30pt;
+            /*font-family: xichao;*/
+            font-size: 1.5em;
             -webkit-font-smoothing: antialiased;
             color:rgb(255,255,255);
             z-index: 3;
@@ -110,15 +107,38 @@
             z-index: 3;
         }
         .img_circle{
+            position: relative;
+            border:2px solid black;
             border-radius: 50%;
-            height: 50px;
-            width: 50px;
+            padding:5px;
             float:left;
             vertical-align: middle;
         }
 
+        .circle {
+            float:left;
+            display: inline-block;
+            width: 70px;
+            height:70px;
+            border-radius: 50%;
+           
+            padding: 5px;
+            
+        }
+      
+
+         .list-title{
+            text-align: center;
+            position:absolute;
+            top:30%;left:30%;
+            font-size:1.5em;
+            width:200px;
+            text-overflow:ellipsis；
+
+        }
+
         h1{
-            font-family: xichao;
+            /*font-family: xichao;*/
             font-size: 20pt;
             font-weight: 5;
             padding:10px 10px 10px 10px ; 
@@ -128,7 +148,7 @@
 
         }
         h2{
-            font-family: xichao;
+            /*font-family: xichao;*/
             font-size: 15pt;
             font-weight: 5;
             border-bottom:1px solid white;
@@ -138,7 +158,7 @@
 
         }
         h3{
-            font-family: xichao;
+            /*font-family: xichao;*/
             font-size: 8pt;
             
             padding-left: 100px;
@@ -180,6 +200,13 @@
             z-index: 2;
         }
 
+.ui-listview .ui-icon-arrow-r {
+    background: transparent url(images/arrow_right.png) center center no-repeat !important;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;}
+      
+
     </style>
 
    
@@ -195,24 +222,35 @@
         <div class="title_image"></div>
         <div class="title"><h2>青春校园 当下即是</h2>
             <h3>构建校园人文生活常态</h3></div> 
+            
         <div class="subtitle">{{category}}</div>
     </div>
 
     <div data-role="content" style="background-size:cover;width:100%;padding:0px;height:100%;z-index=0;">
-        <div style="margin:1%">   
-            <ul data-role="listview" data-inset="true">
+        <div style="margin:1%" >   
+            <ul data-role="listview" data-inset="true" >
                 {% for post in posts %}
-                <li><a href="../article/{{post["id"]}}/" data-transition="fade" data-theme="" data-icon=""data-ajax="false" 
-                    style="text-align: center; font-family: xichao;">
-                    <img style="border-radius: 50%;" src="./static/upload_images/{{post["image_path"]}}">
-                    <p style="font-size:16pt">{{post["title"]}}</p></a></li>
+                <li style="height='30px;"data-icon="false" >
+                <a href="../article/{{post["id"]}}/" data-ajax="false" 
+                    style="text-align: center;" data-role="button" data-rel="dialog" data-transition="flip">
+                    <div class='circle'>
+                    <img style="width:100%;height:100%;display:block;" src="./static/upload_images/{{post["image_path"]}}">
+                    </div>
+                     
+                   <div class="list-title"> 
+                        <p >{{post["title"]}}</p>
+                   </div>
+
+                   </a>
+
+                   </li>
                 
                 {% endfor %}
                 
             </ul>
         </div>
     </div>
-
+<!-- 
     <div class="footer" data-theme="a" data-role="footer" data-position="fixed">
         <div class="navbar" data-role="navbar" data-iconpos="top">
             <ul>
@@ -234,7 +272,7 @@
                 </li>
             </ul>
         </div>
-    </div>
+    </div> -->
 </div>
 </body>
 </html>

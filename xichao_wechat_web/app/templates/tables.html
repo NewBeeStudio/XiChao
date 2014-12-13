@@ -327,7 +327,6 @@ function del(idNum) {
 }        
 </script>
 
-
 {%for post in posts %}
 
 	
@@ -349,7 +348,7 @@ function del(idNum) {
 				<i class="ace-icon fa fa-search-plus bigger-130"></i>
 			</a>
 
-			<a class="green" href="edit/{{post["id"]}}">
+			<a class="green" href="./edit/{{post["id"]}}">
 				<i class="ace-icon fa fa-pencil bigger-130"></i>
 			</a>
 
@@ -364,7 +363,8 @@ function del(idNum) {
 </tr>
 
    
-<div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"style="top:20%;padding:5% 20%;">
+   <div class="modal-content">
     <div class="modal-header">
       <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
       <h3 id="myModalLabel">删除确认</h3>
@@ -376,6 +376,7 @@ function del(idNum) {
       <button class="btn btn-primary" data-dismiss="modal">取消</button>
       <button class="btn btn-primary" data-dismiss="modal" onclick="del({{loop.index}})">确定</button>
     </div>
+      </div>
  </div>
 
   {% endfor %}

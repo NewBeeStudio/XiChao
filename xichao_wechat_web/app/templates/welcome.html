@@ -1,22 +1,55 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<meta http-equiv="Page-Enter" content="blendTrans(Duration=0.5)">
+		<meta http-equiv="Page-Exit" content="revealtrans(duration=6.0, transition=23)">
 		<meta name="viewport" content="width=device-width,initial-scale=1"/>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.css">
 		<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 		<script src="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.js"></script>
-		<link rel="stylesheet" href="./static/css/welcome.css" >
+		<link rel="stylesheet" href="{{url_for('static',filename='css/welcome.css')}}" >
+		<script language="JavaScript" src="{{url_for('static',filename='js/welcome.js')}}"></script>
 		<script type="text/javascript">
-		$(document).ready(function(){  
-					document.all("page1").style["width"]=document.body.clientWidth;
-					document.all("page1").style["height"]=document.body.clientHeight;
-					return;  
-				}) 
+		// $(document).ready(function(){  
+		// 			document.all("page1").style["width"]=document.body.clientWidth;
+		// 			document.all("page1").style["height"]=document.body.clientHeight;
+		// 			return;  
+		// 		}) 
+		function fade()
+		{
+			$("body").fadeOut(2000);
+			setTimeout(function(){self.location.href="/mobile/list/nanyang";}, 1000);
+				
+		}
+		function fade1()
+		{
+			$("body").fadeOut(2000);
+			setTimeout(function(){self.location.href="/mobile/list/shuzhi";}, 1000);
+				
+		}
+		function fade2()
+		{
+			$("body").fadeOut(2000);
+			setTimeout(function(){self.location.href="/mobile/list/qiuqiu";}, 1000);
+				
+		}
+		function fade3()
+		{
+			$("body").fadeOut(2000);
+			setTimeout(function(){self.location.href="/mobile/list/wendu";}, 1000);
+				
+		}
+		function fade4()
+		{
+			$("body").fadeOut(2000);
+			setTimeout(function(){self.location.href="/mobile/list/shishu";}, 1000);
+				
+		}
 		</script>
 	</head>
 	<body>
-	<div data-role="page" id="page1" style="padding:0px;" >
+	<div data-role="page" id="page1" style="position:relative;padding:0px;text-shadow: 0 0px;" >
 		<div data-role="content"  style="padding:0px;">
 			
 			<div id="logo">
@@ -28,18 +61,26 @@
 			<img id="bg" src="./static/image/welcome/bg.jpg">
 			<img id="slg" src="./static/image/welcome/slg.png">
 			<div class="text">
-				<div>
+				<div onclick="fade()" style="text-align:center;">
 					<h1>南洋荐书</h1>
 					<p>你是否也读过一本书？相见恨晚，泪流满面。慢性都是感动和抑制不住分享给他人的冲动？在这里分享你的感动给别人。也从别人的退阿金中找到自己的感动。</p>
 				</div>
-				
-				<h1>树枝态度</h1>
-				<p>你是否也读过一本书？相见恨晚，泪流满面。慢性都是感动和抑制不住分享给他人的冲动？在这里分享你的感动给别人。也从别人的退阿金中找到自己的感动。</p>
-				<h1>一只球球</h1>
-				<p>你是否也读过一本书？相见恨晚，泪流满面。慢性都是感动和抑制不住分享给他人的冲动？在这里分享你的感动给别人。也从别人的退阿金中找到自己的感动。</p>
-				<h1>曦潮温度</h1>
-				<p>你是否也读过一本书？相见恨晚，泪流满面。慢性都是感动和抑制不住分享给他人的冲动？在这里分享你的感动给别人。也从别人的退阿金中找到自己的感动。</p>
-				
+				<div onclick="fade1()">
+					<h1>树枝态度</h1>
+					<p>你是否也读过一本书？相见恨晚，泪流满面。慢性都是感动和抑制不住分享给他人的冲动？在这里分享你的感动给别人。也从别人的退阿金中找到自己的感动。</p>
+				</div>
+				<div onclick="fade4()">
+					<h1>嗜书瘾君子</h1>
+					<p>你是否也读过一本书？相见恨晚，泪流满面。慢性都是感动和抑制不住分享给他人的冲动？在这里分享你的感动给别人。也从别人的退阿金中找到自己的感动。</p>
+				</div>
+				<div onclick="fade2()">
+					<h1>一只球球</h1>
+					<p>你是否也读过一本书？相见恨晚，泪流满面。慢性都是感动和抑制不住分享给他人的冲动？在这里分享你的感动给别人。也从别人的退阿金中找到自己的感动。</p>
+				</div>
+				<div onclick="fade3()">
+					<h1>曦潮温度</h1>
+					<p>你是否也读过一本书？相见恨晚，泪流满面。慢性都是感动和抑制不住分享给他人的冲动？在这里分享你的感动给别人。也从别人的退阿金中找到自己的感动。</p>
+				</div>
 
 			</div>
 		</div>
