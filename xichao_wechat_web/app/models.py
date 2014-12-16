@@ -61,6 +61,7 @@ class Post:
 
 		
 	def get_category_data(self):
+		category_data=""
 		try:
 			conn=MySQLdb.connect(host='localhost',user=self.db_user,passwd=self.db_passwd,db=self.db_name,charset="utf8")
 			cursor=conn.cursor(cursorclass=MySQLdb.cursors.DictCursor)

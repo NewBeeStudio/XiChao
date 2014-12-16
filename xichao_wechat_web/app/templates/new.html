@@ -41,6 +41,10 @@
 	<script src="{{url_for('static',filename='assets/js/ace-extra.min.js')}}"></script>
 
 	<!-- HTML5shiv and Respond.js for IE8 to support HTML5 elements and media queries -->
+	
+	<!-- ckeditor -->
+	 <script src="{{url_for('static',filename='ckeditor/ckeditor.js')}}"></script>
+
 
 	<!--[if lte IE 8]>
 	<script src="assets/js/html5shiv.min.js"></script>
@@ -415,10 +419,13 @@
 						<br />
 					
 					<div class="form-group">
-						<div class="wysiwyg-editor" id="editor1" name="editor1">
+						<!-- <div class="wysiwyg-editor" id="editor1" name="editor1">
+						</div> -->
+
+						<textarea name="editor1" id="editor1" rows="10" cols="80">
+                			
+          				  </textarea>
 						
-           
-						</div>
 						<textarea id="post-full" name="post-full" style="display:none;"></textarea>
 					</div>
 					<button class="btn btn-primary" onclick="javascript: submitform()">提交</button>
@@ -427,9 +434,8 @@
 
 						function submitform()
 						{
-						 $('#post-full').html($("#editor1").html());
+						 $('#post-full').html(CKEDITOR.instances.editor1.getData());
 						  document.post_form.submit();
-						  
 						}
 				</script>
 
@@ -529,44 +535,45 @@
 		//$('#editor1').ace_wysiwyg();//this will create the default editor will all buttons
 
 		//but we want to change a few buttons colors for the third style
-		$('#editor1').ace_wysiwyg({
-			toolbar:
-					[
-						'font',
-						null,
-						'fontSize',
-						null,
-						{name:'bold', className:'btn-info'},
-						{name:'italic', className:'btn-info'},
-						{name:'strikethrough', className:'btn-info'},
-						{name:'underline', className:'btn-info'},
-						null,
-						{name:'insertunorderedlist', className:'btn-success'},
-						{name:'insertorderedlist', className:'btn-success'},
-						{name:'outdent', className:'btn-purple'},
-						{name:'indent', className:'btn-purple'},
-						null,
-						{name:'justifyleft', className:'btn-primary'},
-						{name:'justifycenter', className:'btn-primary'},
-						{name:'justifyright', className:'btn-primary'},
-						{name:'justifyfull', className:'btn-inverse'},
-						null,
-						{name:'createLink', className:'btn-pink'},
-						{name:'unlink', className:'btn-pink'},
-						null,
-						{name:'insertImage', className:'btn-success'},
-						null,
-						'foreColor',
-						null,
-						{name:'undo', className:'btn-grey'},
-						{name:'redo', className:'btn-grey'}
-					],
-			'wysiwyg': {
-				fileUploadError: showErrorAlert
-			}
-		}).prev().addClass('wysiwyg-style2');
+		// $('#editor1').ace_wysiwyg({
+		// 	toolbar:
+		// 			[
+		// 				'font',
+		// 				null,
+		// 				'fontSize',
+		// 				null,
+		// 				{name:'bold', className:'btn-info'},
+		// 				{name:'italic', className:'btn-info'},
+		// 				{name:'strikethrough', className:'btn-info'},
+		// 				{name:'underline', className:'btn-info'},
+		// 				null,
+		// 				{name:'insertunorderedlist', className:'btn-success'},
+		// 				{name:'insertorderedlist', className:'btn-success'},
+		// 				{name:'outdent', className:'btn-purple'},
+		// 				{name:'indent', className:'btn-purple'},
+		// 				null,
+		// 				{name:'justifyleft', className:'btn-primary'},
+		// 				{name:'justifycenter', className:'btn-primary'},
+		// 				{name:'justifyright', className:'btn-primary'},
+		// 				{name:'justifyfull', className:'btn-inverse'},
+		// 				null,
+		// 				{name:'createLink', className:'btn-pink'},
+		// 				{name:'unlink', className:'btn-pink'},
+		// 				null,
+		// 				{name:'insertImage', className:'btn-success'},
+		// 				null,
+		// 				'foreColor',
+		// 				null,
+		// 				{name:'undo', className:'btn-grey'},
+		// 				{name:'redo', className:'btn-grey'}
+		// 			],
+		// 	'wysiwyg': {
+		// 		fileUploadError: showErrorAlert
+		// 	}
+		// }).prev().addClass('wysiwyg-style2');
 
 		
+		 CKEDITOR.replace( 'editor1' );
 
 
 		/**
