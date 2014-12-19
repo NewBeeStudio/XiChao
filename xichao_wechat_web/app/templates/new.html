@@ -428,14 +428,37 @@
 						
 						<textarea id="post-full" name="post-full" style="display:none;"></textarea>
 					</div>
-					<button class="btn btn-primary" onclick="javascript: submitform()">提交</button>
+					<button class="btn btn-primary" type="button" onclick="javascript: submitform()">提交</button>
 				</form>
 				 <script type="text/javascript">
 
 						function submitform()
 						{
 						 $('#post-full').html(CKEDITOR.instances.editor1.getData());
-						  document.post_form.submit();
+						 var title=$('#post-title').val();
+						 var image=$('#image').val();
+						 var text =$('#post-full').html();
+						 // alert(title);
+						 // alert(image);
+						 //alert(text);
+						 var post=1;
+						 if(title==''){
+						 	alert("请输入标题!");
+						 	// location.href='#myModal';
+						 	post=0;
+						 }
+						 if(image==''){
+						 	alert("请输入文件!");
+						 	post=0;
+						 }
+						 if(text==''){
+						 	alert("请输入文章内容!");
+						 	post=0;
+						 }
+						 if(post==1){
+						 	//alert("post=1");
+						  	document.forms['post_form'].submit();
+						  }
 						}
 				</script>
 
