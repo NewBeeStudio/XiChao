@@ -8,6 +8,8 @@
 
 	<meta name="description" content="User login page" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+	<script src="{{url_for('static',filename='assets/js/jquery.2.1.1.min.js')}}"></script>
+
 
 	<!-- bootstrap & fontawesome -->
 	<link rel="stylesheet" href="{{url_for('static',filename='assets/css/bootstrap.min.css')}}"/>
@@ -408,12 +410,11 @@
 						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 文章标题: </label>
 
 						<div class="col-sm-9">
-							<input type="text" name="post-title" id="post-title" placeholder="title" class="col-xs-10 col-sm-5" value="">
+							<input type="text" name="post-title" id="post-title" placeholder="title" class="col-xs-12 col-sm-10" value="">
 						</div>
 					</div>
 						
-						<input type="file" name="image">
-						
+						<input type="file" name="image" id＝"uploadimage" value="" onchange="javascript:uploadimage()" />
 						<br />
 						<br />
 						<br />
@@ -428,39 +429,11 @@
 						
 						<textarea id="post-full" name="post-full" style="display:none;"></textarea>
 					</div>
-					<button class="btn btn-primary" type="button" onclick="javascript: submitform()">提交</button>
+					<button class="btn btn-primary" type="button" onclick="javascript:submitform()">提交</button>
 				</form>
-				 <script type="text/javascript">
 
-						function submitform()
-						{
-						 $('#post-full').html(CKEDITOR.instances.editor1.getData());
-						 var title=$('#post-title').val();
-						 var image=$('#image').val();
-						 var text =$('#post-full').html();
-						 // alert(title);
-						 // alert(image);
-						 //alert(text);
-						 var post=1;
-						 if(title==''){
-						 	alert("请输入标题!");
-						 	// location.href='#myModal';
-						 	post=0;
-						 }
-						 if(image==''){
-						 	alert("请输入文件!");
-						 	post=0;
-						 }
-						 if(text==''){
-						 	alert("请输入文章内容!");
-						 	post=0;
-						 }
-						 if(post==1){
-						 	//alert("post=1");
-						  	document.forms['post_form'].submit();
-						  }
-						}
-				</script>
+
+				
 
 			
 				
@@ -689,10 +662,43 @@
 
 
 
-
 	});
 </script>
-
+ <script type="text/javascript">
+						
+				 
+						function submitform()
+						{
+						 $('#post-full').html(CKEDITOR.instances.editor1.getData());
+						 var title=$('#post-title').val();
+						 var image=$("input[name='image']").val();
+						 var text =$('#post-full').html();
+						 // alert(title);
+						 // alert(image);
+						 //alert(text);
+						 console.log(image);
+						  console.log(title);
+						   console.log(text);
+						 var post=1;
+						 if(title==''){
+						 	alert("请输入标题!");
+						 	// location.href='#myModal';
+						 	post=0;
+						 }
+						 if(image==''){
+						 	alert("请输入文件!");
+						 	post=0;
+						 }
+						 if(text==''){
+						 	alert("请输入文章内容!");
+						 	post=0;
+						 }
+						 if(post==1){
+						 	//alert("post=1");
+						  	document.forms['post_form'].submit();
+						  }
+						}
+				</script>
 
 </body>
 </html>
