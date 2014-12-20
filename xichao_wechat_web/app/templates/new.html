@@ -414,11 +414,11 @@
 						</div>
 					</div>
 						
-						<input type="file" name="image" id＝"uploadimage" value="" onchange="javascript:uploadimage()" />
+						<input type="file" name="image" id＝"uploadimage" value="" accept="image/*" onchange="javascript:showimage(this)" />
 						<br />
 						<br />
 						<br />
-					
+					<img id="thumbnil" style="width:20%; margin-top:10px;"  src="" alt="image"/>
 					<div class="form-group">
 						<!-- <div class="wysiwyg-editor" id="editor1" name="editor1">
 						</div> -->
@@ -514,6 +514,10 @@
 <script src="{{url_for('static',filename='assets/js/ace-elements.min.js')}}"></script>
 <script src="{{url_for('static',filename='assets/js/ace.min.js')}}"></script>
 
+
+
+<script src="{{url_for('static',filename='js/image-file-visible.js')}}"></script>
+
 <!-- inline scripts related to this page -->
 <script type="text/javascript">
 	jQuery(function($){
@@ -569,8 +573,10 @@
 		// }).prev().addClass('wysiwyg-style2');
 
 		
-		 CKEDITOR.replace( 'editor1' );
-
+		CKEDITOR.replace( 'editor1', {
+    			language: 'zh-cn',
+  			  uiColor: '#9AB8F3'
+});
 
 		/**
 		 //make the editor have all the available height
@@ -665,7 +671,27 @@
 	});
 </script>
  <script type="text/javascript">
-						
+
+					function showimage(fileInput){
+							var files = fileInput.files;
+					        for (var i = 0; i < files.length; i++) {           
+					            var file = files[i];
+					            var imageType = /image.*/;     
+					            if (!file.type.match(imageType)) {
+					                continue;
+					            }           
+					            var img=document.getElementById("thumbnil");            
+					            img.file = file;    
+					            var reader = new FileReader();
+					            reader.onload = (function(aImg) { 
+					                return function(e) { 
+					                    aImg.src = e.target.result; 
+					                }; 
+					            })(img);
+					            reader.readAsDataURL(file);
+					        }    
+
+						}
 				 
 						function submitform()
 						{
