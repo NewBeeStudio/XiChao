@@ -374,7 +374,7 @@
 		<div class="row">
 			<div class="col-xs-12">
 				<!-- PAGE CONTENT BEGINS -->
-				<h4 class="header green clearfix">
+				<!-- <h4 class="header green clearfix">
 					
 									<span class="block pull-right">
 										<small class="grey middle">Choose style: &nbsp;</small>
@@ -405,9 +405,21 @@
 									</span>
 				</h4>
 
+ -->
+ <style>
+#thumbnil {
+    width: 168px;
+    height: 168px;                         
+    background-position: center center;
+    background-size: cover;
+    border: 4px solid #fff;
+    -webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, .3);
+    display: inline-block;
+}
+</style>
 				<form id="post_form" role="form" method="post" enctype=multipart/form-data action="">
 					<div class="form-group">
-						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 文章标题: </label>
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1" style="position:relative;left:200px;"> 文章标题: </label>
 
 						<div class="col-sm-9">
 							<input type="text" name="post-title" id="post-title" placeholder="title" class="col-xs-12 col-sm-10" value="">
@@ -415,10 +427,10 @@
 					</div>
 						
 						<input type="file" name="image" id＝"uploadimage" value="" accept="image/*" onchange="javascript:showimage(this)" />
+
 						<br />
 						<br />
-						<br />
-					<img id="thumbnil" style="width:20%; margin-top:10px;"  src="" alt="image"/>
+					<img id="thumbnil" style="width:20%; "  src="" alt="图片预览"/>
 					<div class="form-group">
 						<!-- <div class="wysiwyg-editor" id="editor1" name="editor1">
 						</div> -->
@@ -453,8 +465,8 @@
 	<div class="footer-inner">
 		<div class="footer-content">
 						<span class="bigger-120">
-							<span class="blue bolder">Ace</span>
-							Application &copy; 2013-2014
+							<span class="blue bolder">NewBee</span>
+							Application &copy; 2014-2015
 						</span>
 
 			&nbsp; &nbsp;
@@ -508,7 +520,7 @@
 <script src="{{url_for('static',filename='assets/js/markdown/bootstrap-markdown.min.js')}}"></script>
 <script src="{{url_for('static',filename='assets/js/jquery.hotkeys.min.js')}}"></script>
 <script src="{{url_for('static',filename='assets/js/bootstrap-wysiwyg.min.js')}}"></script>
-<script src=".{{url_for('static',filename='assets/js/bootbox.min.js')}}"></script>
+<script src="{{url_for('static',filename='assets/js/bootbox.min.js')}}"></script>
 
 <!-- ace scripts -->
 <script src="{{url_for('static',filename='assets/js/ace-elements.min.js')}}"></script>
