@@ -1,0 +1,739 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta charset="utf-8" />
+	<title>后台管理 - XiChao Admin</title>
+
+	<meta name="description" content="User login page" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+
+	<!-- bootstrap & fontawesome -->
+	<link rel="stylesheet" href="{{url_for('static',filename='assets/css/bootstrap.min.css')}}"/>
+	<link rel="stylesheet" href="{{url_for('static',filename='assets/font-awesome/4.1.0/css/font-awesome.min.css')}}" />
+
+	<!-- text fonts -->
+	<link rel="stylesheet" href="{{url_for('static',filename='assets/fonts/fonts.googleapis.com.css')}}" />
+
+	<!-- ace styles -->
+	<link rel="stylesheet" href="{{url_for('static',filename='assets/css/ace.min.css')}}" />
+
+	<!--[if lte IE 9]>
+	<link rel="stylesheet" href="assets/css/ace-part2.min.css" />
+	<![endif]-->
+	<link rel="stylesheet" href="{{url_for('static',filename='assets/css/ace-rtl.min.css')}}" />
+
+
+	<!--[if lte IE 9]>
+	<link rel="stylesheet" href="assets/css/ace-part2.min.css" />
+	<![endif]-->
+	<link rel="stylesheet" href="{{url_for('static',filename='assets/css/ace-skins.min.css')}}" />
+	<link rel="stylesheet" href="{{url_for('static',filename='assets/css/ace-rtl.min.css')}}" />
+
+	<!--[if lte IE 9]>
+	<link rel="stylesheet" href="assets/css/ace-ie.min.css" />
+	<![endif]-->
+
+	<!-- inline styles related to this page -->
+
+	<!-- ace settings handler -->
+	<script src="{{url_for('static',filename='assets/js/ace-extra.min.js')}}"></script>
+
+	<!-- HTML5shiv and Respond.js for IE8 to support HTML5 elements and media queries -->
+
+	<!--[if lte IE 8]>
+	<script src="assets/js/html5shiv.min.js"></script>
+	<script src="assets/js/respond.min.js"></script>
+	<![endif]-->
+
+	<!-- ckeditor -->
+	 <script src="{{url_for('static',filename='ckeditor/ckeditor.js')}}"></script>
+</head>
+<body class="no-skin">
+<div id="navbar" class="navbar navbar-default">
+<script type="text/javascript">
+	try{ace.settings.check('navbar' , 'fixed')}catch(e){}
+</script>
+
+<div class="navbar-container" id="navbar-container">
+<button type="button" class="navbar-toggle menu-toggler pull-left" id="menu-toggler">
+	<span class="sr-only">Toggle sidebar</span>
+
+	<span class="icon-bar"></span>
+
+	<span class="icon-bar"></span>
+
+	<span class="icon-bar"></span>
+</button>
+
+<div class="navbar-header pull-left">
+	<a href="#" class="navbar-brand">
+		<small>
+			<i class="fa fa-leaf"></i>
+			xichao Admin
+		</small>
+	</a>
+</div>
+
+<div class="navbar-buttons navbar-header pull-right" role="navigation">
+<ul class="nav ace-nav">
+
+<li class="light-blue">
+	<a data-toggle="dropdown" href="#" class="dropdown-toggle">
+										<span class="user-info">
+									<small>Welcome,</small>
+									xichao
+								</span>
+
+		<i class="ace-icon fa fa-caret-down"></i>
+	</a>
+
+	<ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+		<li>
+			<a href="#">
+				<i class="ace-icon fa fa-cog"></i>
+				Settings
+			</a>
+		</li>
+
+		<li>
+			<a href="profile.html">
+				<i class="ace-icon fa fa-user"></i>
+				Profile
+			</a>
+		</li>
+
+		<li class="divider"></li>
+
+		<li>
+			<a href="../../../logout">
+				<i class="ace-icon fa fa-power-off"></i>
+				Logout
+			</a>
+		</li>
+	</ul>
+</li>
+</ul>
+</div>
+</div><!-- /.navbar-container -->
+</div>
+
+<div class="main-container" id="main-container">
+<script type="text/javascript">
+	try{ace.settings.check('main-container' , 'fixed')}catch(e){}
+</script>
+
+<div id="sidebar" class="sidebar                  responsive">
+<script type="text/javascript">
+	try{ace.settings.check('sidebar' , 'fixed')}catch(e){}
+</script>
+
+<div class="sidebar-shortcuts" id="sidebar-shortcuts">
+	<div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
+		<button class="btn btn-success">
+			<i class="ace-icon fa fa-signal"></i>
+		</button>
+
+		<button class="btn btn-info">
+			<i class="ace-icon fa fa-pencil"></i>
+		</button>
+
+		<button class="btn btn-warning">
+			<i class="ace-icon fa fa-users"></i>
+		</button>
+
+		<button class="btn btn-danger">
+			<i class="ace-icon fa fa-cogs"></i>
+		</button>
+	</div>
+
+	<div class="sidebar-shortcuts-mini" id="sidebar-shortcuts-mini">
+		<span class="btn btn-success"></span>
+
+		<span class="btn btn-info"></span>
+
+		<span class="btn btn-warning"></span>
+
+		<span class="btn btn-danger"></span>
+	</div>
+</div><!-- /.sidebar-shortcuts -->
+
+<ul class="nav nav-list">
+<li class="active">
+	<a href="../../../../">
+		<i class="menu-icon fa fa-tachometer"></i>
+		<span class="menu-text"> 控制台 </span>
+	</a>
+
+	<b class="arrow"></b>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+<li class="">
+	<a href="#" class="dropdown-toggle">
+		<i class="menu-icon fa fa-tag"></i>
+		<span class="menu-text"> 文章管理</span>
+
+		<b class="arrow fa fa-angle-down"></b>
+	</a>
+
+	<b class="arrow"></b>
+	<ul class="submenu">
+		<li class="">
+			<a href="../../../nanyang">
+				<i class="menu-icon fa fa-caret-right"></i>
+				0.48南洋荐书
+			</a>
+
+			<b class="arrow"></b>
+		</li>
+
+		<li class="">
+			<a href="../../../shuzhi">
+				<i class="menu-icon fa fa-caret-right"></i>
+				树枝态度
+			</a>
+
+			<b class="arrow"></b>
+		</li>
+
+		<li class="">
+			<a href="../../../shishu">
+				<i class="menu-icon fa fa-caret-right"></i>
+				嗜书瘾君子
+			</a>
+
+			<b class="arrow"></b>
+		</li>
+
+		<li class="">
+			<a href="../../../qiuqiu">
+				<i class="menu-icon fa fa-caret-right"></i>
+				一只球球
+			</a>
+
+			<b class="arrow"></b>
+		</li>
+
+		<li class="">
+			<a href="../../../wendu">
+				<i class="menu-icon fa fa-caret-right"></i>
+				曦潮温度
+			</a>
+
+			<b class="arrow"></b>
+		</li>
+	</ul>
+</li>
+	
+</li>
+</ul><!-- /.nav-list -->
+
+<div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse">
+	<i class="ace-icon fa fa-angle-double-left" data-icon1="ace-icon fa fa-angle-double-left" data-icon2="ace-icon fa fa-angle-double-right"></i>
+</div>
+
+<script type="text/javascript">
+	try{ace.settings.check('sidebar' , 'collapsed')}catch(e){}
+</script>
+</div>
+
+<div class="main-content">
+<div class="breadcrumbs" id="breadcrumbs">
+	<script type="text/javascript">
+		try{ace.settings.check('breadcrumbs' , 'fixed')}catch(e){}
+	</script>
+
+	<ul class="breadcrumb">
+		<li>
+			<i class="ace-icon fa fa-home home-icon"></i>
+			<a href="#">Home</a>
+		</li>
+
+		<li>
+			<a href="#">文章管理</a>
+		</li>
+		<li>
+			<a href="../../">{{column}}</a>
+		</li>
+		
+		<li class="active">文章编辑</li>
+	</ul><!-- /.breadcrumb -->
+
+	<div class="nav-search" id="nav-search">
+		<form class="form-search">
+							<span class="input-icon">
+								<input type="text" placeholder="Search ..." class="nav-search-input" id="nav-search-input" autocomplete="off" />
+								<i class="ace-icon fa fa-search nav-search-icon"></i>
+							</span>
+		</form>
+	</div><!-- /.nav-search -->
+</div>
+
+<div class="page-content">
+	<div class="ace-settings-container" id="ace-settings-container">
+		<div class="btn btn-app btn-xs btn-warning ace-settings-btn" id="ace-settings-btn">
+			<i class="ace-icon fa fa-cog bigger-150"></i>
+		</div>
+
+		<div class="ace-settings-box clearfix" id="ace-settings-box">
+			<div class="pull-left width-50">
+				<div class="ace-settings-item">
+					<div class="pull-left">
+						<select id="skin-colorpicker" class="hide">
+							<option data-skin="no-skin" value="#438EB9">#438EB9</option>
+							<option data-skin="skin-1" value="#222A2D">#222A2D</option>
+							<option data-skin="skin-2" value="#C6487E">#C6487E</option>
+							<option data-skin="skin-3" value="#D0D0D0">#D0D0D0</option>
+						</select>
+					</div>
+					<span>&nbsp; Choose Skin</span>
+				</div>
+
+				<div class="ace-settings-item">
+					<input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-navbar" />
+					<label class="lbl" for="ace-settings-navbar"> Fixed Navbar</label>
+				</div>
+
+				<div class="ace-settings-item">
+					<input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-sidebar" />
+					<label class="lbl" for="ace-settings-sidebar"> Fixed Sidebar</label>
+				</div>
+
+				<div class="ace-settings-item">
+					<input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-breadcrumbs" />
+					<label class="lbl" for="ace-settings-breadcrumbs"> Fixed Breadcrumbs</label>
+				</div>
+
+				<div class="ace-settings-item">
+					<input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-rtl" />
+					<label class="lbl" for="ace-settings-rtl"> Right To Left (rtl)</label>
+				</div>
+
+				<div class="ace-settings-item">
+					<input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-add-container" />
+					<label class="lbl" for="ace-settings-add-container">
+						Inside
+						<b>.container</b>
+					</label>
+				</div>
+			</div><!-- /.pull-left -->
+
+			<div class="pull-left width-50">
+				<div class="ace-settings-item">
+					<input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-hover" />
+					<label class="lbl" for="ace-settings-hover"> Submenu on Hover</label>
+				</div>
+
+				<div class="ace-settings-item">
+					<input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-compact" />
+					<label class="lbl" for="ace-settings-compact"> Compact Sidebar</label>
+				</div>
+
+				<div class="ace-settings-item">
+					<input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-highlight" />
+					<label class="lbl" for="ace-settings-highlight"> Alt. Active Item</label>
+				</div>
+			</div><!-- /.pull-left -->
+		</div><!-- /.ace-settings-box -->
+	</div><!-- /.ace-settings-container -->
+
+	<div class="page-content-area">
+
+	{% if error %}
+		{{error}}
+	{% endif %}
+	
+	
+		<div class="page-header">
+			<h1>文章编辑</h1>
+		</div><!-- /.page-header -->
+	{%if done%}
+		<div class="alert alert-block alert-success">
+									<button type="button" class="close" data-dismiss="alert">
+										<i class="icon-remove"></i>
+									</button>
+
+									<i class="icon-ok green"></i>
+									提交成功
+		</div>
+	{%endif%}
+		<div class="row">
+			<div class="col-xs-12">
+				<!-- PAGE CONTENT BEGINS -->
+				<!-- <h4 class="header green clearfix">
+					
+									<span class="block pull-right">
+										<small class="grey middle">Choose style: &nbsp;</small>
+
+										<span class="btn-toolbar inline middle no-margin">
+											<span data-toggle="buttons" class="btn-group no-margin">
+												<label class="btn btn-sm btn-yellow">
+													1
+													<input type="radio" value="1" />
+												</label>
+
+												<label class="btn btn-sm btn-yellow active">
+													2
+													<input type="radio" value="2" />
+												</label>
+
+												<label class="btn btn-sm btn-yellow">
+													3
+													<input type="radio" value="3" />
+												</label>
+
+												<label class="btn btn-sm btn-yellow">
+													4
+													<input type="radio" value="4" />
+												</label>
+											</span>
+										</span>
+									</span>
+				</h4> -->
+ <style>
+#thumbnil {
+    width: 168px;
+    height: 168px;                         
+    background-position: center center;
+    background-size: cover;
+    border: 4px solid #fff;
+    -webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, .3);
+    display: inline-block;
+}
+</style>
+				<form id="post_form" role="form" method="post" enctype=multipart/form-data action="">
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1" style="position:relative;left:200px;"> 文章标题: </label>
+
+						<div class="col-sm-9">
+							<input type="text" name="post-title" id="post-title" placeholder="title" class="col-xs-12 col-sm-10" value="{{post.title}}">
+						</div>
+					</div>
+						
+						<input type="file" name="image" id＝"uploadimage" value="" accept="image/*" onchange="javascript:showimage(this)" />
+
+						<br />
+						<br />
+					<img id="thumbnil" style="width:20%; "  src="/mobile/list/static/upload_images/{{post.image_path}}" alt="图片预览"/>
+					<div class="form-group">
+						<!-- <div class="wysiwyg-editor" id="editor1" name="editor1">
+						</div> -->
+
+						<textarea name="editor1" id="editor1" rows="10" cols="80">
+							{% autoescape false %}
+								{{post["article"]}}
+						   {% endautoescape %} 
+          				  </textarea>
+						
+						<textarea id="post-full" name="post-full" style="display:none;"></textarea>
+					</div>
+					<button class="btn btn-primary" type="button" onclick="javascript:submitform()">提交</button>
+				</form>
+
+
+
+
+				<script type="text/javascript">
+					var $path_assets = "{{url_for('static',filename='/assets')}}";//this will be used in loading jQuery UI if needed!
+				</script>
+
+				<!-- PAGE CONTENT ENDS -->
+			</div><!-- /.col -->
+		</div><!-- /.row -->
+	</div><!-- /.page-content-area -->
+</div><!-- /.page-content -->
+</div><!-- /.main-content -->
+
+<div class="footer">
+	<div class="footer-inner">
+		<div class="footer-content">
+						<span class="bigger-120">
+							<span class="blue bolder">Ace</span>
+							Application &copy; 2013-2014
+						</span>
+
+			&nbsp; &nbsp;
+						<span class="action-buttons">
+							<a href="#">
+								<i class="ace-icon fa fa-twitter-square light-blue bigger-150"></i>
+							</a>
+
+							<a href="#">
+								<i class="ace-icon fa fa-facebook-square text-primary bigger-150"></i>
+							</a>
+
+							<a href="#">
+								<i class="ace-icon fa fa-rss-square orange bigger-150"></i>
+							</a>
+						</span>
+		</div>
+	</div>
+</div>
+
+<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+	<i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
+</a>
+</div><!-- /.main-container -->
+
+<!-- basic scripts -->
+
+<!--[if !IE]> -->
+<script src="{{url_for('static',filename='assets/js/jquery.2.1.1.min.js')}}"></script>
+
+<!-- <![endif]-->
+
+<!--[if IE]>
+<script src="assets/js/jquery.1.11.1.min.js"></script>
+<![endif]-->
+
+<!--[if IE]>
+<script type="text/javascript">
+	window.jQuery || document.write("<script src='assets/js/jquery1x.min.js'>"+"<"+"/script>");
+</script>
+<![endif]-->
+<script type="text/javascript">
+	if('ontouchstart' in document.documentElement) document.write("<script src='{{url_for('static',filename='assets/js/jquery.mobile.custom.min.js')}}'>"+"<"+"/script>");
+</script>
+<script src="{{url_for('static',filename='assets/js/bootstrap.min.js')}}"></script>
+
+<!-- page specific plugin scripts -->
+<script src="{{url_for('static',filename='assets/js/jquery-ui.custom.min.js')}}"></script>
+<script src="{{url_for('static',filename='assets/js/jquery.ui.touch-punch.min.js')}}"></script>
+<script src="{{url_for('static',filename='assets/js/markdown/markdown.min.js')}}"></script>
+<script src="{{url_for('static',filename='assets/js/markdown/bootstrap-markdown.min.js')}}"></script>
+<script src="{{url_for('static',filename='assets/js/jquery.hotkeys.min.js')}}"></script>
+<script src="{{url_for('static',filename='assets/js/bootstrap-wysiwyg.min.js')}}"></script>
+<script src="{{url_for('static',filename='assets/js/bootbox.min.js')}}"></script>
+
+<!-- ace scripts -->
+<script src="{{url_for('static',filename='assets/js/ace-elements.min.js')}}"></script>
+<script src="{{url_for('static',filename='assets/js/ace.min.js')}}"></script>
+
+<!-- inline scripts related to this page -->
+<script type="text/javascript">
+	jQuery(function($){
+
+		function showErrorAlert (reason, detail) {
+			var msg='';
+			if (reason==='unsupported-file-type') { msg = "Unsupported format " +detail; }
+			else {
+				//console.log("error uploading file", reason, detail);
+			}
+			$('<div class="alert"> <button type="button" class="close" data-dismiss="alert">&times;</button>'+
+					'<strong>File upload error</strong> '+msg+' </div>').prependTo('#alerts');
+		}
+
+		//$('#editor1').ace_wysiwyg();//this will create the default editor will all buttons
+
+		//but we want to change a few buttons colors for the third style
+				//$('#editor1').ace_wysiwyg();//this will create the default editor will all buttons
+
+		//but we want to change a few buttons colors for the third style
+		// $('#editor1').ace_wysiwyg({
+		// 	toolbar:
+		// 			[
+		// 				'font',
+		// 				null,
+		// 				'fontSize',
+		// 				null,
+		// 				{name:'bold', className:'btn-info'},
+		// 				{name:'italic', className:'btn-info'},
+		// 				{name:'strikethrough', className:'btn-info'},
+		// 				{name:'underline', className:'btn-info'},
+		// 				null,
+		// 				{name:'insertunorderedlist', className:'btn-success'},
+		// 				{name:'insertorderedlist', className:'btn-success'},
+		// 				{name:'outdent', className:'btn-purple'},
+		// 				{name:'indent', className:'btn-purple'},
+		// 				null,
+		// 				{name:'justifyleft', className:'btn-primary'},
+		// 				{name:'justifycenter', className:'btn-primary'},
+		// 				{name:'justifyright', className:'btn-primary'},
+		// 				{name:'justifyfull', className:'btn-inverse'},
+		// 				null,
+		// 				{name:'createLink', className:'btn-pink'},
+		// 				{name:'unlink', className:'btn-pink'},
+		// 				null,
+		// 				{name:'insertImage', className:'btn-success'},
+		// 				null,
+		// 				'foreColor',
+		// 				null,
+		// 				{name:'undo', className:'btn-grey'},
+		// 				{name:'redo', className:'btn-grey'}
+		// 			],
+		// 	'wysiwyg': {
+		// 		fileUploadError: showErrorAlert
+		// 	}
+		// }).prev().addClass('wysiwyg-style2');
+
+		
+		CKEDITOR.replace( 'editor1', {
+    			language: 'zh-cn',
+  			  uiColor: '#9AB8F3'
+});
+
+		
+
+
+		/**
+		 //make the editor have all the available height
+		 $(window).on('resize.editor', function() {
+		var offset = $('#editor1').parent().offset();
+		var winHeight =  $(this).height();
+		
+		$('#editor1').css({'height':winHeight - offset.top - 10, 'max-height': 'none'});
+	}).triggerHandler('resize.editor');
+		 */
+
+
+
+		$('[data-toggle="buttons"] .btn').on('click', function(e){
+			var target = $(this).find('input[type=radio]');
+			var which = parseInt(target.val());
+			var toolbar = $('#editor1').prev().get(0);
+			if(which >= 1 && which <= 4) {
+				toolbar.className = toolbar.className.replace(/wysiwyg\-style(1|2)/g , '');
+				if(which == 1) $(toolbar).addClass('wysiwyg-style1');
+				else if(which == 2) $(toolbar).addClass('wysiwyg-style2');
+				if(which == 4) {
+					$(toolbar).find('.btn-group > .btn').addClass('btn-white btn-round');
+				} else $(toolbar).find('.btn-group > .btn-white').removeClass('btn-white btn-round');
+			}
+		});
+
+
+
+
+		//RESIZE IMAGE
+
+		//Add Image Resize Functionality to Chrome and Safari
+		//webkit browsers don't have image resize functionality when content is editable
+		//so let's add something using jQuery UI resizable
+		//another option would be opening a dialog for user to enter dimensions.
+		if ( typeof jQuery.ui !== 'undefined' && ace.vars['webkit'] ) {
+
+			var lastResizableImg = null;
+			function destroyResizable() {
+				if(lastResizableImg == null) return;
+				lastResizableImg.resizable( "destroy" );
+				lastResizableImg.removeData('resizable');
+				lastResizableImg = null;
+			}
+
+			var enableImageResize = function() {
+				$('.wysiwyg-editor')
+						.on('mousedown', function(e) {
+							var target = $(e.target);
+							if( e.target instanceof HTMLImageElement ) {
+								if( !target.data('resizable') ) {
+									target.resizable({
+										aspectRatio: e.target.width / e.target.height,
+									});
+									target.data('resizable', true);
+
+									if( lastResizableImg != null ) {
+										//disable previous resizable image
+										lastResizableImg.resizable( "destroy" );
+										lastResizableImg.removeData('resizable');
+									}
+									lastResizableImg = target;
+								}
+							}
+						})
+						.on('click', function(e) {
+							if( lastResizableImg != null && !(e.target instanceof HTMLImageElement) ) {
+								destroyResizable();
+							}
+						})
+						.on('keydown', function() {
+							destroyResizable();
+						});
+			}
+
+			enableImageResize();
+
+			/**
+			 //or we can load the jQuery UI dynamically only if needed
+			 if (typeof jQuery.ui !== 'undefined') enableImageResize();
+			 else {//load jQuery UI if not loaded
+			$.getScript($path_assets+"/js/jquery-ui.custom.min.js", function(data, textStatus, jqxhr) {
+				enableImageResize()
+			});
+		}
+			 */
+		}
+
+
+
+
+	});
+</script>
+
+ <script type="text/javascript">
+
+					function showimage(fileInput){
+							var files = fileInput.files;
+					        for (var i = 0; i < files.length; i++) {           
+					            var file = files[i];
+					            var imageType = /image.*/;     
+					            if (!file.type.match(imageType)) {
+					                continue;
+					            }           
+					            var img=document.getElementById("thumbnil");            
+					            img.file = file;    
+					            var reader = new FileReader();
+					            reader.onload = (function(aImg) { 
+					                return function(e) { 
+					                    aImg.src = e.target.result; 
+					                }; 
+					            })(img);
+					            reader.readAsDataURL(file);
+					        }    
+
+						}
+				 
+						function submitform()
+						{
+						 $('#post-full').html(CKEDITOR.instances.editor1.getData());
+						 var title=$('#post-title').val();
+						 var image=$("input[name='image']").val();
+						 var text =$('#post-full').html();
+						 // alert(title);
+						 // alert(image);
+						 //alert(text);
+						 console.log(image);
+						  console.log(title);
+						   console.log(text);
+						 var post=1;
+						 if(title==''){
+						 	alert("请输入标题!");
+						 	// location.href='#myModal';
+						 	post=0;
+						 }
+						 if(image==''){
+						 	alert("请输入文件!");
+						 	post=0;
+						 }
+						 if(text==''){
+						 	alert("请输入文章内容!");
+						 	post=0;
+						 }
+						 if(post==1){
+						 	//alert("post=1");
+						  	document.forms['post_form'].submit();
+						  }
+						}
+				</script>
+</body>
+</html>

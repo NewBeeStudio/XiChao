@@ -18,47 +18,13 @@ from flask_wtf.file import FileField
 import string, sys
 from models import *
 import json
+import re
+from config import *
+from functions import *
 #from sqlalchemy.databases import mysql
 
 app = Flask(__name__)
-UPLOAD_FOLDER = 'static/upload_images/'
-ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
-app.config.update(
-    # DATABASE = '/flaskr.db',
-    DEBUG = True,
-    UPLOAD_FOLDER=UPLOAD_FOLDER,
-    MAX_CONTENT_LENGTH=16 * 1024 * 1024,
-    SECRET_KEY = 'xichao secret',
-    USERNAME = 'xichao',
-    PASSWORD = 'xichao123',
-    PER_PAGE=15,
 
-     #EMAIL SETTINGS
-    MAIL_SERVER='smtp.163.com',
-    MAIL_PORT=25,
-    MAIL_USE_TLS = True,
-    MAIL_USE_SSL=False,
-    MAIL_USERNAME = 'xichaoshudian@163.com',
-    MAIL_PASSWORD = 'xichao123'
-    )
-
-db_config={
-    "db_user":'root',
-    "db_passwd":'1234',
-    'db_name':'xichao_wechat'  
-}
-admin_config={
-    "user":app.config['USERNAME'],
-    "passwd":app.config['PASSWORD']
-
-}
-article_category={
-                'nanyang':[1,u"0.48南洋荐书"],
-                'shuzhi':[2,u"树枝态度"],
-                'shishu':[3,u"嗜书瘾君子"],
-                'qiuqiu':[4,u"一只球球"],
-                'wendu':[5,u"曦潮温度"]
-                }
 
 admin=Admin(admin_config)
 poster=Post(db_config)
@@ -173,16 +139,8 @@ def new_post(column):
         try:
             title=request.form["post-title"]
             text=request.form["post-full"]
-            imagefile=request.files["image"]
-            if imagefile and allowed_file(imagefile.filename):
-                tmpfilename=str(int(time.time()))+'.'+imagefile.filename.rsplit('.', 1)[1]
-                #save image
-                image_url=UPLOAD_FOLDER+tmpfilename
-                
-                filename = secure_filename(tmpfilename)
-                
-                imagefile.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            
+            imagedata=request.form["imagedata"]
+            filename=datatofile(imagedata)
             category=article_category[column][0]
             post_data=(title,filename,text,category)
             # print post_data
@@ -202,6 +160,7 @@ def new_post(column):
 def mobile_index():
     return render_template("welcome.html")
 
+@app.route('/admin/mobile/list/static/upload_images/<path:filename>')
 @app.route('/mobile/list/static/upload_images/<path:filename>')
 def image_src(filename):
     return send_from_directory('./static/upload_images/', filename)
@@ -226,99 +185,43 @@ def mobile_article(tid):
     return render_template('article.html',post=post,category=category)
 
 
-#####################################################################################################
-#mail = Mail(app)
-#ADMINS = ['xichaoshudian@163.com']
+@app.route('/upload/', methods=['GET', 'POST'])
+def upload():
+    action = request.args.get('action')
 
-# def send_async_email(msg):
-#     with app.app_context(): #otherwise, runtimeERROR:working outside of application context
-#         mail.send(msg)
-        
-@app.route('/register/', methods=['GET', 'POST'])
-def register():
-    if request.method=='POST':
+    # 解析JSON格式的配置文件
+    # 这里使用PHP版本自带的config.json文件
+    with open(os.path.join(app.static_folder, 'ueditor', 'php',
+                           'config.json')) as fp:
         try:
-            msg = Message('test subject', sender = ADMINS[0], recipients = ADMINS)
-            msg.body = 'text body'
-            msg.html =  str(request.form)
-##            msg.html+="<br>"+request.form.get('fullname')+"<br>"+request.form.get('gender')+"<br>"+request.form.get('school')+"<br>"+request.form.get('grade')+\
-##                       "<br>"+request.form.get('email')+"<br>"+request.form.get('favcolor')+"<br>"+request.form.get('addinfo')
-            for item in request.form:
-                msg.html+="<br>"+str(item)+":"+request.form.get(str(item))
-            thr = threading.Thread(target = send_async_email, args = [msg])
-            thr.start()
-        except Exception,e:
-            print e
-
-    return render_template("register.html")
-
-@app.route('/list/')
-def list():
-    article_list=poster.get_posts(0,10)
-    return render_template('list.html',list=article_list)
-
-
-@app.route('/post_delete<id>')
-def post_del(id):
-    if not admin.validate_login():
-        abort(403)
-    if poster.post_delete(id):
-        return "<h1>删除成功</h1><br/><a href='../posts_list/'>返回列表</a>" 
-    abort(404)
-    
-@app.route('/t/<id>')
-def article(id):
-    conn = MySQLdb.connect(host='localhost', user='root',passwd='',charset="utf8") 
-    conn.select_db('xichao_wechat')
-    cursor = conn.cursor()
-    text=''
-    try:
-        cursor.execute("select article from xichao_article where id="+id)
-        text=cursor.fetchone()[0]
-    except:
-        text='No article found'
-    cursor.close() 
-    conn.close()
-    return render_template('article.html',article=text,id=str(id))
-
-
-@app.route('/comment/<id>', methods=['GET', 'POST'])
-def comment(id):
-    conn = MySQLdb.connect(host='localhost', user='root',passwd='',charset="utf8") 
-    conn.select_db('xichao_wechat');
-    cursor = conn.cursor()
-    cursor.execute("select * from xichao_comments  where articleID="+id)
-    data=[]
-    cur=1
-    while True:
-        try:
-            data+=[{'text':str(cur)+'.'+cursor.fetchone()[2]}]
-            cur+=1
+            # 删除 `/**/` 之间的注释
+           
+            CONFIG = json.loads(re.sub(r'\/\*.*\*\/', '', fp.read()))
         except:
-            break
-    cursor.execute("select count(*) as value from xichao_comments ")
-    num=cursor.fetchone()[0]
-    num=int(num)
-    cm=''
-    if request.method == 'POST':       
-        cm=request.form['text']
-        if cm!='':
-            articleID=id
-            order=(num+1,articleID,cm)           
-            sql = "insert into xichao_comments(comment_id,articleID,comment) values (%s,%s,%s)"
-            cursor.execute(sql,order)
-            num+=1
-    if cm!='':
-       data+=[{'text':str(cur)+'.'+cm}]
+            CONFIG = {}
 
-    conn.commit()
-    cursor.close() 
-    conn.close()   
-        
-    return render_template("comment.html",comments=data,number=num,id=id)
+    if action == 'config':
+        # 初始化时，返回配置文件给客户端
+        result = CONFIG
+
+    if action in ('uploadimage', 'uploadvideo', 'uploadfile'):
+        upfile = request.files['upfile']  # 这个表单名称以配置文件为准
+        tmpfilename=str(int(time.time()))+'.'+upfile.filename.rsplit('.', 1)[1]
+        #save image
+        image_url=UPLOAD_FOLDER+tmpfilename
+        filename = secure_filename(tmpfilename)
+                # upfile 为 FileStorage 对象
+        # 这里保存文件并返回相应的URL
+        upfile.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        result = {
+            "state": "SUCCESS",
+            "url": "../../../../mobile/list/static/upload_images/"+filename,
+            "title": "demo.jpg",
+            "original": "demo.jpg"
+        }
+    return json.dumps(result)
 
 
 
-if __name__ == "__main__":
-    app.run()
+
 
