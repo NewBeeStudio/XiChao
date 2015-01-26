@@ -135,7 +135,7 @@ class Post:
 		try:
 			conn=MySQLdb.connect(host='localhost',user=self.db_user,passwd=self.db_passwd,db=self.db_name,charset="utf8")
 			cursor=conn.cursor(cursorclass=MySQLdb.cursors.DictCursor)
-			sql="INSERT INTO `article_category` (`id`,`name`) VALUES(%s,%s)"
+			sql="INSERT INTO `article_category` (`id`,`name`,`description`) VALUES(%s,%s,%s)"
 			cursor.execute(sql, data)
 			cursor.close() 
 			conn.commit()

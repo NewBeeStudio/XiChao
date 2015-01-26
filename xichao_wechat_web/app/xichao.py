@@ -30,6 +30,7 @@ admin=Admin(admin_config)
 poster=Post(db_config)
 article_category=poster.article_category()
 column_description=poster.get_column_description()
+
 def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
@@ -66,11 +67,13 @@ def logout():
     admin.logout()
     #flash('You were logged out')
     return render_template('logout.html')
+
+@app.route('/admin/column/',methods=['GET', 'POST'])   
 @app.route('/admin/column/category/<int:column>',methods=['GET', 'POST'])
 def set_column():
     if not admin.validate_login():
         abort(403)
-    return render_template('set_column.html',article_category=article_category)
+    return render_template('set_column.html',article_category=article_category,column_description=column_description)
 
 @app.route('/admin/post/category/<int:column>/',methods=['GET', 'POST'])
 def article_list(column):
