@@ -88,7 +88,7 @@ def article_list(column):
     #print article_list
     #flash('You were logged out')
     
-    return render_template('tables.html',posts=article_list,column=article_category[column][1],url=column)
+    return render_template('tables.html',posts=reversed(article_list),column=article_category[column][1],url=column)
 
 @app.route('/admin/post/<string:column>/edit/<int:tid>/',methods=['GET', 'POST'])
 def edit(column,tid):
@@ -173,7 +173,7 @@ def mobile_list(column):
     else:
         abort(404)
     posts=poster.get_posts(category_id)
-    return render_template("list-yang.html",posts=posts,category=category)
+    return render_template("list-yang.html",posts=reversed(posts),category=category)
 
 @app.route('/mobile/article/<int:tid>/')
 def mobile_article(tid):
