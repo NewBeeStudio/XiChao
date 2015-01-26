@@ -4,6 +4,7 @@ import MySQLdb
 import time
 from flask import session
 
+
 class Post:
 	
 	def __init__(self,default_config):
@@ -96,9 +97,82 @@ class Post:
 			
 			return False
 
+	def article_category(self):
+		try:
+			conn=MySQLdb.connect(host='localhost',user=self.db_user,passwd=self.db_passwd,db=self.db_name,charset="utf8")
+			cursor=conn.cursor(cursorclass=MySQLdb.cursors.DictCursor)
+			cursor.execute("select * from article_category")
+			results=cursor.fetchall()
+			cursor.close() 
+			conn.commit()
+			conn.close()
+			article_category={}
+			for item in results:
+				article_category[item['id']]=item['name']
+			return article_category
+		except Exception,e:
+			print e
+			self.response['error']=e
+			return {}
+	def get_column_description(self):
+		try:
+			conn=MySQLdb.connect(host='localhost',user=self.db_user,passwd=self.db_passwd,db=self.db_name,charset="utf8")
+			cursor=conn.cursor(cursorclass=MySQLdb.cursors.DictCursor)
+			cursor.execute("select * from article_category")
+			results=cursor.fetchall()
+			cursor.close() 
+			conn.commit()
+			conn.close()
+			column_description={}
+			for item in results:
+				column_description[item['id']]=item['description']
+			return column_description
+		except Exception,e:
+			print e
+			self.response['error']=e
+			return {}
+	def add_column(self,data):
+		try:
+			conn=MySQLdb.connect(host='localhost',user=self.db_user,passwd=self.db_passwd,db=self.db_name,charset="utf8")
+			cursor=conn.cursor(cursorclass=MySQLdb.cursors.DictCursor)
+			sql="INSERT INTO `article_category` (`id`,`name`) VALUES(%s,%s)"
+			cursor.execute(sql, data)
+			cursor.close() 
+			conn.commit()
+			conn.close()
+			return True
+		except Exception,e:
+			print e
+			self.response['error']=e
+			return False
 
-
-
+	def edit_column(self,data):
+		try:
+			conn=MySQLdb.connect(host='localhost',user=self.db_user,passwd=self.db_passwd,db=self.db_name,charset="utf8")
+			cursor=conn.cursor(cursorclass=MySQLdb.cursors.DictCursor)
+			sql ="REPLACE INTO article_category(id,name,description) values(%s,%s,%s);"
+			cursor.execute(sql,data)
+			cursor.close()
+			conn.commit()
+			conn.close()
+			return True
+		except Exception,e:
+			self.response['error']=e
+			return False
+	def del_column(self,id):
+		try:
+			conn=MySQLdb.connect(host='localhost',user=self.db_user,passwd=self.db_passwd,db=self.db_name,charset="utf8")
+			cursor=conn.cursor(cursorclass=MySQLdb.cursors.DictCursor)
+			cursor.execute("delete from article_category where id="+str(id)+";")		
+			cursor.close() 
+			conn.commit()
+			conn.close()
+			return True
+		except Exception,e:
+			print e
+			self.response['error']=e
+			
+			return False			
 
 
 

@@ -28,8 +28,8 @@ app = Flask(__name__)
 
 admin=Admin(admin_config)
 poster=Post(db_config)
-
-
+article_category=poster.article_category()
+column_description=poster.get_column_description()
 def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
@@ -44,13 +44,12 @@ def admin_index():
     if not admin.validate_login():
         abort(403)
     category_data=poster.get_category_data()
-    cd=[0]*5
-    print cd
+    cd=[0]*len(article_category)
     for num in category_data:
         print num
         cd[int(num["category"])-1]=int(num["count(id)"])
     print cd
-    return render_template('admin.html',category_data=json.dumps(cd))
+    return render_template('admin.html',category_data=json.dumps(cd),article_category=article_category,column_description=column_description)
 
 @app.route('/admin/login/', methods=['GET', 'POST'])
 def login():
@@ -67,18 +66,22 @@ def logout():
     admin.logout()
     #flash('You were logged out')
     return render_template('logout.html')
+@app.route('/admin/column/category/<int:column>',methods=['GET', 'POST'])
+def set_column():
+    if not admin.validate_login():
+        abort(403)
+    return render_template('set_column.html',article_category=article_category)
 
-@app.route('/admin/post/<string:column>/',methods=['GET', 'POST'])
+@app.route('/admin/post/category/<int:column>/',methods=['GET', 'POST'])
 def article_list(column):
     if not admin.validate_login():
         abort(403)
-    column=column.lower()
-    print 'colomn=',column
+    
     if column in article_category.keys():
-        category=article_category[column][0]
+        category=column
     else:
         abort(404)
-    if request.method == 'POST':   
+    if request.method == 'POST':
         id=request.form["id"] 
         id=id.strip()
         #print "id="+id
@@ -88,9 +91,9 @@ def article_list(column):
     #print article_list
     #flash('You were logged out')
     
-    return render_template('tables.html',posts=reversed(article_list),column=article_category[column][1],url=column)
+    return render_template('tables.html',posts=reversed(article_list),column=article_category[column],url=column)
 
-@app.route('/admin/post/<string:column>/edit/<int:tid>/',methods=['GET', 'POST'])
+@app.route('/admin/post/category/<int:column>/edit/<int:tid>/',methods=['GET', 'POST'])
 def edit(column,tid):
     if not admin.validate_login():
         abort(403)
@@ -111,25 +114,24 @@ def edit(column,tid):
                 
                 imagefile.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             
-            category=article_category[column][0]
+            category=column
             post_data=(tid,title,filename,text,category)
             # print post_data
 
             if poster.edit_post(post_data):
-                print "done"
-                return render_template("edit.html",done=True,post=None,column=article_category[column][1])
-            print poster.response
+                return render_template("edit.html",done=True,post=None,column=article_category[column])
+            #print poster.response
         except Exception,e:
             print e
-            return render_template("edit.html",error=e,post=None,column=article_category[column][1])
+            return render_template("edit.html",error=e,post=None,column=article_category[column])
     try:
         post=poster.get_post_by_id(tid)
-        return render_template("edit.html",error=error,post=post,column=article_category[column][1])
+        return render_template("edit.html",error=error,post=post,column=article_category[column])
     except Exception,e:
         error=str(e)
-        return render_template("edit.html",error=e,post=post,column=article_category[column][1])    
+        return render_template("edit.html",error=e,post=post,column=article_category[column])    
 
-@app.route('/admin/post/<string:column>/new/',methods=['GET', 'POST'])
+@app.route('/admin/post/category/<int:column>/new/',methods=['GET', 'POST'])
 def new_post(column):
     column=column.lower()
     if not admin.validate_login():
@@ -141,16 +143,16 @@ def new_post(column):
             text=request.form["post-full"]
             imagedata=request.form["imagedata"]
             filename=datatofile(imagedata)
-            category=article_category[column][0]
+            category=column
             post_data=(title,filename,text,category)
             # print post_data
 
             if poster.add_new_post(post_data):
-                return render_template("new.html",done=True,column=article_category[column][1])
+                return render_template("new.html",done=True,column=article_category[column])
             print poster.response
         except Exception,e:
             print e
-            return render_template("new.html",error=e,column=article_category[column][1])
+            return render_template("new.html",error=e,column=article_category[column])
 
 
     return render_template('new.html',column=article_category[column][1])
@@ -165,23 +167,26 @@ def mobile_index():
 def image_src(filename):
     return send_from_directory('./static/upload_images/', filename)
 
-@app.route('/mobile/list/<column>')
+@app.route('/mobile/list/category/<int:column>/')
 def mobile_list(column):
+    print [key for key in article_category]
     if column in [key for key in article_category]:
-        category_id=article_category[column][0]
-        category=article_category[column][1]
+        category_id=column
+        category=article_category[column]
     else:
         abort(404)
     posts=poster.get_posts(category_id)
+    print posts
     return render_template("list-yang.html",posts=reversed(posts),category=category)
 
 @app.route('/mobile/article/<int:tid>/')
 def mobile_article(tid):
     post=poster.get_post_by_id(tid)
-    #print post
+    print post
     category_id=post["category"]
-    category=[item[1] for item in [article_category[key] for key in article_category] if item[0]==category_id][0]
-    #print category
+    #category=[item[1] for item in [article_category[key] for key in article_category] if item[0]==category_id][0]
+    category=article_category[category_id]
+    print category
     return render_template('article.html',post=post,category=category)
 
 

@@ -15,10 +15,3 @@ admin_config={
     "user":'xichao',
     "passwd":'xichao123'
 }
-article_category={
-                'nanyang':[1,u"0.48南洋荐书"],
-                'shuzhi':[2,u"树枝态度"],
-                'shishu':[3,u"嗜书瘾君子"],
-                'qiuqiu':[4,u"一只球球"],
-                'wendu':[5,u"曦潮温度"]
-                }
