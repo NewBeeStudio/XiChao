@@ -1,27 +1,3 @@
-
-	
-CREATE TABLE `xichao_article` (
-  `id` INTEGER NULL AUTO_INCREMENT DEFAULT NULL,
-  `title` MEDIUMTEXT NULL DEFAULT NULL,
-  `image_path` VARCHAR(256) NULL DEFAULT NULL,
-  `article` MEDIUMTEXT NULL DEFAULT NULL,
-  `category` INTEGER NULL DEFAULT NULL,
-  `posttime` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`)
-);
-
-
-
-CREATE TABLE `xichao_comments` (
-  `comment_id` INTEGER NULL AUTO_INCREMENT DEFAULT NULL,
-  `comment` MEDIUMTEXT NULL DEFAULT NULL,
-  `comment_time` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
-  `poster_id` VARCHAR(256) NULL DEFAULT NULL,
-  `articleID` INTEGER NULL DEFAULT NULL,
-  PRIMARY KEY (`comment_id`)
-);
-
-
 DROP TABLE IF EXISTS `article_category`;
     
 CREATE TABLE `article_category` (
@@ -30,6 +6,34 @@ CREATE TABLE `article_category` (
   `description` VARCHAR(512) NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
 );
+
+DROP TABLE IF EXISTS `xichao_article`;
+ 	
+CREATE TABLE `xichao_article` (
+  `id` INTEGER NULL AUTO_INCREMENT DEFAULT NULL,
+  `title` MEDIUMTEXT NULL DEFAULT NULL,
+  `image_path` VARCHAR(256) NULL DEFAULT NULL,
+  `article` MEDIUMTEXT NULL DEFAULT NULL,
+  `category` INTEGER NULL DEFAULT NULL,
+  `posttime` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+  `top` INTEGER NULL DEFAULT 0,
+  foreign key (category) references article_category(id) ON DELETE CASCADE ON UPDATE CASCADE,
+  PRIMARY KEY (`id`)
+);
+
+
+-- DROP TABLE IF EXISTS `xichao_comments`;
+  
+-- CREATE TABLE `xichao_comments` (
+--   `comment_id` INTEGER NULL AUTO_INCREMENT DEFAULT NULL,
+--   `comment` MEDIUMTEXT NULL DEFAULT NULL,
+--   `comment_time` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+--   `poster_id` VARCHAR(256) NULL DEFAULT NULL,
+--   `articleID` INTEGER NULL DEFAULT NULL,
+--   PRIMARY KEY (`comment_id`)
+-- );
+
+
 
 
 

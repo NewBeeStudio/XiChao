@@ -16,36 +16,13 @@
 		// 			document.all("page1").style["height"]=document.body.clientHeight;
 		// 			return;  
 		// 		}) 
-		function fade()
+		function fade(id)
 		{
 			$("body").fadeOut(2000);
-			setTimeout(function(){self.location.href="/mobile/list/nanyang";}, 1000);
+			setTimeout(function(){self.location.href="/mobile/list/category/"+id;}, 1000);
 				
 		}
-		function fade1()
-		{
-			$("body").fadeOut(2000);
-			setTimeout(function(){self.location.href="/mobile/list/shuzhi";}, 1000);
-				
-		}
-		function fade2()
-		{
-			$("body").fadeOut(2000);
-			setTimeout(function(){self.location.href="/mobile/list/qiuqiu";}, 1000);
-				
-		}
-		function fade3()
-		{
-			$("body").fadeOut(2000);
-			setTimeout(function(){self.location.href="/mobile/list/wendu";}, 1000);
-				
-		}
-		function fade4()
-		{
-			$("body").fadeOut(2000);
-			setTimeout(function(){self.location.href="/mobile/list/shishu";}, 1000);
-				
-		}
+		
 		</script>
 	</head>
 	<body>
@@ -61,26 +38,13 @@
 			<img id="bg" src="./static/image/welcome/bg.jpg">
 			<img id="slg" src="./static/image/welcome/slg.png">
 			<div class="text">
-				<div onclick="fade()" style="text-align:center;">
-					<h1>南洋荐书</h1>
-					<p>你是否也读过一本书？相见恨晚，泪流满面。慢性都是感动和抑制不住分享给他人的冲动？在这里分享你的感动给别人。也从别人的退阿金中找到自己的感动。</p>
+				{%for key,value in article_category.items() %}
+				<div onclick="fade({{key}})" style="text-align:center;">
+					<h1>{{value}}</h1>
+					<p>{{column_description[key]}}</p>
 				</div>
-				<div onclick="fade1()">
-					<h1>树枝态度</h1>
-					<p>你是否也读过一本书？相见恨晚，泪流满面。慢性都是感动和抑制不住分享给他人的冲动？在这里分享你的感动给别人。也从别人的退阿金中找到自己的感动。</p>
-				</div>
-				<div onclick="fade4()">
-					<h1>嗜书瘾君子</h1>
-					<p>你是否也读过一本书？相见恨晚，泪流满面。慢性都是感动和抑制不住分享给他人的冲动？在这里分享你的感动给别人。也从别人的退阿金中找到自己的感动。</p>
-				</div>
-				<div onclick="fade2()">
-					<h1>一只球球</h1>
-					<p>你是否也读过一本书？相见恨晚，泪流满面。慢性都是感动和抑制不住分享给他人的冲动？在这里分享你的感动给别人。也从别人的退阿金中找到自己的感动。</p>
-				</div>
-				<div onclick="fade3()">
-					<h1>曦潮温度</h1>
-					<p>你是否也读过一本书？相见恨晚，泪流满面。慢性都是感动和抑制不住分享给他人的冲动？在这里分享你的感动给别人。也从别人的退阿金中找到自己的感动。</p>
-				</div>
+					{%endfor%}
+				
 
 			</div>
 		</div>

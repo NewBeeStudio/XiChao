@@ -17,7 +17,7 @@ class Post:
 	def get_posts(self,category):
 		conn=MySQLdb.connect(host='localhost',user=self.db_user,passwd=self.db_passwd,db=self.db_name,charset="utf8")
 		cursor=conn.cursor(cursorclass=MySQLdb.cursors.DictCursor)
-		cursor.execute("select * from xichao_article where category="+str(category)+";")
+		cursor.execute("select * from xichao_article where category="+str(category)+" order by top desc,id desc;")
 		posts=cursor.fetchall()
 		conn.commit()
 		conn.close()
@@ -36,7 +36,12 @@ class Post:
 		try:
 			conn=MySQLdb.connect(host='localhost',user=self.db_user,passwd=self.db_passwd,db=self.db_name,charset="utf8")
 			cursor=conn.cursor(cursorclass=MySQLdb.cursors.DictCursor)
-			sql = "insert into xichao_article(title,image_path,article,category) values(%s,%s,%s,%s)"
+			
+			#need to be sticked 
+			if post_data[4]=="1":
+				cursor.execute("update xichao_article set top=0 where top=1;")
+			
+			sql = "insert into xichao_article(title,image_path,article,category,top) values(%s,%s,%s,%s,%s);"
  			cursor.execute(sql,post_data)
 			cursor.close()
 			conn.commit()
@@ -60,6 +65,19 @@ class Post:
 			self.response['error']=e
 			return False
 
+	def set_top(self,id):
+		try:
+			conn=MySQLdb.connect(host='localhost',user=self.db_user,passwd=self.db_passwd,db=self.db_name,charset="utf8")
+			cursor=conn.cursor(cursorclass=MySQLdb.cursors.DictCursor)
+			cursor.execute("update xichao_article set top=0 where top=1;")
+			cursor.execute("update xichao_article set top=1 where id="+str(id))
+			cursor.close()
+			conn.commit()
+			conn.close()
+			return True
+		except Exception,e:
+			self.response['error']=e
+			return False
 		
 	def get_category_data(self):
 		category_data=""
@@ -135,7 +153,7 @@ class Post:
 		try:
 			conn=MySQLdb.connect(host='localhost',user=self.db_user,passwd=self.db_passwd,db=self.db_name,charset="utf8")
 			cursor=conn.cursor(cursorclass=MySQLdb.cursors.DictCursor)
-			sql="INSERT INTO `article_category` (`id`,`name`,`description`) VALUES(%s,%s,%s)"
+			sql="INSERT INTO `article_category` (`name`,`description`) VALUES(%s,%s)"
 			cursor.execute(sql, data)
 			cursor.close() 
 			conn.commit()
@@ -150,8 +168,8 @@ class Post:
 		try:
 			conn=MySQLdb.connect(host='localhost',user=self.db_user,passwd=self.db_passwd,db=self.db_name,charset="utf8")
 			cursor=conn.cursor(cursorclass=MySQLdb.cursors.DictCursor)
-			sql ="REPLACE INTO article_category(id,name,description) values(%s,%s,%s);"
-			cursor.execute(sql,data)
+			sql ="update article_category set name=\""+data[1]+"\",description=\""+data[2]+"\"where id="+data[0]+";"
+			cursor.execute(sql)
 			cursor.close()
 			conn.commit()
 			conn.close()

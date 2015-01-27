@@ -162,7 +162,7 @@
 
 <ul class="nav nav-list">
 <li class="">
-	<a href="./">
+	<a href="../">
 		<i class="menu-icon fa fa-tachometer"></i>
 		<span class="menu-text"> 控制台 </span>
 	</a>
@@ -191,7 +191,7 @@
 	<ul class="submenu">
 		{%for key,value in article_category.items()%}
 		<li class="">
-			<a href="./post/category/{{key}}">
+			<a href="../post/category/{{key}}">
 				<i class="menu-icon fa fa-caret-right"></i>
 				{{value}}
 			</a>
@@ -223,9 +223,9 @@
 	<ul class="breadcrumb">
 		<li>
 			<i class="ace-icon fa fa-home home-icon"></i>
-			<a href="#">Home</a>
+			<a href="#">home</a>
 		</li>
-		<li class="active">Dashboard</li>
+		<li class="active">栏目管理</li>
 	</ul><!-- /.breadcrumb -->
 
 	<div class="nav-search" id="nav-search">
@@ -255,50 +255,51 @@
    data-target="#myModal"> 新增栏目
 		<i class="ace-icon fa fa-plus"></i>
 		</button>
-		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" 
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" 
    				aria-labelledby="myModalLabel" aria-hidden="true">
-   <div class="modal-dialog">
-      <div class="modal-content">
-         <div class="modal-header">
-            <button type="button" class="close" 
-               data-dismiss="modal" aria-hidden="true">
-                  &times;
-            </button>
-            <h4 class="modal-title" id="myModalLabel">
-               新增栏目
-            </h4>
-         </div>
-         <div class="modal-body">
-            <form>
-            <div class="form-group">
-				<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 栏目标题: </label>
+			   	<div class="modal-dialog">
+			      <div class="modal-content">
+			         <div class="modal-header">
+			            <button type="button" class="close" 
+			               data-dismiss="modal" aria-hidden="true">
+			                  &times;
+			            </button>
+			            <h4 class="modal-title" id="myModalLabel">
+			               新增栏目
+			            </h4>
+			         </div>
+			         <div class="modal-body">
+			            <form id="add" method="post">
+			            <div class="form-group">
+			            
+							<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 栏目标题: </label>
 
-				<div class="col-sm-9">
-				<input type="text" id="column-title-{{key}}" placeholder="" class="col-xs-10 col-sm-5" value="{{value}}"/>
-				</div>
+							<div class="col-sm-9">
+							<input type="text" id="new_column_title" name="new_column_title" placeholder="" class="col-xs-10 col-sm-5"/>
+							</div>
 
-				
-					<label class="col-sm-4 control-label no-padding-right"  for="form-field-{{key}}">栏目简述(100字以内):</label>
+							
+								<label class="col-sm-4 control-label no-padding-right">栏目简述(100字以内):</label>
 
-					<textarea class="form-control limited" id="description-{{key}}" maxlength="100">{{column_description[key]}}</textarea>
-			
-				<input type="hidden" id＝"{{key}}"value="{{key}}">
-			
-				
-			</div>
-            </form>
-         </div>
-         <div class="modal-footer">
-            <button type="button" class="btn btn-default" 
-               data-dismiss="modal">关闭
-            </button>
-            <button type="button" class="btn btn-primary">
-               提交
-            </button>
-         </div>
-      </div><!-- /.modal-content -->
-</div><!-- /.modal -->
-</div>
+								<textarea class="form-control limited" id="new_column_description" name="new_column_description" maxlength="100"></textarea>
+						
+							<input type="hidden" id="new_column" name="new"  value="1">
+							
+						</div>
+			            </form>
+			         </div>
+			         <div class="modal-footer">
+			            <button type="button" class="btn btn-default" 
+			               data-dismiss="modal">关闭
+			            </button>
+			            <button type="button" class="btn btn-primary" onclick="javascript:submit_add_form()">
+			               提交
+			            </button>
+			         </div>
+			      </div><!-- /.modal-content -->
+					</div><!-- /.modal -->
+	</div>
+		
 		<div id="tabs">
 			<ul>
 				{%for key,value in article_category.items() %}
@@ -308,42 +309,47 @@
 					{%endfor%}
 			</ul>
 
-			<form>
-			{%for key,value in article_category.items() %}
-			<div id="tabs-{{key}}">
+
+				{%for key,value in article_category.items() %}
+		
+				<div id="tabs-{{key}}">
+				<form id="edit_column_{{key}}" method="post" action="">
 				<fieldset>
 			<div class="form-group">
 				<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 栏目标题: </label>
 
 				<div class="col-sm-9">
-				<input type="text" id="column-title-{{key}}" placeholder="" class="col-xs-10 col-sm-5" value="{{value}}"/>
+				<input type="text" id="column-title-{{key}}" name="title" placeholder="" class="col-xs-10 col-sm-5" value="{{value}}">
 				</div>
 
 				
 					<label class="col-sm-4 control-label no-padding-right"  for="form-field-{{key}}">栏目简述(100字以内):</label>
 
-					<textarea class="form-control limited" id="description-{{key}}" maxlength="100">{{column_description[key]}}</textarea>
+					<textarea class="form-control limited" id="description-{{key}}" name="description" maxlength="100">{{column_description[key]}}</textarea>
 			
-				<input type="hidden" id＝"{{key}}"value="{{key}}">
-			
+				<input type="hidden" id＝"{{key}}" name="key" value="{{key}}">
+				<input type="hidden" id＝"editcolumn" name="new" value="0">
+				<input type="hidden" id＝"del_column" name="del" value="0">
 				<div class="form-actions center">
-							<button type="button" class="btn btn-sm btn-info ">
+							<button type="button" class="btn btn-sm btn-info " onclick="javascript:submit_edit_form({{key}})">
 								保存
 								<i class="ace-icon fa fa-floppy-o bigger-110 blue"></i>
 							</button>
-							<button type="button" class="btn btn-sm btn-danger">
+							<button type="button" class="btn btn-sm btn-danger" onclick="javascript:delete_column({{key}})">
 								删除
 								<i class="ace-icon fa fa-times icon-on-right bigger-110"></i>
 							</button>
 				</div>
 			</div>
 			</fieldset>
+
+					</form>
 			</div>
-			{%endfor%}
-				</fieldset>
-				</div>
-			</form>
 			
+				
+			
+		{%endfor%}
+
 		</div>
 	</div><!-- ./col -->
 
@@ -422,6 +428,29 @@
 
 <!-- inline scripts related to this page -->
 <script type="text/javascript">
+
+function submit_add_form(){
+	if($("#new_column_title").val()&&$("#new_column_description")!==null){
+		console.log(document.forms["add"])
+		document.forms["add"].submit();
+	}
+	else{
+		alert("请先完成表单填写");
+	}
+}
+
+function submit_edit_form(key){
+	document.forms["edit_column_"+key].submit();
+}
+function delete_column(key){
+	if (confirm("删除栏目将丢失该栏目下所有文章,确认要删除吗？")){
+	document.forms["edit_column_"+key].elements[5].value=1;
+	document.forms["edit_column_"+key].submit();
+	}
+
+}
+
+
 
 jQuery(function($) {
 //jquery tabs
