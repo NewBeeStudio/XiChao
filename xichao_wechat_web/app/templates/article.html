@@ -3,9 +3,9 @@
 <head>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.css">
-    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-    <script src="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.js"></script>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/jquery.mobile-1.4.4.min.css')}}">
+    <script src="{{url_for('static',filename='js/jquery-1.11.1.min.js')}}"></script>
+    <script src="{{url_for('static',filename='js/jquery.mobile-1.4.4.min.js')}}"></script>
 
     <style>
        
@@ -213,7 +213,7 @@
 
     </style>
 
-   
+  <title>{{post["title"]}}</title> 
 </head>
 
 <body>
@@ -225,8 +225,8 @@
         </div>
         <div class="title_image"></div>
         <div class="title">
-            <h2>青春校园 当下即是</h2>
-            <h3>构建校园人文生活常态</h3>
+            <h2>曦潮书店</h2>
+            <h3>人文生活的常态</h3>
             </div> 
         <div class="subtitle">{{post["title"]}}</div>
     </div>

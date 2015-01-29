@@ -37,7 +37,6 @@ def allowed_file(filename):
  
 
 @app.route("/")
-@app.route('/mobile/index/')
 def index():
     article_category=poster.article_category()
     column_description=poster.get_column_description()
@@ -247,7 +246,7 @@ def mobile_list(column):
 def mobile_article(tid):
 
     post=poster.get_post_by_id(tid)
-    
+    print post
     category_id=post["category"]
     #category=[item[1] for item in [article_category[key] for key in article_category] if item[0]==category_id][0]
     category=article_category[category_id]
