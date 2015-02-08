@@ -255,7 +255,8 @@ def mobile_article(tid):
     #category=[item[1] for item in [article_category[key] for key in article_category] if item[0]==category_id][0]
     category=article_category[category_id]
     #print category
-    return render_template('article.html',post=post,category=category)
+    signature=wechat_signature('http://xichao-o.com/mobile/article/'+str(tid)+'/?from=singlemessage&isappinstalled=0')
+    return render_template('article.html',post=post,category=category,signature=signature)
 
 
 @app.route('/upload/', methods=['GET', 'POST'])
