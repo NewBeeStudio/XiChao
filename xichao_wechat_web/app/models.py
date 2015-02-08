@@ -8,6 +8,7 @@ from flask import session
 class Post:
 	
 	def __init__(self,default_config):
+		self.db_host=default_config["db_host"]
 		self.db_user=default_config["db_user"]
 		self.db_passwd=default_config["db_passwd"]
 		self.db_name=default_config["db_name"]
@@ -15,7 +16,7 @@ class Post:
 
     ## find items from id to id+limit
 	def get_posts(self,category):
-		conn=MySQLdb.connect(host='localhost',user=self.db_user,passwd=self.db_passwd,db=self.db_name,charset="utf8")
+		conn=MySQLdb.connect(host=self.db_host,user=self.db_user,passwd=self.db_passwd,db=self.db_name,charset="utf8")
 		cursor=conn.cursor(cursorclass=MySQLdb.cursors.DictCursor)
 		cursor.execute("select * from xichao_article where category="+str(category)+" order by top desc,id desc;")
 		posts=cursor.fetchall()
@@ -24,7 +25,7 @@ class Post:
 		return posts
 
 	def get_post_by_id(self,id):
-		conn=MySQLdb.connect(host='localhost',user=self.db_user,passwd=self.db_passwd,db=self.db_name,charset="utf8")
+		conn=MySQLdb.connect(host=self.db_host,user=self.db_user,passwd=self.db_passwd,db=self.db_name,charset="utf8")
 		cursor=conn.cursor(cursorclass=MySQLdb.cursors.DictCursor)
 		cursor.execute("select * from xichao_article where id= "+str(id)+";")
 		posts=cursor.fetchone()
@@ -34,7 +35,7 @@ class Post:
 	
 	def add_new_post(self,post_data):
 		try:
-			conn=MySQLdb.connect(host='localhost',user=self.db_user,passwd=self.db_passwd,db=self.db_name,charset="utf8")
+			conn=MySQLdb.connect(host=self.db_host,user=self.db_user,passwd=self.db_passwd,db=self.db_name,charset="utf8")
 			cursor=conn.cursor(cursorclass=MySQLdb.cursors.DictCursor)
 			
 			#need to be sticked 
@@ -53,7 +54,7 @@ class Post:
 
 	def edit_post(self,post_data):
 		try:
-			conn=MySQLdb.connect(host='localhost',user=self.db_user,passwd=self.db_passwd,db=self.db_name,charset="utf8")
+			conn=MySQLdb.connect(host=self.db_host,user=self.db_user,passwd=self.db_passwd,db=self.db_name,charset="utf8")
 			cursor=conn.cursor(cursorclass=MySQLdb.cursors.DictCursor)
 			sql ="REPLACE INTO xichao_article(id,title,image_path,article,category) values(%s,%s,%s,%s,%s);"
 			cursor.execute(sql, post_data)
@@ -67,7 +68,7 @@ class Post:
 
 	def set_top(self,id):
 		try:
-			conn=MySQLdb.connect(host='localhost',user=self.db_user,passwd=self.db_passwd,db=self.db_name,charset="utf8")
+			conn=MySQLdb.connect(host=self.db_host,user=self.db_user,passwd=self.db_passwd,db=self.db_name,charset="utf8")
 			cursor=conn.cursor(cursorclass=MySQLdb.cursors.DictCursor)
 			cursor.execute("update xichao_article set top=0 where top=1;")
 			cursor.execute("update xichao_article set top=1 where id="+str(id))
@@ -82,7 +83,7 @@ class Post:
 	def get_category_data(self):
 		category_data=""
 		try:
-			conn=MySQLdb.connect(host='localhost',user=self.db_user,passwd=self.db_passwd,db=self.db_name,charset="utf8")
+			conn=MySQLdb.connect(host=self.db_host,user=self.db_user,passwd=self.db_passwd,db=self.db_name,charset="utf8")
 			cursor=conn.cursor(cursorclass=MySQLdb.cursors.DictCursor)
 			sql ="select category,count(id) from xichao_article group by category order by category;"
  			cursor.execute(sql)
@@ -97,7 +98,7 @@ class Post:
 				
 	def post_delete(self,id):
 		try:
-			conn=MySQLdb.connect(host='localhost',user=self.db_user,passwd=self.db_passwd,db=self.db_name,charset="utf8")
+			conn=MySQLdb.connect(host=self.db_host,user=self.db_user,passwd=self.db_passwd,db=self.db_name,charset="utf8")
 			cursor=conn.cursor(cursorclass=MySQLdb.cursors.DictCursor)
 			cursor.execute("select image_path from xichao_article where id="+id+";")
 			path=cursor.fetchone()["image_path"]
@@ -117,7 +118,7 @@ class Post:
 
 	def article_category(self):
 		try:
-			conn=MySQLdb.connect(host='localhost',user=self.db_user,passwd=self.db_passwd,db=self.db_name,charset="utf8")
+			conn=MySQLdb.connect(host=self.db_host,user=self.db_user,passwd=self.db_passwd,db=self.db_name,charset="utf8")
 			cursor=conn.cursor(cursorclass=MySQLdb.cursors.DictCursor)
 			cursor.execute("select * from article_category")
 			results=cursor.fetchall()
@@ -134,7 +135,7 @@ class Post:
 			return {}
 	def get_column_description(self):
 		try:
-			conn=MySQLdb.connect(host='localhost',user=self.db_user,passwd=self.db_passwd,db=self.db_name,charset="utf8")
+			conn=MySQLdb.connect(host=self.db_host,user=self.db_user,passwd=self.db_passwd,db=self.db_name,charset="utf8")
 			cursor=conn.cursor(cursorclass=MySQLdb.cursors.DictCursor)
 			cursor.execute("select * from article_category")
 			results=cursor.fetchall()
@@ -151,7 +152,7 @@ class Post:
 			return {}
 	def add_column(self,data):
 		try:
-			conn=MySQLdb.connect(host='localhost',user=self.db_user,passwd=self.db_passwd,db=self.db_name,charset="utf8")
+			conn=MySQLdb.connect(host=self.db_host,user=self.db_user,passwd=self.db_passwd,db=self.db_name,charset="utf8")
 			cursor=conn.cursor(cursorclass=MySQLdb.cursors.DictCursor)
 			sql="INSERT INTO `article_category` (`name`,`description`) VALUES(%s,%s)"
 			cursor.execute(sql, data)
@@ -166,7 +167,7 @@ class Post:
 
 	def edit_column(self,data):
 		try:
-			conn=MySQLdb.connect(host='localhost',user=self.db_user,passwd=self.db_passwd,db=self.db_name,charset="utf8")
+			conn=MySQLdb.connect(host=self.db_host,user=self.db_user,passwd=self.db_passwd,db=self.db_name,charset="utf8")
 			cursor=conn.cursor(cursorclass=MySQLdb.cursors.DictCursor)
 			sql ="update article_category set name=\""+data[1]+"\",description=\""+data[2]+"\"where id="+data[0]+";"
 			cursor.execute(sql)
@@ -179,7 +180,7 @@ class Post:
 			return False
 	def del_column(self,id):
 		try:
-			conn=MySQLdb.connect(host='localhost',user=self.db_user,passwd=self.db_passwd,db=self.db_name,charset="utf8")
+			conn=MySQLdb.connect(host=self.db_host,user=self.db_user,passwd=self.db_passwd,db=self.db_name,charset="utf8")
 			cursor=conn.cursor(cursorclass=MySQLdb.cursors.DictCursor)
 			cursor.execute("delete from article_category where id="+str(id)+";")		
 			cursor.close() 

@@ -3,14 +3,9 @@ from cStringIO import StringIO
 import os
 import MySQLdb
 from flask import Flask, request,session, \
-     g, redirect, url_for,render_template,flash,abort
-from flask.ext.mail import Mail
-from flask.ext.mail import Message
+     g, redirect, url_for,render_template,flash,abort,send_from_directory,send_file
 import threading
-from flask.ext.login import login_required
 from werkzeug import secure_filename
-from flask import send_from_directory
-from flask import send_file
 from time import time
 from flask_wtf.file import FileField
 #from sqlalchemy import *
@@ -246,7 +241,7 @@ def mobile_list(column):
 def mobile_article(tid):
 
     post=poster.get_post_by_id(tid)
-    print post
+    # print post
     category_id=post["category"]
     #category=[item[1] for item in [article_category[key] for key in article_category] if item[0]==category_id][0]
     category=article_category[category_id]

@@ -56,8 +56,6 @@ CREATE TABLE `xichao_article` (
 
 ALTER TABLE `article_category` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 ALTER TABLE `xichao_article` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-ALTER TABLE `xichao_comments` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-ALTER TABLE `article_category` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- -
 
