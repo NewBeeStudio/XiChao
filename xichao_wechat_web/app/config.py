@@ -6,8 +6,9 @@ ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
 
 
 db_config={
+    "db_host":'localhost',
     "db_user":'root',
-    "db_passwd":'root',
+    "db_passwd":'omnilab',
     'db_name':'xichao_wechat'  
 }
 
