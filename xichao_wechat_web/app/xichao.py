@@ -25,6 +25,15 @@ from functions import *
 
 app = Flask(__name__)
 
+app.config.update(
+    # DATABASE = '/flaskr.db',
+    DEBUG = True,
+    UPLOAD_FOLDER=UPLOAD_FOLDER,
+    MAX_CONTENT_LENGTH=16 * 1024 * 1024,
+    SECRET_KEY = 'xichao secret',
+    USERNAME = admin_config["user"],
+    PASSWORD = admin_config["passwd"],
+    )
 
 admin=Admin(admin_config)
 poster=Post(db_config)
@@ -250,7 +259,7 @@ def mobile_article(tid):
     category_id=post["category"]
     #category=[item[1] for item in [article_category[key] for key in article_category] if item[0]==category_id][0]
     category=article_category[category_id]
-    print category
+    #print category
     return render_template('article.html',post=post,category=category)
 
 

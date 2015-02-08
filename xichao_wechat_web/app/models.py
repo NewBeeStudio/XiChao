@@ -218,7 +218,7 @@ class Admin:
 				session['logged_in'] = True
 					
 		except Exception,e:
-			self.response["error"]="system error"
+			self.response["error"]=str(e)
 			self.response["data"]=str(e)
 
 		self.response["data"]=self.user	
