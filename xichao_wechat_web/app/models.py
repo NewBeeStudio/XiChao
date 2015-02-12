@@ -11,12 +11,13 @@ class Post:
 		self.db_host=default_config["db_host"]
 		self.db_user=default_config["db_user"]
 		self.db_passwd=default_config["db_passwd"]
+		self.db_port=default_config["db_port"]
 		self.db_name=default_config["db_name"]
 		self.response = {'error': None, 'data': None}
 
     ## find items from id to id+limit
 	def get_posts(self,category):
-		conn=MySQLdb.connect(host=self.db_host,user=self.db_user,passwd=self.db_passwd,db=self.db_name,charset="utf8")
+		conn=MySQLdb.connect(host=self.db_host,port=db_port,user=self.db_user,passwd=self.db_passwd,db=self.db_name,charset="utf8")
 		cursor=conn.cursor(cursorclass=MySQLdb.cursors.DictCursor)
 		cursor.execute("select * from xichao_article where category="+str(category)+" order by top desc,id desc;")
 		posts=cursor.fetchall()
