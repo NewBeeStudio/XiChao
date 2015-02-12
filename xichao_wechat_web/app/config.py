@@ -9,7 +9,7 @@ db_config={
     "db_host":'localhost',
     "db_user":'root',
     "db_passwd":'Xichao42',
-    "db_port":'3306',
+    "db_port":3306,
     'db_name':'xichao_wechat'  
 }
 
