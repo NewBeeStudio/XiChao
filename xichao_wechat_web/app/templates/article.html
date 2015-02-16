@@ -227,8 +227,8 @@
 });
 console.log("{{url}}")
 wx.onMenuShareAppMessage({
-    title: '', // 分享标题
-    desc: '', // 分享描述
+    title: '{{post["title"]}}', // 分享标题
+    desc: 'wxwx', // 分享描述
     link: window.location.href, // 分享链接
     imgUrl: '', // 分享图标
     type: '', // 分享类型,music、video或link，不填默认为link
