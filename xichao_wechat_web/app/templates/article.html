@@ -217,6 +217,7 @@
   <title>{{post["title"]}}</title> 
 </head>
 <script type="text/javascript">
+    var desc=$("#text").text()
    wx.config({
     debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
     appId: 'wxf1186930550941c5', // 必填，公众号的唯一标识
@@ -229,9 +230,9 @@ wx.ready(function(){
 
 wx.onMenuShareAppMessage({
     title: '{{post["title"]}}', // 分享标题
-    desc: 'wxwx', // 分享描述
+    desc: desc, // 分享描述
     link: window.location.href, // 分享链接
-    imgUrl: '', // 分享图标
+    imgUrl: '{{post["image_path"]}}', // 分享图标
     type: '', // 分享类型,music、video或link，不填默认为link
     dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
     success: function () { 
@@ -243,9 +244,9 @@ wx.onMenuShareAppMessage({
 });
 
 wx.onMenuShareTimeline({
-    title: '', // 分享标题
-    link: '', // 分享链接
-    imgUrl: '', // 分享图标
+    title: '{{post["title"]}}', // 分享标题
+    link: window.location.href, // 分享链接
+    imgUrl: '{{post["image_path"]}}', // 分享图标
     success: function () { 
         // 用户确认分享后执行的回调函数
     },
@@ -272,7 +273,7 @@ wx.onMenuShareTimeline({
     </div>
 
     <div data-role="content" style="background-size:cover;width:100%;padding:0px;height:100%;z-index=0;">
-        <div style=" position: relative; width:80%; margin-left: 10%; margin-right: 10%; 
+        <div id＝"text" style=" position: relative; width:80%; margin-left: 10%; margin-right: 10%; 
         opacity: 0.75;">
            
             
