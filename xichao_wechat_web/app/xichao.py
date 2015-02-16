@@ -258,7 +258,7 @@ def mobile_article(tid):
     print url
     signature=wechat_signature(url,'wxf1186930550941c5','84bfbb6d5841fba82cb50cecf4f9721b','xichao','1414587457')
     
-    return render_template('article.html',post=post,category=category,signature=signature)
+    return render_template('article.html',post=post,category=category,signature=signature,url=url)
 
 
 @app.route('/upload/', methods=['GET', 'POST'])

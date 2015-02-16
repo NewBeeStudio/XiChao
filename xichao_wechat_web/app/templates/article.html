@@ -225,11 +225,11 @@
     signature: '{{signature}}',// 必填，签名，见附录1
     jsApiList: ['onMenuShareAppMessage','onMenuShareTimeline'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
 });
-
+console.log("{{url}}")
 wx.onMenuShareAppMessage({
     title: '', // 分享标题
     desc: '', // 分享描述
-    link: '', // 分享链接
+    link: window.location.href, // 分享链接
     imgUrl: '', // 分享图标
     type: '', // 分享类型,music、video或link，不填默认为link
     dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
