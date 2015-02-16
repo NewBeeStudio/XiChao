@@ -225,6 +225,7 @@
     signature: '{{signature}}',// 必填，签名，见附录1
     jsApiList: ['onMenuShareAppMessage','onMenuShareTimeline'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
 });
+wx.ready(function(){
 
 wx.onMenuShareAppMessage({
     title: '{{post["title"]}}', // 分享标题
@@ -252,7 +253,9 @@ wx.onMenuShareTimeline({
         // 用户取消分享后执行的回调函数
     }
 });
-</script>>
+});
+
+</script>
 <body>
 <!-- Home -->
 <div  data-role="page" id="page1" style="50% 0 no-repeat;background-size:cover;padding:0px;" >
