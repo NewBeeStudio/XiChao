@@ -42,6 +42,7 @@ def allowed_file(filename):
 
 @app.route("/")
 def index():
+    print request.path
     article_category=poster.article_category()
     column_description=poster.get_column_description()
     return render_template('welcome.html',article_category=article_category,column_description=column_description)
