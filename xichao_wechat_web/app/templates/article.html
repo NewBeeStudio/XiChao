@@ -217,7 +217,7 @@
   <title>{{post["title"]}}</title> 
 </head>
 <script type="text/javascript">
-console.log($("#text").text())
+console.log($("text").text())
       wx.config({
     debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
     appId: 'wxf1186930550941c5', // 必填，公众号的唯一标识
@@ -230,7 +230,7 @@ wx.ready(function(){
 
 wx.onMenuShareAppMessage({
     title: '{{post["title"]}}', // 分享标题
-    desc: $("text").text(), // 分享描述
+    desc: '{{post["article"]}}', // 分享描述
     link: window.location.href,// 分享链接
     imgUrl: "http://wechat.xichao-o.com/static/upload_images/"+'{{post["image_path"]}}', // 分享图标
     type: '', // 分享类型,music、video或link，不填默认为link
