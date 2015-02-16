@@ -288,7 +288,7 @@ def upload():
         filename = secure_filename(tmpfilename)
                 # upfile 为 FileStorage 对象
         # 这里保存文件并返回相应的URL
-        upfile.save(os.path.join('/home/xichao/git/XiChao/xichao_wechat_web/app/',UPLOAD_FOLDER), filename))
+        upfile.save(os.path.join('/home/xichao/git/XiChao/xichao_wechat_web/app/',UPLOAD_FOLDER), filename)
         result = {
             "state": "SUCCESS",
             "url": HOST+"/mobile/list/static/upload_images/"+filename,
