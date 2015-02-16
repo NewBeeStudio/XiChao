@@ -254,7 +254,7 @@ def mobile_article(tid):
     #category=[item[1] for item in [article_category[key] for key in article_category] if item[0]==category_id][0]
     category=article_category[category_id]
     #print category
-    url=HOST+request.path
+    url=HOST+request.path+'?from=singlemessage&isappinstalled=0'
     print url
     signature=wechat_signature(url,'wxf1186930550941c5','84bfbb6d5841fba82cb50cecf4f9721b','xichao','1414587457')
     
