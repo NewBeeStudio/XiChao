@@ -4,6 +4,7 @@
 UPLOAD_FOLDER = 'static/upload_images/'
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
 
+HOST='http://wechat.xichao-o.com'
 
 db_config={
     "db_host":'localhost',

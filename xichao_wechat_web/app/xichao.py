@@ -42,7 +42,6 @@ def allowed_file(filename):
 
 @app.route("/")
 def index():
-    print request.path
     article_category=poster.article_category()
     column_description=poster.get_column_description()
     return render_template('welcome.html',article_category=article_category,column_description=column_description)
@@ -228,7 +227,6 @@ def new_post(column):
 
 
 
-@app.route('/admin/mobile/list/static/upload_images/<path:filename>')
 @app.route('/mobile/list/static/upload_images/<path:filename>')
 def image_src(filename):
     return send_from_directory('./static/upload_images/', filename)
@@ -256,7 +254,8 @@ def mobile_article(tid):
     #category=[item[1] for item in [article_category[key] for key in article_category] if item[0]==category_id][0]
     category=article_category[category_id]
     #print category
-    url=request.path
+    url=HOST+request.path
+    print url
     signature=wechat_signature(url,'wxf1186930550941c5','84bfbb6d5841fba82cb50cecf4f9721b','xichao','1414587457')
     
     return render_template('article.html',post=post,category=category,signature=signature)
@@ -292,7 +291,7 @@ def upload():
         upfile.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
         result = {
             "state": "SUCCESS",
-            "url": "../../../../../../mobile/list/static/upload_images/"+filename,
+            "url": HOST+"/mobile/list/static/upload_images/"+filename,
             "title": "demo.jpg",
             "original": "demo.jpg"
         }
