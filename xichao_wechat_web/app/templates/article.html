@@ -229,7 +229,7 @@ wx.ready(function(){
 
 wx.onMenuShareAppMessage({
     title: '{{post["title"]}}', // 分享标题
-    desc: $("#mc").text().trim().substring(0,20), // 分享描述
+    desc: $("#mc").text().trim().substring(0,30), // 分享描述
     link: window.location.href,// 分享链接
     imgUrl: "http://wechat.xichao-o.com/static/upload_images/"+'{{post["image_path"]}}', // 分享图标
     type: '', // 分享类型,music、video或link，不填默认为link
