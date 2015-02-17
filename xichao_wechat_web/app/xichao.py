@@ -227,7 +227,7 @@ def new_post(column):
 
 
 
-@app.route('/mobile/static/upload_images/<filename>/')
+@app.route('/static/upload_images/<filename>/')
 def image_src(filename):
     return send_from_directory('./static/upload_images/', filename)
 
