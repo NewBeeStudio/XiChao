@@ -227,7 +227,7 @@ def new_post(column):
 
 
 
-@app.route('/mobile/list/static/upload_images/<path:filename>')
+@app.route('/mobile/static/upload_images/<filename>/')
 def image_src(filename):
     return send_from_directory('./static/upload_images/', filename)
 
@@ -290,7 +290,7 @@ def upload():
         upfile.save(os.path.join('/home/xichao/git/XiChao/xichao_wechat_web/app/',UPLOAD_FOLDER)+filename)
         result = {
             "state": "SUCCESS",
-            "url": HOST+"/mobile/list/static/upload_images/"+filename,
+            "url": HOST+"/mobile/static/upload_images/"+filename,
             "title": "demo.jpg",
             "original": "demo.jpg"
         }
