@@ -227,9 +227,9 @@ def new_post(column):
 
 
 
-@app.route('/static/upload_images/<filename>/')
+@app.route('/mobile/static/upload_images/<filename>')
 def image_src(filename):
-    return send_from_directory('./static/upload_images/', filename)
+    return send_from_directory('/home/xichao/git/XiChao/xichao_wechat_web/app/static/upload_images/', filename)
 
 @app.route('/mobile/list/category/<int:column>/')
 def mobile_list(column):
@@ -285,9 +285,10 @@ def upload():
         #save image
         image_url=UPLOAD_FOLDER+tmpfilename
         filename = secure_filename(tmpfilename)
-                # upfile 为 FileStorage 对象
+        # upfile 为 FileStorage 对象
         # 这里保存文件并返回相应的URL
         upfile.save(os.path.join('/home/xichao/git/XiChao/xichao_wechat_web/app/static/upload_images/',filename))
+        # upfile.save(os.path.join('/Users/lixia/Documents/develop/github/Newbee/XiChao/xichao_wechat_web/app/static/upload_images/',filename))
         result = {
             "state": "SUCCESS",
             "url": HOST+"/mobile/static/upload_images/"+filename,
