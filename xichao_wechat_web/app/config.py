@@ -19,12 +19,12 @@ admin_config={
     "passwd":'xichao123'
 }
 
-HOST='http://127.0.0.1:5000'
+# HOST='http://127.0.0.1:5000'
 
-db_config={
-    "db_host":'localhost',
-    "db_user":'root',
-    "db_passwd":'root',
-    "db_port":3306,
-    'db_name':'xichao_wechat'  
-}
+# db_config={
+#     "db_host":'localhost',
+#     "db_user":'root',
+#     "db_passwd":'root',
+#     "db_port":3306,
+#     'db_name':'xichao_wechat'  
+# }
