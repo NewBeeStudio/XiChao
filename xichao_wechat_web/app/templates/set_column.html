@@ -430,18 +430,23 @@
 <script type="text/javascript">
 
 function submit_add_form(){
+
+	var duplicate=false;
 	if($("#new_column_title").val()&&$("#new_column_description")!==null){
 		console.log(document.forms["add"])
 
-		if($('#tabs ul li a').each(function(){(
-						$(this).text()==$("#new_column_title")
-						)}
-			)){
-			alert("已存在此栏目，请重新填写");
-			return;
-		}
+		$('#tabs ul li a').each(function(){(
 
-		document.forms["add"].submit();
+						if($(this).text()==$("#new_column_title").val()){
+							duplicate=true;
+							alert("已存在此栏目，请重新填写");
+						}
+						)}
+			)
+
+		if(!duplicate){
+			document.forms["add"].submit();
+		}
 	}
 	else{
 		alert("请先完成表单填写");
