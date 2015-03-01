@@ -435,13 +435,14 @@ function submit_add_form(){
 	if($("#new_column_title").val()&&$("#new_column_description")!==null){
 		console.log(document.forms["add"])
 
-		$('#tabs ul li a').each(function(){(
+		$('#tabs ul li a').each(function(){
 
 						if($(this).text()==$("#new_column_title").val()){
-							duplicate=true;
+							duplicate=true
 							alert("已存在此栏目，请重新填写");
+							return false
 						}
-						)}
+						}
 			)
 
 		if(!duplicate){
