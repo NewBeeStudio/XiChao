@@ -89,9 +89,11 @@ def set_column():
                 if poster.add_column((title,description)):
                     article_category=poster.article_category()
                     column_description=poster.get_column_description()
+                    return redirect('/admin/column/')
                     return render_template('set_column.html',article_category=article_category,column_description=column_description)
                 else:
                     print poster.response
+                    return redirect('/admin/column/')
                     return render_template('set_column.html',article_category=article_category,column_description=column_description)
 
             elif new=='0':
@@ -103,17 +105,21 @@ def set_column():
                     if poster.del_column(column_id):
                         article_category=poster.article_category()
                         column_description=poster.get_column_description()
+                        return redirect('/admin/column/')
                         return render_template('set_column.html',article_category=article_category,column_description=column_description)
                     else:
                         print poster.response
+                        return redirect('/admin/column/')
                         return render_template('set_column.html',article_category=article_category,column_description=column_description)
                 else:
                     if poster.edit_column((column_id,title,description)):
                         article_category=poster.article_category()
                         column_description=poster.get_column_description()
+                        return redirect('/admin/column/')
                         return render_template('set_column.html',article_category=article_category,column_description=column_description)
                     else:
                         print poster.response
+                        return redirect('/admin/column/')
                         return render_template('set_column.html',article_category=article_category,column_description=column_description)
         except Exception,e:
             print e
