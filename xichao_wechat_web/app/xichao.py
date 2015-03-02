@@ -105,7 +105,7 @@ def set_column():
                     if poster.del_column(column_id):
                         article_category=poster.article_category()
                         column_description=poster.get_column_description()
-                        return redirect('/admin/column/')
+                        return redirect('/admin/')
                         #return render_template('set_column.html',article_category=article_category,column_description=column_description)
                     else:
                         print poster.response
