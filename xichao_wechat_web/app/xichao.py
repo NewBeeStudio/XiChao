@@ -256,14 +256,14 @@ def mobile_article(tid):
 
     post=poster.get_post_by_id(tid)
     # print post
-    category_id=post["category"]
+    #category_id=post["category"]
     #category=[item[1] for item in [article_category[key] for key in article_category] if item[0]==category_id][0]
-    category=article_category[category_id]
+    #category=article_category[category_id]
     #print category
     url=request.url
     signature=wechat_signature(url,'wxf1186930550941c5','84bfbb6d5841fba82cb50cecf4f9721b','xichao','1414587457')
     
-    return render_template('article.html',post=post,category=category,signature=signature,url=url)
+    return render_template('article.html',post=post,signature=signature,url=url)
 
 
 @app.route('/upload/', methods=['GET', 'POST'])
