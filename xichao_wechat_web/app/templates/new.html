@@ -602,7 +602,9 @@
     <script type="text/javascript" src="{{url_for('static',filename='ueditor/ueditor.all.js')}}"></script>
     <!-- 实例化编辑器 -->
     <script type="text/javascript">
-        var ue = UE.getEditor('editor1',{serverUrl: "/upload/"});
+        var ue = UE.getEditor('editor1',{
+        	initialFrameHeight: 400,
+			serverUrl: "/upload/"});
 
     window.onload = function() {
         var options =

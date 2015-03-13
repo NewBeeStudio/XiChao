@@ -605,8 +605,9 @@
     <!-- 实例化编辑器 -->
     {% autoescape false %}
     <script type="text/javascript">
-        var ue = UE.getEditor('editor1',{serverUrl: "/upload/"});
-       
+        var ue = UE.getEditor('editor1',{
+        	initialFrameHeight: 400,
+			serverUrl: "/upload/"});
         
     window.onload = function() {
         var options =

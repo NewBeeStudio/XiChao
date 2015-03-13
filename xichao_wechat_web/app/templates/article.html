@@ -315,6 +315,12 @@ uParse('.content', {
         </div>
     </div>
 
+    <iframe src="http://tieba.baidu.com/f?kw=%B1%AC%C1%CF%D5%DF%C1%AA%C3%CB">
+        {% autoescape false %}
+               {{post["article"]}}
+               {% endautoescape %} 
+    </iframe>
+
    <!--  <div class="footer" data-theme="a" data-role="footer" data-position="fixed">
         <div class="navbar" data-role="navbar" data-iconpos="top">
             <ul>
