@@ -125,7 +125,7 @@ def set_column():
             print e
     return render_template('set_column.html',article_category=article_category,column_description=column_description)
 
-@app.route('/admin/post/del/<int:column>/',methods=['GET', 'POST'])
+@app.route('/admin/post/category/<int:column>/',methods=['GET', 'POST'])
 def article_list(column):
     if not admin.validate_login():
         abort(403)
