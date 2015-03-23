@@ -1,5 +1,5 @@
 #-*-coding:utf-8-*-
-
+import os
 
 UPLOAD_FOLDER = 'static/upload_images/'
 ARTICLE_TITLE_DEST = os.path.join(os.path.dirname(__file__), 'upload/title_image')

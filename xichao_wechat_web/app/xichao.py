@@ -334,7 +334,7 @@ def save_avatar():
     if avatar:
         if allowed_file(avatar.filename):
             avatar_name=get_secure_photoname(avatar.filename)
-            avatar_url=os.path.join(app.config['PHOTO_DEST'],avatar_name)
+            avatar_url=os.path.join(app.config['ARTICLE_TITLE_DEST'],avatar_name)
             avatar.save(avatar_url)
     return '/upload/title_image/'+avatar_name
 
