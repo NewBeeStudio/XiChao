@@ -19,11 +19,14 @@ from functions import *
 #from sqlalchemy.databases import mysql
 
 app = Flask(__name__)
+ARTICLE_TITLE_DEST = os.path.join(os.path.dirname(__file__), 'upload/article/article_title')
 
+app.config.update(
     # DATABASE = '/flaskr.db',
     DEBUG = True,
     UPLOAD_FOLDER=UPLOAD_FOLDER,
     ARTICLE_TITLE_DEST=ARTICLE_TITLE_DEST,
+    PHOTO_DEST=PHOTO_DEST,
     MAX_CONTENT_LENGTH=16 * 1024 * 1024,
     SECRET_KEY = 'xichao secret',
     USERNAME = admin_config["user"],
