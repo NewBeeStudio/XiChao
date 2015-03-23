@@ -2,6 +2,8 @@
 
 
 UPLOAD_FOLDER = 'static/upload_images/'
+ARTICLE_TITLE_DEST = os.path.join(os.path.dirname(__file__), 'upload/title_image')
+
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
 
 HOST='http://wechat.xichao-o.com'

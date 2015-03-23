@@ -20,10 +20,10 @@ from functions import *
 
 app = Flask(__name__)
 
-app.config.update(
     # DATABASE = '/flaskr.db',
     DEBUG = True,
     UPLOAD_FOLDER=UPLOAD_FOLDER,
+    ARTICLE_TITLE_DEST=ARTICLE_TITLE_DEST,
     MAX_CONTENT_LENGTH=16 * 1024 * 1024,
     SECRET_KEY = 'xichao secret',
     USERNAME = admin_config["user"],
@@ -301,7 +301,44 @@ def upload():
         }
     return json.dumps(result)
 
+#######################################  图片裁剪器  #########################################
+##TODO：通过传参，缩为一个
+@app.route('/upload/tailor/title_image')
+def upload_title_image():
+    return render_template('upload_title_image_tailor.html')
 
 
+@app.route('/upload/tailor/avatar')
+def upload_avatar():
+    return render_template('upload_avatar_tailor.html')
+
+@app.route('/upload/tailor/activity/title_image')
+def upload_activity_title_image():
+    return render_template('upload_activity_title_image_tailor.html')
+
+
+##################################  美图秀秀配置文件  ##################################
+@app.route('/crossdomain.xml')
+def xiuxiu_config():
+    return send_from_directory(os.path.dirname(__file__),'crossdomain.xml')
+
+
+#接收上传的题图文件，保存并返回路径
+@app.route('/upload/title_image',methods=['GET', 'POST'])
+def save_avatar():
+    avatar = request.files['avatar']
+    avatar_name='default.jpg'
+    if avatar:
+        if allowed_file(avatar.filename):
+            avatar_name=get_secure_photoname(avatar.filename)
+            avatar_url=os.path.join(app.config['PHOTO_DEST'],avatar_name)
+            avatar.save(avatar_url)
+    return '/upload/title_image/'+avatar_name
+
+
+#获得文章题图
+@app.route('/upload/article/article_title_image/<filename>')
+def uploaded_article_title_image(filename):
+    return send_from_directory(app.config['ARTICLE_TITLE_DEST'],filename)
 
 
