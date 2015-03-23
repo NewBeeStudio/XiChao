@@ -26,7 +26,6 @@ app.config.update(
     DEBUG = True,
     UPLOAD_FOLDER=UPLOAD_FOLDER,
     ARTICLE_TITLE_DEST=ARTICLE_TITLE_DEST,
-    PHOTO_DEST=PHOTO_DEST,
     MAX_CONTENT_LENGTH=16 * 1024 * 1024,
     SECRET_KEY = 'xichao secret',
     USERNAME = admin_config["user"],
