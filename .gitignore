@@ -6,4 +6,4 @@ xichao_web/Index/Runtime/*
 *.pyc
 xichao_wechat_web/venv/
 xichao_wechat_web/app/static/upload_images/*
-xichao_wechat_web/app/upload/title_images/*
+xichao_wechat_web/app/upload/title_image/*
