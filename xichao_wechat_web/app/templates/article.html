@@ -211,6 +211,32 @@
              vertical-align: middle;
             
         }
+        .article{
+              word-wrap: break-word;
+              -webkit-hyphens: auto;
+              -ms-hyphens: auto;
+              hyphens: auto;
+
+        }
+
+        .article div {
+          margin-top: 18px;
+          margin-bottom: 18px;
+          *zoom: 1;
+          min-height: 1em;
+          word-wrap: normal;
+          white-space: pre-wrap;
+        }
+
+        .article img {
+          max-width: 100%;
+        }
+        .article * {
+          max-width: 100%;
+          word-wrap: break-word !important;
+        }
+
+
 
         #vein{
             position:absolute;
@@ -316,7 +342,7 @@ wx.onMenuShareWeibo({
     </div>
 
     <div id="content" data-role="content" style="background-size:cover;width:100%;padding:0px;height:100%;z-index=0;">
-        <div id="mc"style=" position: relative; margin-left: 4%; margin-right: 4%; 
+        <div id="mc" class="article" style=" position: relative; margin-left: 4%; margin-right: 4%; 
         ">
            
             
