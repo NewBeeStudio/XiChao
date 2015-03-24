@@ -5,7 +5,8 @@ import urllib2
 import json
 import hashlib
 from config import UPLOAD_FOLDER
-
+from werkzeug import secure_filename
+from datetime import datetime
 def datatofile(data):
 	imgtype=data.split(';')[0].split('/')[1]
 	imgdata=data.split(';')[1].split(',')[1]
@@ -24,3 +25,8 @@ def wechat_signature(url,appid,appsecret,noncestr,timestamp):
     ticket= json.loads(urllib2.urlopen(ticket_url).read().decode('utf-8'))
     string1='jsapi_ticket='+ticket['ticket']+'&noncestr='+noncestr+'&timestamp='+timestamp+'&url='+url
     return hashlib.sha1(string1).hexdigest()
+
+def get_secure_photoname(filename):
+	secured_filename=secure_filename(filename)
+	photoname=secured_filename.rsplit('.',1)[0]+datetime.now().strftime('%Y%m%d%H%M%S')+'.'+secured_filename.rsplit('.',1)[1]
+	return photoname

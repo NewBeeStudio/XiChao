@@ -19,11 +19,11 @@ from functions import *
 #from sqlalchemy.databases import mysql
 
 app = Flask(__name__)
-ARTICLE_TITLE_DEST = os.path.join(os.path.dirname(__file__), 'upload/article/article_title')
 
 app.config.update(
     # DATABASE = '/flaskr.db',
     DEBUG = True,
+    HOST=HOST,
     UPLOAD_FOLDER=UPLOAD_FOLDER,
     ARTICLE_TITLE_DEST=ARTICLE_TITLE_DEST,
     MAX_CONTENT_LENGTH=16 * 1024 * 1024,
@@ -163,17 +163,14 @@ def edit(column,tid):
         try:
             title=request.form["post-title"]
             text=request.form["post-full"]
-            imagedata=request.form["imagedata"]
+            image_path=request.form["image_path"]
             
             try:
                 top=request.form["top"]
             except:
                 top="off"
-
-        
-            filename=datatofile(imagedata)
             category=column
-            post_data=(tid,title,filename,text,category)
+            post_data=(tid,title,image_path,text,category)
             # print post_data
 
             if poster.edit_post(post_data):
@@ -203,7 +200,7 @@ def new_post(column):
         try:
             title=request.form["post-title"]
             text=request.form["post-full"]
-            imagedata=request.form["imagedata"]
+            image_path=request.form["image_path"]
             try:
                 top=request.form["top"]
             except:
@@ -211,12 +208,12 @@ def new_post(column):
 
 
             
-            filename=datatofile(imagedata)
+            
             category=column
             if top=="on":
-                post_data=(title,filename,text,category,"1")
+                post_data=(title,image_path,text,category,"1")
             else:
-                post_data=(title,filename,text,category,"0")
+                post_data=(title,image_path,text,category,"0")
                 # print post_data
             print post_data
             if poster.add_new_post(post_data):
@@ -224,7 +221,7 @@ def new_post(column):
        
            
             print poster.response
-        except Exception,e:
+        except Exception,e: 
             print e
             return render_template("new.html",error=e,column=article_category[column],article_category=article_category,column_description=column_description)
 
@@ -304,25 +301,32 @@ def upload():
     return json.dumps(result)
 
 #######################################  图片裁剪器  #########################################
-##TODO：通过传参，缩为一个
+
 @app.route('/upload/tailor/title_image')
 def upload_title_image():
     return render_template('upload_title_image_tailor.html')
 
 
-@app.route('/upload/tailor/avatar')
-def upload_avatar():
-    return render_template('upload_avatar_tailor.html')
-
-@app.route('/upload/tailor/activity/title_image')
-def upload_activity_title_image():
-    return render_template('upload_activity_title_image_tailor.html')
 
 
 ##################################  美图秀秀配置文件  ##################################
 @app.route('/crossdomain.xml')
 def xiuxiu_config():
     return send_from_directory(os.path.dirname(__file__),'crossdomain.xml')
+
+
+##文章题图上传路径
+@app.route('/upload_article_title_image', methods=['GET', 'POST'])
+def save_title_image():
+    title_image = request.files['upload_file']
+    #设置默认题图
+    title_image_name = 'article_upload_pic_4.png'
+    if title_image:
+        if allowed_file(title_image.filename):
+            title_image_name=get_secure_photoname(title_image.filename)
+            title_image_url=os.path.join(app.config['ARTICLE_TITLE_DEST'], title_image_name)
+            title_image.save(title_image_url)
+    return app.config['HOST']+'/upload/article_title_image/'+title_image_name
 
 
 #接收上传的题图文件，保存并返回路径
@@ -339,7 +343,7 @@ def save_avatar():
 
 
 #获得文章题图
-@app.route('/upload/article/article_title_image/<filename>')
+@app.route('/upload/article_title_image/<filename>')
 def uploaded_article_title_image(filename):
     return send_from_directory(app.config['ARTICLE_TITLE_DEST'],filename)
 

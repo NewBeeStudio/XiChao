@@ -8,7 +8,7 @@
 
 	<meta name="description" content="User login page" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
-	<script src="{{url_for('static',filename='assets/js/jquery.2.1.1.min.js')}}"></script>
+	 <script type="text/javascript" charset="utf-8" src="{{ url_for('static', filename='js/jquery-1.8.0.min.js') }}"></script>
 	<script src="{{url_for('static',filename='js/jquery.Jcrop.js')}}"></script>
 	    <script src="{{ url_for('static', filename='layer-v1.8.5/layer/layer.min.js') }}"></script>
 
@@ -529,45 +529,32 @@
 						<div class="col-sm-9">
 							<input type="text" name="post-title" id="post-title" placeholder="title" class="col-xs-12 col-sm-10" value="">
 						</div>
-				</div>
+					</div>
 						
 						<!-- <input type="file" name="image" id＝"uploadimage" value="" accept="image/*" onchange="javascript:showimage(this)" /> -->
 
 						<br />
 						<br />
 					<!-- <img id="thumbnil" style="width:20%; "  src="" alt="图片预览"/> -->
-<div class="row">
-    <div id="pics">
-        <img class="pics" id="pic_4" style="width:225px;height:205px;" src="" />
-       <a href="#" class="register-button" id="button_upload_pic">上传题图</a>
-    </div>
-</div>
+				<div class="row">
+					<div class="col-sm-3">
+				    
+					    <div class="row">
+						   	 <div id="pics" class="col-sm-12" style="margin-bottom: 10px;margin-top: 20px;">
+						        <img id="pic1" style="width:225px;height:205px;" src=""/>
+						            <input type="text"  id="image_path" name="image_path" style="display:none;"value=''>
 
-					<!--  -->
-					<div class="row">
-					<label class="col-sm-6 control-label no-padding-left" for="form-field-1" style="position:relative;"> 列表缩略图剪裁上传：</label>
-		    	     <label class="col-sm-6 control-label no-padding-left" for="form-field-1" style="position:relative;">剪裁效果预览：</label>
-				
-						<div class="col-sm-6">
-					    <div class="imageBox">
-					        <div class="thumbBox"></div>
-					        <div class="spinner" style="display: none">Loading...</div>
-					    </div>
-					    </div>
-					     <div class="col-sm-3">
-					 
-					    <div class="cropped">
-					    		
-					    </div>
-					    <input type="text"  id="imagedata" name="imagedata" style="display:none;"value=''>
-					    </div>
-					    <div class="action">
-					        <input type="file" id="file" style="float:left; width: 180px">
-					        <input type="button" id="btnCrop" value="确定" style="float: right">
-					        <input type="button" id="btnZoomIn" value="+" style="float: right">
-					        <input type="button" id="btnZoomOut" value="-" style="float: right">
-					    </div>
-					   <div class="col-sm-12">
+						    </div>
+
+						    <div class="col-sm-12">
+						      <a href="javascript:void(0)" class="btn btn-primary "id="button_upload_pic">上传题图</a>
+							 </div>
+						 </div>
+
+				    </div>
+			
+					
+					<div class="col-sm-9" style="margin-bottom: 20px;">
 					
 						<div class="form-group">
 						<!-- <div class="wysiwyg-editor" id="editor1" name="editor1">
@@ -579,16 +566,15 @@
 						 </br>
 						<!-- 加载编辑器的容器 -->
 						 <div class="col-sm-12">
-						 <script id="editor1" name="content" type="text/plain">
-        
-   						</script>
+								 <script id="editor1" name="content" type="text/plain">
+		        
+		   						</script>
    						</div>
 						<textarea id="post-full" name="post-full" style="display:none;"></textarea>
-					</div>
+						</div>
 
-					</div>
-					</div>
-					</div>
+				
+					
 					 <div class="col-sm-3">
 							<small class="muted smaller-90">是否置顶:</small>
 
@@ -596,9 +582,11 @@
 						<span class="lbl middle"></span>
 					</div>
 					 <div class="col-sm-9">
-					<button class="btn btn-primary pull-right" type="button" onclick="javascript:submitform()">提交</button>
+					<button class="btn btn-primary pull-left" type="button" onclick="javascript:submitform()">提交</button>
 						</div>
 						</div>
+							</div>
+								</div>
 				</form>
 
  
@@ -607,23 +595,7 @@
     <!-- 编辑器源码文件 -->
     <script type="text/javascript" src="{{url_for('static',filename='ueditor/ueditor.all.js')}}"></script>
   
-<!--上传题图的页面框-->
-<script type="text/javascript">
-  $('#button_upload_pic').click(function(){
-    $.layer({
-        type: 2,
-        title: [
-            '上传文章题图', 
-            'background:#2B2E37; height:40px; color:#fff; border:none;' //自定义标题样式
-        ], 
-        shadeClose: true,
-        closeBtn: false, 
-        border:[0],
-        area: ['90%', '90%'],
-        iframe: {src: "{{url_for('upload_title_image')}}"},
-    });
-  });
-</script>
+
 
     <!-- 实例化编辑器 -->
     <script type="text/javascript">
@@ -708,24 +680,9 @@
 </a>
 </div><!-- /.main-container -->
 
-<!-- basic scripts -->
-
-<!--[if !IE]> -->
-<script src="{{url_for('static',filename='assets/js/jquery.2.1.1.min.js')}}"></script>
-
-<!-- <![endif]-->
-
-<!--[if IE]>
-<script src="assets/js/jquery.1.11.1.min.js"></script>
-<![endif]-->
-
-<!--[if IE]>
 <script type="text/javascript">
-	window.jQuery || document.write("<script src='assets/js/jquery1x.min.js'>"+"<"+"/script>");
-</script>
-<![endif]-->
-<script type="text/javascript">
-	if('ontouchstart' in document.documentElement) document.write("<script src='{{url_for('static',filename='assets/js/jquery.mobile.custom.min.js')}}'>"+"<"+"/script>");
+	if('ontouchstart' in document.documentElement) 
+		document.write("<script src='{{url_for('static',filename='assets/js/jquery.mobile.custom.min.js')}}'>"+"<"+"/script>");
 </script>
 <script src="{{url_for('static',filename='assets/js/bootstrap.min.js')}}"></script>
 
@@ -926,22 +883,21 @@
 						{
 						 $('#post-full').html(ue.getContent());
 						 var title=$('#post-title').val();
-						 var image=$("#imagedata").val();
+						 var image_path=$("#image_path").val()
 						 var text =$('#post-full').html();
+						
 						 // alert(title);
 						 // alert(image);
 						 //alert(text);
-						 console.log(image);
-						  console.log(title);
-						   console.log(text);
+						
 						 var post=1;
 						 if(title==''){
 						 	alert("请输入标题!");
 						 	// location.href='#myModal';
 						 	post=0;
 						 }
-						 if(image==''){
-						 	alert("请输入文件!");
+						 if(image_path==''){
+						 	alert("请上传题图!");
 						 	post=0;
 						 }
 						 if(text==''){
@@ -955,7 +911,32 @@
 						}
 
 
+$('#button_upload_pic').on('click',function(){
+   $.layer({
+        type: 2,
+        title: [
+            '上传文章题图', 
+            'background:#2B2E37; height:40px; color:#fff; border:none;' //自定义标题样式
+        ], 
+        shadeClose: true,
+        closeBtn: false, 
+        border:[0],
+        area: ['90%', '90%'],
+        iframe: {src: "{{url_for('upload_title_image')}}"},
+    });
+      
+  });
+
+
+function update_title_image(data){
+  $('#pic1').attr("src",data);
+  $('#image_path').val(data);
+ // console.log($('#image_path').val());
+}
+
+
 				</script>
+
 
 </body>
 </html>

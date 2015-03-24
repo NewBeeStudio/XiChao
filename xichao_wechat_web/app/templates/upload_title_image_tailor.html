@@ -12,11 +12,10 @@ window.onload=function(){
 	xiuxiu.embedSWF("altContent",5,"100%","100%");
        //修改为您自己的图片上传接口
 	//xiuxiu.setUploadURL("http://web.upload.meitu.com/image_upload.php");
-	xiuxiu.setUploadURL("http://xichao-o.com/upload_article_title_image");
+	xiuxiu.setUploadURL("http://"+location.host+"/upload_article_title_image");
     xiuxiu.setUploadType(2);
     xiuxiu.setUploadDataFieldName("upload_file");
-    xiuxiu.setUploadArgs({_csrf_token:"{{ csrf_token() }}"});
-	xiuxiu.onInit = function ()
+   	xiuxiu.onInit = function ()
 	{
 		xiuxiu.loadPhoto("http://open.web.meitu.com/sources/images/1.jpg");
 	}

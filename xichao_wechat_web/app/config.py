@@ -21,6 +21,8 @@ admin_config={
     "passwd":'xichao123'
 }
 
+##############################
+# runserver.py
 # HOST='http://127.0.0.1:5000'
 
 # db_config={

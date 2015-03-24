@@ -5,6 +5,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link rel="dns-prefetch" href="//mmbiz.qpic.cn">
     <link rel="stylesheet" href="{{url_for('static',filename='css/jquery.mobile-1.4.4.min.css')}}">
+        <link rel="stylesheet" href="{{url_for('static',filename='assets/css/bootstrap.min.css')}}"/>
+
     <script src="{{url_for('static',filename='js/jquery-1.11.1.min.js')}}"></script>
     <script src="{{url_for('static',filename='js/jquery.mobile-1.4.4.min.js')}}"></script>
     <script src="{{url_for('static',filename='ueditor/ueditor.parse.js')}}"></script>
@@ -215,6 +217,11 @@
             z-index: 2;
         }
 
+          img{
+            max-width:100%;height:auto;
+            }
+
+
     </style>
 
   <title>{{post["title"]}}</title> 
@@ -285,9 +292,7 @@ wx.onMenuShareWeibo({
 
 });
 
-uParse('.content', {
-    rootPath: '../'
-})
+
 </script>
 <body>
 <!-- Home -->
@@ -305,7 +310,7 @@ uParse('.content', {
     </div>
 
     <div id="content" data-role="content" style="background-size:cover;width:100%;padding:0px;height:100%;z-index=0;">
-        <div id="mc" style=" position: relative;  margin-left: 4%; margin-right: 4%; 
+        <div id="mc"style=" position: relative; margin-left: 4%; margin-right: 4%; 
         ">
            
             
