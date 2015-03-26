@@ -273,7 +273,7 @@ wx.onMenuShareAppMessage({
     title: '{{post["title"]}}', // 分享标题
     desc: $("#mc").text().trim().substring(0,30), // 分享描述
     link: window.location.href,// 分享链接
-    imgUrl: "http://wechat.xichao-o.com/static/upload_images/"+'{{post["image_path"]}}', // 分享图标
+    imgUrl: '{{post["image_path"]}}', // 分享图标
     type: '', // 分享类型,music、video或link，不填默认为link
     dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
     success: function () { 
@@ -287,7 +287,7 @@ wx.onMenuShareAppMessage({
 wx.onMenuShareTimeline({
     title: '{{post["title"]}}', // 分享标题
     link: window.location.href, // 分享链接
-    imgUrl:  "http://wechat.xichao-o.com/static/upload_images/"+'{{post["image_path"]}}', // 分享图标
+    imgUrl:  '{{post["image_path"]}}', // 分享图标
     success: function () { 
         // 用户确认分享后执行的回调函数
     },
@@ -300,7 +300,7 @@ wx.onMenuShareQQ({
     title: '{{post["title"]}}', // 分享标题
     desc: $("#mc").text().trim().substring(0,20), // 分享描述
     link: window.location.href,// 分享链接
-    imgUrl: "http://wechat.xichao-o.com/static/upload_images/"+'{{post["image_path"]}}', // 分享图标
+    imgUrl: '{{post["image_path"]}}', // 分享图标
     success: function () { 
        // 用户确认分享后执行的回调函数
     },
@@ -313,7 +313,7 @@ wx.onMenuShareWeibo({
     title: '{{post["title"]}}', // 分享标题
     desc: $("#mc").text().trim().substring(0,20), // 分享描述
     link: window.location.href,// 分享链接
-    imgUrl: "http://wechat.xichao-o.com/static/upload_images/"+'{{post["image_path"]}}', // 分享图标
+    imgUrl: '{{post["image_path"]}}', // 分享图标
     success: function () { 
        // 用户确认分享后执行的回调函数
     },
