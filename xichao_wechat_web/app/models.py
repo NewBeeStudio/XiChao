@@ -3,7 +3,10 @@ import os
 import MySQLdb
 import time
 from flask import session
+import sys
+reload(sys)
 
+sys.setdefaultencoding('utf8')
 
 class Post:
 	
@@ -45,6 +48,11 @@ class Post:
 			
 			sql = "insert into xichao_article(title,image_path,article,category,top) values(%s,%s,%s,%s,%s);"
  			cursor.execute(sql,post_data)
+
+ 			##refresh category description in index
+ 			print "####"+str(post_data[3])
+ 			sql = "update article_category set description = \'"+str(post_data[0])+"\' where id = "+str(post_data[3])
+ 			cursor.execute(sql)
 			cursor.close()
 			conn.commit()
 			conn.close()
